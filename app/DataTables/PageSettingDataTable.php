@@ -28,6 +28,9 @@ class PageSettingDataTable extends DataTable
             ->addColumn('action', function (PageSetting $row) {
                 return view('back/pages.action', compact('row'));
             })
+            ->editColumn('title', function (PageSetting $page) {
+                return $page->getTranslation('title', app()->getLocale());
+            })
             ->rawColumns(['action']);
     }
 

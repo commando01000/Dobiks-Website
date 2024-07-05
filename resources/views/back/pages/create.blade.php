@@ -39,36 +39,46 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                {{ Form::label('title', __('Title'), ['class' => 'form-label']) }}
-                                                *
-                                                {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter Page Title', 'id' => 'title']) !!}
+                                    @foreach ($allLanguages as $localeCode => $language)
+                                        <div class="row mb-5 p-3  rounded-3"
+                                            style="background-color: rgb(235, 233, 233) !important">
+                                            <div class="col-sm-12">
+                                                <h4>{{ $language }}</h4>
                                             </div>
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    {{ Form::label('title', __('Title'), ['class' => 'form-label']) }}
+                                                    *
+                                                    {!! Form::text('title_' . $localeCode, null, [
+                                                        'class' => 'form-control',
+                                                        'placeholder' => 'Enter Page Title',
+                                                        'id' => 'title',
+                                                    ]) !!}
+                                                </div>
+                                            </div>
 
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{ Form::label('description', __('Page Description'), ['class' => 'form-label']) }}
-                                                {!! Form::textarea('descriptions', null, [
-                                                    'class' => 'form-control',
-                                                    'rows' => '2',
-                                                    'placeholder' => __('Enter Page Description'),
-                                                ]) !!}
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    {{ Form::label('description', __('Page Description'), ['class' => 'form-label']) }}
+                                                    {!! Form::textarea('descriptions_' . $localeCode, null, [
+                                                        'class' => 'form-control',
+                                                        'rows' => '2',
+                                                        'placeholder' => __('Enter Page Description'),
+                                                    ]) !!}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    {{ Form::label('body', __('Page Detail'), ['class' => 'form-label']) }}
+                                                    {!! Form::textarea('body_' . $localeCode, null, [
+                                                        'class' => 'form-control',
+                                                        'rows' => '1',
+                                                        'placeholder' => __('Enter Page body'),
+                                                    ]) !!}
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                {{ Form::label('body', __('Page Detail'), ['class' => 'form-label']) }}
-                                                {!! Form::textarea('body', null, [
-                                                    'class' => 'form-control',
-                                                    'rows' => '1',
-                                                    'placeholder' => __('Enter Page body'),
-                                                ]) !!}
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-end">
@@ -93,22 +103,20 @@
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'
         });
-
     </script>
 
     <script>
-        $(document).ready(function () {
-            $.get("/public/html/about.html", function (data) {
+        $(document).ready(function() {
+            $.get("/public/html/about.html", function(data) {
                 $("#editor").html(data);
-//                var bodyContent = $(data).find("body").html();
-//                $("#editor").html(bodyContent);
+                //                var bodyContent = $(data).find("body").html();
+                //                $("#editor").html(bodyContent);
             });
-            $("#saveButton").click(function () {
+            $("#saveButton").click(function() {
                 var editedContent = $("#editor").html();
 
                 console.log(editedContent);
             });
         });
     </script>
-
 @endpush

@@ -49,15 +49,15 @@ class PagesController extends Controller
     {
 
         if (\Auth::user()->can('create-page-setting')) {
-            request()->validate([
-                'title' => 'required|max:191',
-                'descriptions' => 'required',
-                'body' => 'required',
-            ]);
+            // request()->validate([
+            //     'title' => 'required|max:191',
+            //     'descriptions' => 'required',
+            //     'body' => 'required',
+            // ]);
             $pageSetting           =  new  PageSetting();
-            $pageSetting->title    = $request->title;
-            $pageSetting->description  = $request->descriptions;
-            $pageSetting->body  = $request->body;
+            $pageSetting->title    = ['en' => $request->title_en, 'ar' => $request->title_ar];
+            $pageSetting->description  = ['en' => $request->descriptions_en, 'ar' => $request->descriptions_ar];
+            $pageSetting->body  = ['en' => $request->body_en, 'ar' => $request->body_ar];
             $pageSetting->save();
             return redirect()->route('pages.index')->with('success',  __('Page Setting Created successfully'));
         } else {
