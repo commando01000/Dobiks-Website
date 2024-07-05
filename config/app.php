@@ -195,7 +195,8 @@ return [
         App\Providers\UtilityFacadesServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class
+        Barryvdh\Debugbar\ServiceProvider::class,
+        App\Providers\LanguageServiceProvider::class,
     ],
 
     /*

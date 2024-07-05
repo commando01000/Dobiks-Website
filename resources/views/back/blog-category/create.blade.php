@@ -26,8 +26,12 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        {{ Form::label('name', __('Name'), ['class' => 'form-label']) }}
-                        {!! Form::text('name', null, ['placeholder' => __('Enter name'), 'class' => 'form-control', 'required']) !!}
+                        {{ Form::label('name', __('Name_ar'), ['class' => 'form-label']) }}
+                        {!! Form::text('name_ar', null, ['placeholder' => __('Enter name'), 'class' => 'form-control', 'required']) !!}
+                    </div>
+                    <div class="form-group">
+                        {{ Form::label('name', __('Name_en'), ['class' => 'form-label']) }}
+                        {!! Form::text('name_en', null, ['placeholder' => __('Enter name'), 'class' => 'form-control', 'required']) !!}
                     </div>
                     <div class="form-group">
                         {{ Form::label('status', __('Status'), ['class' => 'form-label']) }}

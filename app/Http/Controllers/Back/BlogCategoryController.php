@@ -1,10 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\DataTables\BlogCategoryDataTable;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class BlogCategoryController extends Controller
 {
     public function index(BlogCategoryDataTable $dataTable)
@@ -27,11 +30,11 @@ class BlogCategoryController extends Controller
     {
         if (\Auth::user()->can('create-category')) {
             request()->validate([
-                'name'   => 'required|max:191|unique:blog_categories',
+                // 'name'   => 'required|max:191|unique:blog_categories',
                 'status' => 'required',
             ]);
             BlogCategory::create([
-                'name'   => $request->name,
+                'name'   => ['ar' => $request->name_ar, 'en' => $request->name_en],
                 'status' => $request->status
             ]);
             return redirect()->route('blog-category.index')->with('success', __('Category created successfully.'));
@@ -48,7 +51,7 @@ class BlogCategoryController extends Controller
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
     }
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         if (\Auth::user()->can('edit-category')) {
             request()->validate([

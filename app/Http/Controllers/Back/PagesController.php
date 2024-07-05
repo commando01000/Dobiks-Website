@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\DataTables\PageSettingDataTable;
 use App\Models\PageSetting;
@@ -57,8 +58,8 @@ class PagesController extends Controller
             $pageSetting->title    = $request->title;
             $pageSetting->description  = $request->descriptions;
             $pageSetting->body  = $request->body;
-          $pageSetting->save();
-            return redirect()->route('page-setting.index')->with('success',  __('Page Setting Created successfully'));
+            $pageSetting->save();
+            return redirect()->route('pages.index')->with('success',  __('Page Setting Created successfully'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied'));
         }
@@ -111,7 +112,7 @@ class PagesController extends Controller
             $pageSettingUpdate->body  = $request->body;
 
             $pageSettingUpdate->save();
-            return redirect()->route('page-setting.index')->with('success',  __('Page Setting Updated successfully'));
+            return redirect()->route('pages.index')->with('success',  __('Page Setting Updated successfully'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied'));
         }

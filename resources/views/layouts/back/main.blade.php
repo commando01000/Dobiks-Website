@@ -1,13 +1,13 @@
 @php
     $user = \Auth::user();
     $primaryColor = $user->theme_color;
-      $color = 'theme-9';
+    $color = 'theme-9';
+    $currantLang = app()->getLocale();
 
-    $currantLang = $user->currentLanguage();
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    dir="{{ \App\Facades\UtilityFacades::getsettings('rtl') == '1' || $currantLang == 'ar'  ?  'rtl' : '' }}">
+    dir="{{ \App\Facades\UtilityFacades::getsettings('rtl') == '1' || $currantLang == 'ar' ? 'rtl' : '' }}">
 
 <head>
     <title>@yield('title') | {{ Utility::getsettings('app_name') }}</title>
@@ -15,20 +15,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta name="title"
-    content="{{ !empty(Utility::getsettings('meta_title'))
-        ? Utility::getsettings('meta_title') :  Utility::getsettings('app_name')  }}">
-<meta name="keywords"
-    content="{{ !empty(Utility::getsettings('meta_keywords'))
-        ? Utility::getsettings('meta_keywords')
-        : 'Multi Users,Role & permission , Form & poll management , document Genrator , Booking system' }}">
-<meta name="description"
-    content="{{ !empty(Utility::getsettings('meta_description'))
-        ? Utility::getsettings('meta_description')
-        : 'Discover the efficiency of prime-laravel, a user-friendly web application by Quebix Apps.' }}">
-<meta name="meta_image_logo" property="og:image"
-    content="{{ !empty(Utility::getsettings('meta_image_logo'))
-        ? Storage::url(Utility::getsettings('meta_image_logo'))
-        : Storage::url('seeder-image/meta-image-logo.jpg') }}">
+        content="{{ !empty(Utility::getsettings('meta_title'))
+            ? Utility::getsettings('meta_title')
+            : Utility::getsettings('app_name') }}">
+    <meta name="keywords"
+        content="{{ !empty(Utility::getsettings('meta_keywords'))
+            ? Utility::getsettings('meta_keywords')
+            : 'Multi Users,Role & permission , Form & poll management , document Genrator , Booking system' }}">
+    <meta name="description"
+        content="{{ !empty(Utility::getsettings('meta_description'))
+            ? Utility::getsettings('meta_description')
+            : 'Discover the efficiency of prime-laravel, a user-friendly web application by Quebix Apps.' }}">
+    <meta name="meta_image_logo" property="og:image"
+        content="{{ !empty(Utility::getsettings('meta_image_logo'))
+            ? Storage::url(Utility::getsettings('meta_image_logo'))
+            : Storage::url('seeder-image/meta-image-logo.jpg') }}">
     @if (Utility::getsettings('seo_setting') == 'on')
         {!! app('seotools')->generate() !!}
     @endif
@@ -48,7 +49,7 @@
     <!-- Bootstrap datetimepicker css -->
     <!-- vendor css -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/flatpickr.min.css') }}">
-    <link href="{{ asset('assets/css/customizer.css') }}?v=<?=time()?>" rel="stylesheet">
+    <link href="{{ asset('assets/css/customizer.css') }}?v=<?= time() ?>" rel="stylesheet">
 
     @if ($user->rtl_layout == 1 || $currantLang == 'ar')
         <link rel="stylesheet" href="{{ asset('assets/css/style-rtl.css') }}" id="main-style-link">

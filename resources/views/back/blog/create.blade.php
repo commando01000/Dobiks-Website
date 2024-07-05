@@ -27,51 +27,62 @@
                         'data-validate',
                     ]) !!}
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    {{ Form::label('title', __('Title'), ['class' => 'form-label']) }} *
-                                    {!! Form::text('title', null, [
-                                        'class' => 'form-control',
-                                        'placeholder' => __('Enter title'),
-                                        'required' => 'required',
-                                    ]) !!}
+
+                        @foreach ($allLanguages as $localeCode => $language)
+                            <div class="row mb-5 p-3  rounded-3" style="background-color: rgb(235, 233, 233) !important">
+                                <div class="col-sm-12">
+                                    <h4>{{ $language }}</h4>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        {{ Form::label('title', __('Title'), ['class' => 'form-label']) }} *
+                                        {!! Form::text('title_' . $localeCode, null, [
+                                            'class' => 'form-control',
+                                            'placeholder' => __('Enter title'),
+                                            'required' => 'required',
+                                        ]) !!}
+                                    </div>
+                                </div>
+                                @if ($localeCode == 'en')
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            {{ Form::label('category_id', __('Category'), ['class' => 'form-label']) }}
+                                            {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'required', 'data-trigger']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            {{ Form::label('images', __('Images'), ['class' => 'form-label']) }} *
+                                            {!! Form::file('images', ['class' => 'form-control', 'required' => 'required']) !!}
+                                        </div>
+                                    </div>
+                                @endif
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        {{ Form::label('short_description', __('Short Description'), ['class' => 'form-label']) }}
+                                        *
+                                        {!! Form::textarea('short_description_' . $localeCode, null, [
+                                            'class' => 'form-control ',
+                                            'placeholder' => __('Enter short description'),
+                                            'required' => 'required',
+                                        ]) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        {{ Form::label('description', __('Description'), ['class' => 'form-label']) }} *
+                                        {!! Form::textarea('description_' . $localeCode, null, [
+                                            'class' => 'form-control ',
+                                            'placeholder' => __('Enter description'),
+                                            'required' => 'required',
+                                        ]) !!}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    {{ Form::label('category_id', __('Category'), ['class' => 'form-label']) }}
-                                    {!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'required', 'data-trigger']) !!}
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    {{ Form::label('images', __('Images'), ['class' => 'form-label']) }} *
-                                    {!! Form::file('images', ['class' => 'form-control', 'required' => 'required']) !!}
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    {{ Form::label('short_description', __('Short Description'), ['class' => 'form-label']) }}
-                                    *
-                                    {!! Form::textarea('short_description', null, [
-                                        'class' => 'form-control ',
-                                        'placeholder' => __('Enter short description'),
-                                        'required' => 'required',
-                                    ]) !!}
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    {{ Form::label('description', __('Description'), ['class' => 'form-label']) }} *
-                                    {!! Form::textarea('description', null, [
-                                        'class' => 'form-control ',
-                                        'placeholder' => __('Enter description'),
-                                        'required' => 'required',
-                                    ]) !!}
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
@@ -89,7 +100,6 @@
     <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
     <script>
-
         CKEDITOR.replace('description', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'

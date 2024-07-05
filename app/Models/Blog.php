@@ -6,20 +6,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\Translatable\HasTranslations;
 
 class Blog extends Model
 {
     use HasFactory;
     use HasSlug;
-
+    use HasTranslations;
     public $fillable = [
-        'title', 'images', 'description', 'category_id', 'short_description', 'slug' ,'created_by',
+        'title', 'images', 'description', 'category_id', 'short_description', 'slug', 'created_by',
     ];
 
+    public $translatable = ['title', 'description', 'short_description'];
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+    public function category()
+    {
+        return $this->belongsTo(BlogCategory::class);
     }
 }

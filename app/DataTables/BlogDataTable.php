@@ -43,8 +43,12 @@ class BlogDataTable extends DataTable
                 }
                 return $return;
             })
+            ->editColumn('title', function (Blog $blog) {
+                return $blog->getTranslation('title', app()->getLocale());
+            })
+
             ->editColumn('category_id', function (Blog $blog) {
-                $category = $blog->category_name;
+                $category = $blog->category->getTranslation('name', app()->getLocale());
                 return $category;
             })
             ->rawColumns(['action', 'images']);
@@ -59,8 +63,10 @@ class BlogDataTable extends DataTable
     public function query(Blog $model): QueryBuilder
     {
         // return $model->newQuery();
-        return $model->newQuery()->select(['blogs.*', 'blog_categories.name as category_name'])
-            ->join('blog_categories', 'blog_categories.id', '=', 'blogs.category_id')->orderBy('id', 'asc');
+        return $model->newQuery()
+            ->select(['blogs.*'])
+            ->with('category')
+            ->orderBy('id', 'asc');
     }
 
     /**

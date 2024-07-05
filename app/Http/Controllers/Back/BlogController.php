@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\DataTables\BlogDataTable;
 use App\Models\Blog;
@@ -30,12 +31,13 @@ class BlogController extends Controller
     }
     public function store(Request $request)
     {
+
         if (\Auth::user()->can('create-blog')) {
             request()->validate([
-                'title'             => 'required|max:191|unique:blogs',
+                //'title'             => 'required|max:191|unique:blogs',
                 'images'            => 'required|image|mimes:jpg,jpeg,png',
-                'description'       => 'required',
-                'short_description' => 'required',
+                //'description'       => 'required',
+                //'short_description' => 'required',
                 'category_id'       => 'required',
             ]);
             if ($request->hasFile('images')) {
@@ -44,12 +46,12 @@ class BlogController extends Controller
                 ]);
                 $path = $request->file('images')->store('blogs');
             }
-              Blog::create([
-                'title'             => $request->title,
-                'description'       => $request->description,
+            Blog::create([
+                'title'             => ['en' => $request->title_en, 'ar' => $request->title_ar],
+                'description'       => ['en' => $request->description_en, 'ar' => $request->description_ar],
                 'category_id'       => $request->category_id,
                 'images'            => $path,
-                'short_description' => $request->short_description,
+                'short_description' => ['en' => $request->short_description_en, 'ar' => $request->short_description_ar],
                 'created_by'        => \Auth::user()->id,
             ]);
             return redirect()->route('blog.index')->with('success', __('Blog created successfully.'));

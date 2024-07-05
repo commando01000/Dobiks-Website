@@ -1,9 +1,11 @@
 @php
     $users = \Auth::user();
-    $currantLang = $users->currentLanguage();
+    $currantLang = app()->getLocale();
     $languages = Utility::languages();
+
 @endphp
-<header class="dash-header {{ $user->transprent_layout == 1 ? 'transprent-bg' : '' }}">
+<header
+    class="@if ($currantLang == 'ar') header-right @endif dash-header {{ $user->transprent_layout == 1 ? 'transprent-bg' : '' }}">
     <div class="header-wrapper">
         <div class="me-auto dash-mob-drp">
             <ul class="list-unstyled">
@@ -192,16 +194,18 @@
                     </div>
                 </li>
                 <li class="dropdown dash-h-item drp-language">
-                    <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
-                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
+                        role="button" aria-haspopup="false" aria-expanded="false">
                         <i class="pr-1 ti ti-world nocolor"></i>
                         <span class="pr-1 drp-text hide-mob">{{ Str::upper($currantLang) }}</span>
                         <i class="ti ti-chevron-down drp-arrow nocolor"></i>
                     </a>
                     <div class=" dash-lang-width dropdown-menu dash-h-dropdown dropdown-menu-end">
-                        @foreach ($languages as $language)
-                            <a class="dropdown-item @if ($language == $currantLang) text-danger @endif"
-                                href="{{ route('change.language', $language) }}">{{ Str::upper($language) }}</a>
+                        @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}"
+                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
                         @endforeach
                     </div>
                 </li>

@@ -26,6 +26,9 @@ class BlogCategoryDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addIndexColumn()
+            ->addColumn('name', function (BlogCategory $category) {
+                return $category->getTranslation('name', app()->getLocale());
+            })
             ->addColumn('action', function (BlogCategory $category) {
                 return view('back/blog-category.action', compact('category'));
             })
@@ -76,75 +79,75 @@ class BlogCategoryDataTable extends DataTable
                 var select = $(table.api().table().container()).find(".dataTables_length select").removeClass(\'custom-select custom-select-sm form-control form-control-sm\').addClass(\'dataTable-selector\');
             }');
 
-            $canCreateCategory = \Auth::user()->can('create-category');
-            $canExportCategory = \Auth::user()->can('export-category');
+        $canCreateCategory = \Auth::user()->can('create-category');
+        $canExportCategory = \Auth::user()->can('export-category');
 
-            $buttonsConfig = [];
+        $buttonsConfig = [];
 
-            if($canCreateCategory){
-                $buttonsConfig[] =  [
-                    'extend' => 'create',
-                    'className' => 'btn btn-light-primary no-corner me-1 add_module',
-                    'action' => "function ( e, dt, node, config ) { window.location = '" . route('blog-category.create') . "'; }",
-                ];
-            }
+        if ($canCreateCategory) {
+            $buttonsConfig[] =  [
+                'extend' => 'create',
+                'className' => 'btn btn-light-primary no-corner me-1 add_module',
+                'action' => "function ( e, dt, node, config ) { window.location = '" . route('blog-category.create') . "'; }",
+            ];
+        }
 
-            $exportButtonConfig = [];
+        $exportButtonConfig = [];
 
-            if($canExportCategory){
-                $exportButtonConfig = [
-                    'extend' => 'collection',
-                    'className' => 'btn btn-light-secondary me-1 dropdown-toggle',
-                    'text' => '<i class="ti ti-download"></i> ' . __('Export'),
-                    "buttons" => [
-                        [
-                            "extend" => "print",
-                            "text" => '<i class="fas fa-print"></i> ' . __('Print'),
-                            "className" => "btn btn-light text-primary dropdown-item",
-                            "exportOptions" => ["columns" => [0, 1, 3]]
-                        ],[
-                            "extend" => "csv",
-                            "text" => '<i class="fas fa-file-csv"></i> ' . __('CSV'),
-                            "className" => "btn btn-light text-primary dropdown-item",
-                            "exportOptions" => ["columns" => [0, 1, 3]]
-                        ],[
-                            "extend" => "excel",
-                            "text" => '<i class="fas fa-file-excel"></i> ' . __('Excel'),
-                            "className" => "btn btn-light text-primary dropdown-item",
-                            "exportOptions" => ["columns" => [0, 1, 3]]
-                        ],
-                        //["extend" => "pdf", "text" => '<i class="fas fa-file-pdf"></i> ' . __('PDF'), "className" => "btn btn-light text-primary dropdown-item", "exportOptions" => ["columns" => [0, 1, 3]]],
-                        [
-                            "extend" => "copy",
-                            "text" => '<i class="fas fa-copy"></i> ' . __('Copy'),
-                            "className" => "btn btn-light text-primary dropdown-item",
-                            "exportOptions" => ["columns" => [0, 1, 3]]
-                        ],
-                    ]
-                ];
-            }
+        if ($canExportCategory) {
+            $exportButtonConfig = [
+                'extend' => 'collection',
+                'className' => 'btn btn-light-secondary me-1 dropdown-toggle',
+                'text' => '<i class="ti ti-download"></i> ' . __('Export'),
+                "buttons" => [
+                    [
+                        "extend" => "print",
+                        "text" => '<i class="fas fa-print"></i> ' . __('Print'),
+                        "className" => "btn btn-light text-primary dropdown-item",
+                        "exportOptions" => ["columns" => [0, 1, 3]]
+                    ], [
+                        "extend" => "csv",
+                        "text" => '<i class="fas fa-file-csv"></i> ' . __('CSV'),
+                        "className" => "btn btn-light text-primary dropdown-item",
+                        "exportOptions" => ["columns" => [0, 1, 3]]
+                    ], [
+                        "extend" => "excel",
+                        "text" => '<i class="fas fa-file-excel"></i> ' . __('Excel'),
+                        "className" => "btn btn-light text-primary dropdown-item",
+                        "exportOptions" => ["columns" => [0, 1, 3]]
+                    ],
+                    //["extend" => "pdf", "text" => '<i class="fas fa-file-pdf"></i> ' . __('PDF'), "className" => "btn btn-light text-primary dropdown-item", "exportOptions" => ["columns" => [0, 1, 3]]],
+                    [
+                        "extend" => "copy",
+                        "text" => '<i class="fas fa-copy"></i> ' . __('Copy'),
+                        "className" => "btn btn-light text-primary dropdown-item",
+                        "exportOptions" => ["columns" => [0, 1, 3]]
+                    ],
+                ]
+            ];
+        }
 
-            $buttonsConfig = array_merge($buttonsConfig, [
-                $exportButtonConfig,
-                [
-                    'extend' => 'reset',
-                    'className' => 'btn btn-light-danger me-1',
-                ],
-                [
-                    'extend' => 'reload',
-                    'className' => 'btn btn-light-warning',
-                ],
-            ]);
+        $buttonsConfig = array_merge($buttonsConfig, [
+            $exportButtonConfig,
+            [
+                'extend' => 'reset',
+                'className' => 'btn btn-light-danger me-1',
+            ],
+            [
+                'extend' => 'reload',
+                'className' => 'btn btn-light-warning',
+            ],
+        ]);
 
 
-            $dataTable->parameters([
-                "dom" =>  "
+        $dataTable->parameters([
+            "dom" =>  "
                     <'dataTable-top row'<'dataTable-dropdown page-dropdown col-lg-2 col-sm-12'l><'dataTable-botton table-btn col-lg-6 col-sm-12'B><'dataTable-search tb-search col-lg-3 col-sm-12'f>>
                     <'dataTable-container'<'col-sm-12'tr>>
                     <'dataTable-bottom row'<'col-sm-5'i><'col-sm-7'p>>
                     ",
-                'buttons' => $buttonsConfig,
-                "drawCallback" => 'function( settings ) {
+            'buttons' => $buttonsConfig,
+            "drawCallback" => 'function( settings ) {
                     var tooltipTriggerList = [].slice.call(
                         document.querySelectorAll("[data-bs-toggle=tooltip]")
                       );
@@ -162,19 +165,19 @@ class BlogCategoryDataTable extends DataTable
                         return new bootstrap.Toast(toastEl);
                       });
                 }',
-            ]);
-            $dataTable->language([
-                'buttons' => [
-                    'create' => __('Create'),
-                    'export' => __('Export'),
-                    'print' => __('Print'),
-                    'reset' => __('Reset'),
-                    'reload' => __('Reload'),
-                    'excel' => __('Excel'),
-                    'csv' => __('CSV'),
-                ]
-            ]);
-            return $dataTable;
+        ]);
+        $dataTable->language([
+            'buttons' => [
+                'create' => __('Create'),
+                'export' => __('Export'),
+                'print' => __('Print'),
+                'reset' => __('Reset'),
+                'reload' => __('Reload'),
+                'excel' => __('Excel'),
+                'csv' => __('CSV'),
+            ]
+        ]);
+        return $dataTable;
     }
 
     /**
