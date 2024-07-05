@@ -32,21 +32,16 @@
                                 <div class="form-group row">
 
                                     <div class="col-sm-10">
-                                        <strong class="d-block">{{__('Page Builder')}}</strong>
+                                        <strong class="d-block">{{ __('Page Builder') }}</strong>
                                     </div>
                                     <div class="col-sm-2 form-check form-switch custom-switch-v1">
                                         <div class="form-switch custom-switch-v1 d-inline-block">
-                                            {!! Form::checkbox(
-                                                'builder',
-                                                null,
-                                                Utility::getsettings('builder') == 'on' ? true : false,
-                                                [
-                                                    'class' => 'custom-control custom-switch form-check-input input-primary',
-                                                    'id' => 'startViewSettingEnableBtn',
-                                                    'data-onstyle' => 'primary',
-                                                    'data-toggle' => 'switchbutton',
-                                                ]
-                                            ) !!}
+                                            {!! Form::checkbox('builder', null, Utility::getsettings('builder') == 'on' ? true : false, [
+                                                'class' => 'custom-control custom-switch form-check-input input-primary',
+                                                'id' => 'startViewSettingEnableBtn',
+                                                'data-onstyle' => 'primary',
+                                                'data-toggle' => 'switchbutton',
+                                            ]) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -56,46 +51,56 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('title', __('Title'), ['class' => 'form-label']) }} *
-                                    {!! Form::text('title', null, ['class' => 'form-control','placeholder' => __('Enter title'),'required' => 'required']) !!}
+                                    {!! Form::text('title', null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter title'),
+                                        'required' => 'required',
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('client', __('Client Name'), ['class' => 'form-label']) }}
-                                    {!! Form::text('client', null, ['class' => 'form-control','placeholder' => __('Enter Client Name')]) !!}
+                                    {!! Form::text('client', null, ['class' => 'form-control', 'placeholder' => __('Enter Client Name')]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_location', __('Project Location'), ['class' => 'form-label']) }}
-                                    {!! Form::text('project_location', null, ['class' => 'form-control','placeholder' => __('Enter Project Location')]) !!}
+                                    {!! Form::text('project_location', null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Project Location'),
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_timeframe', __('Project Timeframe'), ['class' => 'form-label']) }}
-                                    {!! Form::text('project_timeframe', null, ['class' => 'form-control','placeholder' => __('Enter Project Timeframe')]) !!}
+                                    {!! Form::text('project_timeframe', null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Project Timeframe'),
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_date', __('Project Date'), ['class' => 'form-label']) }}
-                                    {!! Form::text('project_date', null, ['class' => 'form-control','placeholder' => __('Enter Project Date')]) !!}
+                                    {!! Form::text('project_date', null, ['class' => 'form-control', 'placeholder' => __('Enter Project Date')]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('Embed', __('Embed'), ['class' => 'form-label']) }}
-                                    {!! Form::text('embed', null, ['class' => 'form-control','placeholder' => __('Enter video embed ')]) !!}
+                                    {!! Form::text('embed', null, ['class' => 'form-control', 'placeholder' => __('Enter video embed ')]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_category', __('Project Category'), ['class' => 'form-label']) }}
                                     <select name="category_id" id="" class="form-control" required>
-                                        @foreach ($categories as $category )
-                                            <option value="{{$category->id}}">
-                                              {{$category->name}}
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">
+                                                {{ $category->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -115,7 +120,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ Form::label('images', __('Images'), ['class' => 'form-label']) }} 
+                                    {{ Form::label('images', __('Images'), ['class' => 'form-label']) }}
                                     {!! Form::file('images[]', ['class' => 'form-control', 'multiple' => 'multiple']) !!}
                                 </div>
                             </div>
@@ -123,7 +128,10 @@
                                 <div class="form-group">
                                     {{ Form::label('description', __('Short Description'), ['class' => 'form-label']) }}
                                     *
-                                    {!! Form::textarea('description', null, ['class' => 'form-control ','placeholder' => __('Enter short description')]) !!}
+                                    {!! Form::textarea('description', null, [
+                                        'class' => 'form-control ',
+                                        'placeholder' => __('Enter short description'),
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -153,7 +161,6 @@
     <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
     <script>
-
         CKEDITOR.replace('body', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'

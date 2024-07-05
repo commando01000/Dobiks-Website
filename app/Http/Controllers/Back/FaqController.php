@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\DataTables\FaqDataTable;
 use App\Models\Faq;
@@ -29,13 +31,13 @@ class FaqController extends Controller
     {
         if (\Auth::user()->can('create-faqs')) {
             request()->validate([
-                'questions' => 'required',
-                'answer' => 'required',
+                // 'questions' => 'required',
+                // 'answer' => 'required',
                 'order' => 'required|unique:faqs,order,',
             ]);
             Faq::create([
-                'questions' => $request->questions,
-                'answer' => $request->answer,
+                'questions' => ['en' => $request->questions_en, 'ar' => $request->questions_ar],
+                'answer' => ['en' => $request->answer_en, 'ar' => $request->answer_ar],
                 'order' => $request->order,
             ]);
             return redirect()->route('faqs.index')
@@ -51,7 +53,7 @@ class FaqController extends Controller
             $faq = Faq::find($id);
             $next = Faq::where('id', '>', $faq->id)->first();
             $previous = Faq::where('id', '<', $faq->id)->orderBy('id', 'desc')->first();
-            return view('back/faqs.edit', compact('faq','next','previous'));
+            return view('back/faqs.edit', compact('faq', 'next', 'previous'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }

@@ -21,25 +21,38 @@
                         <h5> {{ __('Create Faq') }}</h5>
                     </div>
                     {!! Form::open(['route' => 'faqs.store', 'method' => 'Post', 'data-validate']) !!}
-                    <div class="card-body">
-                        <div class="form-group ">
-                            {{ Form::label('questions', __('questions'), ['class' => 'form-label']) }}
-                            {!! Form::text('questions', null, ['class' => 'form-control', ' required', 'placeholder' => __('Enter questions')]) !!}
+                    @foreach ($allLanguages as $localeCode => $language)
+                        <div class="card-body">
+                            <div class="row mb-5 p-3  rounded-3" style="background-color: rgb(235, 233, 233) !important">
+                                <div class="col-sm-12">
+                                    <h4>{{ $language }}</h4>
+                                </div>
+                                <div class="form-group ">
+                                    {{ Form::label('questions', __('questions'), ['class' => 'form-label']) }}
+                                    {!! Form::text('questions_' . $localeCode, null, [
+                                        'class' => 'form-control',
+                                        ' required',
+                                        'placeholder' => __('Enter questions'),
+                                    ]) !!}
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('answer', __('Answer'), ['class' => 'form-label']) }}
+                                    {!! Form::textarea('answer_' . $localeCode, null, [
+                                        'class' => 'form-control',
+                                        'data-trigger',
+                                        'required',
+                                        'placeholder' => __('Enter answer Address'),
+                                    ]) !!}
+                                </div>
+                                @if ($localeCode == 'en')
+                                    <div class="form-group">
+                                        {{ Form::label('order', __('Order'), ['class' => 'form-label']) }}
+                                        {!! Form::number('order', null, ['placeholder' => __('Enter order'), 'class' => 'form-control', 'required']) !!}
+                                    </div>
+                                @endif
+                            </div>
                         </div>
-                        <div class="form-group">
-                            {{ Form::label('answer', __('Answer'), ['class' => 'form-label']) }}
-                            {!! Form::textarea('answer', null, [
-                                'class' => 'form-control',
-                                'data-trigger',
-                                'required',
-                                'placeholder' => __('Enter answer Address'),
-                            ]) !!}
-                        </div>
-                        <div class="form-group">
-                            {{ Form::label('order', __('Order'), ['class' => 'form-label']) }}
-                            {!! Form::number('order', null, ['placeholder' => __('Enter order'), 'class' => 'form-control', 'required']) !!}
-                        </div>
-                    </div>
+                    @endforeach
                     <div class="card-footer">
                         <div class="btn-flt float-end mb-3">
                             {!! Html::link(route('faqs.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
@@ -53,5 +66,4 @@
     </div>
 @endsection
 @push('script')
-
 @endpush
