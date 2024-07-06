@@ -381,8 +381,6 @@
       "before_proceeding_please_check_your_email" => "Before proceeding, please check your email for a verification link.",
       "if_you_did_not_receive_the_email" => "If you did not receive the email",
       "click_here_to_request_another" => "Click here to request another",
-
+      'Gallery Category'=>'نوع الوسائط المتعددة'
 
   ];
-
- ?>

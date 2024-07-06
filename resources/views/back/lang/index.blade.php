@@ -12,24 +12,24 @@
         <div class="float-end">
             <div class="d-flex align-items-center">
                 @can('create-language')
-                <a href="{{ route('create.language', [$currantLang]) }}" data-bs-toggle="tooltip"
-                    data-bs-original-title="{{ __('Create') }}" id="create" class="btn btn-sm btn-primary"
-                    data-bs-placement="bottom">
-                    <i class="ti ti-plus"></i>
-                </a>
+                    <a href="{{ route('create.language', [$currantLang]) }}" data-bs-toggle="tooltip"
+                        data-bs-original-title="{{ __('Create') }}" id="create" class="btn btn-sm btn-primary"
+                        data-bs-placement="bottom">
+                        <i class="ti ti-plus"></i>
+                    </a>
                 @endcan
                 @can('delete-language')
-                {!! Form::open([
-                    'method' => 'DELETE',
-                    'route' => ['lang.destroy', $currantLang],
-                    'id' => 'delete-form-' . $currantLang,
-                ]) !!}
-                <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title=""
-                    data-bs-original-title="{{ __('Delete') }}"
-                    class="btn btn-sm btn-danger float-end btn-lg text-light ms-1 show_confirm">
-                    <i class="ti ti-trash"></i>
-                </a>
-                {!! Form::close() !!}
+                    {!! Form::open([
+                        'method' => 'DELETE',
+                        'route' => ['lang.destroy', $currantLang],
+                        'id' => 'delete-form-' . $currantLang,
+                    ]) !!}
+                    <a href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title=""
+                        data-bs-original-title="{{ __('Delete') }}"
+                        class="btn btn-sm btn-danger float-end btn-lg text-light ms-1 show_confirm">
+                        <i class="ti ti-trash"></i>
+                    </a>
+                    {!! Form::close() !!}
                 @endcan
             </div>
         </div>
@@ -39,6 +39,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="row">
+
                 <div class="col-xl-3">
                     <div class="card sticky-top mt-3">
                         <div class="list-group list-group-flush" id="useradd-sidenav">
@@ -51,6 +52,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xl-9">
                     <div id="useradd-1" class="card">
                         <div class="card-header">
@@ -75,20 +77,30 @@
                                         'id' => 'login-details-tab',
                                     ]) !!}
                                 </li>
+                                <li class="nav-item">
+                                    <a href="#create" class="nav-link" data-bs-toggle="modal"
+                                        data-bs-target="#addContentModal" role="tab" aria-selected="false"
+                                        aria-controls="login-details" id="login-details-tab">{{ __('Create') }}</a>
+                                </li>
                             </ul>
                         </div>
+
                         {!! Form::open([
-                                  'route' => ['store.language.data', [$currantLang]],
-                                  'method' => 'POST',
-                              ]) !!}
+                            'route' => ['store.language.data', [$currantLang]],
+                            'method' => 'POST',
+                        ]) !!}
                         <div class="card-footer">
                             <div class="col-lg-12 float-end mb-3">
                                 {{ Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary float-end']) }}
                             </div>
                         </div>
+
+                        {!! Form::close() !!}
+
                         <div class="card-body pt-0">
                             <div class="tab-content">
-                                <div class="tab-pane active" id="account-details" role="tabpanel" aria-labelledby="account-details-tab">
+                                <div class="tab-pane active" id="account-details" role="tabpanel"
+                                    aria-labelledby="account-details-tab">
 
                                     <div class="row form-group">
                                         @foreach ($arrLabel as $label => $value)
@@ -103,7 +115,8 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane" id="login-details" role="tabpanel" aria-labelledby="login-details-tab">
+                                <div class="tab-pane" id="login-details" role="tabpanel"
+                                    aria-labelledby="login-details-tab">
                                     <div class="row form-group">
                                         @foreach ($arrMessage as $fileName => $fileValue)
                                             <div class="col-lg-12">
@@ -177,6 +190,38 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="addContentModal" tabindex="-1" aria-labelledby="addContentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addContentModalLabel">Add Content to JSON File</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addContentForm" method="post" action="{{ route('language.add') }}">
+                        @csrf
+
+                        <div class="mb-3">
+                            <label for="key" class="form-label">Key:</label>
+                            <input type="text" class="form-control" id="key" name="key" required>
+                        </div>
+
+                        @foreach ($allLanguages as $localeCode => $language)
+                            <div class="mb-3">
+                                <label for="value_{{ $localeCode }}" class="form-label">{{ $language }}
+                                    Value:</label>
+                                <input type="text" class="form-control" id="value_{{ $localeCode }}"
+                                    name="values[{{ $localeCode }}]" required>
+                                <input type="hidden" name="languageFiles[]" value="{{ $localeCode }}">
+                            </div>
+                        @endforeach
+
+                        <input type="submit" class="btn btn-primary" value="Add">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('style')
     <link href="{{ asset('vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}" rel="stylesheet" />
@@ -205,4 +250,25 @@
     <script>
         $(".inputtags").tagsinput('items');
     </script>
+    {{-- <script>
+        // Example: Handle form submission and close modal
+        $('#addContentForm').submit(function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            var form = $(this);
+            var url = form.attr('action');
+            var formData = form.serialize();
+
+            $.post(url, formData)
+                .done(function(response) {
+                    // Optionally handle success response
+                    $('#addContentModal').modal('hide'); // Close modal on success
+                    // You can add more logic here based on your application flow
+                })
+                .fail(function(error) {
+                    // Optionally handle error response
+                    console.error('Error:', error);
+                    // You can display an error message or handle the error in other ways
+                });
+        });
+    </script> --}}
 @endpush

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\Facades\UtilityFacades;
 use App\Models\User;
@@ -17,6 +18,23 @@ class LanguageController extends Controller
         $user->save();
 
         return redirect()->back()->with('success', __('Language updated successfully.'));
+    }
+
+    // add json data to files in lang folder
+    public function add(Request $request)
+    {
+
+        $key = $request->input('key');
+        $languageFiles = $request->input('languageFiles');
+        $values = $request->input('values');
+
+        foreach ($languageFiles as $localeCode) {
+            $filePath = resource_path("lang/{$localeCode}.json");
+            $existingContent = json_decode(file_get_contents($filePath), true);
+            $existingContent[$key] = $values[$localeCode];
+            file_put_contents($filePath, json_encode($existingContent, JSON_PRETTY_PRINT));
+        }
+        return redirect()->back()->with('success', 'Content added to language files.');
     }
 
     public function manageLanguage($currantLang)

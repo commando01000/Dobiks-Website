@@ -25,10 +25,22 @@
                     ]) !!}
                 </div>
                 <div class="card-body">
-                    <div class="form-group">
-                        {{ Form::label('name', __('Name'), ['class' => 'form-label']) }}
-                        {!! Form::text('name', null, ['placeholder' => __('Enter name'), 'class' => 'form-control', 'required']) !!}
-                    </div>
+                    @foreach ($allLanguages as $localeCode => $language)
+                        <div class="row mb-5 p-3  rounded-3" style="background-color: rgb(235, 233, 233) !important">
+                            <div class="col-sm-12">
+                                <h4>{{ $language }}</h4>
+                            </div>
+                            <div class="form-group">
+                                {{ Form::label('name', __('Name'), ['class' => 'form-label']) }}
+                                {!! Form::text('name_' . $localeCode, null, [
+                                    'placeholder' => __('Enter name'),
+                                    'class' => 'form-control',
+                                    'required',
+                                ]) !!}
+                            </div>
+
+                        </div>
+                    @endforeach
                     <div class="form-group">
                         {{ Form::label('status', __('Status'), ['class' => 'form-label']) }}
                         <select name="status" class="custom_select form-select" id="status" data-trigger>

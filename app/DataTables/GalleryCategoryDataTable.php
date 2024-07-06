@@ -32,6 +32,9 @@ class GalleryCategoryDataTable extends DataTable
             ->editColumn('created_at', function ($request) {
                 return UtilityFacades::date_time_format($request->created_at);
             })
+            ->editColumn('name', function (GalleryCategory $category) {
+                return  $category->getTranslation('name', app()->getLocale());
+            })
 
             ->rawColumns(['action', 'status']);
     }
@@ -81,7 +84,7 @@ class GalleryCategoryDataTable extends DataTable
 
         $buttonsConfig = [];
 
-        if($canCreateCategory){
+        if ($canCreateCategory) {
             $buttonsConfig[] =  [
                 'extend' => 'create',
                 'className' => 'btn btn-light-primary no-corner me-1 add_module',
@@ -91,7 +94,7 @@ class GalleryCategoryDataTable extends DataTable
 
         $exportButtonConfig = [];
 
-        if($canExportCategory){
+        if ($canExportCategory) {
             $exportButtonConfig = [
                 'extend' => 'collection',
                 'className' => 'btn btn-light-secondary me-1 dropdown-toggle',
@@ -102,12 +105,12 @@ class GalleryCategoryDataTable extends DataTable
                         "text" => '<i class="fas fa-print"></i> ' . __('Print'),
                         "className" => "btn btn-light text-primary dropdown-item",
                         "exportOptions" => ["columns" => [0, 1, 3]]
-                    ],[
+                    ], [
                         "extend" => "csv",
                         "text" => '<i class="fas fa-file-csv"></i> ' . __('CSV'),
                         "className" => "btn btn-light text-primary dropdown-item",
                         "exportOptions" => ["columns" => [0, 1, 3]]
-                    ],[
+                    ], [
                         "extend" => "excel",
                         "text" => '<i class="fas fa-file-excel"></i> ' . __('Excel'),
                         "className" => "btn btn-light text-primary dropdown-item",

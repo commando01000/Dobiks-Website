@@ -161,7 +161,7 @@
                             <a class="dash-link" href="{{ route('pages.index') }}">{{ __('Pages') }}</a>
                         </li>
                         <li class="dash-item ">
-                            <a class="dash-link" href="{{ route('projects.index') }}">{{ __('Projects') }}</a>
+                            <a class="dash-link" href="{{ route('projects.index') }}">{{ __('projects') }}</a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
@@ -182,7 +182,7 @@
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
-                                href="{{ route('business.growth.index') }}">{{ __('Bussiness Growth') }}</a>
+                                href="{{ route('business.growth.index') }}">{{ __('BussinessGrowth') }}</a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link" href="{{ route('feature.index') }}">{{ __('Feature') }}</a>

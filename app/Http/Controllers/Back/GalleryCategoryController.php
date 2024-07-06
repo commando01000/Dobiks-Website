@@ -1,10 +1,13 @@
 <?php
+
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\DataTables\GalleryCategoryDataTable;
 use App\Models\GalleryCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class GalleryCategoryController extends Controller
 {
     public function index(GalleryCategoryDataTable $dataTable)
@@ -27,11 +30,13 @@ class GalleryCategoryController extends Controller
     {
         if (\Auth::user()->can('create-category')) {
             request()->validate([
-                'name'   => 'required|max:191|unique:gallery_categories',
+                'name_ar'   => 'required|max:191',
+                'name_en'   => 'required|max:191',
+                'name' =>  'unique:gallery_categories',
                 'status' => 'required',
             ]);
             GalleryCategory::create([
-                'name'   => $request->name,
+                'name'   => ['en' => $request->name_en, 'ar' => $request->name_ar],
                 'status' => $request->status
             ]);
             return redirect()->route('gallery-category.index')->with('success', __('Category created successfully.'));
@@ -48,7 +53,7 @@ class GalleryCategoryController extends Controller
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
     }
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         if (\Auth::user()->can('edit-category')) {
             request()->validate([

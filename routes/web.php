@@ -135,6 +135,9 @@ Route::group([
         Route::get('change-language/{lang}', [LanguageController::class, 'changeLanquage'])->name('change.language');
         Route::get('manage-language/{lang}', [LanguageController::class, 'manageLanguage'])->name('manage.language');
         Route::post('store-language-data/{lang}', [LanguageController::class, 'storeLanguageData'])->name('store.language.data');
+        //add in files json
+        Route::post('/language/add', [LanguageController::class, 'add'])->name('language.add');
+
         Route::get('create-language', [LanguageController::class, 'createLanguage'])->name('create.language');
         Route::post('store-language', [LanguageController::class, 'storeLanguage'])->name('store.language');
         Route::delete('lang/{lang}', [LanguageController::class, 'destroyLang'])->name('lang.destroy');
