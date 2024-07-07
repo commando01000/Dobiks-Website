@@ -8,27 +8,27 @@ use App\Models\client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class clientController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(ClientDataTable $dataTable)
     {
-       
+
             if (\Auth::user()->can('manage-blog')) {
-    
+
                 return $dataTable->render('back/Clients.index');
             } else {
                 return redirect()->back()->with('failed', __('Permission denied.'));
             }
-        
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-  
+
      public function create()
      {
          if (\Auth::user()->can('create-blog')) {
@@ -67,7 +67,7 @@ class clientController extends Controller
                 'created_by'            => \Auth::user()->id,
             ]);
 
-         
+
 
             return redirect()->route('client.index')->with('success', __('client created successfully.'));
         } else {
@@ -105,12 +105,12 @@ class clientController extends Controller
                 'name'             => 'required',
                 'body'       => 'required',
             ]);
-         
+
             if ($request->hasFile('cover')) {
                 request()->validate([
                     'cover' => 'required|image|mimes:jpg,png,jpeg',
                 ]);
-                $old_cover = $client->cover; 
+                $old_cover = $client->cover;
                 $path           = $request->file('cover')->store('blog');
                 $client->cover   = $path;
             }

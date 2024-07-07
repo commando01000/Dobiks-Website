@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\DataTables\TestimonialsDataTable;
 use App\Models\Testimonial;
@@ -30,33 +31,33 @@ class TestimonialController extends Controller
             request()->validate([
                 'name'          => 'required|max:191',
                 'title'         => 'required|max:191',
-                'desc'          => 'required',
+                'desc_en'          => 'required',
+                'desc_ar'          => 'required',
                 'designation'   => 'required|max:100',
                 'image'         => 'required|mimes:jpg, jpeg, png',
                 'rating'        => 'required',
 
             ]);
 
-			if ($request->file('image')) {
+            if ($request->file('image')) {
                 $allowed_file_Extension = ['jpeg', 'jpg', 'png'];
                 $file = $request->file('image');
                 $extension = $file->getClientOriginalExtension();
-                $imageName =$file->getClientOriginalName();
+                $imageName = $file->getClientOriginalName();
                 $check = in_array($extension, $allowed_file_Extension);
                 if ($check) {
                     $file_name  =  $file->store('testimonials');
                 } else {
                     return redirect()->route('testimonial.index')->with('failed', __('File type not valid.'));
                 }
-            }
-            else{
+            } else {
                 return redirect()->back()->with('failed', __('Image Field is Required'));
             }
 
             $testimonial = Testimonial::create([
                 'name'          => $request->name,
                 'title'         => $request->title,
-                'desc'          => $request->desc,
+                'desc'          => ['en' => $request->desc_en, 'ar' => $request->desc_ar],
                 'designation'   => $request->designation,
                 'image'         => $file_name,
                 'rating'        => $request->rating,
@@ -80,7 +81,7 @@ class TestimonialController extends Controller
     {
         if (\Auth::user()->can('edit-testimonial')) {
             $updateTestimonial = Testimonial::find($id);
-              if ($request->hasfile('image')) {
+            if ($request->hasfile('image')) {
                 $allowedFileExtension = ['jpeg', 'jpg', 'png'];
                 $file                   = $request->file('image');
                 $extension              = $file->getClientOriginalExtension();
@@ -107,12 +108,11 @@ class TestimonialController extends Controller
     }
     public function destroy($id)
     {
-        if(\Auth::user()->can('delete-testimonial')){
+        if (\Auth::user()->can('delete-testimonial')) {
             $deleteTestimonial = Testimonial::find($id);
             $deleteTestimonial->delete();
             return back()->with('success', 'Tetimonials Deleted succesfully');
-        }
-        else{
+        } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
     }

@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             {{ Form::label('image', __('Image'), ['class' => 'form-label']) }}
-                            {!! Form::file('image', ['class' => 'form-control' , 'id'=>'image']) !!}
+                            {!! Form::file('image', ['class' => 'form-control', 'id' => 'image']) !!}
                         </div>
                         <div class="form-group">
                             {{ Form::label('designation', __('Designation'), ['class' => 'form-label']) }}
@@ -47,27 +47,36 @@
                                 'placeholder' => __('Enter designation'),
                             ]) !!}
                         </div>
-                        <div class="form-group">
-                            {{ Form::label('desc', __('Description'), ['class' => 'form-label']) }}
-                            {!! Form::textarea('desc', null, [
-                                'class' => 'form-control',
-                                ' required',
-                                'rows' => 3,
-                                'placeholder' => __('Enter description'),
-                            ]) !!}
-                        </div>
+                        @foreach ($allLanguages as $localeCode => $language)
+                            <div class="row mb-5 p-3  rounded-3" style="background-color: rgb(235, 233, 233) !important">
+                                <div class="col-sm-12">
+                                    <h4>{{ $language }}</h4>
+                                </div>
+
+
+                                <div class="form-group">
+                                    {{ Form::label('desc', __('Description'), ['class' => 'form-label']) }}
+                                    {!! Form::textarea('desc_' . $localeCode, null, [
+                                        'class' => 'form-control',
+                                        ' required',
+                                        'rows' => 3,
+                                        'placeholder' => __('Enter description'),
+                                    ]) !!}
+                                </div>
+                            </div>
+                        @endforeach
                         <div class="form-group">
                             {{ Form::label('rating', __('Star Rating'), ['class' => 'form-label']) }}
                             <div id="rating" class="starRating jq-ry-container" data-value="0" data-num_of_star="5">
                             </div>
-                            {!! Form::hidden('rating', 0, ['class' => 'calculate', 'data-star' => 5, ]) !!}
+                            {!! Form::hidden('rating', 0, ['class' => 'calculate', 'data-star' => 5]) !!}
                         </div>
                     </div>
 
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
                             {!! Html::link(route('testimonial.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
-                            {{ Form::button(__('Save'), ['type' => 'submit','class' => 'btn btn-primary']) }}
+                            {{ Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
                         </div>
                     </div>
                     {!! Form::close() !!}

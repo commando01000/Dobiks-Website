@@ -21,7 +21,7 @@ use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Back\LanguageController;
 use App\Http\Controllers\Back\ProfileController;
 use App\Http\Controllers\Back\BusinessGrowthController;
-use App\Http\Controllers\back\clientController;
+use App\Http\Controllers\back\ClientController;
 use App\Http\Controllers\Back\FeatureController;
 use App\Http\Controllers\Back\SettingsController;
 use App\Http\Controllers\Back\ModuleController;
@@ -97,8 +97,8 @@ Route::group([
     // });
     //clients
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::resource('cp/client', clientController::class)->except(['show']);
-        Route::resource('cp/client', clientController::class);
+        Route::resource('cp/client', ClientController::class)->except(['show']);
+        Route::resource('cp/client', ClientController::class);
         // Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
 
     });
