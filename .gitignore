@@ -17,9 +17,8 @@ Homestead.json
 .phpunit.result.cache
 
 # Ignore the storage and public folders
-/storage/*
+/storage/debugbar
 !/storage/app
 !/storage/app/public
-/public/*
 !/public/index.php
 !/public/.htaccess
