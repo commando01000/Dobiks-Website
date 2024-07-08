@@ -169,10 +169,12 @@
                                             Call Us
                                         </p>
                                         <h3 class="footer__contact-number ui heading size-headingxs">
-                                            (+20) 262-2578
+                                            <?php echo e(Utility::getsettings('contact_phone1')); ?>
+
                                         </h3>
                                         <h3 class="footer__contact-number--alternate ui heading size-headingxs">
-                                            (+20) 262-2578
+                                            <?php echo e(Utility::getsettings('contact_phone2')); ?>
+
                                         </h3>
                                     </div>
                                     <div class="section__header">
@@ -180,7 +182,8 @@
                                             Corporate Office
                                         </p>
                                         <p class="footer__address-details ui text size-textlg">
-                                            61973 State 415 Rte, Cohocton, New York 14826, USA
+                                            <?php echo e(Utility::getsettings('contact_address')); ?>
+
                                         </p>
                                     </div>
                                 </div>
@@ -209,5 +212,5 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="<?php echo e(asset('assets/front_assets/assets/js/home.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/front_assets/assets/js/home.js')); ?>?v=<?= time() ?>"></script>
 <?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/layouts/front/footer.blade.php ENDPATH**/ ?>

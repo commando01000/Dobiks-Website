@@ -126,21 +126,21 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__social-media__column">
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('facebook_link')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Facebook
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('instagram_link')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         instagram
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('twitter_link')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         twitter
                                                     </p>
@@ -154,7 +154,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('contact_linkedin')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Linkedin
                                                     </p>
@@ -169,10 +169,10 @@
                                             Call Us
                                         </p>
                                         <h3 class="footer__contact-number ui heading size-headingxs">
-                                            (+20) 262-2578
+                                            {{Utility::getsettings('contact_phone1')}}
                                         </h3>
                                         <h3 class="footer__contact-number--alternate ui heading size-headingxs">
-                                            (+20) 262-2578
+                                            {{Utility::getsettings('contact_phone2')}}
                                         </h3>
                                     </div>
                                     <div class="section__header">
@@ -180,7 +180,7 @@
                                             Corporate Office
                                         </p>
                                         <p class="footer__address-details ui text size-textlg">
-                                            61973 State 415 Rte, Cohocton, New York 14826, USA
+                                            {{Utility::getsettings('contact_address')}}
                                         </p>
                                     </div>
                                 </div>

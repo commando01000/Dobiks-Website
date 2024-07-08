@@ -26,10 +26,10 @@
             <div class="row gx-2">
                 <div class="col-md-6">
                     <!-- <label class="form-group">
-                                        <input type="text" class="form-control" required="" />
-                                        <span>Full name here</span>
-                                        <span class="border"></span>
-                                      </label> -->
+                                                <input type="text" class="form-control" required="" />
+                                                <span>Full name here</span>
+                                                <span class="border"></span>
+                                              </label> -->
                     <div class="inline-container d-flex align-items-center flex-row">
                         <!-- Added container for inline elements -->
                         <span class="d-inline-block content-section__description ui text size-textmd">WAITING</span>
@@ -100,8 +100,8 @@
                             <span class="content-section__description ui text size-textmd">
                                 Call US
                             </span>
-                            <h4 class="content-section__title fs-1">(+20) 262-2578</h4>
-                            <h4 class="content-section__title fs-1">(+20) 262-2578</h4>
+                            <h4 class="content-section__title fs-1">{{ Utility::getsettings('contact_phone1') }}</h4>
+                            <h4 class="content-section__title fs-1">{{ Utility::getsettings('contact_phone2') }}</h4>
                         </div>
                         <div class="contact-us-button">
                             <a href="#" style="border-color: #ff5101"
@@ -114,7 +114,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text text-white">Head Office</p>
-                                    <p class="card-text">123 Street Name, City, Country</p>
+                                    <p class="card-text">{{ Utility::getsettings('contact_address') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                             <div class="card-body">
                                 <p class="card-text text-white">Head Office</p>
                                 <p class="card-text">
-                                    61973 State 415 Rte, Cohocton, New York 14826, USA
+                                    {{ Utility::getsettings('contact_address') }}
                                 </p>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             <div class="card-body">
                                 <p class="card-text text-white">Head Office</p>
                                 <p class="card-text">
-                                    61973 State 415 Rte, Cohocton, New York 14826, USA
+                                    {{ Utility::getsettings('contact_address') }}
                                 </p>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                             <div class="card-body">
                                 <p class="card-text text-white">Head Office</p>
                                 <p class="card-text">
-                                    61973 State 415 Rte, Cohocton, New York 14826, USA
+                                    {{ Utility::getsettings('contact_address') }}
                                 </p>
                             </div>
                         </div>
