@@ -140,7 +140,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('contact_twitter')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         twitter
                                                     </p>
@@ -169,10 +169,10 @@
                                             Call Us
                                         </p>
                                         <h3 class="footer__contact-number ui heading size-headingxs">
-                                            (+20) 262-2578
+                                           {{ Utility::getsettings('contact_phone1') }}
                                         </h3>
                                         <h3 class="footer__contact-number--alternate ui heading size-headingxs">
-                                            (+20) 262-2578
+                                            {{ Utility::getsettings('contact_phone2') }}
                                         </h3>
                                     </div>
                                     <div class="section__header">
