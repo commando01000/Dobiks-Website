@@ -8,7 +8,7 @@
                             <nav class="navbar w-100 shadow navbar-expand-lg">
                                 <div class="container">
                                     <a class="navbar-brand" href="#">
-                                        <img src="{{ asset('front_assets/images/img_header_logo.png') }}"
+                                        <img src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
                                             alt="header logo" href="#header" style="height: 40px" />
                                     </a>
                                     <div>

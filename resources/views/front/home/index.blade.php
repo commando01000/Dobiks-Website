@@ -15,8 +15,8 @@
                                 <p class="content-section__button ui text size-btn_text">
                                     Build Now
                                 </p>
-                                <img src="images/img_right_arrow_2.svg" alt="right arrow image"
-                                    class="column__image--right-arrow" />
+                                <img src="{{ asset('assets/front_assets/images/img_right_arrow_2.svg') }}"
+                                    alt="right arrow image" class="column__image--right-arrow" />
                             </div>
                             <div class="content-section__column--tertiary">
                                 <div class="content-section__divider"></div>
@@ -36,10 +36,12 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="navigation align-items-lg-end align-items-sm-center w-100">
                         <div class="navigation__column--left">
-                            <img src="images/img_arrow_left.svg" alt="left arrow" class="navigation__arrow--left" />
+                            <img src="{{ asset('assets/front_assets/images/img_arrow_left.svg') }}" alt="left arrow"
+                                class="navigation__arrow--left" />
                         </div>
                         <div class="navigation__column--right">
-                            <img src="images/img_arrow_left.svg" alt="left arrow" class="navigation__arrow--left" />
+                            <img src="{{ asset('assets/front_assets/images/img_arrow_left.svg') }}" alt="left arrow"
+                                class="navigation__arrow--left" />
                         </div>
                     </div>
                 </div>
@@ -47,21 +49,27 @@
         </div>
     </section>
     </div>
-    <div class="column_seven">
-        <img src="images/img_mask_group.png" alt="image" class="image" />
     </div>
     </div>
-    </div>
-    <div class="column_one">
+    <div class="column_one pt-5 mt-5">
+        <div class="column_seven">
+            <img src="{{ asset('assets/front_assets/images/img_mask_group.png') }}" alt="image" class="image" />
+        </div>
         <div class="row_five">
             <div class="row-four">
-                <img src="images/img_rectangle_3.png" alt="featured image" class="row-four__image--two" />
+                <img src="{{ asset('assets/front_assets/images/img_rectangle_3.png') }}" alt="featured image"
+                    class="row-four__image--two" />
 
-                <img src="images/img_rectangle_7.png" alt="secondary image" class="row-four__image--two" />
-                <img src="images/img_rectangle_3_864x474.png" alt="tertiary image" class="row-four__image--two" />
-                <img src="images/img_rectangle_4.png" alt="overlay image" class="row-four__image--two" />
-                <img src="images/img_rectangle_5.png" alt="feature image" class="row-four__image--two" />
-                <img src="images/img_rectangle_6.png" alt="final image" class="row-four__image--two" />
+                <img src="{{ asset('assets/front_assets/images/img_rectangle_7.png') }}" alt="secondary image"
+                    class="row-four__image--two" />
+                <img src="{{ asset('assets/front_assets/images/img_rectangle_3_864x474.png') }}" alt="tertiary image"
+                    class="row-four__image--two" />
+                <img src="{{ asset('assets/front_assets/images/img_rectangle_4.png') }}" alt="overlay image"
+                    class="row-four__image--two" />
+                <img src="{{ asset('assets/front_assets/images/img_rectangle_5.png') }}" alt="feature image"
+                    class="row-four__image--two" />
+                <img src="{{ asset('assets/front_assets/images/img_rectangle_6.png') }}" alt="final image"
+                    class="row-four__image--two" />
             </div>
         </div>
     </div>
@@ -69,7 +77,7 @@
     <div class="slider-navigation">
         <div class="slider-navigation__controls--prev">
             <button class="slider-navigation__icon--prev">
-                <img src="images/img_arrow_left.svg" />
+                <img src="{{ asset('assets/front_assets/images/img_arrow_left.svg') }}" />
             </button>
             <p class="slider-navigation__text--prev ui text size-textlg">
                 prev Slide
@@ -80,7 +88,7 @@
                 Next Slide
             </p>
             <button class="slider-navigation__icon--next">
-                <img src="images/img_arrow_right_blue_gray_100.svg" />
+                <img src="{{ asset('assets/front_assets/images/img_arrow_right_blue_gray_100.svg') }}" />
             </button>
         </div>
     </div>
@@ -144,15 +152,7 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder.png" style="min-height: 414px; min-width: 414px"
-                                            class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card border-0" style="min-height: 414px; min-width: 414px">
-                                    <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_2.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -161,7 +161,7 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_414x414.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_2.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -170,7 +170,7 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_1.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_414x414.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -179,7 +179,7 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_3.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_1.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -188,7 +188,7 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_4.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_3.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -197,7 +197,7 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_5.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_4.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -206,7 +206,7 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_6.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_5.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -215,7 +215,16 @@
                             <div class="col-md-4">
                                 <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                     <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
-                                        <img src="/images/img_placeholder_7.png"
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_6.png') }}"
+                                            style="min-height: 414px; min-width: 414px"
+                                            class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-0" style="min-height: 414px; min-width: 414px">
+                                    <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder_7.png') }}"
                                             style="min-height: 414px; min-width: 414px"
                                             class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                     </div>
@@ -253,7 +262,8 @@
                             <span class="section__feature-bg">view</span> &nbsp; all
                             projects
                         </p>
-                        <img src="images/img_arrow.svg" alt="arrow image" class="section__call-to-action-icon" />
+                        <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
+                            class="section__call-to-action-icon" />
                     </div>
                 </div>
             </div>
@@ -323,73 +333,73 @@
                 </li>
             </ul>
             <!-- <div class="section__tabs">
-                    <span
-                      class="section__tab-item active"
-                      id="tab01"
-                      role="tab"
-                      aria-controls="tabpanel01"
-                      aria-selected="true"
-                      tabindex="0"
-                      style="cursor: pointer"
-                    >
-                      Creative Designs</span
-                    >
-                    <span
-                      class="section__tab-item"
-                      id="tab11"
-                      role="tab"
-                      aria-controls="tabpanel11"
-                      aria-selected="false"
-                      tabindex="-1"
-                      style="cursor: pointer"
-                    >
-                      Motion Graphics</span
-                    >
-                    <span
-                      class="section__tab-item"
-                      id="tab21"
-                      role="tab"
-                      aria-controls="tabpanel21"
-                      aria-selected="false"
-                      tabindex="-1"
-                      style="cursor: pointer"
-                    >
-                      Video Shooting</span
-                    >
-                    <span
-                      class="section__tab-item"
-                      id="tab31"
-                      role="tab"
-                      aria-controls="tabpanel31"
-                      aria-selected="false"
-                      tabindex="-1"
-                      style="cursor: pointer"
-                    >
-                      Event Management</span
-                    >
-                    <span
-                      class="section__tab-item"
-                      id="tab41"
-                      role="tab"
-                      aria-controls="tabpanel41"
-                      aria-selected="false"
-                      tabindex="-1"
-                      style="cursor: pointer"
-                    >
-                      Interior – Luxury Living</span
-                    >
-                    <span
-                      class="section__tab-item"
-                      id="tab51"
-                      role="tab"
-                      aria-controls="tabpanel51"
-                      aria-selected="false"
-                      tabindex="-1"
-                      style="cursor: pointer"
-                    >
-                      ui/ux design</span
-                    >
-                  </div> -->
+        <span
+          class="section__tab-item active"
+          id="tab01"
+          role="tab"
+          aria-controls="tabpanel01"
+          aria-selected="true"
+          tabindex="0"
+          style="cursor: pointer"
+        >
+          Creative Designs</span
+        >
+        <span
+          class="section__tab-item"
+          id="tab11"
+          role="tab"
+          aria-controls="tabpanel11"
+          aria-selected="false"
+          tabindex="-1"
+          style="cursor: pointer"
+        >
+          Motion Graphics</span
+        >
+        <span
+          class="section__tab-item"
+          id="tab21"
+          role="tab"
+          aria-controls="tabpanel21"
+          aria-selected="false"
+          tabindex="-1"
+          style="cursor: pointer"
+        >
+          Video Shooting</span
+        >
+        <span
+          class="section__tab-item"
+          id="tab31"
+          role="tab"
+          aria-controls="tabpanel31"
+          aria-selected="false"
+          tabindex="-1"
+          style="cursor: pointer"
+        >
+          Event Management</span
+        >
+        <span
+          class="section__tab-item"
+          id="tab41"
+          role="tab"
+          aria-controls="tabpanel41"
+          aria-selected="false"
+          tabindex="-1"
+          style="cursor: pointer"
+        >
+          Interior – Luxury Living</span
+        >
+        <span
+          class="section__tab-item"
+          id="tab51"
+          role="tab"
+          aria-controls="tabpanel51"
+          aria-selected="false"
+          tabindex="-1"
+          style="cursor: pointer"
+        >
+          ui/ux design</span
+        >
+      </div> -->
             <div class="tab-content w-100" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-creative-design-clients" role="tabpanel"
                     aria-labelledby="pills-creative-design-clients-tab" tabindex="0">
@@ -398,48 +408,12 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
                                     style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
                                     <div class="card-image w-100 h-100">
-                                        <img src="/images/img_01_1.png" class="w-100" alt="item" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                    style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
-                                    <div class="card-image w-100 h-100">
-                                        <img src="/images/img_02.png" class="w-100" alt="item" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                    style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
-                                    <div class="card-image w-100 h-100">
-                                        <img src="/images/img_03.png" class="w-100" alt="item" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                    style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
-                                    <div class="card-image w-100 h-100">
-                                        <img src="{{ asset('front_assets/images/img_04_2.png') }}" class="w-100"
+                                        <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
                                             alt="item" />
                                     </div>
                                 </div>
@@ -447,12 +421,12 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
                                     style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
                                     <div class="card-image w-100 h-100">
-                                        <img src="{{ asset('front_assets/images/img_05.png') }}" class="w-100"
+                                        <img src="{{ asset('assets/front_assets/images/img_02.png') }}" class="w-100"
                                             alt="item" />
                                     </div>
                                 </div>
@@ -460,36 +434,78 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
                                     style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
                                     <div class="card-image w-100 h-100">
-                                        <img src="/images/img_01_1.png" class="w-100" alt="item" />
+                                        <img src="{{ asset('assets/front_assets/images/img_03.png') }}" class="w-100"
+                                            alt="item" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
                                     style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
                                     <div class="card-image w-100 h-100">
-                                        <img src="/images/img_01_1.png" class="w-100" alt="item" />
+                                        <img src="{{ asset('assets/front_assets/images/img_04_2.png') }}" class="w-100"
+                                            alt="item" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
+                                    style="
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
+                                    <div class="card-image w-100 h-100">
+                                        <img src="{{ asset('assets/front_assets/images/img_05.png') }}" class="w-100"
+                                            alt="item" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
+                                    style="
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
+                                    <div class="card-image w-100 h-100">
+                                        <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
+                                            alt="item" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
+                                    style="
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
+                                    <div class="card-image w-100 h-100">
+                                        <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
+                                            alt="item" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card p-5 d-flex justify-content-center align-items-center"
                                     style="
-                        min-height: 300px;
-                        border: 1px solid var(--gray_800);
-                        background-color: #1a1a1a;
-                      ">
+                min-height: 300px;
+                border: 1px solid var(--gray_800);
+                background-color: #1a1a1a;
+              ">
                                     <div class="card-image w-100 h-100">
-                                        <img src="/images/img_01_1.png" class="w-100" alt="item" />
+                                        <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
+                                            alt="item" />
                                     </div>
                                 </div>
                             </div>
@@ -526,7 +542,7 @@
                             <span class="section__feature-bg">view</span> &nbsp; all
                             clients
                         </p>
-                        <img src="{{ asset('front_assets/images/img_arrow.svg') }}" alt="arrow image"
+                        <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
                             class="section__call-to-action-icon" />
                     </div>
                 </div>
@@ -558,14 +574,16 @@
                             <p class="section__call-to-action-text ui text size-btn_text">
                                 view all Leadership
                             </p>
-                            <img src="images/img_arrow.svg" alt="arrow image" class="section__call-to-action-icon" />
+                            <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
+                                class="section__call-to-action-icon" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="team-section__members">
                 <div class="user-profile">
-                    <img src="images/img_placeholder_350x292.png" alt="profile image" class="user-profile__image" />
+                    <img src="{{ asset('assets/front_assets/images/img_placeholder_350x292.png') }}" alt="profile image"
+                        class="user-profile__image" />
                     <p class="user-profile__name ui text size-textxl">
                         Ahmed bakry
                     </p>
@@ -574,7 +592,8 @@
                     </p>
                 </div>
                 <div class="user-profile">
-                    <img src="images/img_placeholder_312x260.png" alt="profile image" class="user-profile__image pt-5" />
+                    <img src="{{ asset('assets/front_assets/images/img_placeholder_312x260.png') }}" alt="profile image"
+                        class="user-profile__image pt-5" />
                     <p class="user-profile__name ui text size-textxl">
                         Osama mohsen
                     </p>
@@ -583,7 +602,8 @@
                     </p>
                 </div>
                 <div class="user-profile">
-                    <img src="images/img_placeholder_8.png" alt="profile image" class="user-profile__image" />
+                    <img src="{{ asset('assets/front_assets/images/img_placeholder_8.png') }}" alt="profile image"
+                        class="user-profile__image" />
                     <p class="user-profile__name ui text size-textxl">
                         Eslam maged
                     </p>
