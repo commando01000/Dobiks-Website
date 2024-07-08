@@ -75,7 +75,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/Syne-Medium.ttf);
+    src: url(/assets/fonts/Syne-Medium.ttf);
     font-family: "Syne";
     font-weight: 500;
 }
@@ -83,7 +83,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/Inter-Regular.ttf);
+    src: url(/assets/fonts/Inter-Regular.ttf);
     font-family: "Inter";
     font-weight: 400;
 }
@@ -91,7 +91,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/Syne-Bold.ttf);
+    src: url(/assets/fonts/Syne-Bold.ttf);
     font-family: "Syne";
     font-weight: 700;
 }
@@ -99,7 +99,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/Syne-Regular.ttf);
+    src: url(/assets/fonts/Syne-Regular.ttf);
     font-family: "Syne";
     font-weight: 400;
 }
@@ -107,7 +107,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/Syne-SemiBold.ttf);
+    src: url(/assets/fonts/Syne-SemiBold.ttf);
     font-family: "Syne";
     font-weight: 600;
 }
@@ -115,7 +115,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/DMSans-Regular.ttf);
+    src: url(/assets/fonts/DMSans-Regular.ttf);
     font-family: "DM Sans";
     font-weight: 400;
 }
@@ -123,7 +123,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/DMSans-Bold.ttf);
+    src: url(/assets/fonts/DMSans-Bold.ttf);
     font-family: "DM Sans";
     font-weight: 700;
 }
@@ -131,7 +131,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/DMSans-Medium.ttf);
+    src: url(/assets/fonts/DMSans-Medium.ttf);
     font-family: "DM Sans";
     font-weight: 500;
 }
@@ -139,14 +139,14 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/front_assets/assets/fonts/segoe-ui.ttf);
+    src: url(/assets/fonts/segoe-ui.ttf);
     font-family: "Segoe UI";
     font-weight: 400;
 }
 
 /*-------------------------------------
-      2. CSS Variables
-    --------------------------------------*/
+        2. CSS Variables
+      --------------------------------------*/
 :root {
     /*------Color variables------*/
     --black: #1a1a1a;
@@ -196,8 +196,8 @@ select:focus-visible {
 }
 
 /*-------------------------------------
-      3. Utility CSS
-    --------------------------------------*/
+        3. Utility CSS
+      --------------------------------------*/
 .flex-row-center-center {
     display: flex;
     flex-direction: row;
@@ -206,8 +206,8 @@ select:focus-visible {
 }
 
 /*-------------------------------------
-      4. Page CSS
-    --------------------------------------*/
+        4. Page CSS
+      --------------------------------------*/
 
 /* NavBar Start By Supraa */
 .dropdown-item:focus,
@@ -238,7 +238,7 @@ select:focus-visible {
 
 .navbar-scrolling-bg {
     background-color: #333 !important; /* Choose your color 
-        * with ease */
+          * with ease */
     transition: background-color 0.3s ease-in;
 }
 
@@ -262,6 +262,7 @@ select:focus-visible {
 .class-01-home {
     background-color: var(--black);
     width: 100%;
+    height: 100%;
 }
 
 .column_two {
@@ -286,6 +287,7 @@ select:focus-visible {
 .columnheaderlog {
     gap: 70px;
     display: flex;
+    background-color: var(--black);
     flex-direction: column;
 }
 
@@ -414,7 +416,7 @@ select:focus-visible {
 .content-section__divider {
     height: 1px;
     background-color: var(--brand);
-    width: 8%;
+    width: 10%;
 }
 
 .content-section__column--quaternary {
@@ -697,7 +699,7 @@ select:focus-visible {
     column-gap: 50px;
     /* align-items: start; */
     /* margin-left: auto;
-      margin-right: auto; */
+        margin-right: auto; */
 }
 
 .team-section__header {
@@ -769,7 +771,7 @@ select:focus-visible {
 
 .footer__stack {
     height: 620px;
-    margin-bottom: 114px;
+    /* margin-bottom: 114px; */
     position: relative;
 }
 
@@ -1325,8 +1327,8 @@ select:focus-visible {
 }
 
 /*-------------------------------------
-      5. Component CSS
-    --------------------------------------*/
+        5. Component CSS
+      --------------------------------------*/
 /*------Container CSS------*/
 .container-xs {
     max-width: 292px;
@@ -1483,3 +1485,119 @@ select:focus-visible {
         align-items: center !important;
     }
 }
+
+/* Start FAQ CSS */
+.class-01-faq {
+    background-color: var(--black);
+    width: 100%;
+    height: 100vh;
+}
+/* End FAQ CSS */
+
+/* Contact-Us CSS */
+.class-01-contact-us {
+    background-color: var(--black);
+    width: 100%;
+    height: 100%;
+}
+
+.content-section__title {
+    color: var(--white) !important;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.contact-us-section__title.ui.heading.size-heading_1 {
+    color: var(--white) !important;
+    font-size: 80px;
+    font-weight: 700;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 0;
+    background: none;
+    background-color: transparent;
+}
+
+.form-control:active,
+.form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #000;
+    color: white !important;
+    background-color: var(--black);
+}
+
+.form-control::placeholder {
+    color: #d0d0d0 !important; /* Change to desired placeholder text color */
+    opacity: 1; /* Optional: Adjust to ensure the color is not transparent */
+}
+
+/* .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #e9efb0;
+        outline: 0;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(204, 218, 70, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(204, 218, 70, 0.25);
+      } */
+
+/* End Contact-Us CSS */
+
+/* Contact-Us CSS */
+.contact-us-button {
+    /* no border radius */
+    border-radius: 0;
+}
+.contact-us-button:hover {
+    background-color: var(--brand) !important;
+}
+
+.our-resident {
+    background-color: var(--black) !important;
+    color: white !important;
+}
+.our-resident .card {
+    background-color: var(--black) !important;
+    color: white !important;
+    padding: 30px;
+}
+
+.submit-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0;
+}
+.submit-button .circle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--brand);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.submit-button .text {
+    display: flex;
+    align-items: center;
+}
+.submit-button .arrow {
+    margin-left: 5px;
+    transition: margin-left 0.3s;
+}
+.submit-button:hover .arrow {
+    margin-left: 10px;
+}
+/* End Contact-Us CSS */
