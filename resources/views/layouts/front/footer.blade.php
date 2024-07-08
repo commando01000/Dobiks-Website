@@ -5,7 +5,7 @@
                 <div class="footer__stack__row__eight">
                     <div class="footer__stack__row__eight__row">
                         <div class="footer__stack__row__eight__row__column">
-                            <img src="{{ asset('assets/front_assets/images/img_footer_logo.png') }}" alt="footer logo"
+                            <img src="{{ asset('/front_assets/images/img_footer_logo.png') }}" alt="footer logo"
                                 class="footer__logo" />
                             <p class="footer__impact-statement ui text size-texts">
                                 Your final impact statement goes here.<br />Make it
@@ -65,13 +65,13 @@
                             </form>
                             <div class="footer__stack__row__eight__row__link-row">
                                 <button class="footer__social-button--facebook">
-                                    <img src="{{ asset('assets/front_assets/images/img_facebook_app_symbol.svg') }}" />
+                                    <img src="{{ asset('/front_assets/images/img_facebook_app_symbol.svg') }}" />
                                 </button>
                                 <button class="footer__link-button--link">
-                                    <img src="{{ asset('assets/front_assets/images/img_link.svg') }}" />
+                                    <img src="{{ asset('/front_assets/images/img_link.svg') }}" />
                                 </button>
                                 <button class="footer__link-button--link">
-                                    <img src="{{ asset('assets/front_assets/images/img_trash.svg') }}" />
+                                    <img src="{{ asset('/front_assets/images/img_trash.svg') }}" />
                                 </button>
                             </div>
                         </div>
@@ -196,9 +196,9 @@
     </footer>
     <div class="clock">
         <div class="clock__column">
-            <img src="{{ asset('assets/front_assets/images/img_polygon_1.svg') }}" alt="arrow image"
+            <img src="{{ asset('/front_assets/images/img_polygon_1.svg') }}" alt="arrow image"
                 class="clock__icon--arrow-up" />
-            <img src="{{ asset('assets/front_assets/images/img_border.svg') }}" alt="border image"
+            <img src="{{ asset('/front_assets/images/img_border.svg') }}" alt="border image"
                 class="clock__border" />
         </div>
     </div>
@@ -209,4 +209,4 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="{{ asset('assets/front_assets/assets/js/home.js') }}"></script>
+<script src="{{ asset('/front_assets/assets/js/home.js') }}"></script>
