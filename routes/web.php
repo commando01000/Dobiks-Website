@@ -207,7 +207,7 @@ Route::group([
     });
 
     Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-
+        
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::resource('users', UserController::class)->except(['show']);
         Route::resource('module', ModuleController::class);
@@ -349,7 +349,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     
     Route::get('about-us', function () {
         return view('front.about-us.index');
-    })->name('services');
+    })->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);

@@ -20,12 +20,12 @@
                                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                             <ul class="navbar-nav header__nav-list me-auto mb-2 mb-lg-0">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active nav-list__item--home ui text size-texts"
-                                                        href="#header">Home</a>
+                                                    <a class="nav-link nav-list__item--home ui text size-texts"
+                                                        href="{{ route('home') }}">Home</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="">About Dopiks</a>
+                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('about-us') ? 'active' : '' }}"
+                                                        href="{{ route('about-us') }}">About Dopiks</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts dropdown-toggle"
@@ -54,28 +54,6 @@
                                                         href="#section-projects">
                                                         Projects
                                                     </a>
-                                                    <!-- <ul
-                              class="dropdown-menu bg-dark"
-                              aria-labelledby="navbarDropdownProjectsLink"
-                            >
-                              <li>
-                                <a
-                                  class="dropdown-item text-white"
-                                  href="#section-projects"
-                                  >Menu 1</a
-                                >
-                              </li>
-                              <li>
-                                <a class="dropdown-item text-white" href="#"
-                                  >Menu 2</a
-                                >
-                              </li>
-                              <li>
-                                <a class="dropdown-item text-white" href="#"
-                                  >Menu 3</a
-                                >
-                              </li>
-                            </ul> -->
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-text"
@@ -86,8 +64,8 @@
                                                         href="#">Blogs</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="#">Contact Us</a>
+                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('contact') ? 'active' : '' }}"
+                                                        href="{{ route('contact') }}">Contact Us</a>
                                                 </li>
                                             </ul>
                                         </div>
