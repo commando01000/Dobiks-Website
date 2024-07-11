@@ -346,6 +346,10 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('gallery/{id}', [Gallery_frontController::class, 'view'])->name('view.gallery');
     Route::get('contact', [frontContact::class, 'index'])->name('contact');
     Route::get('join', [frontContact::class, 'join'])->name('join');
+    
+    Route::get('about-us', function () {
+        return view('front.about-us.index');
+    })->name('services');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);

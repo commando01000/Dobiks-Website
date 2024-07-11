@@ -126,21 +126,21 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__social-media__column">
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(Utility::getsettings('facebook_link')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Facebook
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(Utility::getsettings('instagram_link')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         instagram
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(Utility::getsettings('twitter_link')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         twitter
                                                     </p>
@@ -154,7 +154,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(Utility::getsettings('contact_linkedin')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Linkedin
                                                     </p>

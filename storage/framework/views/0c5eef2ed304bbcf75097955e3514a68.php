@@ -25,7 +25,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="#">About Dopiks</a>
+                                                        href="">About Dopiks</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts dropdown-toggle"

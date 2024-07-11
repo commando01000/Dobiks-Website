@@ -2,13 +2,13 @@
 
 <!-- Contact-Us Section -->
 @section('content')
-    <section id="section-contact-us" class="section p-5">
+    <section id="section-contact-us" class="section p-1">
         <main class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
                     Contact Us
                 </h1>
-                <small class="section__subtitle fs-6">Home / Contact Us</small>
+                <small class="content-section__description fs-6">Home / Contact Us</small>
             </div>
             <div class="contact-us-section__title align-items-start ui heading size-heading_1 mt-5 pt-5 mb-5">
                 <p>we build immersive</p>
