@@ -64,13 +64,8 @@
                                                         href="#">Blogs</a>
                                                 </li>
                                                 <li class="nav-item">
-<<<<<<< HEAD
-                                                    <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="{{route('contact')}}">Contact Us</a>
-=======
                                                     <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('contact') ? 'active' : '' }}"
                                                         href="{{ route('contact') }}">Contact Us</a>
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
                                                 </li>
                                             </ul>
                                         </div>

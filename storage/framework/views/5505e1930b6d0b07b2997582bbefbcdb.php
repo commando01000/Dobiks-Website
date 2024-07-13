@@ -84,7 +84,7 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__quick-links__column__list">
                                             <li>
-                                                <a href="<?php echo e(route('homepage')); ?>">
+                                                <a href="#">
                                                     <p class="footer__quick-link--home ui text size-texts">
                                                         Home
                                                     </p>
@@ -112,7 +112,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?php echo e(route('contact')); ?>">
+                                                <a href="#">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Contact Us
                                                     </p>
@@ -126,21 +126,21 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__social-media__column">
                                             <li>
-                                                <a href="<?php echo e(Utility::getsettings('contact_facebook')); ?>">
+                                                <a href="<?php echo e(Utility::getsettings('facebook_link')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Facebook
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?php echo e(Utility::getsettings('contact_instagram')); ?>">
+                                                <a href="<?php echo e(Utility::getsettings('instagram_link')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         instagram
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?php echo e(Utility::getsettings('contact_twitter')); ?>">
+                                                <a href="<?php echo e(Utility::getsettings('twitter_link')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         twitter
                                                     </p>
@@ -169,7 +169,7 @@
                                             Call Us
                                         </p>
                                         <h3 class="footer__contact-number ui heading size-headingxs">
-                                           <?php echo e(Utility::getsettings('contact_phone1')); ?>
+                                            <?php echo e(Utility::getsettings('contact_phone1')); ?>
 
                                         </h3>
                                         <h3 class="footer__contact-number--alternate ui heading size-headingxs">
@@ -182,7 +182,8 @@
                                             Corporate Office
                                         </p>
                                         <p class="footer__address-details ui text size-textlg">
-                                            61973 State 415 Rte, Cohocton, New York 14826, USA
+                                            <?php echo e(Utility::getsettings('contact_address')); ?>
+
                                         </p>
                                     </div>
                                 </div>
@@ -211,5 +212,5 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="<?php echo e(asset('/front_assets/assets/js/home.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/front_assets/assets/js/home.js')); ?>?v=<?= time() ?>"></script>
 <?php /**PATH D:\company\backend\resources\views/layouts/front/footer.blade.php ENDPATH**/ ?>

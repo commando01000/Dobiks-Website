@@ -1,12 +1,14 @@
+
+
 <!-- Contact-Us Section -->
 <?php $__env->startSection('content'); ?>
-    <section id="section-contact-us" class="section p-5">
+    <section id="section-contact-us" class="section p-1">
         <main class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
                     Contact Us
                 </h1>
-                <small class="section__subtitle fs-6">Home / Contact Us</small>
+                <small class="content-section__description fs-6">Home / Contact Us</small>
             </div>
             <div class="contact-us-section__title align-items-start ui heading size-heading_1 mt-5 pt-5 mb-5">
                 <p>we build immersive</p>
@@ -24,10 +26,10 @@
             <div class="row gx-2">
                 <div class="col-md-6">
                     <!-- <label class="form-group">
-                                        <input type="text" class="form-control" required="" />
-                                        <span>Full name here</span>
-                                        <span class="border"></span>
-                                      </label> -->
+                                                <input type="text" class="form-control" required="" />
+                                                <span>Full name here</span>
+                                                <span class="border"></span>
+                                              </label> -->
                     <div class="inline-container d-flex align-items-center flex-row">
                         <!-- Added container for inline elements -->
                         <span class="d-inline-block content-section__description ui text size-textmd">WAITING</span>
@@ -117,7 +119,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-text text-white">Head Office</p>
-                                    <p class="card-text">123 Street Name, City, Country</p>
+                                    <p class="card-text"><?php echo e(Utility::getsettings('contact_address')); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +142,8 @@
                             <div class="card-body">
                                 <p class="card-text text-white">Head Office</p>
                                 <p class="card-text">
-                                    61973 State 415 Rte, Cohocton, New York 14826, USA
+                                    <?php echo e(Utility::getsettings('contact_address')); ?>
+
                                 </p>
                             </div>
                         </div>
@@ -152,7 +155,8 @@
                             <div class="card-body">
                                 <p class="card-text text-white">Head Office</p>
                                 <p class="card-text">
-                                    61973 State 415 Rte, Cohocton, New York 14826, USA
+                                    <?php echo e(Utility::getsettings('contact_address')); ?>
+
                                 </p>
                             </div>
                         </div>
@@ -164,7 +168,8 @@
                             <div class="card-body">
                                 <p class="card-text text-white">Head Office</p>
                                 <p class="card-text">
-                                    61973 State 415 Rte, Cohocton, New York 14826, USA
+                                    <?php echo e(Utility::getsettings('contact_address')); ?>
+
                                 </p>
                             </div>
                         </div>

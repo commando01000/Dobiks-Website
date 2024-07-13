@@ -12,8 +12,8 @@ class Testimonial_frontController extends Controller
     {
         $lang = UtilityFacades::getActiveLanguage();
         \App::setLocale($lang);
-        $testimonials =Testimonial::get();
+        $testimonials = Testimonial::get();
 
-        return view('front/testimonials.index', compact('lang', 'testimonials'));
+        return view('front/about-us.index', compact('lang', 'testimonials'));
     }
 }
