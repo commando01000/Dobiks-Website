@@ -21,7 +21,7 @@
                                             <ul class="navbar-nav header__nav-list me-auto mb-2 mb-lg-0">
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--home ui text size-texts"
-                                                        href="#">Home</a>
+                                                        href="<?php echo e(route('homepage')); ?>">Home</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts <?php echo e(Route::is('about-us') ? 'active' : ''); ?>"

@@ -84,14 +84,14 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__quick-links__column__list">
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('homepage') }}">
                                                     <p class="footer__quick-link--home ui text size-texts">
                                                         Home
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('about-us') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         About
                                                     </p>
@@ -112,7 +112,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('contact') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Contact Us
                                                     </p>
@@ -126,21 +126,21 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__social-media__column">
                                             <li>
-                                                <a href="{{Utility::getsettings('facebook_link')}}">
+                                                <a href="{{ Utility::getsettings('contact_facebook') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Facebook
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{Utility::getsettings('instagram_link')}}">
+                                                <a href="{{ Utility::getsettings('contact_instagram') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         instagram
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{Utility::getsettings('twitter_link')}}">
+                                                <a href="{{ Utility::getsettings('contact_twitter') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         twitter
                                                     </p>
@@ -154,7 +154,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="{{Utility::getsettings('contact_linkedin')}}">
+                                                <a href="{{ Utility::getsettings('contact_linkedin') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Linkedin
                                                     </p>
@@ -169,10 +169,10 @@
                                             Call Us
                                         </p>
                                         <h3 class="footer__contact-number ui heading size-headingxs">
-                                            {{Utility::getsettings('contact_phone1')}}
+                                            {{ Utility::getsettings('contact_phone1') }}
                                         </h3>
                                         <h3 class="footer__contact-number--alternate ui heading size-headingxs">
-                                            {{Utility::getsettings('contact_phone2')}}
+                                            {{ Utility::getsettings('contact_phone2') }}
                                         </h3>
                                     </div>
                                     <div class="section__header">
@@ -180,7 +180,7 @@
                                             Corporate Office
                                         </p>
                                         <p class="footer__address-details ui text size-textlg">
-                                            {{Utility::getsettings('contact_address')}}
+                                            {{ Utility::getsettings('contact_address') }}
                                         </p>
                                     </div>
                                 </div>
