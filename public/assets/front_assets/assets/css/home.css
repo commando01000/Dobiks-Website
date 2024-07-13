@@ -1593,12 +1593,13 @@ select:focus-visible {
     display: flex;
     align-items: center;
 }
-.submit-button .arrow {
+.arrow {
     margin-left: 5px;
     transition: margin-left 0.3s;
 }
-.submit-button:hover .arrow {
+.arrow:hover {
     margin-left: 10px;
+    cursor: pointer;
 }
 /* End Contact-Us CSS */
 
@@ -1641,5 +1642,20 @@ select:focus-visible {
     margin-bottom: 120px;
 }
 
-
 /* Services End CSS */
+
+/* Milestone Start CSS */
+
+#milestones-achieved {
+    background: #191919;
+} 
+
+/* Milestone End CSS */
+
+/* Blog Start CSS */
+
+#blog .card {
+    background-color: var(--black) !important;
+    color: white !important;
+}
+/* Blog End CSS */

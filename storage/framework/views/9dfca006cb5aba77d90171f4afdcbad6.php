@@ -344,6 +344,119 @@
                     </div>
                 </div>
             </section>
+
+            <section id="milestones-achieved" class="w-100 pt-5 mt-5 pb-5 mb-5">
+                <div class="container pt-5 pb-5">
+                    <div class="row pt-5">
+                        <div class="col-md-6">
+                            <p class="content-section__subtitle ui heading size-headingmd">Milestones that We Are Proud of
+                                Reaching</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="content-section__description">An interior design agency can create content that
+                                showcases its work, highlights design
+                                trends, and provides educational resources for clients and followers. Some potential content
+                                ideas for an interior design agency</p>
+                        </div>
+                    </div>
+                    <div class="row pt-5 pb-5 text-center justify-content-center">
+                        <div class="col-md-4">
+                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
+                                98 +
+                            </p>
+                            <br>
+                            <p class="user-profile__name ui text size-textxl">
+                                Successful Projects Done
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
+                                59 +
+                            </p>
+                            <br>
+                            <p class="user-profile__name ui text size-textxl">
+                                Delightful Clients
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
+                                56 +
+                            </p>
+                            <br>
+                            <p class="user-profile__name ui text size-textxl">
+                                Award Achivement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="blog" class="w-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="content-section__subtitle ui heading size-headingmd">Sharing Our Knowledge and
+                                Passion for Interiors</p>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div style="min-height: 345px" class="card p-5">
+                                <div class="card-body">
+                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                        Sustainable Design: How to Create an…
+                                    </p>
+                                    <br>
+                                    <div style="height: 3px" class="section__divider"></div>
+                                    <br>
+                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
+                                        content that showcases its…</p>
+                                    <br>
+                                    <p>Learn more <span class="arrow">→</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="min-height: 345px" class="card p-5">
+                                <div class="card-body">
+                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                        The Art of Accessorizing: Adding the…
+                                    </p>
+                                    <br>
+                                    <div style="height: 3px" class="section__divider"></div>
+                                    <br>
+                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
+                                        content that showcases its…</p>
+                                    <br>
+                                    <p>Learn more <span class="arrow">→</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="min-height: 345px" class="card p-5">
+                                <div class="card-body">
+                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                        Color Psychology in Interior Design: How…
+                                    </p>
+                                    <br>
+                                    <div style="height: 3px" class="section__divider"></div>
+                                    <br>
+                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
+                                        content that showcases its…</p>
+                                    <br>
+                                    <p>Learn more <span class="arrow">→</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </section>
 <?php $__env->stopSection(); ?>
