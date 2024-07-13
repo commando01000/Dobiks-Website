@@ -1009,5 +1009,9 @@
     "Settings": "Settings",
     "Language": "Language",
     "JoinUs": "Join Us",
-    "Modules": "Modules"
+    "Modules": "Modules",
+    "company_name": "Company Name",
+    "full_name": "Full Name",
+    "service": "Service",
+    "Contact_us": "Contact Us"
 }

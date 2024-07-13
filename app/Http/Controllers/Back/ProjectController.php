@@ -73,7 +73,7 @@ class ProjectController extends Controller
                     'images.*' => 'image|mimes:jpeg,png,jpg', // Adjust max size as needed
                 ]);
             }
-         
+
            $project =  Project::create([
                 'title'                 => $request->title,
                 'description'           => $request->description,
@@ -94,7 +94,7 @@ class ProjectController extends Controller
             // store project images
             if ($request->hasFile('images')) {
             foreach (request()->file("images") as $image) {
-              
+
                 $image_path = $image->store("projects/images");
                 $project->images()->create([
                     "img"=>$image_path,
@@ -121,7 +121,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Project $project)
-    { 
+    {
         if (\Auth::user()->can('edit-project')) {
             $categories = ProjectCategory::where('status', 1)->get();
             return view('back/project.edit', compact('project', 'categories'));
@@ -170,7 +170,7 @@ class ProjectController extends Controller
                     ]);
                 }
             }
-            
+
             $project->builder               = $request->builder;
             $project->title                 = $request->title;
             $project->description           = $request->description;

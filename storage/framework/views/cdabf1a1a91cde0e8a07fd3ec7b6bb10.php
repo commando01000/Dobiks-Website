@@ -87,7 +87,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="#">Contact Us</a>
+                                                        href="<?php echo e(route('contact')); ?>">Contact Us</a>
                                                 </li>
                                             </ul>
                                         </div>

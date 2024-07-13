@@ -84,6 +84,15 @@
                     </li>
                 <?php endif; ?>
 
+                <li class="dash-item dash-hasmenu <?php echo e(request()->is('contact_us*') ? 'active' : ''); ?>">
+                    <a class="dash-link" href="<?php echo e(route('contact_us.index')); ?>">
+                            <span class="dash-micon">
+                                <i class="ti ti-world"></i>
+                            </span>
+                        <span class="dash-mtext"><?php echo e(__('Contact_us')); ?></span>
+                    </a>
+                </li>
+
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->any(['manage-blog'])): ?>
                     <li class="dash-item dash-hasmenu collapsed <?php echo e(request()->is('blog*') ? 'dash-trigger' : ''); ?>">
                         <a href="#!" class="dash-link">

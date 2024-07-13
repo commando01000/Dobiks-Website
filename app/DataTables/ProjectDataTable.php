@@ -72,10 +72,6 @@ class ProjectDataTable extends DataTable
             ->setTableId('project-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->ajax([
-                'url' => secure_url('cp/projects'), // Make sure to use secure_url() here
-                // Other AJAX options...
-            ])
             ->orderBy(1)
             ->language([
                 "paginate" => [

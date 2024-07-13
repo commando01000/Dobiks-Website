@@ -4,6 +4,7 @@
 use App\Http\Controllers\Back\BuilderController;
 use App\Http\Controllers\Back\BlogCategoryController;
 use App\Http\Controllers\Back\BlogController;
+use App\Http\Controllers\Back\Contact_UsController;
 use App\Http\Controllers\Back\GalleryCategoryController;
 use App\Http\Controllers\Back\GalleryController;
 use App\Http\Controllers\Back\JoinUsController;
@@ -283,6 +284,13 @@ Route::group([
             Route::post('page-background-setting/store', [LandingPageController::class, 'pageBackgroundstore'])->name('landing.page.background.store');
         });
     });
+    Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
+        Route::get('contact_us/view',[Contact_UsController::class,'index'])->name('contact_us.index');
+        Route::post('contact_us/store',[Contact_UsController::class,'store'])->name('contact_us.store');
+
+
+    });
+
 });
 
 /** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/

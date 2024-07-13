@@ -41,49 +41,54 @@
                         </h2>
                         <h1 class="content-section__title">Register Form</h1>
                         <div class="row flex-wrap gy-2">
-                            <div class="col-md-12">
-                                <div class="mb-5">
-                                    <label for="name" class="col-form-label text-white">Full Name <span
-                                            style="color: #ff5101"> *</span></label>
-                                    <input type="text" class="form-control text-white" name="name" id="name"
-                                        placeholder="Your name" />
-                                </div>
-                                <div class="mb-5">
-                                    <label for="c_name" class="col-form-label text-white">Company Name
-                                        <span style="color: #ff5101"> *</span></label>
-                                    <input type="text" class="form-control text-white" name="c_name" id="c_name"
-                                        placeholder="Company Name here" />
-                                </div>
-                                <div class="mb-5">
-                                    <label for="ph_number" class="col-form-label text-white">
-                                        Phone number here
-                                        <span style="color: #ff5101"> *</span></label>
-                                    <input type="text" class="form-control text-white" name="Company Name here"
-                                        id="ph_number" placeholder="Phone Number" />
-                                </div>
-                                <div class="mb-5">
-                                    <div class="row gx-1 justify-content-around gy-1">
-                                        <div class="col-md-12">
-                                            <label for="c_name" class="col-form-label text-white">
-                                                Select Service
-                                                <span style="color: #ff5101"> *</span></label>
-                                            <br />
-                                            <a name="FACEBOOK" id="FACEBOOK" class="btn ps-5 pe-5 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">FACEBOOK</a>
-                                            <a name="TWITTER" id="TWITTER" class="btn ps-5 pe-5 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">TWITTER</a>
-                                            <a name="LINKEDIN" id="LINKEDIN" class="btn ps-5 pe-5 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">LINKEDIN</a>
-                                            <a name="INSTAGRAM" id="INSTAGRAM" class="btn ps-5 pe-5 mt-1 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">INSTAGRAM</a>
+                            <form method="post" action="{{route('contact_us.store')}}">
+                                @csrf
+                                <div class="col-md-12">
+                                    <div class="mb-5">
+                                        <label for="name" class="col-form-label text-white">Full Name <span
+                                                    style="color: #ff5101"> *</span></label>
+                                        <input type="text" class="form-control text-white" name="full_name" id="name"
+                                               placeholder="Your name" />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="c_name" class="col-form-label text-white">Company Name
+                                            <span style="color: #ff5101"> *</span></label>
+                                        <input type="text" class="form-control text-white" name="company_name" id="c_name"
+                                               placeholder="Company Name here" />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="ph_number" class="col-form-label text-white">
+                                            Phone number here
+                                            <span style="color: #ff5101"> *</span></label>
+                                        <input type="text" class="form-control text-white" name="phone"
+                                               id="ph_number" placeholder="Phone Number"  />
+                                    </div>
+                                    <div class="mb-5">
+                                        <div class="row gx-1 justify-content-around gy-1">
+                                            <div class="col-md-12">
+                                                <label for="c_name" class="col-form-label text-white">
+                                                    Select Service
+                                                    <span style="color: #ff5101"> *</span></label>
+                                                <br />
+                                                <a name="FACEBOOK" id="FACEBOOK" class="btn ps-5 pe-5 border-0"
+                                                   style="color: white; background-color: #ff5101" href="#"
+                                                   role="button">FACEBOOK</a>
+                                                <a name="TWITTER" id="TWITTER" class="btn ps-5 pe-5 border-0"
+                                                   style="color: white; background-color: #ff5101" href="#"
+                                                   role="button">TWITTER</a>
+                                                <a name="LINKEDIN" id="LINKEDIN" class="btn ps-5 pe-5 border-0"
+                                                   style="color: white; background-color: #ff5101" href="#"
+                                                   role="button">LINKEDIN</a>
+                                                <a name="INSTAGRAM" id="INSTAGRAM" class="btn ps-5 pe-5 mt-1 border-0"
+                                                   style="color: white; background-color: #ff5101" href="#"
+                                                   role="button">INSTAGRAM</a>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -128,6 +133,7 @@
                     </div>
                 </button>
             </div>
+            </form>
 
             <div class="row gx-0">
                 <div class="col-md-4">

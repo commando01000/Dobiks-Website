@@ -1,0 +1,1 @@
+<?php /**PATH D:\company\backend\resources\views/front/project/view-all-projects.blade.php ENDPATH**/ ?>

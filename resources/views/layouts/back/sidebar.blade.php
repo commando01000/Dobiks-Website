@@ -84,6 +84,15 @@
                     </li>
                 @endcanany
 
+                <li class="dash-item dash-hasmenu {{ request()->is('contact_us*') ? 'active' : '' }}">
+                    <a class="dash-link" href="{{ route('contact_us.index') }}">
+                            <span class="dash-micon">
+                                <i class="ti ti-world"></i>
+                            </span>
+                        <span class="dash-mtext">{{ __('Contact_us') }}</span>
+                    </a>
+                </li>
+
                 @canany(['manage-blog'])
                     <li class="dash-item dash-hasmenu collapsed {{ request()->is('blog*') ? 'dash-trigger' : '' }}">
                         <a href="#!" class="dash-link">

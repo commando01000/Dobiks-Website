@@ -5,7 +5,7 @@
                 <div class="footer__stack__row__eight">
                     <div class="footer__stack__row__eight__row">
                         <div class="footer__stack__row__eight__row__column">
-                            <img src="{{ asset('/front_assets/images/img_footer_logo.png') }}" alt="footer logo"
+                            <img src="{{ asset('assets/front_assets/images/img_footer_logo.png') }}" alt="footer logo"
                                 class="footer__logo" />
                             <p class="footer__impact-statement ui text size-texts">
                                 Your final impact statement goes here.<br />Make it
@@ -65,13 +65,13 @@
                             </form>
                             <div class="footer__stack__row__eight__row__link-row">
                                 <button class="footer__social-button--facebook">
-                                    <img src="{{ asset('/front_assets/images/img_facebook_app_symbol.svg') }}" />
+                                    <img src="{{ asset('assets/front_assets/images/img_facebook_app_symbol.svg') }}" />
                                 </button>
                                 <button class="footer__link-button--link">
-                                    <img src="{{ asset('/front_assets/images/img_link.svg') }}" />
+                                    <img src="{{ asset('assets/front_assets/images/img_link.svg') }}" />
                                 </button>
                                 <button class="footer__link-button--link">
-                                    <img src="{{ asset('/front_assets/images/img_trash.svg') }}" />
+                                    <img src="{{ asset('assets/front_assets/images/img_trash.svg') }}" />
                                 </button>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__quick-links__column__list">
                                             <li>
-                                                <a href="#">
+                                                <a href="{{route('homepage')}}">
                                                     <p class="footer__quick-link--home ui text size-texts">
                                                         Home
                                                     </p>
@@ -112,7 +112,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{route('contact')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Contact Us
                                                     </p>
@@ -126,14 +126,14 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__social-media__column">
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('contact_facebook')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Facebook
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('contact_instagram')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         instagram
                                                     </p>
@@ -154,7 +154,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{Utility::getsettings('contact_linkedin')}}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Linkedin
                                                     </p>
@@ -196,9 +196,9 @@
     </footer>
     <div class="clock">
         <div class="clock__column">
-            <img src="{{ asset('/front_assets/images/img_polygon_1.svg') }}" alt="arrow image"
+            <img src="{{ asset('assets/front_assets/images/img_polygon_1.svg') }}" alt="arrow image"
                 class="clock__icon--arrow-up" />
-            <img src="{{ asset('/front_assets/images/img_border.svg') }}" alt="border image"
+            <img src="{{ asset('assets/front_assets/images/img_border.svg') }}" alt="border image"
                 class="clock__border" />
         </div>
     </div>
