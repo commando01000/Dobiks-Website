@@ -12,7 +12,9 @@ class TestimonialController extends Controller
     public function index(TestimonialsDataTable $dataTable)
     {
         if (\Auth::user()->can('manage-testimonial')) {
-            return $dataTable->render('back/testimonials.index');
+            $testimonials = Testimonial::orderBy('id', 'desc')->get();
+            return view('back/testimonials.index', compact('testimonials'));
+           
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
