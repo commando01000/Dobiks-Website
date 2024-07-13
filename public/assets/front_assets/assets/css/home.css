@@ -76,10 +76,14 @@ select:focus-visible {
     font-display: swap;
     font-style: normal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     src: url(/assetsfront_assets/assets/fonts/Syne-Medium.ttf);
 =======
     src: url(/assets/fonts/Syne-Medium.ttf);
 >>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
+=======
+    src: url(/assets/front_assets/assets/fonts/Syne-Medium.ttf);
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Syne";
     font-weight: 500;
 }
@@ -88,10 +92,14 @@ select:focus-visible {
     font-display: swap;
     font-style: normal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     src: url(/assetsfront_assets/assets/fonts/Inter-Regular.ttf);
 =======
     src: url(/assets/fonts/Inter-Regular.ttf);
 >>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
+=======
+    src: url(/assets/front_assets/assets/fonts/Inter-Regular.ttf);
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Inter";
     font-weight: 400;
 }
@@ -99,7 +107,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/fonts/Syne-Bold.ttf);
+    src: url(/assets/front_assets/assets/fonts/Syne-Bold.ttf);
     font-family: "Syne";
     font-weight: 700;
 }
@@ -108,10 +116,14 @@ select:focus-visible {
     font-display: swap;
     font-style: normal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/Syne-Regular.ttf);
 =======
     src: url(/assets/fonts/Syne-Regular.ttf);
 >>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
+=======
+    src: url(/assets/front_assets/assets/fonts/Syne-Regular.ttf);
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Syne";
     font-weight: 400;
 }
@@ -119,7 +131,7 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-    src: url(/assets/fonts/Syne-SemiBold.ttf);
+    src: url(/assets/front_assets/assets/fonts/Syne-SemiBold.ttf);
     font-family: "Syne";
     font-weight: 600;
 }
@@ -128,10 +140,14 @@ select:focus-visible {
     font-display: swap;
     font-style: normal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/DMSans-Regular.ttf);
 =======
     src: url(/assets/fonts/DMSans-Regular.ttf);
 >>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
+=======
+    src: url(/assets/front_assets/assets/fonts/DMSans-Regular.ttf);
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "DM Sans";
     font-weight: 400;
 }
@@ -140,10 +156,14 @@ select:focus-visible {
     font-display: swap;
     font-style: normal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/DMSans-Bold.ttf);
 =======
     src: url(/assets/fonts/DMSans-Bold.ttf);
 >>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
+=======
+    src: url(/assets/front_assets/assets/fonts/DMSans-Bold.ttf);
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "DM Sans";
     font-weight: 700;
 }
@@ -152,10 +172,14 @@ select:focus-visible {
     font-display: swap;
     font-style: normal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/DMSans-Medium.ttf);
 =======
     src: url(/assets/fonts/DMSans-Medium.ttf);
 >>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
+=======
+    src: url(/assets/front_assets/assets/fonts/DMSans-Medium.ttf);
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "DM Sans";
     font-weight: 500;
 }
@@ -164,10 +188,14 @@ select:focus-visible {
     font-display: swap;
     font-style: normal;
 <<<<<<< HEAD
+<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/segoe-ui.ttf);
 =======
     src: url(/assets/fonts/segoe-ui.ttf);
 >>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
+=======
+    src: url(/assets/front_assets/assets/fonts/segoe-ui.ttf);
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Segoe UI";
     font-weight: 400;
 }
@@ -430,7 +458,7 @@ select:focus-visible {
 
 .content-section__button {
     color: var(--white) !important;
-    margin-top: 45px;
+    margin-top: 50px;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 400;
@@ -1626,11 +1654,69 @@ select:focus-visible {
     display: flex;
     align-items: center;
 }
-.submit-button .arrow {
+.arrow {
     margin-left: 5px;
     transition: margin-left 0.3s;
 }
-.submit-button:hover .arrow {
+.arrow:hover {
     margin-left: 10px;
+    cursor: pointer;
 }
 /* End Contact-Us CSS */
+
+/* Services Start CSS */
+
+.about-us-section .progress-bar {
+    background-color: var(--brand) !important;
+    color: var(--white) !important;
+    align-items: end;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.carousel-section {
+    background: #191919;
+}
+
+.carousel-control-prev {
+    left: auto;
+    right: 300px;
+}
+
+.carousel-control-next {
+    right: 180px;
+    left: auto;
+}
+.carousel-control-next,
+.carousel-control-prev {
+    position: static !important;
+}
+
+.quote::before {
+    content: "\201D"; /* Unicode for right double quotation mark */
+    font-size: 200px; /* Adjust size as needed */
+    font-family: Arial, sans-serif; /* Adjust font as needed */
+    color: transparent; /* Make the text itself transparent */
+    -webkit-text-stroke: 2px #a64929; /* Apply colored border */
+    display: flex;
+    height: 10px !important;
+    margin-bottom: 120px;
+}
+
+/* Services End CSS */
+
+/* Milestone Start CSS */
+
+#milestones-achieved {
+    background: #191919;
+} 
+
+/* Milestone End CSS */
+
+/* Blog Start CSS */
+
+#blog .card {
+    background-color: var(--black) !important;
+    color: white !important;
+}
+/* Blog End CSS */

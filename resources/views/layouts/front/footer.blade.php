@@ -126,21 +126,33 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__social-media__column">
                                             <li>
+<<<<<<< HEAD
                                                 <a href="{{Utility::getsettings('contact_facebook')}}">
+=======
+                                                <a href="{{Utility::getsettings('facebook_link')}}">
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Facebook
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
+<<<<<<< HEAD
                                                 <a href="{{Utility::getsettings('contact_instagram')}}">
+=======
+                                                <a href="{{Utility::getsettings('instagram_link')}}">
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         instagram
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
+<<<<<<< HEAD
                                                 <a href="{{Utility::getsettings('contact_twitter')}}">
+=======
+                                                <a href="{{Utility::getsettings('twitter_link')}}">
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         twitter
                                                     </p>
@@ -169,10 +181,17 @@
                                             Call Us
                                         </p>
                                         <h3 class="footer__contact-number ui heading size-headingxs">
+<<<<<<< HEAD
                                            {{ Utility::getsettings('contact_phone1') }}
                                         </h3>
                                         <h3 class="footer__contact-number--alternate ui heading size-headingxs">
                                             {{ Utility::getsettings('contact_phone2') }}
+=======
+                                            {{Utility::getsettings('contact_phone1')}}
+                                        </h3>
+                                        <h3 class="footer__contact-number--alternate ui heading size-headingxs">
+                                            {{Utility::getsettings('contact_phone2')}}
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
                                         </h3>
                                     </div>
                                     <div class="section__header">
@@ -180,7 +199,7 @@
                                             Corporate Office
                                         </p>
                                         <p class="footer__address-details ui text size-textlg">
-                                            61973 State 415 Rte, Cohocton, New York 14826, USA
+                                            {{Utility::getsettings('contact_address')}}
                                         </p>
                                     </div>
                                 </div>
@@ -209,4 +228,8 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<<<<<<< HEAD
 <script src="{{ asset('/front_assets/assets/js/home.js') }}"></script>
+=======
+<script src="{{ asset('assets/front_assets/assets/js/home.js') }}?v=<?= time() ?>"></script>
+>>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
