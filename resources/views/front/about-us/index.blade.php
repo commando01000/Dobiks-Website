@@ -73,7 +73,6 @@
                     </div>
                 </div>
             </section>
-
             <section class="carousel-section mt-5 pt-5 pb-5 position-relative">
 
                 <div class="container">
