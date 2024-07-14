@@ -10,7 +10,6 @@
                 </h1>
                 <small class="content-section__description fs-6">HOME / SERVICES</small>
             </div>
-
             @include('front.projects-section.projects')
         </main>
     </section>
