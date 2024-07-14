@@ -13,6 +13,11 @@
     </div>
 @endsection
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
@@ -20,27 +25,29 @@
                     <div class="table-responsive">
                         <div id="users-table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 
+
                             <div class="dataTable-container">
                                 <div class="col-sm-12">
-                                    <table class="table dataTable no-footer" id="users-table" width="100%" role="grid" aria-describedby="users-table_info" style="width: 100%;">
+                                    <table class="table dataTable no-footer" id="users-table" width="100%" role="grid"
+                                        aria-describedby="users-table_info" style="width: 100%;">
                                         <thead>
-                                        <tr role="row">
-                                            <th title="Name" >{{__('full_name')}}</th>
-                                            <th title="Email">{{__('company_name')}}</th>
-                                            <th title="Role">{{__('Phone')}}</th>
-                                            <th title="Role">{{__('service')}}</th>
+                                            <tr role="row">
+                                                <th title="Name">{{ __('full_name') }}</th>
+                                                <th title="Email">{{ __('company_name') }}</th>
+                                                <th title="Role">{{ __('Phone') }}</th>
+                                                <th title="Role">{{ __('service') }}</th>
 
-                                        </tr>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach ($contact_us as $contact)
-                                            <tr role="row" class="odd">
-                                                <td class="sorting_1">{{ $contact->full_name }}</td>
-                                                <td>{{ $contact->company_name }}</td>
-                                                <td>{{ $contact->phone }}</td>
-                                                <td>{{ $contact->service }}</td>
-                                            </tr>
-                                        @endforeach
+                                            @foreach ($contact_us as $contact)
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1">{{ $contact->full_name }}</td>
+                                                    <td>{{ $contact->company_name }}</td>
+                                                    <td>{{ $contact->phone }}</td>
+                                                    <td>{{ $contact->service }}</td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
 
@@ -59,6 +66,4 @@
 @endsection
 @push('style')
     @include('layouts.includes.datatable-css')
-
 @endpush
-

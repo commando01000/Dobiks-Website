@@ -176,12 +176,11 @@
                             <a class="dash-link"
                                 href="{{ route('project-category.index') }}">{{ __('categoris') }}</a>
                         </li>
-                        {{-- <li class="dash-item ">
-                            <a class="dash-link" href="{{ route('advertisement.index') }}">{{ __('Ads') }}</a>
-                        </li> --}}
+
                         <li class="dash-item ">
-                            <a class="dash-link" href="{{ route('client.index') }}">{{ __('clients') }}</a>
+                            <a class="dash-link" href="{{ route('leadership.index') }}">{{ __('clients') }}</a>
                         </li>
+
                         <li class="dash-item ">
                             <a class="dash-link" href="{{ route('faqs.index') }}">{{ __('FAQ') }}</a>
                         </li>

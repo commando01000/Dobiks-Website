@@ -23,6 +23,7 @@ class Contact_UsController extends Controller
             'phone'=>$request->phone,
             'service'=>$request->service
         ]);
+        return redirect()->route('contact')->with('success', __('Contact us created successfully.'));
 
     }
 }

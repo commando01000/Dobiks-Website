@@ -28,7 +28,7 @@ use App\Http\Controllers\Back\SettingsController;
 use App\Http\Controllers\Back\ModuleController;
 use App\Http\Controllers\Back\UserController;
 use App\Http\Controllers\Back\LandingPageController;
-
+use App\Http\Controllers\Back\LeadrshipController;
 use App\Http\Controllers\Front\Home_frontController;
 use App\Http\Controllers\Front\Blog_frontController;
 use App\Http\Controllers\Front\Project_frontController;
@@ -97,12 +97,18 @@ Route::group([
 
     // });
     //clients
-    Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::resource('cp/client', ClientController::class)->except(['show']);
-        Route::resource('cp/client', ClientController::class);
-        // Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
+    // Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
+    //     Route::resource('cp/client', ClientController::class)->except(['show']);
+    //     Route::resource('cp/client', ClientController::class);
+    //     // Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
 
+    // });
+
+    //Leadership
+    Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
+       Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
     });
+
     //faqs
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::resource('cp/faqs', FaqController::class);
