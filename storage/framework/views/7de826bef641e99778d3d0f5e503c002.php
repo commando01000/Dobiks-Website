@@ -1,7 +1,32 @@
 
 
+<style>
+    .message-container {
+        position: fixed;
+        /* Use fixed positioning */
+        top: 80px;
+        /* Distance from the top */
+        right: 20px;
+        /* Distance from the right */
+        z-index: 1000;
+        /* Ensure it sits above other content */
+    }
+</style>
+<script>
+    setTimeout(function() {
+        document.getElementsByClassName("message-container")[0].style.display = "none";
+    }, 2000);
+</script>
 <!-- Contact-Us Section -->
 <?php $__env->startSection('content'); ?>
+    <?php if(session()->has('message')): ?>
+        <div class="message-container">
+            <div class="alert alert-success">
+                <?php echo e(session()->get('message')); ?>
+
+            </div>
+        </div>
+    <?php endif; ?>
     <section id="section-contact-us" class="section p-1">
         <main class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
@@ -26,10 +51,10 @@
             <div class="row gx-2">
                 <div class="col-md-6">
                     <!-- <label class="form-group">
-                                                <input type="text" class="form-control" required="" />
-                                                <span>Full name here</span>
-                                                <span class="border"></span>
-                                              </label> -->
+                                                                        <input type="text" class="form-control" required="" />
+                                                                        <span>Full name here</span>
+                                                                        <span class="border"></span>
+                                                                      </label> -->
                     <div class="inline-container d-flex align-items-center flex-row">
                         <!-- Added container for inline elements -->
                         <span class="d-inline-block content-section__description ui text size-textmd">WAITING</span>
@@ -41,49 +66,54 @@
                         </h2>
                         <h1 class="content-section__title">Register Form</h1>
                         <div class="row flex-wrap gy-2">
-                            <div class="col-md-12">
-                                <div class="mb-5">
-                                    <label for="name" class="col-form-label text-white">Full Name <span
-                                            style="color: #ff5101"> *</span></label>
-                                    <input type="text" class="form-control text-white" name="name" id="name"
-                                        placeholder="Your name" />
-                                </div>
-                                <div class="mb-5">
-                                    <label for="c_name" class="col-form-label text-white">Company Name
-                                        <span style="color: #ff5101"> *</span></label>
-                                    <input type="text" class="form-control text-white" name="c_name" id="c_name"
-                                        placeholder="Company Name here" />
-                                </div>
-                                <div class="mb-5">
-                                    <label for="ph_number" class="col-form-label text-white">
-                                        Phone number here
-                                        <span style="color: #ff5101"> *</span></label>
-                                    <input type="text" class="form-control text-white" name="Company Name here"
-                                        id="ph_number" placeholder="Phone Number" />
-                                </div>
-                                <div class="mb-5">
-                                    <div class="row gx-1 justify-content-around gy-1">
-                                        <div class="col-md-12">
-                                            <label for="c_name" class="col-form-label text-white">
-                                                Select Service
-                                                <span style="color: #ff5101"> *</span></label>
-                                            <br />
-                                            <a name="FACEBOOK" id="FACEBOOK" class="btn ps-5 pe-5 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">FACEBOOK</a>
-                                            <a name="TWITTER" id="TWITTER" class="btn ps-5 pe-5 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">TWITTER</a>
-                                            <a name="LINKEDIN" id="LINKEDIN" class="btn ps-5 pe-5 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">LINKEDIN</a>
-                                            <a name="INSTAGRAM" id="INSTAGRAM" class="btn ps-5 pe-5 mt-1 border-0"
-                                                style="color: white; background-color: #ff5101" href="#"
-                                                role="button">INSTAGRAM</a>
+                            <form method="post" action="<?php echo e(route('contact_us.store')); ?>">
+                                <?php echo csrf_field(); ?>
+                                <div class="col-md-12">
+                                    <div class="mb-5">
+                                        <label for="name" class="col-form-label text-white">Full Name <span
+                                                style="color: #ff5101"> *</span></label>
+                                        <input type="text" class="form-control text-white" name="full_name"
+                                            id="name" placeholder="Your name" />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="c_name" class="col-form-label text-white">Company Name
+                                            <span style="color: #ff5101"> *</span></label>
+                                        <input type="text" class="form-control text-white" name="company_name"
+                                            id="c_name" placeholder="Company Name here" />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="ph_number" class="col-form-label text-white">
+                                            Phone number here
+                                            <span style="color: #ff5101"> *</span></label>
+                                        <input type="text" class="form-control text-white" name="phone" id="ph_number"
+                                            placeholder="Phone Number" />
+                                    </div>
+                                    <div class="mb-5">
+                                        <div class="row gx-1 justify-content-around gy-1">
+                                            <div class="col-md-12">
+                                                <label for="c_name" class="col-form-label text-white">
+                                                    Select Service
+                                                    <span style="color: #ff5101"> *</span></label>
+                                                <br />
+                                                <a name="FACEBOOK" id="FACEBOOK" class="btn ps-5 pe-5 border-0"
+                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    role="button">FACEBOOK</a>
+                                                <a name="TWITTER" id="TWITTER" class="btn ps-5 pe-5 border-0"
+                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    role="button">TWITTER</a>
+                                                <a name="LINKEDIN" id="LINKEDIN" class="btn ps-5 pe-5 border-0"
+                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    role="button">LINKEDIN</a>
+                                                <a name="INSTAGRAM" id="INSTAGRAM" class="btn ps-5 pe-5 mt-1 border-0"
+                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    role="button">INSTAGRAM</a>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -128,6 +158,7 @@
                     </div>
                 </button>
             </div>
+            </form>
 
             <div class="row gx-0">
                 <div class="col-md-4">

@@ -58,12 +58,8 @@
                         </div>
                     </div>
                     {{ $contact_us->links() }}
-
                 </div>
             </div>
         </div>
     </div>
 @endsection
-@push('style')
-    @include('layouts.includes.datatable-css')
-@endpush

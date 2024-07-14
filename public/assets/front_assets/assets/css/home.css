@@ -75,15 +75,9 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     src: url(/assetsfront_assets/assets/fonts/Syne-Medium.ttf);
-=======
     src: url(/assets/fonts/Syne-Medium.ttf);
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
-=======
     src: url(/assets/front_assets/assets/fonts/Syne-Medium.ttf);
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Syne";
     font-weight: 500;
 }
@@ -91,15 +85,9 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     src: url(/assetsfront_assets/assets/fonts/Inter-Regular.ttf);
-=======
     src: url(/assets/fonts/Inter-Regular.ttf);
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
-=======
     src: url(/assets/front_assets/assets/fonts/Inter-Regular.ttf);
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Inter";
     font-weight: 400;
 }
@@ -115,15 +103,9 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/Syne-Regular.ttf);
-=======
     src: url(/assets/fonts/Syne-Regular.ttf);
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
-=======
     src: url(/assets/front_assets/assets/fonts/Syne-Regular.ttf);
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Syne";
     font-weight: 400;
 }
@@ -139,15 +121,9 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/DMSans-Regular.ttf);
-=======
     src: url(/assets/fonts/DMSans-Regular.ttf);
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
-=======
     src: url(/assets/front_assets/assets/fonts/DMSans-Regular.ttf);
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "DM Sans";
     font-weight: 400;
 }
@@ -155,15 +131,9 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/DMSans-Bold.ttf);
-=======
     src: url(/assets/fonts/DMSans-Bold.ttf);
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
-=======
     src: url(/assets/front_assets/assets/fonts/DMSans-Bold.ttf);
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "DM Sans";
     font-weight: 700;
 }
@@ -171,15 +141,9 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/DMSans-Medium.ttf);
-=======
     src: url(/assets/fonts/DMSans-Medium.ttf);
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
-=======
     src: url(/assets/front_assets/assets/fonts/DMSans-Medium.ttf);
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "DM Sans";
     font-weight: 500;
 }
@@ -187,15 +151,9 @@ select:focus-visible {
 @font-face {
     font-display: swap;
     font-style: normal;
-<<<<<<< HEAD
-<<<<<<< HEAD
     src: url(/assets/front_assets/assets/fonts/segoe-ui.ttf);
-=======
     src: url(/assets/fonts/segoe-ui.ttf);
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
-=======
     src: url(/assets/front_assets/assets/fonts/segoe-ui.ttf);
->>>>>>> 0640c2775d9cef2d9b673a5d935119ff39c8e6bf
     font-family: "Segoe UI";
     font-weight: 400;
 }
@@ -290,16 +248,14 @@ select:focus-visible {
     top: 0 !important;
     width: 100% !important;
     z-index: 1000 !important; /* ensures the navbar stays on top of other content */
+    background-color: #1a1a1a;
 }
 
 .navbar-scrolling-bg {
-<<<<<<< HEAD
     background-color: #333 !important; /* Choose your color
         * with ease */
-=======
     background-color: #333 !important; /* Choose your color 
           * with ease */
->>>>>>> ad6d635197b226b37e5e0329a9e745a927ddb03a
     transition: background-color 0.3s ease-in;
 }
 
@@ -1709,7 +1665,7 @@ select:focus-visible {
 
 #milestones-achieved {
     background: #191919;
-} 
+}
 
 /* Milestone End CSS */
 
@@ -1720,3 +1676,15 @@ select:focus-visible {
     color: white !important;
 }
 /* Blog End CSS */
+
+/* Backend Contact-Us CSS */
+
+.hidden {
+    display: none !important;
+}
+
+/* Backend Contact-Us CSS */
+
+/* Services Start CSS */
+
+/* Services End CSS */
