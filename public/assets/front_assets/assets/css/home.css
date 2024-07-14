@@ -1720,3 +1720,12 @@ select:focus-visible {
     color: white !important;
 }
 /* Blog End CSS */
+
+
+/* Backend Contact-Us CSS */
+
+.hidden {
+    display: none !important;
+}
+
+/* Backend Contact-Us CSS */
