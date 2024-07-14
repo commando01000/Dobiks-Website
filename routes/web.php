@@ -106,14 +106,22 @@ Route::group([
 
     //Leadership
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-       Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
-       Route::get('cp/leadership/create', [LeadrshipController::class, 'create'])->name('leadership.create');
-       Route::post('cp/leadership/store', [LeadrshipController::class, 'store'])->name('leadership.store');
-       Route::get('cp/leadership/{leadership}/edit', [LeadrshipController::class, 'edit'])->name('leadership.edit');
-       Route::post('cp/leadership/update/{leadership}', [LeadrshipController::class, 'update'])->name('leadership.update');
-       Route::get('cp/leadership/delete/{leadership}', [LeadrshipController::class, 'destroy'])->name('leadership.destroy');
+        Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
+        Route::get('cp/leadership/create', [LeadrshipController::class, 'create'])->name('leadership.create');
+        Route::post('cp/leadership/store', [LeadrshipController::class, 'store'])->name('leadership.store');
+        Route::get('cp/leadership/{leadership}/edit', [LeadrshipController::class, 'edit'])->name('leadership.edit');
+        Route::post('cp/leadership/update/{leadership}', [LeadrshipController::class, 'update'])->name('leadership.update');
+        Route::get('cp/leadership/delete/{leadership}', [LeadrshipController::class, 'destroy'])->name('leadership.destroy');
     });
-
+    //clients
+    Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
+        Route::get('cp/client', [ClientController::class, 'index'])->name('client.index');
+        Route::get('cp/client/create', [ClientController::class, 'create'])->name('client.create');
+        Route::post('cp/client/store', [ClientController::class, 'store'])->name('client.store');
+        Route::get('cp/client/{client}/edit', [ClientController::class, 'edit'])->name('client.edit');
+        Route::post('cp/client/update/{client}', [ClientController::class, 'update'])->name('client.update');
+        Route::get('cp/client/delete/{client}', [ClientController::class, 'destroy'])->name('client.destroy');
+    });
     //faqs
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::resource('cp/faqs', FaqController::class);
@@ -296,12 +304,9 @@ Route::group([
         });
     });
     Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::get('contact_us/view',[Contact_UsController::class,'index'])->name('contact_us.index');
-        Route::post('contact_us/store',[Contact_UsController::class,'store'])->name('contact_us.store');
-
-
+        Route::get('contact_us/view', [Contact_UsController::class, 'index'])->name('contact_us.index');
+        Route::post('contact_us/store', [Contact_UsController::class, 'store'])->name('contact_us.store');
     });
-
 });
 
 /** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/

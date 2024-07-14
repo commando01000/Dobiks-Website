@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', __('Contact_us')); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
@@ -59,14 +60,9 @@
                     </div>
                     <?php echo e($contact_us->links()); ?>
 
-
                 </div>
             </div>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-<?php $__env->startPush('style'); ?>
-    <?php echo $__env->make('layouts.includes.datatable-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php $__env->stopPush(); ?>
-
 <?php echo $__env->make('layouts.back.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\company\backend\resources\views/back/contact_us/index.blade.php ENDPATH**/ ?>

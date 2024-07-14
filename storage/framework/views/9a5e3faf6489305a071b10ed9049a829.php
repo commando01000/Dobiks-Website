@@ -176,9 +176,11 @@
                             <a class="dash-link"
                                 href="<?php echo e(route('project-category.index')); ?>"><?php echo e(__('categoris')); ?></a>
                         </li>
-
                         <li class="dash-item ">
-                            <a class="dash-link" href="<?php echo e(route('leadership.index')); ?>"><?php echo e(__('clients')); ?></a>
+                            <a class="dash-link" href="<?php echo e(route('client.index')); ?>"><?php echo e(__('clients')); ?></a>
+                        </li>
+                        <li class="dash-item ">
+                            <a class="dash-link" href="<?php echo e(route('leadership.index')); ?>"><?php echo e(__('Leaderships')); ?></a>
                         </li>
 
                         <li class="dash-item ">

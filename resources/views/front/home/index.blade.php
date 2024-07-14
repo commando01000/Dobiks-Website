@@ -120,7 +120,7 @@
                         <div class="section__feature-bg"></div>
                         <div class="team-section__action-content">
                             <p class="section__call-to-action-text ui text size-btn_text">
-                                view all Leadership
+                              <a href="{{route('about-us')}}">  view all Leadership<a>
                             </p>
                             <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
                                 class="section__call-to-action-icon" />
@@ -129,36 +129,20 @@
                 </div>
             </div>
             <div class="team-section__members">
-                <div class="user-profile">
-                    <img src="{{ asset('assets/front_assets/images/img_placeholder_350x292.png') }}" alt="profile image"
-                        class="user-profile__image" />
-                    <p class="user-profile__name ui text size-textxl">
-                        Ahmed bakry
-                    </p>
-                    <p class="user-profile__role ui text size-texts">
-                        Managing Director
-                    </p>
-                </div>
-                <div class="user-profile">
-                    <img src="{{ asset('assets/front_assets/images/img_placeholder_312x260.png') }}" alt="profile image"
-                        class="user-profile__image pt-5" />
-                    <p class="user-profile__name ui text size-textxl">
-                        Osama mohsen
-                    </p>
-                    <p class="user-profile__role ui text size-texts">
-                        UI/UX Designer
-                    </p>
-                </div>
-                <div class="user-profile">
-                    <img src="{{ asset('assets/front_assets/images/img_placeholder_8.png') }}" alt="profile image"
-                        class="user-profile__image" />
-                    <p class="user-profile__name ui text size-textxl">
-                        Eslam maged
-                    </p>
-                    <p class="user-profile__role ui text size-texts">
-                        Financial Officer
-                    </p>
-                </div>
+                @foreach ($leaderships as $leadership)
+
+                    <div class="user-profile">
+                        <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
+                            class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
+                        <p class="user-profile__name ui text size-textxl">
+                            {{ $leadership->name }}
+                        </p>
+                        <p class="user-profile__role ui text size-texts">
+                            {{ $leadership->position }}
+                        </p>
+                    </div>
+
+                @endforeach
             </div>
         </div>
     </div>

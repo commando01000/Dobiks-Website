@@ -1,138 +1,85 @@
 <?php
 
-namespace App\Http\Controllers\back;
+namespace App\Http\Controllers\Back;
 
-use App\DataTables\ClientDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\client;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ClientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(ClientDataTable $dataTable)
+    public function index()
     {
-
-            if (\Auth::user()->can('manage-blog')) {
-
-                return $dataTable->render('back/Clients.index');
-            } else {
-                return redirect()->back()->with('failed', __('Permission denied.'));
-            }
-
+        $clients = Client::paginate(10);
+        return view('back.client.index', compact('clients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-
-     public function create()
-     {
-         if (\Auth::user()->can('create-blog')) {
-             return view('back/Clients.create');
-         } else {
-             return redirect()->back()->with('failed', __('Permission denied.'));
-         }
-     }
-
-    /**
-     * Store a newly created resource in storage.
-     */  public function store(Request $request)
+    public function create()
     {
-        if (\Auth::user()->can('create-blog')) {
+        return view('back.client.create');
+    }
+
+    public function store(Request $request)
+    {
+        request()->validate([
+            'name'             => 'required',
+            'cover'            => 'image|mimes:jpg,jpeg,png',
+            'description'       => 'nullable|string',
+        ]);
+        if ($request->hasFile('cover')) {
             request()->validate([
-                'name'             => 'required',
-                'cover'            => 'image|mimes:jpg,jpeg,png',
-                'body'       => 'required',
+                'cover' => 'mimes:jpg,jpeg,png',
             ]);
-
-
-
-
-            if ($request->hasFile('cover')) {
-                request()->validate([
-                    'cover' => 'mimes:jpg,jpeg,png',
-                ]);
-                $path = $request->file('cover')->store('clients');
-            }
-
-              client::create([
-                "name"                 => $request->name,
-                'description'           => $request->body,
-                'builder'           => request()->builder ?? "off",
-                'cover'                => $path,
-                'created_by'            => \Auth::user()->id,
-            ]);
-
-
-
-            return redirect()->route('client.index')->with('success', __('client created successfully.'));
-        } else {
-            return redirect()->back()->with('failed', __('Permission denied.'));
+            $path = $request->file('cover')->store('clients');
         }
+
+          client::create([
+            "name"                 => $request->name,
+            'description'           => $request->description,
+            'cover'                => $path,
+            'created_by'            => \Auth::user()->id,
+        ]);
+
+
+        return redirect()->route('client.index')->with('success', __('client created successfully.'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(client $client)
+    public function edit(Client $client)
     {
-        //
+        return view('back.client.edit', compact('client'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(client $client)
+    public function update(Request $request, Client $client)
     {
-        if (\Auth::user()->can('edit-blog')) {
-            return view('back/Clients.edit', compact('client'));
-        } else {
-            return redirect()->back()->with('failed', __('Permission denied.'));
-        }
-    }
+        request()->validate([
+            'name'             => 'required',
+            'cover'            => 'image|mimes:jpg,jpeg,png',
+            'description'       => 'nullable|string',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, client $client)
-    {
-        if (\Auth::user()->can('edit-blog')) {
+        if ($request->hasFile('cover')) {
             request()->validate([
-                'name'             => 'required',
-                'body'       => 'required',
+                'cover' => 'required|image|mimes:jpg,png,jpeg',
             ]);
-
-            if ($request->hasFile('cover')) {
-                request()->validate([
-                    'cover' => 'required|image|mimes:jpg,png,jpeg',
-                ]);
-                $old_cover = $client->cover;
-                $path           = $request->file('cover')->store('blog');
-                $client->cover   = $path;
-            }
-            $client->builder               = $request->builder ?? "off";
-            $client->name                 = $request->name;
-            $client->description           = $request->body;
-            $client->created_by            = \Auth::user()->id;
-            $client->save();
-            if(isset($old_cover))
-            Storage::delete($old_cover);
-
-            return redirect()->route('client.index')->with('success', __('projects updated successfully.'));
-        } else {
-            return redirect()->back()->with('failed', __('Permission denied.'));
+            $old_cover = $client->cover;
+            $path           = $request->file('cover')->store('clients');
+            $client->cover   = $path;
         }
+
+        $client->name                 = $request->name;
+        $client->description           = $request->description;
+        $client->created_by            = \Auth::user()->id;
+        $client->save();
+        if(isset($old_cover))
+        Storage::delete($old_cover);
+
+        return redirect()->route('client.index')->with('success', __('projects updated successfully.'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(client $client)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('client.index')->with('success', __('client deleted successfully.'));
     }
 }

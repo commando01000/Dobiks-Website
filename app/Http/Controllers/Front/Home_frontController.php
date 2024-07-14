@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Facades\UtilityFacades;
 use App\Models\advertisement;
 use App\Models\Blog;
-use App\Models\client;
+use App\Models\Client;
 use App\Models\Project;
 use App\Models\Faq;
+use App\Models\Leadership;
 use App\Models\MenuSetting;
+use App\Models\ProjectCategory;
 use App\Models\Testimonial;
 
 
@@ -28,14 +30,21 @@ class Home_frontController extends Controller
         $footerMainMenus = MenuSetting::where('parent_id', 0)->get();
         $businessGrowthsViewSettings = json_decode(UtilityFacades::getsettings('business_growth_view_setting'));
         $businessGrowthsSettings = json_decode(UtilityFacades::getsettings('business_growth_setting'));
-        $blogs = Blog::take(3)->orderby('id','desc')->get();
-        $projects = Project::take(2)->orderby('id','desc')->get();
+        $blogs = Blog::take(3)->orderby('id', 'desc')->get();
+        $projects = Project::take(2)->orderby('id', 'desc')->get();
         $currentDate = now()->toDateString();
         $cover_project = Project::first();
-        $cover_ad = Project::where("project_category" , 2)->first();
-        $clients  = client::where("builder","on")->get();
+        $clients = Client::all();
+        $leaderships = Leadership::latest()->take(3)->get();
+        $recentProjects    = Project::latest()->take(3)->get();
+        $lastProject       = Project::latest()->first();
+        $allProjects      = Project::with("category")->get();
+        $categories     = ProjectCategory::all();
         if (UtilityFacades::getsettings('landing_page') == 1) {
             return view('front.home.index', compact(
+                'clients',
+                'leaderships',
+                'categories',
                 'appsMultipleImageSettings',
                 'faqs',
                 'testimonials',
@@ -44,11 +53,9 @@ class Home_frontController extends Controller
                 'businessGrowthsViewSettings',
                 'businessGrowthsSettings',
                 'blogs',
-                'projects',
                 'lang',
-                "clients",
                 "cover_project",
-                "cover_ad"
+
             ));
         } else {
             return redirect()->route('login');

@@ -28,26 +28,11 @@
                                                         href="<?php echo e(route('about-us')); ?>">About Dopiks</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link nav-list__item--services-text ui text size-texts dropdown-toggle"
-                                                        href="#" id="navbarDropdownMenuLink" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a class="nav-link nav-list__item--services-text ui text size-texts <?php echo e(Route::is('services') ? 'active' : ''); ?>"
+                                                        href="<?php echo e(route('services')); ?>">
                                                         Services
                                                     </a>
-                                                    <ul class="dropdown-menu bg-dark"
-                                                        aria-labelledby="navbarDropdownMenuLink">
-                                                        <li>
-                                                            <a class="dropdown-item text-white" href="#">Menu
-                                                                1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-white" href="#">Menu
-                                                                2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-white" href="#">Menu
-                                                                3</a>
-                                                        </li>
-                                                    </ul>
+                                                    
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts"

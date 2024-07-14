@@ -58,79 +58,14 @@
                 </button>
             </li>
         </ul>
-        <!-- <div class="section__tabs">
-    <span
-      class="section__tab-item active"
-      id="tab01"
-      role="tab"
-      aria-controls="tabpanel01"
-      aria-selected="true"
-      tabindex="0"
-      style="cursor: pointer"
-    >
-      Creative Designs</span
-    >
-    <span
-      class="section__tab-item"
-      id="tab11"
-      role="tab"
-      aria-controls="tabpanel11"
-      aria-selected="false"
-      tabindex="-1"
-      style="cursor: pointer"
-    >
-      Motion Graphics</span
-    >
-    <span
-      class="section__tab-item"
-      id="tab21"
-      role="tab"
-      aria-controls="tabpanel21"
-      aria-selected="false"
-      tabindex="-1"
-      style="cursor: pointer"
-    >
-      Video Shooting</span
-    >
-    <span
-      class="section__tab-item"
-      id="tab31"
-      role="tab"
-      aria-controls="tabpanel31"
-      aria-selected="false"
-      tabindex="-1"
-      style="cursor: pointer"
-    >
-      Event Management</span
-    >
-    <span
-      class="section__tab-item"
-      id="tab41"
-      role="tab"
-      aria-controls="tabpanel41"
-      aria-selected="false"
-      tabindex="-1"
-      style="cursor: pointer"
-    >
-      Interior – Luxury Living</span
-    >
-    <span
-      class="section__tab-item"
-      id="tab51"
-      role="tab"
-      aria-controls="tabpanel51"
-      aria-selected="false"
-      tabindex="-1"
-      style="cursor: pointer"
-    >
-      ui/ux design</span
-    >
-  </div> -->
+
         <div class="tab-content w-100" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-creative-design-clients" role="tabpanel"
                 aria-labelledby="pills-creative-design-clients-tab" tabindex="0">
                 <div class="container">
                     <div class="row gx-5 gy-5">
+                        @foreach ($clients as $client)
+
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
                                 style="
@@ -139,102 +74,16 @@
             background-color: #1a1a1a;
           ">
                                 <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
-                                        alt="item" />
+                                    <img src="{{ Storage::url($client->cover) }}" class="w-100" alt="item" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_02.png') }}" class="w-100"
-                                        alt="item" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_03.png') }}" class="w-100"
-                                        alt="item" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_04_2.png') }}" class="w-100"
-                                        alt="item" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_05.png') }}" class="w-100"
-                                        alt="item" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
-                                        alt="item" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
-                                        alt="item" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ asset('assets/front_assets/images/img_01_1.png') }}" class="w-100"
-                                        alt="item" />
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
+
+
+
                     </div>
                 </div>
             </div>
