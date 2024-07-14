@@ -55,7 +55,8 @@
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-text"
+                                                    <a href="{{ route('our-clients') }}"
+                                                        class="nav-link nav-list__item--about ui text size-text {{ Route::is('our-clients') ? 'active' : '' }}"
                                                         href="#section-clients">Our clients</a>
                                                 </li>
                                                 <li class="nav-item">

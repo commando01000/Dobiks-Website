@@ -106,7 +106,7 @@ Route::group([
 
     //Leadership
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-       Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
+        Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
     });
 
     //faqs
@@ -291,12 +291,9 @@ Route::group([
         });
     });
     Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::get('contact_us/view',[Contact_UsController::class,'index'])->name('contact_us.index');
-        Route::post('contact_us/store',[Contact_UsController::class,'store'])->name('contact_us.store');
-
-
+        Route::get('contact_us/view', [Contact_UsController::class, 'index'])->name('contact_us.index');
+        Route::post('contact_us/store', [Contact_UsController::class, 'store'])->name('contact_us.store');
     });
-
 });
 
 /** OTHER PAGES THAT SHOULD NOT BE LOCALIZED **/
@@ -363,6 +360,9 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('services', function () {
         return view('front.services.index');
     })->name('services');
+    Route::get('our-clients', function () {
+        return view('front.our-clients.index');
+    })->name('our-clients');
     Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
