@@ -360,7 +360,9 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('gallery/{id}', [Gallery_frontController::class, 'view'])->name('view.gallery');
     Route::get('contact', [frontContact::class, 'index'])->name('contact');
     Route::get('join', [frontContact::class, 'join'])->name('join');
-
+    Route::get('services', function () {
+        return view('front.services.index');
+    })->name('services');
     Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 

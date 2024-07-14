@@ -28,12 +28,11 @@
                                                         href="{{ route('about-us') }}">About Dopiks</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link nav-list__item--services-text ui text size-texts dropdown-toggle"
-                                                        href="#" id="navbarDropdownMenuLink" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a class="nav-link nav-list__item--services-text ui text size-texts {{ Route::is('services') ? 'active' : '' }}"
+                                                        href="{{ route('services') }}">
                                                         Services
                                                     </a>
-                                                    <ul class="dropdown-menu bg-dark"
+                                                    {{-- <ul class="dropdown-menu bg-dark"
                                                         aria-labelledby="navbarDropdownMenuLink">
                                                         <li>
                                                             <a class="dropdown-item text-white" href="#">Menu
@@ -47,7 +46,7 @@
                                                             <a class="dropdown-item text-white" href="#">Menu
                                                                 3</a>
                                                         </li>
-                                                    </ul>
+                                                    </ul> --}}
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts"
