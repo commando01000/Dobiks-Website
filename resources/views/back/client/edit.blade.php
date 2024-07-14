@@ -7,7 +7,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item"><a href="{{ route('client.index') }}">{{ __('clients') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('customer.index') }}">{{ __('clients') }}</a></li>
             <li class="breadcrumb-item active">{{ __('edit client') }}</li>
         </ul>
     </div>
@@ -21,7 +21,7 @@
                         <h5> {{ __('edit client') }}</h5>
                     </div>
                     {!! Form::open([
-                        'route' => ['client.update', 'client' => $client->id], // Adding 'id' => $client->id to pass the ID
+                        'route' => ['customer.update', 'client' => $client->id], // Adding 'id' => $client->id to pass the ID
                         'method' => 'post',
                         'enctype' => 'multipart/form-data',
                         'data-validate',
@@ -67,7 +67,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
-                            {!! Html::link(route('client.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
+                            {!! Html::link(route('customer.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
                             {{ Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
                         </div>
                     </div>

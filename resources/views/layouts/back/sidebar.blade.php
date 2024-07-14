@@ -177,7 +177,7 @@
                                 href="{{ route('project-category.index') }}">{{ __('categoris') }}</a>
                         </li>
                         <li class="dash-item ">
-                            <a class="dash-link" href="{{ route('client.index') }}">{{ __('clients') }}</a>
+                            <a class="dash-link" href="{{ route('customer.index') }}">{{ __('Customers') }}</a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link" href="{{ route('leadership.index') }}">{{ __('Leaderships') }}</a>

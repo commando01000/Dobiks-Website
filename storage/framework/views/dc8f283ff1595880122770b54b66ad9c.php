@@ -17,7 +17,7 @@
             <div class="col-lg-12">
                 
                 <div class="float-left">
-                    <a href="<?php echo e(route('client.create')); ?>"
+                    <a href="<?php echo e(route('customer.create')); ?>"
                         class="btn btn-light-primary"><?php echo e(__('Create Clients')); ?></a>
                 </div>
                 
@@ -48,9 +48,9 @@
 
                         <td>
                             <div class="text-left">
-                                <a href="<?php echo e(route('client.edit', $client->id)); ?>"
+                                <a href="<?php echo e(route('customer.edit', $client->id)); ?>"
                                     class="btn btn-light-primary btn-sm"><?php echo e(__('Edit')); ?></a>
-                                <a href="<?php echo e(route('client.destroy', $client->id)); ?>"
+                                <a href="<?php echo e(route('customer.destroy', $client->id)); ?>"
                                     class="btn btn-light-danger btn-sm"><?php echo e(__('Delete')); ?></a>
                             </div>
                         </td>

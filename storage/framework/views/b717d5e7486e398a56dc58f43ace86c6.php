@@ -6,7 +6,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item"><a href="<?php echo e(route('client.index')); ?>"><?php echo e(__('client')); ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo e(route('customer.index')); ?>"><?php echo e(__('client')); ?></a></li>
             <li class="breadcrumb-item active"><?php echo e(__('Create client')); ?></li>
         </ul>
     </div>
@@ -20,7 +20,7 @@
                         <h5> <?php echo e(__('Create client')); ?></h5>
                     </div>
                     <?php echo Form::open([
-                        'route' => 'client.store',
+                        'route' => 'customer.store',
                         'method' => 'Post',
                         'enctype' => 'multipart/form-data',
                         'data-validate',
@@ -49,8 +49,9 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <?php echo e(Form::label('body', __('Description'), ['class' => 'form-label'])); ?> *
-                                    <?php echo Form::textarea('body', null, [
+                                    <?php echo e(Form::label('body', __('Description'), ['class' => 'form-label'])); ?>
+
+                                    <?php echo Form::textarea('description', null, [
                                         'class' => 'form-control ',
                                         'placeholder' => __('Enter description'),
                                     ]); ?>
@@ -61,7 +62,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
-                            <?php echo Html::link(route('client.index'), __('Cancel'), ['class' => 'btn btn-secondary']); ?>
+                            <?php echo Html::link(route('customer.index'), __('Cancel'), ['class' => 'btn btn-secondary']); ?>
 
                             <?php echo e(Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary'])); ?>
 

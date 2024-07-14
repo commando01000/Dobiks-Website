@@ -7,7 +7,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item"><a href="{{ route('client.index') }}">{{ __('client') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('customer.index') }}">{{ __('client') }}</a></li>
             <li class="breadcrumb-item active">{{ __('Create client') }}</li>
         </ul>
     </div>
@@ -21,7 +21,7 @@
                         <h5> {{ __('Create client') }}</h5>
                     </div>
                     {!! Form::open([
-                        'route' => 'client.store',
+                        'route' => 'customer.store',
                         'method' => 'Post',
                         'enctype' => 'multipart/form-data',
                         'data-validate',
@@ -47,7 +47,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} 
+                                    {{ Form::label('body', __('Description'), ['class' => 'form-label']) }}
                                     {!! Form::textarea('description', null, [
                                         'class' => 'form-control ',
                                         'placeholder' => __('Enter description'),
@@ -58,7 +58,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
-                            {!! Html::link(route('client.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
+                            {!! Html::link(route('customer.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
                             {{ Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
                         </div>
                     </div>

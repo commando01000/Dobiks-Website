@@ -22,7 +22,7 @@ use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Back\LanguageController;
 use App\Http\Controllers\Back\ProfileController;
 use App\Http\Controllers\Back\BusinessGrowthController;
-use App\Http\Controllers\back\ClientController;
+use App\Http\Controllers\Back\CustomerController;
 use App\Http\Controllers\Back\FeatureController;
 use App\Http\Controllers\Back\SettingsController;
 use App\Http\Controllers\Back\ModuleController;
@@ -48,10 +48,12 @@ use App\Http\Controllers\SmsController;
 use App\Http\Controllers\SmsTemplateController;
 use App\Http\Controllers\FormValueController;
 // use App\Http\Controllers\front\advertisementController as FrontAdvertisementController;
-use App\Http\Controllers\front\ClientsController;
+
 use App\Http\Controllers\MailTempleteController;
 use App\Models\advertisement;
+use App\Models\Client;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -98,8 +100,8 @@ Route::group([
     // });
     //clients
     // Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-    //     Route::resource('cp/client', ClientController::class)->except(['show']);
-    //     Route::resource('cp/client', ClientController::class);
+    //     Route::resource('cp/client', CustomerController::class)->except(['show']);
+    //     Route::resource('cp/client', CustomerController::class);
     //     // Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
 
     // });
@@ -115,12 +117,12 @@ Route::group([
     });
     //clients
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::get('cp/client', [ClientController::class, 'index'])->name('client.index');
-        Route::get('cp/client/create', [ClientController::class, 'create'])->name('client.create');
-        Route::post('cp/client/store', [ClientController::class, 'store'])->name('client.store');
-        Route::get('cp/client/{client}/edit', [ClientController::class, 'edit'])->name('client.edit');
-        Route::post('cp/client/update/{client}', [ClientController::class, 'update'])->name('client.update');
-        Route::get('cp/client/delete/{client}', [ClientController::class, 'destroy'])->name('client.destroy');
+        Route::get('cp/customer', [CustomerController::class, 'index'])->name('customer.index');
+        Route::get('cp/customer/create', [CustomerController::class, 'create'])->name('customer.create');
+        Route::post('cp/customer/store', [CustomerController::class, 'store'])->name('customer.store');
+        Route::get('cp/customer/{client}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+        Route::post('cp/customer/update/{client}', [CustomerController::class, 'update'])->name('customer.update');
+        Route::get('cp/customer/delete/{client}', [CustomerController::class, 'destroy'])->name('customer.destroy');
     });
     //faqs
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
@@ -305,7 +307,7 @@ Route::group([
     });
     Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('contact_us/view', [Contact_UsController::class, 'index'])->name('contact_us.index');
-        Route::post('contact_us/store', [Contact_UsController::class, 'store'])->name('contact_us.store');
+
     });
 });
 
@@ -371,8 +373,11 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('contact', [frontContact::class, 'index'])->name('contact');
     Route::get('join', [frontContact::class, 'join'])->name('join');
     Route::get('services', function () {
-        return view('front.services.index');
+        $categories     = ProjectCategory::all();
+        $clients = Client::all();
+        return view('front.services.index',compact('categories','clients'));
     })->name('services');
+    Route::post('contact_us/store', [Contact_UsController::class, 'store'])->name('contact_us.store');
     Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
@@ -382,7 +387,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     // Route::get('advertisements/{slug}/', [FrontAdvertisementController::class, 'viewAdvertisments'])->name('view.advertisment');
     // Route::get('advertisements', [FrontAdvertisementController::class, 'seeAllAdvertisements'])->name('see.all.advertisments');
     // Route::get('clients', [clientsController::class, 'seeAllClients'])->name('see.all.clients');
-    // Route::get('clients/{slug}/', [ClientsController::class, 'viewClients'])->name('view.client');
+    // Route::get('clients/{slug}/', [CustomerController::class, 'viewClients'])->name('view.client');
 
     Route::post('contact/mail', [frontContact::class, 'contactMail'])->name('contact.mail');
 });

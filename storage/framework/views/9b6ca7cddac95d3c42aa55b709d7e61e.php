@@ -6,7 +6,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item"><a href="<?php echo e(route('client.index')); ?>"><?php echo e(__('clients')); ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo e(route('customer.index')); ?>"><?php echo e(__('clients')); ?></a></li>
             <li class="breadcrumb-item active"><?php echo e(__('edit client')); ?></li>
         </ul>
     </div>
@@ -20,7 +20,7 @@
                         <h5> <?php echo e(__('edit client')); ?></h5>
                     </div>
                     <?php echo Form::open([
-                        'route' => ['client.update', 'client' => $client->id], // Adding 'id' => $client->id to pass the ID
+                        'route' => ['customer.update', 'client' => $client->id], // Adding 'id' => $client->id to pass the ID
                         'method' => 'post',
                         'enctype' => 'multipart/form-data',
                         'data-validate',
@@ -71,7 +71,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
-                            <?php echo Html::link(route('client.index'), __('Cancel'), ['class' => 'btn btn-secondary']); ?>
+                            <?php echo Html::link(route('customer.index'), __('Cancel'), ['class' => 'btn btn-secondary']); ?>
 
                             <?php echo e(Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary'])); ?>
 
