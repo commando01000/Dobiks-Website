@@ -51,7 +51,6 @@
                         </div>
                     </div>
                     {{ $contact_us->links() }}
-
                 </div>
             </div>
         </div>
