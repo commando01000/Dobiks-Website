@@ -12,16 +12,21 @@
         /* Ensure it sits above other content */
     }
 </style>
+<script>
+    setTimeout(function() {
+        document.getElementsByClassName("message-container")[0].style.display = "none";
+    }, 3000);
+</script>
 <!-- Contact-Us Section -->
 <?php $__env->startSection('content'); ?>
-<?php if(session()->has('message')): ?>
-<div class="message-container">
-    <div class="alert alert-success">
-        <?php echo e(session()->get('message')); ?>
+    <?php if(session()->has('message')): ?>
+        <div class="message-container">
+            <div class="alert alert-success">
+                <?php echo e(session()->get('message')); ?>
 
-    </div>
-</div>
-<?php endif; ?>
+            </div>
+        </div>
+    <?php endif; ?>
     <section id="section-contact-us" class="section p-1">
         <main class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
@@ -46,10 +51,10 @@
             <div class="row gx-2">
                 <div class="col-md-6">
                     <!-- <label class="form-group">
-                                                            <input type="text" class="form-control" required="" />
-                                                            <span>Full name here</span>
-                                                            <span class="border"></span>
-                                                          </label> -->
+                                                                    <input type="text" class="form-control" required="" />
+                                                                    <span>Full name here</span>
+                                                                    <span class="border"></span>
+                                                                  </label> -->
                     <div class="inline-container d-flex align-items-center flex-row">
                         <!-- Added container for inline elements -->
                         <span class="d-inline-block content-section__description ui text size-textmd">WAITING</span>
