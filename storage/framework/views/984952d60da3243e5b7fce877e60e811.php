@@ -73,11 +73,12 @@
             </section>
 
             <section class="carousel-section mt-5 pt-5 pb-5 position-relative">
-                <?php $__currentLoopData = $testimonials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testimonial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="container">
-                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
+
+                <div class="container">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <?php $__currentLoopData = $testimonials; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $testimonial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="carousel-item <?php if($loop->first): ?> active <?php endif; ?>">
                                     <div class="row gx-5 align-items-center w-100">
                                         <div class="col-md-4">
                                             
@@ -130,79 +131,13 @@
                                                 <?php echo e($testimonial->title); ?>
 
                                             </p>
-
-
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <div class="row gx-5 align-items-center w-100">
-                                        <div class="col-md-4">
-                                            <img src="<?php echo e(asset('assets/front_assets/images/so3ody.jpeg')); ?>"
-                                                class="w-100 object-fit-cover" style="min-height: 400px;" alt="so3ody">
-                                        </div>
-                                        <div class="col-md-8 mt-5 pt-5">
-                                            <div
-                                                class="carousel-header w-100 pb-5 d-flex flex-row align-items-center justify-content-between">
-                                                <div>
-                                                    <div class="quote-container">
-                                                        <span class="quote"></span>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex flex-row">
-                                                    <div class="pe-5">
-                                                        <button style="width: 80px; height: 80px"
-                                                            class="slider-navigation__icon--prev carousel-control-prev"
-                                                            type="button" data-bs-slide="prev"
-                                                            data-bs-target="#carouselExampleAutoplaying">
-                                                            <img
-                                                                src="<?php echo e(asset('assets/front_assets/images/img_arrow_left.svg')); ?>">
-                                                        </button>
-                                                    </div>
-                                                    <div>
-                                                        <button style="width: 80px; height: 80px"
-                                                            class="slider-navigation__icon--next carousel-control-next"
-                                                            type="button" data-bs-slide="next"
-                                                            data-bs-target="#carouselExampleAutoplaying">
-                                                            <img
-                                                                src="<?php echo e(asset('assets/front_assets/images/img_arrow_right_blue_gray_100.svg')); ?>">
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p class="content-section__description">An interior design agency can create
-                                                content
-                                                that showcases its work, highlights
-                                                design <br> trends, and provides educational resources for clients and
-                                                followers.
-                                                Some
-                                                potential content <br> ideas for an interior design agency An interior
-                                                design
-                                                agency
-                                                can
-                                                create content that <br> showcases its work, highlights design trends, and
-                                                provides
-                                                educational resources for clients <br> and followers. Some potential content
-                                                ideas
-                                            </p>
-                                            <div style="width: 40px" class="mb-3 content-section__divider"></div>
-                                            <span
-                                                class="d-inline-block content-section__description ui text size-textmd fs-5">Ahmed
-                                                Bakry</span>
-                                            <br>
-                                            <p style="font-size: 15px"
-                                                class="d-inline-block content-section__description ui text size-textmd">
-                                                From
-                                                USA
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
                     </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
             </section>
             <section class="our-trusted-clients p-5 m-5">
                 <div class="container">
@@ -245,102 +180,22 @@
                         </h3>
                     </div>
                     <div class="row mt-5">
+                        <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-3">
                             <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/so3ody.jpeg')); ?>" alt="profile image"
-                                    class="user-profile__image">
+                                <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
+                                    class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
                                 <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
+                                    <?php echo e($leadership->name); ?>
+
                                 </p>
                                 <p class="user-profile__role ui text size-texts">
-                                    Managing Director
+                                    <?php echo e($leadership->position); ?>
+
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="user-profile ">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_350x292.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-5">
-                                <p class="user-profile__name ui text size-textxl">
-                                    David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    UI/UX Designer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_312x260.png')); ?>"
-                                    alt="profile image" class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Ralph Waldo
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Financial Officer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_8.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-4">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/so3ody.jpeg')); ?>" alt="profile image"
-                                    class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile ">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_350x292.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-5">
-                                <p class="user-profile__name ui text size-textxl">
-                                    David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    UI/UX Designer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_312x260.png')); ?>"
-                                    alt="profile image" class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Ralph Waldo
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Financial Officer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_8.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-4">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </section>

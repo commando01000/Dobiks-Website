@@ -59,16 +59,16 @@
                                     {!! Form::text('name', null, ['class' => 'form-control','placeholder' => __('Enter Name'),'required' => 'required']) !!}
                                 </div>
                             </div>
-                
-                        
+
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('Cover', __('cover'), ['class' => 'form-label']) }} *
                                     {!! Form::file('cover', ['class' => 'form-control', 'required' => 'required']) !!}
                                 </div>
                             </div>
-                    
-                      
+
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} *

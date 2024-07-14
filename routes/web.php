@@ -107,6 +107,11 @@ Route::group([
     //Leadership
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
        Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
+       Route::get('cp/leadership/create', [LeadrshipController::class, 'create'])->name('leadership.create');
+       Route::post('cp/leadership/store', [LeadrshipController::class, 'store'])->name('leadership.store');
+       Route::get('cp/leadership/{leadership}/edit', [LeadrshipController::class, 'edit'])->name('leadership.edit');
+       Route::post('cp/leadership/update/{leadership}', [LeadrshipController::class, 'update'])->name('leadership.update');
+       Route::get('cp/leadership/delete/{leadership}', [LeadrshipController::class, 'destroy'])->name('leadership.destroy');
     });
 
     //faqs

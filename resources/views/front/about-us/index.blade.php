@@ -197,102 +197,20 @@
                         </h3>
                     </div>
                     <div class="row mt-5">
+                        @foreach ($leaderships as $leadership)
                         <div class="col-md-3">
                             <div class="user-profile">
-                                <img src="{{ asset('assets/front_assets/images/so3ody.jpeg') }}" alt="profile image"
-                                    class="user-profile__image">
+                                <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
+                                    class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
                                 <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
+                                    {{ $leadership->name }}
                                 </p>
                                 <p class="user-profile__role ui text size-texts">
-                                    Managing Director
+                                    {{ $leadership->position }}
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="user-profile ">
-                                <img src="{{ asset('assets/front_assets/images/img_placeholder_350x292.png') }}"
-                                    alt="profile image" class="user-profile__image pt-5">
-                                <p class="user-profile__name ui text size-textxl">
-                                    David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    UI/UX Designer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="{{ asset('assets/front_assets/images/img_placeholder_312x260.png') }}"
-                                    alt="profile image" class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Ralph Waldo
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Financial Officer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="{{ asset('assets/front_assets/images/img_placeholder_8.png') }}"
-                                    alt="profile image" class="user-profile__image pt-4">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="{{ asset('assets/front_assets/images/so3ody.jpeg') }}" alt="profile image"
-                                    class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile ">
-                                <img src="{{ asset('assets/front_assets/images/img_placeholder_350x292.png') }}"
-                                    alt="profile image" class="user-profile__image pt-5">
-                                <p class="user-profile__name ui text size-textxl">
-                                    David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    UI/UX Designer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="{{ asset('assets/front_assets/images/img_placeholder_312x260.png') }}"
-                                    alt="profile image" class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Ralph Waldo
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Financial Officer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="{{ asset('assets/front_assets/images/img_placeholder_8.png') }}"
-                                    alt="profile image" class="user-profile__image pt-4">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </section>
