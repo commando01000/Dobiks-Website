@@ -1,39 +1,74 @@
 @extends('layouts.back.main')
 @section('title', __('Projects'))
-@section('content')
-    <div class="page-header">
-        <div class="page-block">
-            <div class="row align-items-center">
-                <div class="col-md-12">
-                    <div class="page-header-title">
-                        <h4 class="m-b-10">{{ __('Projects') }}</h4>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active">
-                            {!! Html::link(route('home'), __('Dashboard'), ['']) !!}
-                        </li>
-                        <li class="breadcrumb-item active">{{ __('Projects') }}</li>
-                    </ul>
-                </div>
-            </div>
+@section('breadcrumb')
+    <div class="col-md-12">
+        <div class="page-header-title">
+            <h4 class="m-b-10">{{ __('Projects') }}</h4>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body table-border-style">
-                    <div class="table-responsive">
-                        {{ $dataTable->table(['width' => '100%']) }}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
+            <li class="breadcrumb-item active">{{ __('Projects') }}</li>
+        </ul>
     </div>
 @endsection
+@section('content')
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            {{-- @if (Auth::user()->can('create-testimonial')) --}}
+            <div class="float-left">
+                <a href="{{ route('projects.create') }}"
+                    class="btn btn-light-primary">{{ __('Create Project') }}</a>
+            </div>
+            {{-- @endif --}}
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>{{ __('Title') }}</th>
+                <th>{{ __('Status') }}</th>
+                <th>{{ __('Created At') }}</th>
+                <th>{{ __('Images') }}</th>
+                <th>{{ __('Action') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($projects as $project)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ $project->builder }}</td>
+                    <td>{{ \App\Facades\UtilityFacades::date_time_format($project->created_at) }}</td>
+                    <td>
+                        @if ($project->images && Storage::exists($project->images))
+                            <img src="{{ Storage::url($project->images) }}" width="50" />
+                        @else
+                            <img src="{{ Storage::url('not-exists-data-images/350x250.png') }}" width="50" />
+                        @endif
+                    </td>
+                    <td>
+                        {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary">{{ __('View') }}</a> --}}
+                        <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>
+                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    {{ $projects->links() }}
+</div>
+@endsection
+
 @push('style')
     @include('layouts.includes.datatable-css')
 @endpush
 @push('script')
     @include('layouts.includes.datatable-js')
-    {{ $dataTable->scripts() }}
+
 @endpush

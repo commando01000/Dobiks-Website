@@ -1,42 +1,72 @@
 <?php $__env->startSection('title', __('Categories')); ?>
+<?php $__env->startSection('breadcrumb'); ?>
+    <div class="col-md-12">
+        <div class="page-header-title">
+            <h4 class="m-b-10"><?php echo e(__('Categories')); ?></h4>
+        </div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
+            <li class="breadcrumb-item active"><?php echo e(__('Categories')); ?></li>
+        </ul>
+    </div>
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
-    <div class="page-header">
-        <div class="page-block">
-            <div class="row align-items-center">
-                <div class="col-md-12">
-                    <div class="page-header-title">
-                        <h4 class="m-b-10"><?php echo e(__('Project Categories')); ?></h4>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active">
-                            <?php echo Html::link(route('home'), __('Dashboard'), ['']); ?>
-
-                        </li>
-                        <li class="breadcrumb-item active"><?php echo e(__('Project Categories')); ?></li>
-                    </ul>
-                </div>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-lg-12">
+            
+            <div class="float-left">
+                <a href="<?php echo e(route('project-category.create')); ?>"
+                    class="btn btn-light-primary"><?php echo e(__('Create Project')); ?></a>
             </div>
+            
         </div>
     </div>
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body table-border-style">
-                    <div class="table-responsive">
-                        <?php echo e($dataTable->table(['width' => '100%'])); ?>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th><?php echo e(__('Name')); ?></th>
+                <th><?php echo e(__('Status')); ?></th>
+                <th><?php echo e(__('Created At')); ?></th>
+                <th><?php echo e(__('Action')); ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td><?php echo e($loop->iteration); ?></td>
+                    <td><?php echo e($category->name); ?></td>
+                    <td>
+                        <label class="form-switch">
+                            <input class="form-check-input changeStatus" name="custom-switch-checkbox"
+                                <?php echo e($category->status == 1 ? 'checked' : ''); ?>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                data-url="<?php echo e(route('projectcategory.status', $category->id)); ?>"
+                                type="checkbox">
+                        </label>
+                    </td>
+                    <td><?php echo e(\App\Facades\UtilityFacades::date_time_format($category->created_at)); ?></td>
+                    <td>
+
+                        <a href="<?php echo e(route('project-category.edit', $category->id)); ?>" class="btn btn-warning"><?php echo e(__('Edit')); ?></a>
+                        <form action="<?php echo e(route('project-category.destroy', $category->id)); ?>" method="POST" style="display:inline;">
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
+                            <button type="submit" class="btn btn-danger"><?php echo e(__('Delete')); ?></button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </tbody>
+    </table>
+</div>
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('style'); ?>
     <?php echo $__env->make('layouts.includes.datatable-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopPush(); ?>
 <?php $__env->startPush('script'); ?>
     <?php echo $__env->make('layouts.includes.datatable-js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <?php echo e($dataTable->scripts()); ?>
 
 <?php $__env->stopPush(); ?>
 

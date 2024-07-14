@@ -21,8 +21,8 @@ class ProjectController extends Controller
     {
 
         if (\Auth::user()->can('manage-project')) {
-
-            return $dataTable->render('back/project.index');
+             $projects=Project::paginate(10);
+            return view('back/project.index', compact('projects'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }

@@ -13,7 +13,8 @@ class ProjectCategoryController extends Controller
     public function index(ProjectCategoryDataTable $dataTable)
     {
         if (\Auth::user()->can('manage-category')) {
-            return $dataTable->render('back/project-category.index');
+            $categories = ProjectCategory::paginate(10);
+            return view('back/project-category.index',compact('categories'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
