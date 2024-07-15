@@ -170,5 +170,7 @@
                 </div>
             </div>
         </div>
+        {{-- add pagination --}}
+        {{-- $blogs->links() --}}
     </section>
 @endsection

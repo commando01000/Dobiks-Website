@@ -1,5 +1,5 @@
 <div id="section-projects" class="column_three">
-    <div class="section-projects">
+    <div class="section-projects w-100 mt-0 p-1 overflow-hidden">
         <h2 class="section-projects__title ui heading size-headinglg">
             <span class="section-projects__title-span-1">S<span
                     class="section-projects__title-span">ervices<br>CATEGORIES&nbsp;</span></span>
@@ -55,7 +55,7 @@
                     <div class="row gx-5 gy-5">
                         <div class="col-md-4">
                             <div class="card border-0" style="min-height: 414px; min-width: 414px">
-                                <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
+                                <div class="card-image w-100" style="min-height: 414px; ">
                                     <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder.png')); ?>"
                                         style="min-height: 414px; min-width: 414px" class="w-100 h-100 object-fit-fill"
                                         alt="item" srcset="" />

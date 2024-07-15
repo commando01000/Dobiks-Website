@@ -171,6 +171,8 @@
             </div>
         </div>
     </section>
+    
+    
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.front.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/front/blog/view-all-blogs.blade.php ENDPATH**/ ?>

@@ -32,7 +32,6 @@
                                                         href="<?php echo e(route('services')); ?>">
                                                         Services
                                                     </a>
-                                                    
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts"
@@ -46,8 +45,8 @@
                                                         href="#section-clients">Our clients</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="#">Blogs</a>
+                                                    <a class="nav-link nav-list__item--about ui text size-texts <?php echo e(Route::is('see.all.blogs') ? 'active' : ''); ?>"
+                                                        href="<?php echo e(route('see.all.blogs')); ?>">Blogs</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts <?php echo e(Route::is('contact') ? 'active' : ''); ?>"
@@ -58,4 +57,5 @@
                                     </div>
                                 </div>
                             </nav>
-                        </header><?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/layouts/front/header.blade.php ENDPATH**/ ?>
+                        </header>
+<?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/layouts/front/header.blade.php ENDPATH**/ ?>

@@ -32,21 +32,6 @@
                                                         href="{{ route('services') }}">
                                                         Services
                                                     </a>
-                                                    {{-- <ul class="dropdown-menu bg-dark"
-                                                        aria-labelledby="navbarDropdownMenuLink">
-                                                        <li>
-                                                            <a class="dropdown-item text-white" href="#">Menu
-                                                                1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-white" href="#">Menu
-                                                                2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item text-white" href="#">Menu
-                                                                3</a>
-                                                        </li>
-                                                    </ul> --}}
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts"
@@ -60,8 +45,8 @@
                                                         href="#section-clients">Our clients</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="#">Blogs</a>
+                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('see.all.blogs') ? 'active' : '' }}"
+                                                        href="{{ route('see.all.blogs') }}">Blogs</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('contact') ? 'active' : '' }}"

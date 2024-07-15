@@ -376,6 +376,8 @@ select:focus-visible {
     width: 30px;
 }
 
+/* Home Start CSS */
+
 .content-section {
     display: flex;
     justify-content: flex-end;
@@ -774,6 +776,21 @@ select:focus-visible {
     /* flex: 1; */
     gap: 20px;
 }
+
+@media (max-width: 450px) and (min-width: 200px) {
+
+    #pills-tabContent .row .col-md-4 {
+        width: 100% !important;
+    }
+
+    .tab-content .container {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+
+}
+
+/* Home End CSS */
 
 .stack_one {
     height: 734px;
