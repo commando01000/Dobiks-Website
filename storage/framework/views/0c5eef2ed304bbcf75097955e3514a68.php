@@ -6,7 +6,7 @@
                     <div class="columnheaderlog">
                         <header id="header" class="header">
                             <nav class="navbar w-100 shadow navbar-expand-lg">
-                                <div class="container">
+                                <div class="container overflow-hidden">
                                     <a class="navbar-brand" href="#">
                                         <img src="<?php echo e(asset('assets/front_assets/images/img_header_logo.png')); ?>"
                                             alt="header logo" href="#header" style="height: 40px" />
@@ -58,5 +58,4 @@
                                     </div>
                                 </div>
                             </nav>
-                        </header>
-<?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/layouts/front/header.blade.php ENDPATH**/ ?>
+                        </header><?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/layouts/front/header.blade.php ENDPATH**/ ?>

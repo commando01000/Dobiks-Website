@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <section id="section-services" class=" p-1">
+    <section id="section-services" class="p-1">
         <main class="container-fluid overflow-hidden">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">

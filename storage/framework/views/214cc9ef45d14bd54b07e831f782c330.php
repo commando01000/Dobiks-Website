@@ -57,19 +57,8 @@
         </div>
         <div class="row_five">
             <div class="row-four">
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3.png')); ?>" alt="featured image"
-                    class="row-four__image--two" />
-
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_7.png')); ?>" alt="secondary image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3_864x474.png')); ?>" alt="tertiary image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_4.png')); ?>" alt="overlay image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_5.png')); ?>" alt="feature image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_6.png')); ?>" alt="final image"
-                    class="row-four__image--two" />
+                
+                
             </div>
         </div>
     </div>

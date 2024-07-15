@@ -29,6 +29,7 @@ use App\Http\Controllers\Back\ModuleController;
 use App\Http\Controllers\Back\UserController;
 use App\Http\Controllers\Back\LandingPageController;
 use App\Http\Controllers\Back\LeadrshipController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\Front\Home_frontController;
 use App\Http\Controllers\Front\Blog_frontController;
 use App\Http\Controllers\Front\Project_frontController;
@@ -363,6 +364,9 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('our-clients', function () {
         return view('front.our-clients.index');
     })->name('our-clients');
+    Route::get('team-details', function () {
+        return view('front.team-details.index');
+    })->name('team-details');
     Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 

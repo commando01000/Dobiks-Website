@@ -1622,7 +1622,8 @@ select:focus-visible {
 
 /* Services Start CSS */
 
-.about-us-section .progress-bar {
+.about-us-section .progress-bar,
+.team-details-content .progress-bar {
     background-color: var(--brand) !important;
     color: var(--white) !important;
     align-items: end;
@@ -1685,6 +1686,60 @@ select:focus-visible {
 
 /* Backend Contact-Us CSS */
 
-/* Services Start CSS */
+/* Team Details Start CSS */
 
-/* Services End CSS */
+.user-profile__title {
+    color: var(--white) !important;
+    font-size: 32px;
+    font-weight: 600;
+}
+.user-profile__description {
+    color: var(--blue_gray_100_02) !important;
+    font-family: DM Sans !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@media (max-width: 912px) and (min-width: 768px) {
+    .team-details-content .row {
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+    }
+    .col-md-4 {
+        width: 75% !important;
+    }
+    .team-details-content .row img {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 450px) and (min-width: 200px) {
+    .team-details-content .row {
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+    }
+    .col-md-4 {
+        width: 100% !important;
+    }
+    .team-details-content .row img {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+/* Team Details End CSS */
+
+
+/* Big-Carousel Start CSS */
+
+/* Big-Carousel End CSS */
+
+
+/* Blog Start CSS */
+
+
+
+/* Blog End CSS */

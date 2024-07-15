@@ -1,4 +1,4 @@
-<div class="stack_one">
+<div class="stack_one overflow-hidden">
     <footer class="footer">
         <div class="footer__stack">
             <div class="footer__stack__row">
