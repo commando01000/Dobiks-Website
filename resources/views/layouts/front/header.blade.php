@@ -34,8 +34,8 @@
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--services-text ui text size-texts"
-                                                        href="#section-projects">
+                                                    <a class="nav-link nav-list__item--services-text ui {{ Route::is('see.all.projects') ? 'active' : '' }} text size-texts"
+                                                        href="{{ route('see.all.projects') }}">
                                                         Projects
                                                     </a>
                                                 </li>

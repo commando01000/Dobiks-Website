@@ -6,45 +6,63 @@
         </h2>
         <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link text-decoration-none section__tab-item active" id="pills-creative-design-tab"
+                <button class="position-relative nav-link active text-decoration-none section__tab-item active" id="pills-creative-design-tab"
                     data-bs-toggle="pill" data-bs-target="#pills-creative-design" type="button" role="tab"
                     aria-controls="pills-creative-design" aria-selected="true">
-                    Creative Designs
+                    <div class="circle position-absolute start-0 z-0"></div>
+                    <div class="position-relative text z-1 text-white">
+                        Creative Designs
+                    </div>
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link text-decoration-none section__tab-item" id="pills-motion-graphics-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-motion-graphics" type="button" role="tab"
-                    aria-controls="pills-motion-graphics" aria-selected="false">
-                    Motion Graphics
+                <button class="position-relative position-relative nav-link text-decoration-none section__tab-item"
+                    id="pills-motion-graphics-tab" data-bs-toggle="pill" data-bs-target="#pills-motion-graphics"
+                    type="button" role="tab" aria-controls="pills-motion-graphics" aria-selected="false">
+                    <div class="circle position-absolute start-0 z-0"></div>
+                    <div class="position-relative text z-1 text-white">
+                        Motion Graphics
+                    </div>
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link section__tab-item" id="pills-video-shooting-tab" data-bs-toggle="pill"
+                <button class="position-relative nav-link section__tab-item" id="pills-video-shooting-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-video-shooting" type="button" role="tab"
                     aria-controls="pills-video-shooting" aria-selected="false">
-                    Video Shooting
+                    <div class="circle position-absolute start-0 z-0"></div>
+                    <div class="position-relative text z-1 text-white">
+                        Video Shooting
+                    </div>
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link section__tab-item" id="pills-event-management-tab" data-bs-toggle="pill"
+                <button class="position-relative nav-link section__tab-item" id="pills-event-management-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-event-management" type="button" role="tab"
                     aria-controls="pills-event-management" aria-selected="false">
-                    Event Management
+                    <div class="circle position-absolute start-0 z-0"></div>
+                    <div class="position-relative text z-1 text-white">
+                        Event Management
+                    </div>
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link section__tab-item" id="pills-interior-luxury-tab" data-bs-toggle="pill"
+                <button class="position-relative nav-link section__tab-item" id="pills-interior-luxury-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-interior-luxury" type="button" role="tab"
                     aria-controls="pills-interior-luxury" aria-selected="false">
-                    Interior – Luxury Living
+                    <div class="circle position-absolute start-0 z-0"></div>
+                    <div class="position-relative text z-1 text-white">
+                        Interior – Luxury Living
+                    </div>
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link section__tab-item" id="pills-ui-ux-tab" data-bs-toggle="pill"
+                <button class="position-relative nav-link section__tab-item" id="pills-ui-ux-tab" data-bs-toggle="pill"
                     data-bs-target="#pills-ui-ux" type="button" role="tab" aria-controls="pills-ui-ux"
                     aria-selected="false">
-                    ui/ux design
+                    <div class="circle position-absolute start-0 z-0"></div>
+                    <div class="position-relative text z-1 text-white">
+                        ui/ux design
+                    </div>
                 </button>
             </li>
         </ul>
@@ -66,8 +84,8 @@
                             <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                 <div class="card-image w-100" style="min-height: 414px; min-width: 414px">
                                     <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_2.png')); ?>"
-                                        style="min-height: 414px; min-width: 414px" class="w-100 h-100 object-fit-fill"
-                                        alt="item" srcset="" />
+                                        style="min-height: 414px; min-width: 414px"
+                                        class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
                                 </div>
                             </div>
                         </div>

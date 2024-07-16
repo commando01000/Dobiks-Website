@@ -72,3 +72,37 @@
 //         });
 //     });
 // });
+
+
+$(document).ready(function() {
+    $('#projects-content .nav-link').on('click', function() {
+        $('#projects-content .nav-link').removeClass('active'); // Remove active class from all nav links
+        $(this).addClass('active'); // Add active class to the clicked nav link
+        // Animate the circle to the clicked nav link
+        $('.circle').css({
+            left: $(this).find('.circle').position().left,
+        });
+    });
+});
+
+$(document).ready(function() {
+    $('#section-clients .nav-link').on('click', function() {
+        $('#section-clients .nav-link').removeClass('active'); // Remove active class from all nav links
+        $(this).addClass('active'); // Add active class to the clicked nav link
+        // Animate the circle to the clicked nav link
+        $('.circle').css({
+            left: $(this).find('.circle').position().left,
+        });
+    });
+});
+
+$(document).ready(function() {
+    $('#section-projects .nav-link').on('click', function() {
+        $('#section-clients .nav-link').removeClass('active'); // Remove active class from all nav links
+        $(this).addClass('active'); // Add active class to the clicked nav link
+        // Animate the circle to the clicked nav link
+        $('.circle').css({
+            left: $(this).find('.circle').position().left,
+        });
+    });
+});

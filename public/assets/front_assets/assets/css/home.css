@@ -778,7 +778,6 @@ select:focus-visible {
 }
 
 @media (max-width: 450px) and (min-width: 200px) {
-
     #pills-tabContent .row .col-md-4 {
         width: 100% !important;
     }
@@ -787,7 +786,6 @@ select:focus-visible {
         padding-right: 0px !important;
         padding-left: 0px !important;
     }
-
 }
 
 /* Home End CSS */
@@ -1749,14 +1747,45 @@ select:focus-visible {
 
 /* Team Details End CSS */
 
-
 /* Big-Carousel Start CSS */
 
 /* Big-Carousel End CSS */
 
-
 /* Blog Start CSS */
 
-
-
 /* Blog End CSS */
+
+/* view-all-projects Start CSS */
+
+#projects {
+    margin-top: 8px;
+    gap: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 1326px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    #projects-content .service__image {
+        text-align: center !important;
+    }
+    #projects-content .service-header {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+.nav-link.active .circle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--brand); /* Change to your desired color */
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+/* view-all-projects End CSS */
