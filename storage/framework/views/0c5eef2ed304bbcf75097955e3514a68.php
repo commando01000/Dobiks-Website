@@ -66,6 +66,14 @@
                                 <textarea class="form-control text-white" id="comments" rows="3"></textarea>
                             </div>
                         </div>
+                        <br>
+                        <button class="submit-button position-relative">
+                            <div class="circle position-absolute start-0 z-0"></div>
+                            <div class="text z-1">
+                                SUBMIT REQUEST
+                                <span class="arrow">→</span>
+                            </div>
+                        </button>
                     </div>
                 </main>
             </form>

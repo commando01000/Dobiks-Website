@@ -110,7 +110,12 @@ $(document).ready(function () {
             $(".home-form").removeClass("unactive").addClass("active");
         }
     });
+    
     $(".fa-circle-xmark").on("click", function () {
+        $(".home-form").removeClass("active").addClass("unactive");
+    });
+
+    $(".navigation__column--left").on("click", function () {
         $(".home-form").removeClass("active").addClass("unactive");
     });
 });

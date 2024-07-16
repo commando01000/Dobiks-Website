@@ -298,7 +298,7 @@ select:focus-visible {
 }
 
 .row_two {
-    margin-bottom: 148px;
+    /* margin-bottom: 148px; */
 }
 
 .columnheaderlog {
@@ -797,14 +797,26 @@ select:focus-visible {
     top: 0px;
     left: 100%;
     width: 600px;
-    height: 100vh;
+    height: 100%;
     background-color: #191b1d !important;
     transition: left 0.5s ease; /* Smooth transition */
 }
 
-.home-form.active {
-    left:  calc(100% - 600px); /* Position the form on screen */
-    transition: left 0.5s ease; /* Smooth transition */
+@media (max-width: 450px) and (min-width: 200px) {
+    .home-form.active {
+        left: calc(100% - 450px); /* Position the form on screen */
+        transition: left 0.5s ease; /* Smooth transition */
+    }
+    .home-form {
+        width: 480px;
+    }
+}
+
+@media (min-width: 500px) {
+    .home-form.active {
+        left: calc(100% - 600px); /* Position the form on screen */
+        transition: left 0.5s ease; /* Smooth transition */
+    }
 }
 
 .home-form.unactive {

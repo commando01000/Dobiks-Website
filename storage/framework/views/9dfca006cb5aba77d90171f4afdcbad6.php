@@ -147,8 +147,8 @@
                             <p class="fs-6 content-section__subtitle ui heading size-headingmd">700+ Our Trusted Client</p>
                         </div>
                         <div class="col-md-10">
-                            <div class="row">
-                                <div class="col-md-3 text-end">
+                            <div class="row gy-3 justify-content-center">
+                                <div class="col-md-3 text-center">
                                     <img src="<?php echo e(asset('assets/front_assets/images/client_1.png')); ?>" alt="">
                                 </div>
                                 <div class="col-md-3 text-center">
