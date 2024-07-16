@@ -22,13 +22,14 @@ use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Back\LanguageController;
 use App\Http\Controllers\Back\ProfileController;
 use App\Http\Controllers\Back\BusinessGrowthController;
-use App\Http\Controllers\Back\CustomerController;
+use App\Http\Controllers\back\ClientController;
 use App\Http\Controllers\Back\FeatureController;
 use App\Http\Controllers\Back\SettingsController;
 use App\Http\Controllers\Back\ModuleController;
 use App\Http\Controllers\Back\UserController;
 use App\Http\Controllers\Back\LandingPageController;
 use App\Http\Controllers\Back\LeadrshipController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\Front\Home_frontController;
 use App\Http\Controllers\Front\Blog_frontController;
 use App\Http\Controllers\Front\Project_frontController;
@@ -48,12 +49,10 @@ use App\Http\Controllers\SmsController;
 use App\Http\Controllers\SmsTemplateController;
 use App\Http\Controllers\FormValueController;
 // use App\Http\Controllers\front\advertisementController as FrontAdvertisementController;
-
+use App\Http\Controllers\front\ClientsController;
 use App\Http\Controllers\MailTempleteController;
 use App\Models\advertisement;
-use App\Models\Client;
 use App\Models\Project;
-use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -100,8 +99,8 @@ Route::group([
     // });
     //clients
     // Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-    //     Route::resource('cp/client', CustomerController::class)->except(['show']);
-    //     Route::resource('cp/client', CustomerController::class);
+    //     Route::resource('cp/client', ClientController::class)->except(['show']);
+    //     Route::resource('cp/client', ClientController::class);
     //     // Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
 
     // });
@@ -109,21 +108,8 @@ Route::group([
     //Leadership
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
-        Route::get('cp/leadership/create', [LeadrshipController::class, 'create'])->name('leadership.create');
-        Route::post('cp/leadership/store', [LeadrshipController::class, 'store'])->name('leadership.store');
-        Route::get('cp/leadership/{leadership}/edit', [LeadrshipController::class, 'edit'])->name('leadership.edit');
-        Route::post('cp/leadership/update/{leadership}', [LeadrshipController::class, 'update'])->name('leadership.update');
-        Route::get('cp/leadership/delete/{leadership}', [LeadrshipController::class, 'destroy'])->name('leadership.destroy');
     });
-    //clients
-    Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::get('cp/customer', [CustomerController::class, 'index'])->name('customer.index');
-        Route::get('cp/customer/create', [CustomerController::class, 'create'])->name('customer.create');
-        Route::post('cp/customer/store', [CustomerController::class, 'store'])->name('customer.store');
-        Route::get('cp/customer/{client}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
-        Route::post('cp/customer/update/{client}', [CustomerController::class, 'update'])->name('customer.update');
-        Route::get('cp/customer/delete/{client}', [CustomerController::class, 'destroy'])->name('customer.destroy');
-    });
+
     //faqs
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::resource('cp/faqs', FaqController::class);
@@ -307,7 +293,7 @@ Route::group([
     });
     Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('contact_us/view', [Contact_UsController::class, 'index'])->name('contact_us.index');
-
+        Route::post('contact_us/store', [Contact_UsController::class, 'store'])->name('contact_us.store');
     });
 });
 
@@ -373,11 +359,14 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('contact', [frontContact::class, 'index'])->name('contact');
     Route::get('join', [frontContact::class, 'join'])->name('join');
     Route::get('services', function () {
-        $categories     = ProjectCategory::all();
-        $clients = Client::all();
-        return view('front.services.index',compact('categories','clients'));
+        return view('front.services.index');
     })->name('services');
-    Route::post('contact_us/store', [Contact_UsController::class, 'store'])->name('contact_us.store');
+    Route::get('our-clients', function () {
+        return view('front.our-clients.index');
+    })->name('our-clients');
+    Route::get('team-details', function () {
+        return view('front.team-details.index');
+    })->name('team-details');
     Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
@@ -387,7 +376,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     // Route::get('advertisements/{slug}/', [FrontAdvertisementController::class, 'viewAdvertisments'])->name('view.advertisment');
     // Route::get('advertisements', [FrontAdvertisementController::class, 'seeAllAdvertisements'])->name('see.all.advertisments');
     // Route::get('clients', [clientsController::class, 'seeAllClients'])->name('see.all.clients');
-    // Route::get('clients/{slug}/', [CustomerController::class, 'viewClients'])->name('view.client');
+    // Route::get('clients/{slug}/', [ClientsController::class, 'viewClients'])->name('view.client');
 
     Route::post('contact/mail', [frontContact::class, 'contactMail'])->name('contact.mail');
 });

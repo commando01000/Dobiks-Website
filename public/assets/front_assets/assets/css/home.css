@@ -291,14 +291,14 @@ select:focus-visible {
 }
 
 .row_three {
-    height: 600px;
+    height: 100%;
     background-image: url(images/img_group_4.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .row_two {
-    margin-bottom: 148px;
+    /* margin-bottom: 148px; */
 }
 
 .columnheaderlog {
@@ -375,6 +375,8 @@ select:focus-visible {
     height: 30px;
     width: 30px;
 }
+
+/* Home Start CSS */
 
 .content-section {
     display: flex;
@@ -488,6 +490,7 @@ select:focus-visible {
     border: 1px solid var(--blue_gray_100);
     width: 100px;
     height: 100px;
+    cursor: pointer;
 }
 
 .navigation__arrow--left {
@@ -774,6 +777,56 @@ select:focus-visible {
     /* flex: 1; */
     gap: 20px;
 }
+
+@media (max-width: 450px) and (min-width: 200px) {
+    #pills-tabContent .row .col-md-4 {
+        width: 100% !important;
+    }
+
+    .tab-content .container {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+}
+
+/* home send-message form Start CSS */
+
+.home-form {
+    z-index: 99999;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    width: 600px;
+    height: 100%;
+    background-color: #191b1d !important;
+    transition: left 0.5s ease; /* Smooth transition */
+}
+
+@media (max-width: 450px) and (min-width: 200px) {
+    .home-form.active {
+        left: calc(100% - 450px); /* Position the form on screen */
+        transition: left 0.5s ease; /* Smooth transition */
+    }
+    .home-form {
+        width: 480px;
+    }
+}
+
+@media (min-width: 500px) {
+    .home-form.active {
+        left: calc(100% - 600px); /* Position the form on screen */
+        transition: left 0.5s ease; /* Smooth transition */
+    }
+}
+
+.home-form.unactive {
+    left: 100%;
+    transition: left 0.5s ease; /* Smooth transition */
+}
+
+/* home send-message form End CSS */
+
+/* Home End CSS */
 
 .stack_one {
     height: 734px;
@@ -1480,9 +1533,9 @@ select:focus-visible {
     .content-section__description {
         font-size: 15px; /* Smaller font size on smaller screens */
     }
-    .row_three {
+    /* .row_three {
         height: 850px;
-    }
+    } */
     .section__highlight.ui.heading.size-headinglg {
         font-size: 20px;
     }
@@ -1495,9 +1548,9 @@ select:focus-visible {
     .content-section__description {
         font-size: 15px; /* Smaller font size on smaller screens */
     }
-    .row_three {
+    /* .row_three {
         height: 1050px;
-    }
+    } */
     .navigation {
         align-items: center !important;
     }
@@ -1622,7 +1675,8 @@ select:focus-visible {
 
 /* Services Start CSS */
 
-.about-us-section .progress-bar {
+.about-us-section .progress-bar,
+.team-details-content .progress-bar {
     background-color: var(--brand) !important;
     color: var(--white) !important;
     align-items: end;
@@ -1685,6 +1739,95 @@ select:focus-visible {
 
 /* Backend Contact-Us CSS */
 
-/* Services Start CSS */
+/* Team Details Start CSS */
 
-/* Services End CSS */
+.user-profile__title {
+    color: var(--white) !important;
+    font-size: 32px;
+    font-weight: 600;
+}
+.user-profile__description {
+    color: var(--blue_gray_100_02) !important;
+    font-family: DM Sans !important;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@media (max-width: 912px) and (min-width: 768px) {
+    .team-details-content .row {
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+    }
+    .col-md-4 {
+        width: 75% !important;
+    }
+    .team-details-content .row img {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 450px) and (min-width: 200px) {
+    .team-details-content .row {
+        flex-direction: column;
+        align-items: center;
+        width: 100% !important;
+    }
+    .col-md-4 {
+        width: 100% !important;
+    }
+    .team-details-content .row img {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+/* Team Details End CSS */
+
+/* Big-Carousel Start CSS */
+
+/* Big-Carousel End CSS */
+
+/* Blog Start CSS */
+
+/* Blog End CSS */
+
+/* view-all-projects Start CSS */
+
+.projects-content {
+    margin-top: 8px;
+    gap: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 1326px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#projects-content {
+    background-color: #181818;
+}
+
+@media (max-width: 768px) {
+    #projects-content .service__image {
+        text-align: center !important;
+    }
+    #projects-content .service-header {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+.nav-link.active .circle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--brand); /* Change to your desired color */
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+/* view-all-projects End CSS */

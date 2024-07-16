@@ -1,4 +1,4 @@
-<div class="stack_one">
+<div class="stack_one overflow-hidden">
     <footer class="footer">
         <div class="footer__stack">
             <div class="footer__stack__row">
@@ -84,14 +84,14 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__quick-links__column__list">
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(route('homepage')); ?>">
                                                     <p class="footer__quick-link--home ui text size-texts">
                                                         Home
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(route('about-us')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         About
                                                     </p>
@@ -112,7 +112,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(route('contact')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Contact Us
                                                     </p>
@@ -126,21 +126,21 @@
                                         </p>
                                         <ul class="footer__stack__row__eight__column__row__social-media__column">
                                             <li>
-                                                <a href="<?php echo e(Utility::getsettings('facebook_link')); ?>">
+                                                <a href="<?php echo e(Utility::getsettings('contact_facebook')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Facebook
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?php echo e(Utility::getsettings('instagram_link')); ?>">
+                                                <a href="<?php echo e(Utility::getsettings('contact_instagram')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         instagram
                                                     </p>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?php echo e(Utility::getsettings('twitter_link')); ?>">
+                                                <a href="<?php echo e(Utility::getsettings('contact_twitter')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         twitter
                                                     </p>
