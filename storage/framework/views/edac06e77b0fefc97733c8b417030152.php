@@ -8,6 +8,7 @@
 <script src="<?php echo e(asset('assets/js/jquery-3.3.1.min.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/front_assets/assets/js/home.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/main.js')); ?>"></script>
+
 </body>
 
 </html>

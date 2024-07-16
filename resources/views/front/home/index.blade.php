@@ -4,7 +4,7 @@
     <!-- Content-Section -->
     <section class="content-section m-5 p-5 pb-0 mb-0">
         <div class="container">
-            <div class="row flex-wrap gy-2 align-items-center">
+            <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
                 <div class="col-md-6 col-sm-12">
                     <div class="content-section__column--primary w-100">
                         <h1 class="content-section__title ui heading size-heading_1">

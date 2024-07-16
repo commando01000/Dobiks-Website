@@ -1,6 +1,75 @@
 <div class="class-01-home">
     <div class="column_seven">
-        <div class="column_two">
+        <div class="column_two position-relative overflow-hidden">
+
+            <form class="home-form unactive p-5">
+                <main class="container">
+                    <div class="row gy-3 justify-content-center align-items-center">
+                        <div class="col-md-12 text-center">
+                            <div class="form-header d-flex justify-content-between">
+                                <img class="w-50" src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
+                                alt="logo">
+                            <i style="color: white; font-size: 30px; text-align: end" class="fa-regular fa-circle-xmark"></i>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <p class="user-profile__role ui text size-texts">
+                                At Dopiks, we see a world where every brand has the power to connect with its audience
+                                in a
+                                meaningful way. We want to help businesses tell their stories and reach their full
+                                potential
+                                through innovative digital marketing strategies. Our vision is to be the go-to agency
+                                for
+                                brands looking to create impactful campaigns and build lasting relationships with their
+                                customers.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-md-6">
+                            <div class="mb-5">
+                                <label for="name" class="col-form-label text-white">Full Name <span
+                                        style="color: #ff5101"> *</span></label>
+                                <input type="text" class="form-control text-white" name="full_name" id="name"
+                                    placeholder="First name here" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-5">
+                                <label for="l_name" class="col-form-label text-white">Last Name
+                                    <span style="color: #ff5101"> *</span></label>
+                                <input type="text" class="form-control text-white" name="company_name" id="c_name"
+                                    placeholder="Last name here" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-5">
+                                <label for="name" class="col-form-label text-white">Email Address<span
+                                        style="color: #ff5101"> *</span></label>
+                                <input type="text" class="form-control text-white" name="full_name" id="name"
+                                    placeholder="First name here" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-5">
+                                <label for="c_name" class="col-form-label text-white">Subject
+                                    <span style="color: #ff5101"> *</span></label>
+                                <input type="text" class="form-control text-white" name="company_name" id="c_name"
+                                    placeholder="Last name here" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-5">
+                                <label for="comments" class="col-form-label text-white">Comments / Questions
+                                    <span style="color: #ff5101"> *</span></label>
+                                <textarea class="form-control text-white" id="comments" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </form>
+
             <div class="row_three">
                 <div class="row_two">
                     <div class="columnheaderlog">

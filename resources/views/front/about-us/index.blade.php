@@ -353,7 +353,7 @@
 
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row gy-5">
                         <div class="col-md-4">
                             <div style="min-height: 345px" class="card p-5">
                                 <div class="card-body">
