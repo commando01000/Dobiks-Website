@@ -1757,7 +1757,7 @@ select:focus-visible {
 
 /* view-all-projects Start CSS */
 
-#projects {
+.projects-content {
     margin-top: 8px;
     gap: 72px;
     display: flex;
@@ -1769,13 +1769,17 @@ select:focus-visible {
     width: 100%;
 }
 
+#projects-content {
+    background-color: #181818;
+}
+
 @media (max-width: 768px) {
     #projects-content .service__image {
         text-align: center !important;
     }
     #projects-content .service-header {
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
 .nav-link.active .circle {
