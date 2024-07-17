@@ -34,7 +34,7 @@
 
                                             </p>
                                             <br>
-                                            <p>Learn more <a class="arrow"
+                                            <p>Learn more <a class="arrow text-white text-decoration-none"
                                                     href="<?php echo e(route('view.blog', $blog->slug)); ?>">→</a>
                                             </p>
                                         </div>
@@ -42,9 +42,9 @@
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <?php endif; ?>
-
-
-
+                    </div>
+                    <div class="mt-4">
+                        <?php echo e($allBlogs->links()); ?> <!-- Pagination links -->
                     </div>
                 </div>
             </div>

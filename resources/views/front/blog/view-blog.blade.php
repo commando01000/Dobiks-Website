@@ -115,13 +115,16 @@
                                                 {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 60) }}
                                             </p>
                                             <br>
-                                            <p>Learn more <a class="arrow text-decoration-none"
+                                            <p>Learn more <a class="arrow text-white text-decoration-none"
                                                     href="{{ route('view.blog', $blog->slug) }}">→</a>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
+                        </div>
+                        <div class="mt-4">
+                            {{ $allBlogs->links() }} <!-- Pagination links -->
                         </div>
                     </div>
                 </div>
