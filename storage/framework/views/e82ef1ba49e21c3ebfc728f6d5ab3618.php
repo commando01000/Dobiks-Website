@@ -11,26 +11,29 @@
                 <div class="container">
                     <div class="row gy-4">
                         <?php if(isset($allBlogs)): ?>
-                        <?php $__currentLoopData = $allBlogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        <?php echo e($blog->category->getTranslation('name', app()->getLocale())); ?>: <?php echo e($blog->getTranslation('title', app()->getLocale())); ?>
+                            <?php $__currentLoopData = $allBlogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="col-md-4">
+                                    <div style="min-height: 345px" class="card p-5">
+                                        <div class="card-body">
+                                            <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                                <?php echo e($blog->category->getTranslation('name', app()->getLocale())); ?>:
+                                                <?php echo e($blog->getTranslation('title', app()->getLocale())); ?>
 
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description"><?php echo e($blog->getTranslation('short_description', app()->getLocale())); ?></p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
+                                            </p>
+                                            <br>
+                                            <div style="height: 3px" class="section__divider"></div>
+                                            <br>
+                                            <p class="w-100 fs-6 content-section__description">
+                                                <?php echo e($blog->getTranslation('short_description', app()->getLocale())); ?></p>
+                                            <br>
+                                            <p>Learn more <a class="arrow"
+                                                    href="<?php echo e(route('view.blog', $blog->slug)); ?>">→</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
 
 
 

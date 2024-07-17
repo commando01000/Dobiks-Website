@@ -97,78 +97,30 @@
                     <div class="col-md-4">
                         <h1 style="line-height: 65px !important" class="content-section__title fs-4">Similar Post</h1>
                         <div class="row gy-5">
-                            <div class="col-md-12">
-                                <div style="min-height: 345px" class="card p-5">
-                                    <div class="card-body">
-                                        <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                            The Art of Accessorizing: Adding the…
-                                        </p>
-                                        <br>
-                                        <div style="height: 3px" class="section__divider"></div>
-                                        <br>
-                                        <p class="w-100 fs-6 content-section__description">An interior design agency can
-                                            create
-                                            content that showcases its…</p>
-                                        <br>
-                                        <p>Learn more <span class="arrow">→</span>
-                                        </p>
+                            @foreach ($allBlogs as $blog)
+                                <div class="col-md-12">
+                                    <div style="min-height: 345px" class="card p-5">
+                                        <div class="card-body">
+                                            <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                                {{ $blog->category->getTranslation('name', app()->getLocale()) }}:
+                                                {{ $blog->getTranslation('title', app()->getLocale()) }}
+                                            </p>
+                                            <br>
+                                            <div style="height: 3px" class="section__divider"></div>
+                                            <br>
+                                            <p class="w-100 fs-6 content-section__description">
+                                                {{ $blog->getTranslation('short_description', app()->getLocale()) }}</p>
+                                            </p>
+                                            <br>
+                                            <p>Learn more <a class="arrow"
+                                                    href="{{ route('view.blog', $blog->slug) }}">→</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div style="min-height: 345px" class="card p-5">
-                                    <div class="card-body">
-                                        <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                            The Art of Accessorizing: Adding the…
-                                        </p>
-                                        <br>
-                                        <div style="height: 3px" class="section__divider"></div>
-                                        <br>
-                                        <p class="w-100 fs-6 content-section__description">An interior design agency can
-                                            create
-                                            content that showcases its…</p>
-                                        <br>
-                                        <p>Learn more <span class="arrow">→</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div style="min-height: 345px" class="card p-5">
-                                    <div class="card-body">
-                                        <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                            The Art of Accessorizing: Adding the…
-                                        </p>
-                                        <br>
-                                        <div style="height: 3px" class="section__divider"></div>
-                                        <br>
-                                        <p class="w-100 fs-6 content-section__description">An interior design agency can
-                                            create
-                                            content that showcases its…</p>
-                                        <br>
-                                        <p>Learn more <span class="arrow">→</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div style="min-height: 345px" class="card p-5">
-                                    <div class="card-body">
-                                        <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                            The Art of Accessorizing: Adding the…
-                                        </p>
-                                        <br>
-                                        <div style="height: 3px" class="section__divider"></div>
-                                        <br>
-                                        <p class="w-100 fs-6 content-section__description">An interior design agency can
-                                            create
-                                            content that showcases its…</p>
-                                        <br>
-                                        <p>Learn more <span class="arrow">→</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
+
                         </div>
                     </div>
                 </div>
