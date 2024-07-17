@@ -123,9 +123,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="mt-4">
-                            {{ $allBlogs->links() }} <!-- Pagination links -->
-                        </div>
                     </div>
                 </div>
             </div>
