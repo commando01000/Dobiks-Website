@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <section id="section-services" class=" p-1">
+    <section id="section-services" class="p-1">
         <main class="container-fluid overflow-hidden">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
@@ -147,8 +147,8 @@
                             <p class="fs-6 content-section__subtitle ui heading size-headingmd">700+ Our Trusted Client</p>
                         </div>
                         <div class="col-md-10">
-                            <div class="row">
-                                <div class="col-md-3 text-end">
+                            <div class="row gy-3 justify-content-center">
+                                <div class="col-md-3 text-center">
                                     <img src="<?php echo e(asset('assets/front_assets/images/client_1.png')); ?>" alt="">
                                 </div>
                                 <div class="col-md-3 text-center">
@@ -258,7 +258,7 @@
 
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row gy-5">
                         <div class="col-md-4">
                             <div style="min-height: 345px" class="card p-5">
                                 <div class="card-body">

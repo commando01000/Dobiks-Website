@@ -5,7 +5,7 @@
         <main class="container-fluid ps-0 pe-0">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
-                    projects
+                    {{ Utility::getsettings('project_name') }}
                 </h1>
                 <small class="content-section__description fs-6">HOME / SERVICES</small>
             </div>
@@ -16,212 +16,61 @@
                                 class="section-projects__title-span">opiks<br>Services Page&nbsp;</span>
                         </span>
                         <br>
-                        <p class="content-section__description pt-3">One of the biggest pharmacy chains in Saudi Arabia,
-                            based
-                            on various factors like <br> number of stores,
-                            and market share.</p>
-                        <p class="content-section__description pt-3">
-                            Social Media: 1200. <br>
-                            Printing Materials: 560</p>
-                    </h2>
-                    <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="position-relative nav-link active text-decoration-none section__tab-item active"
-                                id="pills-creative-design-tab" data-bs-toggle="pill" data-bs-target="#pills-creative-design"
-                                type="button" role="tab" aria-controls="pills-creative-design" aria-selected="true">
+                        <p class="content-section__description pt-3">{{ Utility::getsettings('project_detail') }}</p>
 
-                                <div class="circle position-absolute start-0 z-0"></div>
-                                <div class="position-relative text z-1 text-white">
-                                    Restaurants
-                                </div>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="position-relative nav-link text-decoration-none section__tab-item"
-                                id="pills-motion-graphics-tab" data-bs-toggle="pill" data-bs-target="#pills-motion-graphics"
-                                type="button" role="tab" aria-controls="pills-motion-graphics" aria-selected="false">
-                                <div class="circle position-absolute start-0 z-0"></div>
-                                <div class="position-relative text text-white z-1">
-                                    Pharmaceuticals
-                                </div>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="position-relative nav-link section__tab-item" id="pills-video-shooting-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-video-shooting" type="button" role="tab"
-                                aria-controls="pills-video-shooting" aria-selected="false">
-                                <div class="circle position-absolute start-0 z-0"></div>
-                                <div class="position-relative text text-white z-1">
-                                    Health Care
-                                </div>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="position-relative nav-link section__tab-item" id="pills-event-management-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-event-management" type="button" role="tab"
-                                aria-controls="pills-event-management" aria-selected="false">
-                                <div class="circle position-absolute start-0 z-0"></div>
-                                <div class="position-relative text text-white z-1">
-                                    Event Management
-                                </div>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="position-relative nav-link section__tab-item" id="pills-interior-luxury-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-interior-luxury" type="button" role="tab"
-                                aria-controls="pills-interior-luxury" aria-selected="false">
-                                <div class="circle position-absolute start-0 z-0"></div>
-                                <div class="position-relative text text-white z-1">
-                                    Retailers
-                                </div>
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="position-relative nav-link section__tab-item" id="pills-ui-ux-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-ui-ux" type="button" role="tab"
-                                aria-controls="pills-ui-ux" aria-selected="false">
-                                <div class="circle position-absolute start-0 z-0"></div>
-                                <div class="position-relative text text-white z-1">
-                                    Real Estate
-                                </div>
-                            </button>
-                        </li>
+                    </h2>
+                    <ul class="nav nav-pills section-projects__content mb-3 filtering" id="pills-tab" role="tablist">
+                        <button class="position-relative nav-link text-decoration-none section__tab-item active"
+                            data-filter="*" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all"
+                            type="button" role="tab" aria-controls="pills-all" aria-selected="true">
+                            <div class="circle position-absolute start-0 z-0"></div>
+                            <div class="position-relative text z-1 text-white">
+                                All
+                            </div>
+                        </button>
+                        @foreach ($categories as $category)
+                            <li class="nav-item" role="presentation">
+                                <button class="position-relative nav-link text-decoration-none section__tab-item"
+                                    data-filter=".category-{{ $category->id }}" id="pills-{{ $category->id }}-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-{{ $category->id }}" type="button"
+                                    role="tab" aria-controls="pills-{{ $category->id }}" aria-selected="false">
+
+                                    <div class="circle position-absolute start-0 z-0"></div>
+                                    <div class="position-relative text z-1 text-white">
+                                        {{ $category->name }}
+                                    </div>
+                                </button>
+                            </li>
+                        @endforeach
                     </ul>
                     <div class="tab-content w-100" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-creative-design" role="tabpanel"
                             aria-labelledby="pills-creative-design-tab" tabindex="0">
                             <div class="container">
                                 <div class="row gx-3 gy-3">
-                                    <div class="col-md-4">
-                                        <div class="service">
-                                            <div class="service-header d-flex justify-content-between">
-                                                <div class="service-number">
-                                                    <p>01</p>
+                                    @foreach ($allProjects as $project)
+                                        <div class="col-md-4">
+                                            <div class="service">
+                                                <div class="service-header d-flex justify-content-between">
+                                                    <div class="service-number">
+                                                        <p>{{ $loop->iteration }}</p>
+                                                    </div>
+                                                    <div class="category-name">
+                                                        <p class="user-profile__role ui text size-texts">
+                                                            {{ $project->title }}
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <div class="category-name">
-                                                    <p class="user-profile__role ui text size-texts">Interior – Luxury
-                                                        Living
-                                                    </p>
+                                                <div class="service__image">
+                                                    <img src="{{ Storage::url($project->cover) }}" alt="image">
                                                 </div>
-                                            </div>
-                                            <div class="service__image">
-                                                <img src="{{ asset('assets/front_assets/images/Placeholder_mabna.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="service-title mt-4">
-                                                Kawa - Glamorous Penthouse
+                                                <div class="service-title mt-4">
+                                                    {{ $project->client }}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="service p-4 pt-5">
-                                            <div class="service-header d-flex justify-content-between">
-                                                <div class="service-number">
-                                                    <p>02</p>
-                                                </div>
-                                                <div class="category-name">
-                                                    <p class="user-profile__role ui text size-texts">Architecture – Urban
-                                                        Living
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="service__image">
-                                                <img class="w-100"
-                                                    src="{{ asset('assets/front_assets/images/Placeholder (1).png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="service-title mt-4">
-                                                Kawa - Glamorous Penthouse
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="service">
-                                            <div class="service-header d-flex justify-content-between">
-                                                <div class="service-number">
-                                                    <p>03</p>
-                                                </div>
-                                                <div class="category-name">
-                                                    <p class="user-profile__role ui text size-texts">Interior – Luxury
-                                                        Living
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="service__image">
-                                                <img src="{{ asset('assets/front_assets/images/Placeholder (2).png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="service-title mt-4">
-                                                Kawa - Glamorous Penthouse
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="service">
-                                            <div class="service-header d-flex justify-content-between">
-                                                <div class="service-number">
-                                                    <p>04</p>
-                                                </div>
-                                                <div class="category-name">
-                                                    <p class="user-profile__role ui text size-texts">Interior – Creative
-                                                        Space
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="service__image">
-                                                <img class="h-100"
-                                                    src="{{ asset('assets/front_assets/images/Placeholder_top.png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="service-title mt-4">
-                                                Kawa - Glamorous Penthouse
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="service p-4 pt-5">
-                                            <div class="service-header d-flex justify-content-between">
-                                                <div class="service-number">
-                                                    <p>05</p>
-                                                </div>
-                                                <div class="category-name">
-                                                    <p class="user-profile__role ui text size-texts">Architecture – Coastal
-                                                        Living
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="service__image">
-                                                <img class="w-100"
-                                                    src="{{ asset('assets/front_assets/images/Placeholder (3).png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="service-title mt-4">
-                                                Kawa - Glamorous Penthouse
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="service">
-                                            <div class="service-header d-flex justify-content-between">
-                                                <div class="service-number">
-                                                    <p>06</p>
-                                                </div>
-                                                <div class="category-name">
-                                                    <p class="user-profile__role ui text size-texts">Architecture –
-                                                        Peaceful
-                                                        Living
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="service__image">
-                                                <img src="{{ asset('assets/front_assets/images/Placeholder (2).png') }}"
-                                                    alt="image">
-                                            </div>
-                                            <div class="service-title mt-4">
-                                                Kawa - Glamorous Penthouse
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+
                                 </div>
                                 <div class="tab-pane fade" id="pills-motion-graphics" role="tabpanel"
                                     aria-labelledby="pills-motion-graphics-tab" tabindex="0">
@@ -249,4 +98,33 @@
                 </div>
             </div>
     </section>
+@endsection
+@section('script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.filtering button');
+            const projects = document.querySelectorAll('.project-item');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Remove active class from all buttons
+                    buttons.forEach(btn => btn.classList.remove('active'));
+
+                    // Add active class to the clicked button
+                    this.classList.add('active');
+
+                    // Filter projects
+                    projects.forEach(project => {
+                        if (filter === '*' || project.classList.contains(filter.slice(1))) {
+                            project.style.display = 'block';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

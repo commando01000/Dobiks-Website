@@ -22,7 +22,7 @@ use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Back\LanguageController;
 use App\Http\Controllers\Back\ProfileController;
 use App\Http\Controllers\Back\BusinessGrowthController;
-use App\Http\Controllers\back\ClientController;
+use App\Http\Controllers\Back\CustomerController;
 use App\Http\Controllers\Back\FeatureController;
 use App\Http\Controllers\Back\SettingsController;
 use App\Http\Controllers\Back\ModuleController;
@@ -52,7 +52,9 @@ use App\Http\Controllers\FormValueController;
 use App\Http\Controllers\front\ClientsController;
 use App\Http\Controllers\MailTempleteController;
 use App\Models\advertisement;
+use App\Models\Client;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -90,26 +92,24 @@ Route::group([
         Route::resource('cp/project-category', ProjectCategoryController::class);
         Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
     });
-    //ads
-    // Route::group(['middleware' => ['auth', 'xss', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-    //     Route::resource('cp/advertisement', advertisementController::class)->except(['show']);
-    //     Route::resource('cp/advertisement', advertisementController::class);
-    //     // Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
-
-    // });
-    //clients
-    // Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-    //     Route::resource('cp/client', ClientController::class)->except(['show']);
-    //     Route::resource('cp/client', ClientController::class);
-    //     // Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
-
-    // });
 
     //Leadership
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
+        Route::get('cp/leadership/create', [LeadrshipController::class, 'create'])->name('leadership.create');
+        Route::post('cp/leadership/store', [LeadrshipController::class, 'store'])->name('leadership.store');
+        Route::get('cp/leadership/{leadership}/edit', [LeadrshipController::class, 'edit'])->name('leadership.edit');
+        Route::post('cp/leadership/update/{leadership}', [LeadrshipController::class, 'update'])->name('leadership.update');
+        Route::get('cp/leadership/delete/{leadership}', [LeadrshipController::class, 'destroy'])->name('leadership.destroy');
     });
-
+    Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
+        Route::get('cp/customer', [CustomerController::class, 'index'])->name('customer.index');
+        Route::get('cp/customer/create', [CustomerController::class, 'create'])->name('customer.create');
+        Route::post('cp/customer/store', [CustomerController::class, 'store'])->name('customer.store');
+        Route::get('cp/customer/{client}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+        Route::post('cp/customer/update/{client}', [CustomerController::class, 'update'])->name('customer.update');
+        Route::get('cp/customer/delete/{client}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+    });
     //faqs
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::resource('cp/faqs', FaqController::class);
@@ -359,9 +359,14 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('contact', [frontContact::class, 'index'])->name('contact');
     Route::get('join', [frontContact::class, 'join'])->name('join');
     Route::get('services', function () {
-        return view('front.services.index');
+        $categories     = ProjectCategory::all();
+        $clients = Client::all();
+        return view('front.services.index',compact('categories','clients'));
     })->name('services');
     Route::get('our-clients', function () {
+        $categories     = ProjectCategory::all();
+        $clients = Client::all();
+        return view('front.services.index',compact('categories','clients'));
         return view('front.our-clients.index');
     })->name('our-clients');
     Route::get('team-details', function () {
@@ -373,6 +378,8 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);
     Route::get('projects/{slug}/', [Project_frontController::class, 'viewProject'])->name('view.project');
     Route::get('projects', [Project_frontController::class, 'seeAllProjects'])->name('see.all.projects');
+    Route::get('/services/{category}', [Project_frontController::class, 'getServicesByCategory']);
+
     // Route::get('advertisements/{slug}/', [FrontAdvertisementController::class, 'viewAdvertisments'])->name('view.advertisment');
     // Route::get('advertisements', [FrontAdvertisementController::class, 'seeAllAdvertisements'])->name('see.all.advertisments');
     // Route::get('clients', [clientsController::class, 'seeAllClients'])->name('see.all.clients');

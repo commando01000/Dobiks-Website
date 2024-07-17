@@ -1,8 +1,10 @@
+
+
 <?php $__env->startSection('content'); ?>
     <!-- Content-Section -->
     <section class="content-section m-5 p-5 pb-0 mb-0">
         <div class="container">
-            <div class="row flex-wrap gy-2 align-items-center">
+            <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
                 <div class="col-md-6 col-sm-12">
                     <div class="content-section__column--primary w-100">
                         <h1 class="content-section__title ui heading size-heading_1">
@@ -55,19 +57,8 @@
         </div>
         <div class="row_five">
             <div class="row-four">
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3.png')); ?>" alt="featured image"
-                    class="row-four__image--two" />
-
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_7.png')); ?>" alt="secondary image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3_864x474.png')); ?>" alt="tertiary image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_4.png')); ?>" alt="overlay image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_5.png')); ?>" alt="feature image"
-                    class="row-four__image--two" />
-                <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_6.png')); ?>" alt="final image"
-                    class="row-four__image--two" />
+                
+                
             </div>
         </div>
     </div>
