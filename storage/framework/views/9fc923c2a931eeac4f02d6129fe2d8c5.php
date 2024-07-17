@@ -23,14 +23,16 @@
                     <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link text-decoration-none section__tab-item"
+                                <button class="position-relative nav-link <?php echo e($loop->first ? 'active' : ''); ?> text-decoration-none section__tab-item"
                                     id="pills-<?php echo e($category->id); ?>-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-<?php echo e($category->id); ?>" type="button" role="tab"
                                     aria-controls="pills-<?php echo e($category->id); ?>" aria-selected="false" tabindex="0"
                                     style="cursor: pointer" onclick="loadProjects(<?php echo e($category->id); ?>)">
-                                    <?php echo e($category->name); ?>
+                                    <div class="circle position-absolute start-0 z-0"></div>
+                                    <div class="position-relative text z-1 text-white">
+                                        <?php echo e($category->name); ?>
 
-
+                                    </div>
                                 </button>
                             </li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

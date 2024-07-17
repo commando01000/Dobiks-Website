@@ -73,10 +73,10 @@
                         <li class="nav-item" role="presentation">
                             <button
                                 class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
-                                id="pills-{{ $category->slug }}-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-{{ $category->slug }}" type="button" role="tab"
-                                aria-controls="pills-{{ $category->slug }}"
-                                aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                                id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
+                                aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
+                                style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
                                 <div class="circle position-absolute start-0 z-0"></div>
                                 <div class="position-relative text z-1 text-white">
                                     {{ $category->name }}
@@ -85,46 +85,13 @@
                         </li>
                     @endforeach
                 </ul>
-                <div class="tab-content w-100" id="pills-tabContent">
-                    @foreach ($categories as $category)
-                        <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
-                            id="pills-{{ $category->slug }}" role="tabpanel"
-                            aria-labelledby="pills-{{ $category->slug }}-tab" tabindex="0">
-                            <div class="container">
-                                <div class="row gx-5 gy-5">
-                                    <div class="col-md-4">
-                                        <div class="card border-0" style="min-height: 414px; min-width: 414px">
-                                            <div class="card-image w-100" style="min-height: 414px;">
-                                                <img src="{{ asset('assets/front_assets/images/img_placeholder.png') }}"
-                                                    style="min-height: 414px; min-width: 414px"
-                                                    class="w-100 h-100 object-fit-fill" alt="item" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card border-0" style="min-height: 414px; min-width: 414px">
-                                            <div class="card-image w-100" style="min-height: 414px;">
-                                                <img src="{{ asset('assets/front_assets/images/img_placeholder.png') }}"
-                                                    style="min-height: 414px; min-width: 414px"
-                                                    class="w-100 h-100 object-fit-fill" alt="item" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card border-0" style="min-height: 414px; min-width: 414px">
-                                            <div class="card-image w-100" style="min-height: 414px;">
-                                                <img src="{{ asset('assets/front_assets/images/img_placeholder.png') }}"
-                                                    style="min-height: 414px; min-width: 414px"
-                                                    class="w-100 h-100 object-fit-fill" alt="item" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Repeat the card structure for other images as needed -->
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="projects-list" role="tabpanel"
+                        aria-labelledby="projects-list-tab">
+                        <!-- Projects will be loaded here dynamically -->
+                    </div>
                 </div>
+
                 <div class="section-projects__actions w-100">
                     <div class="section-projects__action-row">
                         <div class="section__call-to-action-row">
@@ -158,9 +125,8 @@
                                         <button class="nav-link text-decoration-none section__tab-item"
                                             id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
                                             data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
-                                            aria-controls="pills-{{ $category->id }}" aria-selected="false"
-                                            tabindex="0" style="cursor: pointer"
-                                            onclick="loadProjects({{ $category->id }})">
+                                            aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
+                                            style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
                                             {{ $category->name }}
 
                                         </button>

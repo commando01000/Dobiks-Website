@@ -22,13 +22,15 @@
                     <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
                         @foreach ($categories as $category)
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link text-decoration-none section__tab-item"
+                                <button class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
                                     id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
                                     aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
                                     style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
-                                    {{ $category->name }}
-
+                                    <div class="circle position-absolute start-0 z-0"></div>
+                                    <div class="position-relative text z-1 text-white">
+                                        {{ $category->name }}
+                                    </div>
                                 </button>
                             </li>
                         @endforeach
