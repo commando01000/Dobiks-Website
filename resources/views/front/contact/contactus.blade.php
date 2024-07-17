@@ -50,10 +50,10 @@
             <div class="row gx-2">
                 <div class="col-md-6">
                     <!-- <label class="form-group">
-                                                                        <input type="text" class="form-control" required="" />
-                                                                        <span>Full name here</span>
-                                                                        <span class="border"></span>
-                                                                      </label> -->
+                                                                            <input type="text" class="form-control" required="" />
+                                                                            <span>Full name here</span>
+                                                                            <span class="border"></span>
+                                                                          </label> -->
                     <div class="inline-container d-flex align-items-center flex-row">
                         <!-- Added container for inline elements -->
                         <span class="d-inline-block content-section__description ui text size-textmd">WAITING</span>

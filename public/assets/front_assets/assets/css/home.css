@@ -1725,7 +1725,8 @@ select:focus-visible {
 
 /* Blog Start CSS */
 
-#blog .card {
+#blog .card,
+#blog-details .card {
     background-color: var(--black) !important;
     color: white !important;
 }
@@ -1831,3 +1832,33 @@ select:focus-visible {
     transition: all 0.5s ease;
 }
 /* view-all-projects End CSS */
+
+/* blog-details */
+
+.blog-detail .quote::before {
+    content: "\201D"; /* Unicode for right double quotation mark */
+    font-size: 200px; /* Adjust size as needed */
+    font-family: Arial, sans-serif; /* Adjust font as needed */
+    color: var(--brand); /* Make the text itself transparent */
+    -webkit-text-stroke: 0px transparent; /* Apply colored border */
+    display: flex;
+    justify-content: center;
+    height: 10px !important;
+    margin-bottom: 120px;
+}
+
+@media (max-width: 1250px) {
+    #blog-details .blog-content .row {
+        width: 100% !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #blog-details .blog-content .row .col-md-8 {
+        width: 100% !important;
+    }
+
+    #blog-details .blog-content .card {
+        padding: 0px !important;
+    }
+}
