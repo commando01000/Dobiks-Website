@@ -109,7 +109,7 @@
                         <div class="section__feature-bg"></div>
                         <div class="team-section__action-content">
                             <p class="section__call-to-action-text ui text size-btn_text">
-                                view all Leadership
+                              <a href="<?php echo e(route('about-us')); ?>">  view all Leadership<a>
                             </p>
                             <img src="<?php echo e(asset('assets/front_assets/images/img_arrow.svg')); ?>" alt="arrow image"
                                 class="section__call-to-action-icon" />
@@ -118,36 +118,22 @@
                 </div>
             </div>
             <div class="team-section__members">
-                <div class="user-profile">
-                    <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_350x292.png')); ?>" alt="profile image"
-                        class="user-profile__image" />
-                    <p class="user-profile__name ui text size-textxl">
-                        Ahmed bakry
-                    </p>
-                    <p class="user-profile__role ui text size-texts">
-                        Managing Director
-                    </p>
-                </div>
-                <div class="user-profile">
-                    <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_312x260.png')); ?>" alt="profile image"
-                        class="user-profile__image pt-5" />
-                    <p class="user-profile__name ui text size-textxl">
-                        Osama mohsen
-                    </p>
-                    <p class="user-profile__role ui text size-texts">
-                        UI/UX Designer
-                    </p>
-                </div>
-                <div class="user-profile">
-                    <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_8.png')); ?>" alt="profile image"
-                        class="user-profile__image" />
-                    <p class="user-profile__name ui text size-textxl">
-                        Eslam maged
-                    </p>
-                    <p class="user-profile__role ui text size-texts">
-                        Financial Officer
-                    </p>
-                </div>
+                <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                    <div class="user-profile">
+                        <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
+                            class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
+                        <p class="user-profile__name ui text size-textxl">
+                            <?php echo e($leadership->name); ?>
+
+                        </p>
+                        <p class="user-profile__role ui text size-texts">
+                            <?php echo e($leadership->position); ?>
+
+                        </p>
+                    </div>
+
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>

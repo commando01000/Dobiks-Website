@@ -352,6 +352,11 @@ Route::group(['prefix' => '2fa'], function () {
 Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('blog', [Blog_frontController::class, 'index'])->name('see.all.blogs');
     Route::get('blog/{slug}', [Blog_frontController::class, 'view'])->name('view.blog');
+    
+    Route::get('blog-details', function () {
+        return view('front.blog.view-blog');
+    })->name('blog-details');
+
     Route::get('faqs', [\App\Http\Controllers\Front\FaqController::class, 'index'])->name('faqs');
     Route::get('testimonials ', [Testimonial_frontController::class, 'index'])->name('testimonials ');
     Route::get('gallery', [Gallery_frontController::class, 'index'])->name('gallery');
@@ -361,12 +366,12 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('services', function () {
         $categories     = ProjectCategory::all();
         $clients = Client::all();
-        return view('front.services.index',compact('categories','clients'));
+        return view('front.services.index', compact('categories', 'clients'));
     })->name('services');
     Route::get('our-clients', function () {
         $categories     = ProjectCategory::all();
         $clients = Client::all();
-        return view('front.services.index',compact('categories','clients'));
+        return view('front.services.index', compact('categories', 'clients'));
         return view('front.our-clients.index');
     })->name('our-clients');
     Route::get('team-details', function () {
