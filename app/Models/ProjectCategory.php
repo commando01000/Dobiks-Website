@@ -14,4 +14,8 @@ class ProjectCategory extends Model
         'name',
         'status',
     ];
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'project_category');
+    }
 }

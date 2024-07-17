@@ -30,20 +30,28 @@ class Project_frontController extends Controller
     }
     public function seeAllProjects(Request $request)
     {
-           // Get the selected category ID from the request, default to 'all'
-        $category_selected = $request->input('category', 'all');
+        // // Get the selected category ID from the request, default to 'all'
+        // $category_selected = $request->input('category', 'all');
 
-        // Retrieve projects based on selected category
-        if ($category_selected == 'all') {
-            $projects = Project::with('category')->get();
-        } else {
-            $projects = Project::with('category')->where('category_id', $category_selected)->get();
-        }
-        $recentProjects    = Project::latest()->take(3)->get();
-        $lastProject       = Project::latest()->first();
-        $allProjects      = Project::with("category")->get();
-        $categories     = ProjectCategory::all();
-        return view('front/project.view-all-projects', compact('projects','category_selected','allProjects', 'recentProjects', 'lastProject' ,'categories'));
+        // // Retrieve projects based on selected category
+        // if ($category_selected == 'all') {
+        //     $projects = Project::with('category')->get();
+        // } else {
+        //     $projects = Project::with('category')->where('category_id', $category_selected)->get();
+        // }
+
+
+
+        $categories = ProjectCategory::with('projects')->get();
+
+        return view('front/project.view-all-projects', compact(  'categories'));
     }
+    public function getProjectsByCategory($categoryId)
+    {
+        $projects = Project::where('project_category', $categoryId)->get();
+        return response()->json($projects);
+    }
+
+
 
 }

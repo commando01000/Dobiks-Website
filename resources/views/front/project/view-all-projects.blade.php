@@ -17,114 +17,105 @@
                         </span>
                         <br>
                         <p class="content-section__description pt-3">{{ Utility::getsettings('project_detail') }}</p>
-
                     </h2>
-                    <ul class="nav nav-pills section-projects__content mb-3 filtering" id="pills-tab" role="tablist">
-                        <button class="position-relative nav-link text-decoration-none section__tab-item active"
-                            data-filter="*" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all"
-                            type="button" role="tab" aria-controls="pills-all" aria-selected="true">
-                            <div class="circle position-absolute start-0 z-0"></div>
-                            <div class="position-relative text z-1 text-white">
-                                All
-                            </div>
-                        </button>
+                    <!-- resources/views/projects/index.blade.php -->
+                    <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
                         @foreach ($categories as $category)
                             <li class="nav-item" role="presentation">
-                                <button class="position-relative nav-link text-decoration-none section__tab-item"
-                                    data-filter=".category-{{ $category->id }}" id="pills-{{ $category->id }}-tab"
-                                    data-bs-toggle="pill" data-bs-target="#pills-{{ $category->id }}" type="button"
-                                    role="tab" aria-controls="pills-{{ $category->id }}" aria-selected="false">
-
-                                    <div class="circle position-absolute start-0 z-0"></div>
-                                    <div class="position-relative text z-1 text-white">
-                                        {{ $category->name }}
-                                    </div>
+                                <button class="nav-link text-decoration-none section__tab-item"
+                                    id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
+                                    aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
+                                    style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
+                                    {{ $category->name }}
                                 </button>
                             </li>
                         @endforeach
                     </ul>
-                    <div class="tab-content w-100" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-creative-design" role="tabpanel"
-                            aria-labelledby="pills-creative-design-tab" tabindex="0">
-                            <div class="container">
-                                <div class="row gx-3 gy-3">
-                                    @foreach ($allProjects as $project)
-                                        <div class="col-md-4">
-                                            <div class="service">
-                                                <div class="service-header d-flex justify-content-between">
-                                                    <div class="service-number">
-                                                        <p>{{ $loop->iteration }}</p>
-                                                    </div>
-                                                    <div class="category-name">
-                                                        <p class="user-profile__role ui text size-texts">
-                                                            {{ $project->title }}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="service__image">
-                                                    <img src="{{ Storage::url($project->cover) }}" alt="image">
-                                                </div>
-                                                <div class="service-title mt-4">
-                                                    {{ $project->client }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
 
-                                </div>
-                                <div class="tab-pane fade" id="pills-motion-graphics" role="tabpanel"
-                                    aria-labelledby="pills-motion-graphics-tab" tabindex="0">
-                                    ...
-                                </div>
-                                <div class="tab-pane fade" id="pills-video-shooting" role="tabpanel"
-                                    aria-labelledby="pills-video-shooting-tab" tabindex="0">
-                                    ...
-                                </div>
-                                <div class="tab-pane fade" id="pills-event-management" role="tabpanel"
-                                    aria-labelledby="pills-event-management-tab" tabindex="0">
-                                    ...
-                                </div>
-                                <div class="tab-pane fade" id="pills-interior-luxury" role="tabpanel"
-                                    aria-labelledby="pills-interior-luxury-tab" tabindex="0">
-                                    ...
-                                </div>
-                                <div class="tab-pane fade" id="pills-ui-ux" role="tabpanel"
-                                    aria-labelledby="pills-ui-ux-tab" tabindex="0">
-                                    ...
-                                </div>
-                            </div>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="projects-list" role="tabpanel"
+                            aria-labelledby="projects-list-tab">
+                            <!-- Projects will be loaded here dynamically -->
                         </div>
                     </div>
                 </div>
             </div>
+        </main>
     </section>
 @endsection
-@section('script')
+
+@section('js')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.filtering button');
-            const projects = document.querySelectorAll('.project-item');
+            // Fetch data for the first category initially
+            @if ($categories->isNotEmpty())
+                loadProjects({{ $categories->first()->id }});
+            @endif
+        });
 
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
+        function loadProjects(categoryId) {
+            fetch(`/projects/category/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data:', data); // Log the fetched data
 
-                    // Remove active class from all buttons
-                    buttons.forEach(btn => btn.classList.remove('active'));
+                    let projectsList = document.getElementById('projects-list');
+                    projectsList.innerHTML = '';
 
-                    // Add active class to the clicked button
-                    this.classList.add('active');
+                    baseUrl = "{{ url('/') }}";
+                    let counter = 1; // Initialize a counter
+                    let row = document.createElement('div');
+                    row.classList.add('row');
 
-                    // Filter projects
-                    projects.forEach(project => {
-                        if (filter === '*' || project.classList.contains(filter.slice(1))) {
-                            project.style.display = 'block';
-                        } else {
-                            project.style.display = 'none';
+                    data.forEach(project => {
+                        let projectItem = `
+<div class="col-md-4 mb-4"> <!-- Adjusted column class and margin bottom -->
+    <div class="service">
+        <div class="service-header d-flex justify-content-between">
+            <div class="service-number">
+                <p>${counter}</p>
+            </div>
+            <div class="category-name">
+                <p class="user-profile__role ui text size-texts">
+                    ${project.title}
+                </p>
+            </div>
+        </div>
+        <div class="service__image">
+            <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+        </div>
+        <div class="service-title mt-4">
+            ${project.client}
+        </div>
+    </div>
+</div>
+`;
+
+                        // Append projectItem to row
+                        row.innerHTML += projectItem;
+                        counter++; // Increment the counter
+
+                        // Append row to projectsList after every 3 items (for 3 columns in a row)
+                        if (counter % 3 === 1) {
+                            projectsList.appendChild(row);
+                            row = document.createElement('div');
+                            row.classList.add('row');
                         }
                     });
+
+                    // Append the last row if it's not already added
+                    if (data.length % 3 !== 0) {
+                        projectsList.appendChild(row);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error); // Log any errors
                 });
-            });
-        });
+        }
+
+        // Ensure that loadProjects is available globally
+        window.loadProjects = loadProjects;
     </script>
 @endsection
