@@ -181,102 +181,22 @@
                         </h3>
                     </div>
                     <div class="row mt-5">
+                        <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-3">
                             <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/so3ody.jpeg')); ?>" alt="profile image"
-                                    class="user-profile__image">
+                                <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
+                                    class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
                                 <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
+                                    <?php echo e($leadership->name); ?>
+
                                 </p>
                                 <p class="user-profile__role ui text size-texts">
-                                    Managing Director
+                                    <?php echo e($leadership->position); ?>
+
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="user-profile ">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_350x292.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-5">
-                                <p class="user-profile__name ui text size-textxl">
-                                    David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    UI/UX Designer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_312x260.png')); ?>"
-                                    alt="profile image" class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Ralph Waldo
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Financial Officer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_8.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-4">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/so3ody.jpeg')); ?>" alt="profile image"
-                                    class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile ">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_350x292.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-5">
-                                <p class="user-profile__name ui text size-textxl">
-                                    David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    UI/UX Designer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_312x260.png')); ?>"
-                                    alt="profile image" class="user-profile__image">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Ralph Waldo
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Financial Officer
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder_8.png')); ?>"
-                                    alt="profile image" class="user-profile__image pt-4">
-                                <p class="user-profile__name ui text size-textxl">
-                                    Saint David Hume
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    Managing Director
-                                </p>
-                            </div>
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </section>
