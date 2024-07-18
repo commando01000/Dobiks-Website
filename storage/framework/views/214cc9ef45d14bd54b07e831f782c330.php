@@ -109,7 +109,7 @@
                         <div class="section__feature-bg"></div>
                         <div class="team-section__action-content">
                             <p class="section__call-to-action-text ui text size-btn_text">
-                              <a href="<?php echo e(route('about-us')); ?>">  view all Leadership<a>
+                                <a href="<?php echo e(route('about-us')); ?>"> view all Leadership<a>
                             </p>
                             <img src="<?php echo e(asset('assets/front_assets/images/img_arrow.svg')); ?>" alt="arrow image"
                                 class="section__call-to-action-icon" />
@@ -119,7 +119,6 @@
             </div>
             <div class="team-section__members">
                 <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
                     <div class="user-profile">
                         <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
                             class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
@@ -132,7 +131,6 @@
 
                         </p>
                     </div>
-
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
