@@ -382,7 +382,6 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('projects/{slug}/', [Project_frontController::class, 'viewProject'])->name('view.project');
     Route::get('projects', [Project_frontController::class, 'seeAllProjects'])->name('see.all.projects');
     Route::get('/projects/category/{id}', [Project_frontController::class, 'getProjectsByCategory']);
-    Route::get('/projects/{slug}/', [Project_frontController::class, 'getHomeProjects'])->name('project-details');
 
     // Route::get('advertisements/{slug}/', [FrontAdvertisementController::class, 'viewAdvertisments'])->name('view.advertisment');
     // Route::get('advertisements', [FrontAdvertisementController::class, 'seeAllAdvertisements'])->name('see.all.advertisments');
