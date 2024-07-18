@@ -11,9 +11,13 @@ class Client extends Model
     public $table = 'clients';
     protected $fillable = [
         'name',
-        'description' ,
-        'builder' ,
+        'description',
+        'builder',
         'cover',
         'created_by'
     ];
+    public function category()
+    {
+        return $this->belongsTo(ClientCategory::class, "client_category");
+    }
 }

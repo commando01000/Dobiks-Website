@@ -1,5 +1,3 @@
-
-
 <style>
     .message-container {
         position: fixed;
@@ -51,10 +49,10 @@
             <div class="row gx-2">
                 <div class="col-md-6">
                     <!-- <label class="form-group">
-                                                                        <input type="text" class="form-control" required="" />
-                                                                        <span>Full name here</span>
-                                                                        <span class="border"></span>
-                                                                      </label> -->
+                                                                                                    <input type="text" class="form-control" required="" />
+                                                                                                    <span>Full name here</span>
+                                                                                                    <span class="border"></span>
+                                                                                                  </label> -->
                     <div class="inline-container d-flex align-items-center flex-row">
                         <!-- Added container for inline elements -->
                         <span class="d-inline-block content-section__description ui text size-textmd">WAITING</span>
@@ -64,29 +62,42 @@
                         <h2 class="content-section__subtitle ui heading size-headingmd">
                             Let's Go
                         </h2>
-                        <h1 class="content-section__title">Register Form</h1>
+                        <h1 class="content-section__title">Contact Us</h1>
                         <div class="row flex-wrap gy-2">
                             <form method="post" action="<?php echo e(route('contact_us.store')); ?>">
                                 <?php echo csrf_field(); ?>
                                 <div class="col-md-12">
                                     <div class="mb-5">
-                                        <label for="name" class="col-form-label text-white">Full Name <span
+                                        <label for="name" class="col-form-label text-white">First Name <span
                                                 style="color: #ff5101"> *</span></label>
-                                        <input type="text" class="form-control text-white" name="full_name"
-                                            id="name" placeholder="Your name" />
+                                        <input type="text" class="form-control text-white" name="firstname"
+                                            id="name" placeholder="First Name" required />
                                     </div>
                                     <div class="mb-5">
-                                        <label for="c_name" class="col-form-label text-white">Company Name
+                                        <label for="c_name" class="col-form-label text-white">Last Name
                                             <span style="color: #ff5101"> *</span></label>
-                                        <input type="text" class="form-control text-white" name="company_name"
-                                            id="c_name" placeholder="Company Name here" />
+                                        <input type="text" class="form-control text-white" name="lastname" id="c_name"
+                                            placeholder="Last Name" required />
                                     </div>
                                     <div class="mb-5">
                                         <label for="ph_number" class="col-form-label text-white">
-                                            Phone number here
+                                            Email
                                             <span style="color: #ff5101"> *</span></label>
-                                        <input type="text" class="form-control text-white" name="phone" id="ph_number"
-                                            placeholder="Phone Number" />
+                                        <input type="email" class="form-control text-white" name="email" id="ph_number"
+                                            placeholder="Email" required />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="ph_number" class="col-form-label text-white">
+                                            Subject
+                                            <span style="color: #ff5101"> *</span></label>
+                                        <input type="text" class="form-control text-white" name="subject" id="ph_number"
+                                            placeholder="subject" required />
+                                    </div>
+                                    <div class="mb-5">
+                                        <label for="ph_number" class="col-form-label text-white">
+                                            Comments
+                                            <span style="color: #ff5101"> *</span></label>
+                                        <textarea class="form-control text-white" name="comments" id="ph_number" placeholder="Message" required></textarea>
                                     </div>
                                     <div class="mb-5">
                                         <div class="row gx-1 justify-content-around gy-1">
@@ -96,16 +107,20 @@
                                                     <span style="color: #ff5101"> *</span></label>
                                                 <br />
                                                 <a name="FACEBOOK" id="FACEBOOK" class="btn ps-5 pe-5 border-0"
-                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    style="color: white; background-color: #ff5101"
+                                                    href="<?php echo e(Utility::getsettings('contact_facebook')); ?>"
                                                     role="button">FACEBOOK</a>
                                                 <a name="TWITTER" id="TWITTER" class="btn ps-5 pe-5 border-0"
-                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    style="color: white; background-color: #ff5101"
+                                                    href="<?php echo e(Utility::getsettings('contact_twitter')); ?>"
                                                     role="button">TWITTER</a>
                                                 <a name="LINKEDIN" id="LINKEDIN" class="btn ps-5 pe-5 border-0"
-                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    style="color: white; background-color: #ff5101"
+                                                    href="<?php echo e(Utility::getsettings('contact_linkedin')); ?>"
                                                     role="button">LINKEDIN</a>
                                                 <a name="INSTAGRAM" id="INSTAGRAM" class="btn ps-5 pe-5 mt-1 border-0"
-                                                    style="color: white; background-color: #ff5101" href="#"
+                                                    style="color: white; background-color: #ff5101"
+                                                    href="<?php echo e(Utility::getsettings('contact_instagram')); ?>"
                                                     role="button">INSTAGRAM</a>
                                             </div>
                                         </div>

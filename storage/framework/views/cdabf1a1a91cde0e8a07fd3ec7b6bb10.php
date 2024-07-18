@@ -35,7 +35,7 @@
                             <div class="mb-5">
                                 <label for="name" class="col-form-label text-white">First Name <span
                                         style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="firstname" id="name"
+                                <input type="text" class="form-control text-white" name="firstname" required id="name"
                                     placeholder="First name here" />
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                             <div class="mb-5">
                                 <label for="l_name" class="col-form-label text-white">Last Name
                                     <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="lastname" id="c_name"
+                                <input type="text" class="form-control text-white" name="lastname" required id="c_name"
                                     placeholder="Last name here" />
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <div class="mb-5">
                                 <label for="name" class="col-form-label text-white">Email Address<span
                                         style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="email" id="name"
+                                <input type="text" class="form-control text-white" name="email" required id="name"
                                     placeholder="First name here" />
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <div class="mb-5">
                                 <label for="c_name" class="col-form-label text-white">Subject
                                     <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="subject" id="c_name"
+                                <input type="text" class="form-control text-white" name="subject" required id="c_name"
                                     placeholder="ٍSubject here" />
                             </div>
                         </div>
