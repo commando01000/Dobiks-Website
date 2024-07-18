@@ -22,27 +22,17 @@
                         <small class="content-section__description fs-6">{{ $blog->created_at->format('jS F Y') }}</small>
                         <br>
                         <div class="blog-detail w-100">
-                            <img class="w-100 pt-5" src="{{ asset('assets/front_assets/images/oasis.png') }}"
-                                alt="blog image">
-                            <div class="blog-text">
-                                <br>
-                                <p class="fs-6 content-section__description">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work.
 
-                                </p>
-                                <p class="fs-6 content-section__description">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work.
-                                </p>
-                                <br>
-                            </div>
+
+                            <?php
+                            $var = html_entity_decode($blog->description);
+
+                            echo $var;
+
+                            ?>
+
                         </div>
-                        <div class="blog-detail w-100">
+                        {{-- <div class="blog-detail w-100">
                             <div class="block-images d-flex flex-row flex-nowrap">
                                 <img class="w-50 pt-3" src="{{ asset('assets/front_assets/images/img_rectangle_4.png') }}"
                                     alt="blog image">
@@ -72,7 +62,7 @@
                             <div class="w-100">
                                 <div class="text-center quote-container">
                                     <span class="quote"></span>
-                                    {{-- before --}}
+
                                 </div>
                             </div>
                             <div class="blog-text">
@@ -95,7 +85,7 @@
                                 </p>
                                 <br>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-md-4">
                         <h1 style="line-height: 65px !important" class="content-section__title fs-4">Similar Post</h1>

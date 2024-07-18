@@ -14,7 +14,7 @@
         </div>
 
         <div class="clients-content">
-            <ul class="nav nav-pills section-clients__content mb-3" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
                 <?php $__currentLoopData = $clientCategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <li class="nav-item" role="presentation">
                         <button
@@ -32,7 +32,7 @@
                     </li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
-            <div class="tab-content" id="pills-tabContent">
+            <div class="tab-content mt-5 pt-5" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="clients-list" role="tabpanel"
                     aria-labelledby="clients-list-tab">
                     <!-- Clients will be loaded here dynamically -->
@@ -61,46 +61,39 @@
                     clientsList.innerHTML = '';
 
                     baseUrl = "<?php echo e(url('/')); ?>";
-                    let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
-                    row.classList.add('w-100');
-                    row.classList.add('m-auto');
-
+                    row.classList.add('overflow-hidden');
+                    row.classList.add('gx-5');
+                    row.classList.add('gy-5');
                     data.forEach((client, index) => {
-                        let clientItem = `<div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div class="client" onclick="window.location.href = '/clients/${client.id}'">
-                                <div class="client-header d-flex justify-content-between">
-                                    <div class="client-number">
-                                        <p>${counter}</p>
-                                    </div>
-                                    <div class="client-name">
-                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
-                                            ${client.name}
-                                        </p>
-                                    </div>
+                        let clientItem = `<div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjusted column class and margin bottom -->
+                            <div class="client card border-1 p-5 d-flex justify-content-center align-items-center" style="
+                                        min-height: 300px;
+                                        border: 1px solid var(--gray_800);
+                                        background-color: #1a1a1a;
+                                    " onclick="window.location.href = '/clients/${client.id}'">
+                                <div class="card-image w-100 h-100">
+                                        <img class="w-100" src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
                                 </div>
-                                <div class="client__image ${index % 2 != 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
-                                </div>
-                               
                             </div>
                         </div>`;
-
-                        // Append clientItem to row
                         row.innerHTML += clientItem;
-                        counter++; // Increment the counter
 
-                        // Append row to clientsList after every 3 items (for 3 columns in a row)
-                        if (counter % 3 === 1) {
+                        // Append row to clientsList after every 4 items (for 4 columns in a row)
+                        if ((index + 1) % 4 === 0) {
                             clientsList.appendChild(row);
                             row = document.createElement('div');
                             row.classList.add('row');
+                            row.classList.add('mt-1');
+                            row.classList.add('overflow-hidden');
+                            row.classList.add('gx-5');
+                            row.classList.add('gy-5');
                         }
                     });
 
-                    // Append the last row if it's not already added
-                    if (data.length % 3 !== 0) {
+                    // Append the last row if it contains any items
+                    if (data.length % 4 !== 0) {
                         clientsList.appendChild(row);
                     }
                 })
@@ -113,4 +106,6 @@
         window.loadClients = loadClients;
     </script>
 <?php $__env->stopPush(); ?>
+
+
 <?php /**PATH D:\company\backend\resources\views/front/clients-section/clients.blade.php ENDPATH**/ ?>

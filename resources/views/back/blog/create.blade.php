@@ -18,7 +18,7 @@
             <div class="m-auto col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5> {{ __('Create Blog') }}</h5>
+                        <h5>{{ __('Create Blog') }}</h5>
                     </div>
                     {!! Form::open([
                         'route' => 'blog.store',
@@ -27,9 +27,8 @@
                         'data-validate',
                     ]) !!}
                     <div class="card-body">
-
                         @foreach ($allLanguages as $localeCode => $language)
-                            <div class="row mb-5 p-3  rounded-3" style="background-color: rgb(235, 233, 233) !important">
+                            <div class="row mb-5 p-3 rounded-3" style="background-color: rgb(235, 233, 233) !important">
                                 <div class="col-sm-12">
                                     <h4>{{ $language }}</h4>
                                 </div>
@@ -72,17 +71,16 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        {{ Form::label('description', __('Description'), ['class' => 'form-label']) }} *
+                                        {{ Form::label('body_' . $localeCode, __('Description (' . $language . ')'), ['class' => 'form-label']) }}
+                                        *
                                         {!! Form::textarea('description_' . $localeCode, null, [
-                                            'class' => 'form-control ',
-                                            'placeholder' => __('Enter description'),
-                                            'required' => 'required',
+                                            'class' => 'form-control',
+                                            'placeholder' => __('Enter description (' . $language . ')'),
                                         ]) !!}
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
@@ -100,10 +98,6 @@
     <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace('description', {
-            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
-            filebrowserUploadMethod: 'form'
-        });
         document.addEventListener('DOMContentLoaded', function() {
             var genericExamples = document.querySelectorAll('[data-trigger]');
             for (i = 0; i < genericExamples.length; ++i) {
@@ -113,6 +107,13 @@
                     searchPlaceholderValue: 'This is a search placeholder',
                 });
             }
+
+            @foreach ($allLanguages as $localeCode => $language)
+                CKEDITOR.replace('description_{{ $localeCode }}', {
+                    filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+                    filebrowserUploadMethod: 'form'
+                });
+            @endforeach
         });
     </script>
 @endpush
