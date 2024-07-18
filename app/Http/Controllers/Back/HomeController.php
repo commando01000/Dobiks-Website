@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\Facades\UtilityFacades;
 use App\Models\Blog;
+use App\Models\Client;
 use App\Models\Project;
 use App\Models\Faq;
 use App\Models\MenuSetting;
 use App\Models\Form;
 use App\Models\FormValue;
+use App\Models\Leadership;
 use App\Models\Poll;
+use App\Models\ProjectCategory;
 use App\Models\Role;
 use App\Models\Testimonial;
 use App\Models\User;
@@ -36,15 +40,22 @@ class HomeController extends Controller
     public function index()
     {
         $this->middleware(['auth', '2fa']);
-
-            $usr = \Auth::user();
-            $userId = $usr->id;
-            $roles = Role::where('name', $usr->type)->first();
-            $roleId = $usr->roles->first()->id;
+        $usr = \Auth::user();
+        $userId = $usr->id;
+        $roles = Role::where('name', $usr->type)->first();
+        $roleId = $usr->roles->first()->id;
         $user = User::count();
 
-
-            return  view('back.dashboard.index', compact('user'));
+        return view('back.dashboard.index', compact('user'));
+    }
+    public function getHomeProjects()
+    {
+        $projects = Project::take(9)->get();
+        // dd($projects);
+        $categories = ProjectCategory::with('projects')->get();
+        $leaderships = Leadership::all();
+        $clients = Client::all();
+        return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients'));
     }
     public function changeThememode(Request $request)
     {
@@ -118,6 +129,4 @@ class HomeController extends Controller
         auth()->user()->notifications->markAsRead();
         return response()->json(['is_success' => true], 200);
     }
-
-
 }

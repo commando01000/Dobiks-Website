@@ -34,14 +34,23 @@ class Project_frontController extends Controller
     }
     public function seeAllProjects(Request $request)
     {
+        // // Get the selected category ID from the request, default to 'all'
+        // $category_selected = $request->input('category', 'all');
+
+        // // Retrieve projects based on selected category
+        // if ($category_selected == 'all') {
+        //     $projects = Project::with('category')->get();
+        // } else {
+        //     $projects = Project::with('category')->where('category_id', $category_selected)->get();
+        // }
 
         $categories = ProjectCategory::with('projects')->get();
 
         return view('front/project.view-all-projects', compact('categories'));
     }
-    public function getServiceDetails($serviceId)
+    public function getHomeProjects($projectId)
     {
-        dd($serviceId);
+        dd($projectId);
         // $projects = Project::where('project_category', $serviceId)->get();
         // return response()->json($projects);
         return view('front.services.view-service');
