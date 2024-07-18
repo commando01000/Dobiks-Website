@@ -78,7 +78,7 @@
                     data.forEach((project, index) => {
                         let projectItem = `
                         <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '<?php echo e(route('projects.view', $project->slug)); ?>'" class="service">
+                            <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
                                 <div class="service-header d-flex justify-content-between">
                                     <div class="service-number">
                                         <p>${counter}</p>

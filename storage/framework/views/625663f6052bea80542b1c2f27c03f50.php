@@ -61,9 +61,9 @@
                     clientsList.innerHTML = '';
 
                     baseUrl = "<?php echo e(url('/')); ?>";
-                    let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
+                    row.classList.add('overflow-hidden');
                     row.classList.add('gx-5');
                     row.classList.add('gy-5');
                     data.forEach((client, index) => {
@@ -78,20 +78,22 @@
                                 </div>
                             </div>
                         </div>`;
-                        // Append clientItem to row
                         row.innerHTML += clientItem;
-                        counter++; // Increment the counter
 
-                        // Append row to clientsList after every 3 items (for 3 columns in a row)
-                        if (counter % 4 === 1) {
+                        // Append row to clientsList after every 4 items (for 4 columns in a row)
+                        if ((index + 1) % 4 === 0) {
                             clientsList.appendChild(row);
                             row = document.createElement('div');
                             row.classList.add('row');
+                            row.classList.add('mt-1');
+                            row.classList.add('overflow-hidden');
+                            row.classList.add('gx-5');
+                            row.classList.add('gy-5');
                         }
                     });
 
-                    // Append the last row if it's not already added
-                    if (data.length % 3 !== 0) {
+                    // Append the last row if it contains any items
+                    if (data.length % 4 !== 0) {
                         clientsList.appendChild(row);
                     }
                 })
@@ -104,4 +106,6 @@
         window.loadClients = loadClients;
     </script>
 <?php $__env->stopPush(); ?>
+
+
 <?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/front/clients-section/clients.blade.php ENDPATH**/ ?>

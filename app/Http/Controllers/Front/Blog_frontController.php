@@ -21,11 +21,18 @@ class Blog_frontController extends Controller
     {
         $lang = UtilityFacades::getActiveLanguage();
         App::setLocale($lang);
-        $blog       =  Blog::where('slug', $slug)->first();
+
+        $blog = Blog::where('slug', $slug)->first();
+
         if (!$blog) {
             abort(404);
         }
-        $allBlogs = Blog::all();
-        return view('front.blog.view-blog', compact('blog', 'allBlogs', 'slug', 'lang'));
+
+        $allBlogs = Blog::where('id', '!=', $blog->id)->get();
+
+        $blog_category = BlogCategory::find($blog->category_id);
+        // dd($blog_category);
+
+        return view('front.blog.view-blog', compact('blog', 'allBlogs', 'slug', 'lang', 'blog_category'));
     }
 }

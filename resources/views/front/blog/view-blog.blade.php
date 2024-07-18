@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
-                    Creating a Relaxing Oasis
+                    {{ $blog_category->name }}
                 </h1>
                 <small class="content-section__description fs-6">HOME / BLOG DETAILS</small>
             </div>
@@ -17,9 +17,9 @@
                 <div class="row m-auto mt-5 w-75 pt-5">
                     <div class="col-md-8">
                         <h1 class="content-section__title fs-5">
-                            Creating a Relaxing Oasis: Tips for…
+                            {{ $blog->title }}
                         </h1>
-                        <small class="content-section__description fs-6">Admin 18 Feb, 2023</small>
+                        <small class="content-section__description fs-6">{{ $blog->created_at->format('jS F Y') }}</small>
                         <br>
                         <div class="blog-detail w-100">
                             <img class="w-100 pt-5" src="{{ asset('assets/front_assets/images/oasis.png') }}"
