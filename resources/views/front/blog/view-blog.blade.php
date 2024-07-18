@@ -9,9 +9,9 @@
         <div class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
-                    {{ $blog_category->name }}
+                    {{ $blog->title }}
                 </h1>
-                <small class="content-section__description fs-6">HOME / BLOG DETAILS</small>
+                <small class="content-section__description fs-6">HOME / BLOG DETAILS / {{ $blog_category->name }}</small>
             </div>
             <div class="blog-content w-100">
                 <div class="row m-auto mt-5 w-75 pt-5">
