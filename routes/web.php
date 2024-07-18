@@ -382,6 +382,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
 
     Route::get('our-clients', [Client_frontController::class, 'seeAllClients'])->name('see.all.clients');
 
+    // Route::get('/clients/category/{id}', [Client_frontController::class, 'getClientsByCategory']);
     Route::get('/clients/category/{id}', [Client_frontController::class, 'getClientsByCategory']);
 
     Route::get('team-details', function () {

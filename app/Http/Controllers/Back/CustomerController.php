@@ -24,6 +24,7 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
+
         request()->validate([
             'name'             => 'required',
             'cover'            => 'image|mimes:jpg,jpeg,png',
@@ -35,11 +36,12 @@ class CustomerController extends Controller
             ]);
             $path = $request->file('cover')->store('clients');
         }
-
+        
         client::create([
             "name"                 => $request->name,
             'description'           => $request->description,
             'cover'                => $path,
+            'client_category'       => $request->category_id,
             'created_by'            => \Auth::user()->id,
         ]);
 
@@ -72,6 +74,7 @@ class CustomerController extends Controller
 
         $client->name                 = $request->name;
         $client->description           = $request->description;
+        $client->client_category       = $request->category_id;
         $client->created_by            = \Auth::user()->id;
         $client->save();
         if (isset($old_cover))

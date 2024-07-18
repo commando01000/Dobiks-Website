@@ -7,6 +7,7 @@ use App\Facades\UtilityFacades;
 use App\Models\advertisement;
 use App\Models\Blog;
 use App\Models\Client;
+use App\Models\ClientCategory;
 use App\Models\Project;
 use App\Models\Faq;
 use App\Models\Leadership;
@@ -23,11 +24,8 @@ class Home_frontController extends Controller
         $projects = Project::take(9)->get();
         $categories = ProjectCategory::with('projects')->get();
         $leaderships = Leadership::take(3)->get();
-        $clients = Client::take(3)->get();
-        return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients'));
+        $clients = Client::take(9)->get();
+        $clientCategory = ClientCategory::with('clients')->take(9)->get();
+        return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients', 'clientCategory'));
     }
-
-    // public function contact_us(){
-    //     return view("front.contact.contactus")
-    // }
 }

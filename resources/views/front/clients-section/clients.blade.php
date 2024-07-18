@@ -1,5 +1,5 @@
 <div id="section-clients" class="section">
-    <div id="tabList" role="tablist" aria-label="Services Row" class="section__content">
+    <div id="tabList" role="tablist" aria-label="Clients Row" class="section__content">
         <div class="section__header">
             <div class="section__header-row">
                 <p class="section__title ui text size-btn_text">Clients</p>
@@ -9,101 +9,44 @@
                 Meet Our
             </h2>
             <h3 class="section__highlight ui heading size-headinglg">
-                Special Client’s
+                Special Clients
             </h3>
         </div>
 
-        <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
-            @foreach ($categories as $category)
-                <li class="nav-item" role="presentation">
-                    <button
-                        class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
-                        id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
-                        aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
-                        style="cursor: pointer" onclick="loadClients({{ $category->id }})">
-                        <div class="circle position-absolute start-0 z-0"></div>
-                        <div class="position-relative text z-1 text-white">
-                            {{ $category->name }}
-                        </div>
-                    </button>
-                </li>
-            @endforeach
-        </ul>
-
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="clients-list" role="tabpanel" aria-labelledby="clients-list-tab">
-                <!-- Clients will be loaded here dynamically -->
-            </div>
-        </div>
-
-        {{-- <div class="tab-content w-100" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-creative-design-clients" role="tabpanel"
-                aria-labelledby="pills-creative-design-clients-tab" tabindex="0">
-                <div class="container">
-                    <div class="row gx-5 gy-5">
-                        @foreach ($clients as $client)
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                    style="
-                                        min-height: 300px;
-                                        border: 1px solid var(--gray_800);
-                                        background-color: #1a1a1a;
-                                    ">
-                                    <div class="card-image w-100 h-100">
-                                        <img src="{{ Storage::url($client->cover) }}" class="w-100" alt="item" />
-                                    </div>
-                                </div>
+        <div class="clients-content">
+            <ul class="nav nav-pills section-clients__content mb-3" id="pills-tab" role="tablist">
+                @foreach ($clientCategory as $category)
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
+                            id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
+                            aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
+                            style="cursor: pointer" onclick="loadClients({{ $category->id }})">
+                            <div class="circle position-absolute start-0 z-0"></div>
+                            <div class="position-relative text z-1 text-white">
+                                {{ $category->name }}
                             </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="pills-motion-graphics-clients" role="tabpanel"
-                aria-labelledby="pills-motion-graphics-clients-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-video-shooting-clients" role="tabpanel"
-                aria-labelledby="pills-video-shooting-clients-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-event-management" role="tabpanel"
-                aria-labelledby="pills-event-management-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-interior-luxury" role="tabpanel"
-                aria-labelledby="pills-interior-luxury-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-ui-ux" role="tabpanel" aria-labelledby="pills-ui-ux-tab"
-                tabindex="0">
-                ...
-            </div>
-        </div> --}}
-
-        <div class="section-projects__actions w-100">
-            <div class="section-projects__action-row">
-                <div class="section__call-to-action-row">
-                    <p class="section__call-to-action-text ui text-white text size-btn_text">
-                        <!-- Wrap "vie" for individual styling -->
-                        <span class="section__feature-bg">view</span> &nbsp; all
-                        clients
-                    </p>
-                    <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
-                        class="section__call-to-action-icon" />
+                        </button>
+                    </li>
+                @endforeach
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="clients-list" role="tabpanel"
+                    aria-labelledby="clients-list-tab">
+                    <!-- Clients will be loaded here dynamically -->
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@section('js')
+@push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Fetch data for the first category initially
-            @if ($categories->isNotEmpty())
-                loadClients({{ $categories->first()->id }});
+            @if ($clientCategory->isNotEmpty())
+                loadClients({{ $clientCategory->first()->id }});
             @endif
         });
 
@@ -111,7 +54,7 @@
             fetch(`/clients/category/${categoryId}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Fetched data Clients:', data); // Log the fetched data
+                    console.log('Fetched data:', data); // Log the fetched data
 
                     let clientsList = document.getElementById('clients-list');
                     clientsList.innerHTML = '';
@@ -121,32 +64,33 @@
                     let row = document.createElement('div');
                     row.classList.add('row');
                     row.classList.add('w-100');
-                    row.classList.add('gx-5');
-                    row.classList.add('gy-5');
+                    row.classList.add('m-auto');
 
                     data.forEach((client, index) => {
-                        let clientItem = `
-                        <div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/clients/${client.id}'" class="service">
-                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                    style="
-                                        min-height: 300px;
-                                        border: 1px solid var(--gray_800);
-                                        background-color: #1a1a1a;
-                                    ">
-                                    <div class="card-image w-100 h-100">
-                                        <img src="${baseUrl}/storage/app/${client.cover}" class="w-100" alt="item" />
+                        let clientItem = `<div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
+                            <div class="client" onclick="window.location.href = '/clients/${client.id}'">
+                                <div class="client-header d-flex justify-content-between">
+                                    <div class="client-number">
+                                        <p>${counter}</p>
+                                    </div>
+                                    <div class="client-name">
+                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
+                                            ${client.name}
+                                        </p>
                                     </div>
                                 </div>
+                                <div class="client__image ${index % 2 != 0 ? 'text-center' : ''}">
+                                    <img src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
+                                </div>
+                               
                             </div>
-                        </div>
-                        `;
+                        </div>`;
 
-                        // Append projectItem to row
+                        // Append clientItem to row
                         row.innerHTML += clientItem;
                         counter++; // Increment the counter
 
-                        // Append row to projectsList after every 3 items (for 3 columns in a row)
+                        // Append row to clientsList after every 3 items (for 3 columns in a row)
                         if (counter % 3 === 1) {
                             clientsList.appendChild(row);
                             row = document.createElement('div');
@@ -160,11 +104,11 @@
                     }
                 })
                 .catch(error => {
-                    console.error('Error fetching projects:', error); // Log any errors
+                    console.error('Error fetching clients:', error); // Log any errors
                 });
         }
 
-        // Ensure that loadProjects is available globally
+        // Ensure that loadClients is available globally
         window.loadClients = loadClients;
     </script>
-@endsection
+@endpush

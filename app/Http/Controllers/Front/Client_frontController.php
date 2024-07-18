@@ -12,14 +12,13 @@ class Client_frontController extends Controller
     public function seeAllClients(Request $request)
     {
 
-        $categories = ClientCategory::with('clients')->get();
+        $clientCategory = ClientCategory::with('clients')->get();
 
-        return view('front.clients-section.clients', compact('categories'));
+        return view('front.our-clients.index', compact('clientCategory'));
     }
     public function getClientsByCategory($categoryId)
     {
-        $clients = Client::where('client_category', $categoryId)->get();
-        dd($clients);
-        return response()->json($clients);
+        $client = Client::where('client_category', $categoryId)->get();
+        return response()->json($client);
     }
 }
