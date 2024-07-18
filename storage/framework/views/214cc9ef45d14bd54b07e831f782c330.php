@@ -2,6 +2,14 @@
 
 <?php $__env->startSection('content'); ?>
     <!-- Content-Section -->
+    <?php if(session()->has('message')): ?>
+        <div class="message-container">
+            <div class="alert alert-success">
+                <?php echo e(session()->get('message')); ?>
+
+            </div>
+        </div>
+    <?php endif; ?>
     <section class="content-section m-5 p-5 pb-0 mb-0">
         <div class="container">
             <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
