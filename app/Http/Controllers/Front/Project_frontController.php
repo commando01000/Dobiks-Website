@@ -44,15 +44,13 @@ class Project_frontController extends Controller
         //     $projects = Project::with('category')->where('category_id', $category_selected)->get();
         // }
 
-
-
         $categories = ProjectCategory::with('projects')->get();
 
         return view('front/project.view-all-projects', compact('categories'));
     }
-    public function getServiceDetails($serviceId)
+    public function getHomeProjects($projectId)
     {
-        dd($serviceId);
+        dd($projectId);
         // $projects = Project::where('project_category', $serviceId)->get();
         // return response()->json($projects);
         return view('front.services.view-service');

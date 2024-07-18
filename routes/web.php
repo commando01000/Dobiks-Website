@@ -354,7 +354,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('blog/{slug}', [Blog_frontController::class, 'view'])->name('view.blog');
 
     // Route::get('blog-details', [Blog_frontController::class, 'view'] )->name('blog-details');
-
+    Route::get('/', [homeController::class, 'getHomeProjects'])->name('home-projects');
     Route::get('faqs', [\App\Http\Controllers\Front\FaqController::class, 'index'])->name('faqs');
     Route::get('testimonials ', [Testimonial_frontController::class, 'index'])->name('testimonials ');
     Route::get('gallery', [Gallery_frontController::class, 'index'])->name('gallery');
@@ -381,9 +381,8 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);
     Route::get('projects/{slug}/', [Project_frontController::class, 'viewProject'])->name('view.project');
     Route::get('projects', [Project_frontController::class, 'seeAllProjects'])->name('see.all.projects');
-    Route::get('/services/{category}', [Project_frontController::class, 'getServicesByCategory'])->name('get.services.by.category');
     Route::get('/projects/category/{id}', [Project_frontController::class, 'getProjectsByCategory']);
-    Route::get('/services/{slug}', [Project_frontController::class, 'getServiceDetails'])->name('service-details');
+    Route::get('/projects/{slug}/', [Project_frontController::class, 'getHomeProjects'])->name('project-details');
 
     // Route::get('advertisements/{slug}/', [FrontAdvertisementController::class, 'viewAdvertisments'])->name('view.advertisment');
     // Route::get('advertisements', [FrontAdvertisementController::class, 'seeAllAdvertisements'])->name('see.all.advertisments');
