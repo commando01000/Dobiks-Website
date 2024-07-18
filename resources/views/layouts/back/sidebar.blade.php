@@ -86,9 +86,9 @@
 
                 <li class="dash-item dash-hasmenu {{ request()->is('contact_us*') ? 'active' : '' }}">
                     <a class="dash-link" href="{{ route('contact_us.index') }}">
-                            <span class="dash-micon">
-                                <i class="ti ti-world"></i>
-                            </span>
+                        <span class="dash-micon">
+                            <i class="ti ti-world"></i>
+                        </span>
                         <span class="dash-mtext">{{ __('Contact_us') }}</span>
                     </a>
                 </li>
@@ -158,9 +158,9 @@
                         </span>
                         <span class="dash-mtext">{{ __('Modules') }}</span>
                         <span class="dash-arrow " style="margin-top: 0px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-chevron-right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
                                 <polyline points="9 18 15 12 9 6"></polyline>
                             </svg>
                         </span>
@@ -174,10 +174,14 @@
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
-                                href="{{ route('project-category.index') }}">{{ __('categoris') }}</a>
+                                href="{{ route('project-category.index') }}">{{ __('Project Category') }}</a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link" href="{{ route('customer.index') }}">{{ __('Customers') }}</a>
+                        </li>
+                        <li class="dash-item ">
+                            <a class="dash-link"
+                                href="{{ route('client-category.index') }}">{{ __('Client Category') }}</a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link" href="{{ route('leadership.index') }}">{{ __('Leaderships') }}</a>

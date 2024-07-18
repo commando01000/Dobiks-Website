@@ -22,6 +22,7 @@ use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Back\LanguageController;
 use App\Http\Controllers\Back\ProfileController;
 use App\Http\Controllers\Back\BusinessGrowthController;
+use App\Http\Controllers\Back\ClientCategortController;
 use App\Http\Controllers\Back\CustomerController;
 use App\Http\Controllers\Back\FeatureController;
 use App\Http\Controllers\Back\SettingsController;
@@ -109,6 +110,8 @@ Route::group([
         Route::get('cp/customer/{client}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
         Route::post('cp/customer/update/{client}', [CustomerController::class, 'update'])->name('customer.update');
         Route::get('cp/customer/delete/{client}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+        Route::resource('cp/client-category', ClientCategortController::class);
+        Route::post('cp/clientcategory-status/{id}', [ClientCategortController::class, 'clientCategoryStatus'])->name('client-category.status');
     });
     //faqs
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
