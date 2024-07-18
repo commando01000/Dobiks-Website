@@ -15,7 +15,9 @@ class BlogController extends Controller
 
         if (\Auth::user()->can('manage-blog')) {
 
-            return $dataTable->render('back/blog.index');
+
+            $blogs = Blog::with('category')->orderBy('id', 'asc')->paginate(10);
+            return view('back.blog.index', compact('blogs'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }

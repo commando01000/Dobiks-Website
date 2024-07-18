@@ -1,39 +1,73 @@
 @extends('layouts.back.main')
+
 @section('title', __('Blogs'))
-@section('content')
-    <div class="page-header">
-        <div class="page-block">
-            <div class="row align-items-center">
-                <div class="col-md-12">
-                    <div class="page-header-title">
-                        <h4 class="m-b-10">{{ __('Blogs') }}</h4>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active">
-                            {!! Html::link(route('home'), __('Dashboard'), ['']) !!}
-                        </li>
-                        <li class="breadcrumb-item active">{{ __('Blogs') }}</li>
-                    </ul>
-                </div>
-            </div>
+
+@section('breadcrumb')
+    <div class="col-md-12">
+        <div class="page-header-title">
+            <h4 class="m-b-10">{{ __('Blogs') }}</h4>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card">
-                <div class="card-body table-border-style">
-                    <div class="table-responsive">
-                        {{ $dataTable->table(['width' => '100%']) }}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
+            <li class="breadcrumb-item active">{{ __('Blogs') }}</li>
+        </ul>
     </div>
 @endsection
+
+@section('content')
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-lg-12">
+                <div class="float-left">
+                    <a href="{{ route('blog.create') }}" class="btn btn-light-primary">{{ __('Create Blog') }}</a>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>{{ __('Title') }}</th>
+                    <th>{{ __('Category') }}</th>
+                    <th>{{ __('Created At') }}</th>
+                    <th>{{ __('Images') }}</th>
+                    <th>{{ __('Action') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($blogs as $blog)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $blog->getTranslation('title', app()->getLocale()) }}</td>
+                        <td>{{ $blog->category->getTranslation('name', app()->getLocale()) }}</td>
+                        <td>{{ \App\Facades\UtilityFacades::date_time_format($blog->created_at) }}</td>
+                        <td>
+                            @if ($blog->images && Storage::exists($blog->images))
+                                <img src="{{ Storage::url($blog->images) }}" width="50" />
+                            @else
+                                <img src="{{ Storage::url('not-exists-data-images/350x250.png') }}" width="50" />
+                            @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>
+                            <form action="{{ route('blog.destroy', $blog->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{ $blogs->links() }}
+    </div>
+@endsection
+
 @push('style')
-    @include('layouts.includes.datatable-css')
+    <!-- Add your custom styles here -->
 @endpush
+
 @push('script')
-    @include('layouts.includes.datatable-js')
-    {{ $dataTable->scripts() }}
+    <!-- Add your custom scripts here -->
 @endpush

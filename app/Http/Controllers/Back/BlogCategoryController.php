@@ -13,7 +13,8 @@ class BlogCategoryController extends Controller
     public function index(BlogCategoryDataTable $dataTable)
     {
         if (\Auth::user()->can('manage-category')) {
-            return $dataTable->render('back/blog-category.index');
+            $categories = BlogCategory::paginate(10);
+            return view('back/blog-category.index', compact('categories'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
