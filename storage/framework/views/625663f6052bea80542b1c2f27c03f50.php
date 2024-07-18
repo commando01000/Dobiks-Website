@@ -32,7 +32,7 @@
                     </li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
-            <div class="tab-content" id="pills-tabContent">
+            <div class="tab-content mt-5 pt-5" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="clients-list" role="tabpanel"
                     aria-labelledby="clients-list-tab">
                     <!-- Clients will be loaded here dynamically -->
@@ -64,9 +64,8 @@
                     let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
-                    row.classList.add('w-100');
-                    row.classList.add('m-auto');
-
+                    row.classList.add('gx-5');
+                    row.classList.add('gy-5');
                     data.forEach((client, index) => {
                         let clientItem = `<div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjusted column class and margin bottom -->
                             <div class="client card border-1 p-5 d-flex justify-content-center align-items-center" style="
@@ -75,7 +74,7 @@
                                         background-color: #1a1a1a;
                                     " onclick="window.location.href = '/clients/${client.id}'">
                                 <div class="card-image w-100 h-100">
-                                        <img src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
+                                        <img class="w-100" src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
                                 </div>
                             </div>
                         </div>`;
@@ -84,7 +83,7 @@
                         counter++; // Increment the counter
 
                         // Append row to clientsList after every 3 items (for 3 columns in a row)
-                        if (counter % 3 === 1) {
+                        if (counter % 4 === 1) {
                             clientsList.appendChild(row);
                             row = document.createElement('div');
                             row.classList.add('row');
