@@ -123,34 +123,30 @@
                     let row = document.createElement('div');
                     row.classList.add('row');
                     row.classList.add('w-100');
+                    row.classList.add('gx-5');
+                    row.classList.add('gy-5');
                     row.classList.add('m-auto');
 
-                    data.forEach((project, index) => {
-                        let projectItem = `
-                        <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
-                                <div class="service-header d-flex justify-content-between">
-                                    <div class="service-number">
-                                        <p>${counter}</p>
+                    data.forEach((client, index) => {
+                        let clientItem = `
+                        <div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjusted column class and margin bottom -->
+                            <div onclick="window.location.href = '/clients/${client.id}'" class="service">
+                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
+                                    style="
+                                        min-height: 300px;
+                                        border: 1px solid var(--gray_800);
+                                        background-color: #1a1a1a;
+                                    ">
+                                    <div class="card-image w-100 h-100">
+                                        <img src="${baseUrl}/storage/app/${client.cover}" class="w-100" alt="item" />
                                     </div>
-                                    <div class="category-name">
-                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
-                                            ${project.title}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                                </div>
-                                <div class="service-title mt-4">
-                                    ${project.client}
                                 </div>
                             </div>
                         </div>
                         `;
 
                         // Append projectItem to row
-                        row.innerHTML += projectItem;
+                        row.innerHTML += clientItem;
                         counter++; // Increment the counter
 
                         // Append row to projectsList after every 3 items (for 3 columns in a row)
