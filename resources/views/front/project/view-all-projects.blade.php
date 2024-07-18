@@ -22,17 +22,19 @@
                     <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
                         @foreach ($categories as $category)
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link text-decoration-none section__tab-item"
+                                <button class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
                                     id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
                                     aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
                                     style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
-                                    {{ $category->name }}
+                                    <div class="circle position-absolute start-0 z-0"></div>
+                                    <div class="position-relative text z-1 text-white">
+                                        {{ $category->name }}
+                                    </div>
                                 </button>
                             </li>
                         @endforeach
                     </ul>
-
 
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="projects-list" role="tabpanel"
@@ -68,30 +70,32 @@
                     let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
+                    row.classList.add('w-100');
+                    row.classList.add('m-auto');
 
-                    data.forEach(project => {
+                    data.forEach((project, index) => {
                         let projectItem = `
-<div class="col-md-4 mb-4"> <!-- Adjusted column class and margin bottom -->
-    <div class="service">
-        <div class="service-header d-flex justify-content-between">
-            <div class="service-number">
-                <p>${counter}</p>
-            </div>
-            <div class="category-name">
-                <p class="user-profile__role ui text size-texts">
-                    ${project.title}
-                </p>
-            </div>
-        </div>
-        <div class="service__image">
-            <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-        </div>
-        <div class="service-title mt-4">
-            ${project.client}
-        </div>
-    </div>
-</div>
-`;
+                        <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
+                            <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
+                                <div class="service-header d-flex justify-content-between">
+                                    <div class="service-number">
+                                        <p>${counter}</p>
+                                    </div>
+                                    <div class="category-name">
+                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
+                                            ${project.title}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
+                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+                                </div>
+                                <div class="service-title mt-4">
+                                    ${project.client}
+                                </div>
+                            </div>
+                        </div>
+                        `;
 
                         // Append projectItem to row
                         row.innerHTML += projectItem;

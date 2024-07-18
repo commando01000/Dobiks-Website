@@ -60,7 +60,7 @@
             <li class="nav-item" role="presentation">
                 <button class="position-relative nav-link section__tab-item" id="pills-interior-luxury-tab"
                     data-bs-toggle="pill" data-bs-target="#pills-interior-luxury" type="button" role="tab"
-                    aria-controls="pills-interior-luxury" aria-selected="false"> 
+                    aria-controls="pills-interior-luxury" aria-selected="false">
                     <div class="circle position-absolute start-0 z-0"></div>
                     <div class="position-relative text z-1 text-white">
                         Interior – Luxury Living
@@ -85,25 +85,20 @@
                 <div class="container">
                     <div class="row gx-5 gy-5">
                         @foreach ($clients as $client)
-
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                style="
-            min-height: 300px;
-            border: 1px solid var(--gray_800);
-            background-color: #1a1a1a;
-          ">
-                                <div class="card-image w-100 h-100">
-                                    <img src="{{ Storage::url($client->cover) }}" class="w-100" alt="item" />
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
+                                    style="
+                                        min-height: 300px;
+                                        border: 1px solid var(--gray_800);
+                                        background-color: #1a1a1a;
+                                    ">
+                                    <div class="card-image w-100 h-100">
+                                        <img src="{{ Storage::url($client->cover) }}" class="w-100"
+                                            alt="item" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
-
-
-
-
-
                     </div>
                 </div>
             </div>
