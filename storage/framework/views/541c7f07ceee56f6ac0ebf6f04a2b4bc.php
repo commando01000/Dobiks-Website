@@ -86,9 +86,9 @@
 
                 <li class="dash-item dash-hasmenu <?php echo e(request()->is('contact_us*') ? 'active' : ''); ?>">
                     <a class="dash-link" href="<?php echo e(route('contact_us.index')); ?>">
-                            <span class="dash-micon">
-                                <i class="ti ti-world"></i>
-                            </span>
+                        <span class="dash-micon">
+                            <i class="ti ti-world"></i>
+                        </span>
                         <span class="dash-mtext"><?php echo e(__('Contact_us')); ?></span>
                     </a>
                 </li>
@@ -158,9 +158,9 @@
                         </span>
                         <span class="dash-mtext"><?php echo e(__('Modules')); ?></span>
                         <span class="dash-arrow " style="margin-top: 0px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-chevron-right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
                                 <polyline points="9 18 15 12 9 6"></polyline>
                             </svg>
                         </span>
@@ -174,10 +174,14 @@
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
-                                href="<?php echo e(route('project-category.index')); ?>"><?php echo e(__('categoris')); ?></a>
+                                href="<?php echo e(route('project-category.index')); ?>"><?php echo e(__('Project Category')); ?></a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link" href="<?php echo e(route('customer.index')); ?>"><?php echo e(__('Customers')); ?></a>
+                        </li>
+                        <li class="dash-item ">
+                            <a class="dash-link"
+                                href="<?php echo e(route('client-category.index')); ?>"><?php echo e(__('Client Category')); ?></a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link" href="<?php echo e(route('leadership.index')); ?>"><?php echo e(__('Leaderships')); ?></a>

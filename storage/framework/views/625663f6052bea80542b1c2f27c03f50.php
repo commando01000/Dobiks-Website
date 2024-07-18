@@ -21,7 +21,7 @@
                         id="pills-<?php echo e($category->id); ?>-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-<?php echo e($category->id); ?>" type="button" role="tab"
                         aria-controls="pills-<?php echo e($category->id); ?>" aria-selected="false" tabindex="0"
-                        style="cursor: pointer" onclick="loadProjects(<?php echo e($category->id); ?>)">
+                        style="cursor: pointer" onclick="loadClients(<?php echo e($category->id); ?>)">
                         <div class="circle position-absolute start-0 z-0"></div>
                         <div class="position-relative text z-1 text-white">
                             <?php echo e($category->name); ?>
@@ -32,50 +32,14 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
 
-        <div class="tab-content w-100" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-creative-design-clients" role="tabpanel"
-                aria-labelledby="pills-creative-design-clients-tab" tabindex="0">
-                <div class="container">
-                    <div class="row gx-5 gy-5">
-                        <?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                    style="
-                                        min-height: 300px;
-                                        border: 1px solid var(--gray_800);
-                                        background-color: #1a1a1a;
-                                    ">
-                                    <div class="card-image w-100 h-100">
-                                        <img src="<?php echo e(Storage::url($client->cover)); ?>" class="w-100" alt="item" />
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="pills-motion-graphics-clients" role="tabpanel"
-                aria-labelledby="pills-motion-graphics-clients-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-video-shooting-clients" role="tabpanel"
-                aria-labelledby="pills-video-shooting-clients-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-event-management" role="tabpanel"
-                aria-labelledby="pills-event-management-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-interior-luxury" role="tabpanel"
-                aria-labelledby="pills-interior-luxury-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-ui-ux" role="tabpanel" aria-labelledby="pills-ui-ux-tab"
-                tabindex="0">
-                ...
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="clients-list" role="tabpanel" aria-labelledby="clients-list-tab">
+                <!-- Clients will be loaded here dynamically -->
             </div>
         </div>
+
+        
+
         <div class="section-projects__actions w-100">
             <div class="section-projects__action-row">
                 <div class="section__call-to-action-row">
@@ -91,4 +55,75 @@
         </div>
     </div>
 </div>
+
+<?php $__env->startSection('js'); ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch data for the first category initially
+            <?php if($categories->isNotEmpty()): ?>
+                loadClients(<?php echo e($categories->first()->id); ?>);
+            <?php endif; ?>
+        });
+
+        function loadClients(categoryId) {
+            fetch(`/clients/category/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data Clients:', data); // Log the fetched data
+
+                    let clientsList = document.getElementById('clients-list');
+                    clientsList.innerHTML = '';
+
+                    baseUrl = "<?php echo e(url('/')); ?>";
+                    let counter = 1; // Initialize a counter
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    row.classList.add('w-100');
+                    row.classList.add('gx-5');
+                    row.classList.add('gy-5');
+
+                    data.forEach((client, index) => {
+                        let clientItem = `
+                        <div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjusted column class and margin bottom -->
+                            <div onclick="window.location.href = '/clients/${client.id}'" class="service">
+                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
+                                    style="
+                                        min-height: 300px;
+                                        border: 1px solid var(--gray_800);
+                                        background-color: #1a1a1a;
+                                    ">
+                                    <div class="card-image w-100 h-100">
+                                        <img src="${baseUrl}/storage/app/${client.cover}" class="w-100" alt="item" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+
+                        // Append projectItem to row
+                        row.innerHTML += clientItem;
+                        counter++; // Increment the counter
+
+                        // Append row to projectsList after every 3 items (for 3 columns in a row)
+                        if (counter % 3 === 1) {
+                            clientsList.appendChild(row);
+                            row = document.createElement('div');
+                            row.classList.add('row');
+                        }
+                    });
+
+                    // Append the last row if it's not already added
+                    if (data.length % 3 !== 0) {
+                        clientsList.appendChild(row);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error); // Log any errors
+                });
+        }
+
+        // Ensure that loadProjects is available globally
+        window.loadClients = loadClients;
+    </script>
+<?php $__env->stopSection(); ?>
 <?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/front/clients-section/clients.blade.php ENDPATH**/ ?>

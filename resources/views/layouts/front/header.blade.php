@@ -35,32 +35,32 @@
                             <div class="mb-5">
                                 <label for="name" class="col-form-label text-white">First Name <span
                                         style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="firstname" required id="name"
-                                    placeholder="First name here" />
+                                <input type="text" class="form-control text-white" name="firstname" required
+                                    id="name" placeholder="First name here" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-5">
                                 <label for="l_name" class="col-form-label text-white">Last Name
                                     <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="lastname" required id="c_name"
-                                    placeholder="Last name here" />
+                                <input type="text" class="form-control text-white" name="lastname" required
+                                    id="c_name" placeholder="Last name here" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-5">
                                 <label for="name" class="col-form-label text-white">Email Address<span
                                         style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="email" required id="name"
-                                    placeholder="First name here" />
+                                <input type="text" class="form-control text-white" name="email" required
+                                    id="name" placeholder="First name here" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-5">
                                 <label for="c_name" class="col-form-label text-white">Subject
                                     <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="subject" required id="c_name"
-                                    placeholder="ٍSubject here" />
+                                <input type="text" class="form-control text-white" name="subject" required
+                                    id="c_name" placeholder="ٍSubject here" />
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -123,9 +123,9 @@
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="{{ route('our-clients') }}"
-                                                        class="nav-link nav-list__item--about ui text size-text {{ Route::is('our-clients') ? 'active' : '' }}"
-                                                        href="#section-clients">Our clients</a>
+                                                    <a href="{{ route('see.all.clients') }}"
+                                                        class="nav-link nav-list__item--about ui text size-text {{ Route::is('our-clients') ? 'active' : '' }}">Our
+                                                        clients</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('see.all.blogs') ? 'active' : '' }}"

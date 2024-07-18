@@ -21,7 +21,7 @@
                         id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
                         data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
                         aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
-                        style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
+                        style="cursor: pointer" onclick="loadClients({{ $category->id }})">
                         <div class="circle position-absolute start-0 z-0"></div>
                         <div class="position-relative text z-1 text-white">
                             {{ $category->name }}
@@ -32,9 +32,8 @@
         </ul>
 
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-creative-design-clients" role="tabpanel"
-                aria-labelledby="pills-creative-design-clients-tab">
-                <!-- Projects will be loaded here dynamically -->
+            <div class="tab-pane fade show active" id="clients-list" role="tabpanel" aria-labelledby="clients-list-tab">
+                <!-- Clients will be loaded here dynamically -->
             </div>
         </div>
 
@@ -99,24 +98,23 @@
     </div>
 </div>
 
-
 @section('js')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Fetch data for the first category initially
             @if ($categories->isNotEmpty())
-                loadProjects({{ $categories->first()->id }});
+                loadClients({{ $categories->first()->id }});
             @endif
         });
 
-        function loadProjects(categoryId) {
-            fetch(`/projects/category/${categoryId}`)
+        function loadClients(categoryId) {
+            fetch(`/clients/category/${categoryId}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Fetched data:', data); // Log the fetched data
+                    console.log('Fetched data Clients:', data); // Log the fetched data
 
-                    let projectsList = document.getElementById('projects-list');
-                    projectsList.innerHTML = '';
+                    let clientsList = document.getElementById('clients-list');
+                    clientsList.innerHTML = '';
 
                     baseUrl = "{{ url('/') }}";
                     let counter = 1; // Initialize a counter
@@ -125,7 +123,6 @@
                     row.classList.add('w-100');
                     row.classList.add('gx-5');
                     row.classList.add('gy-5');
-                    row.classList.add('m-auto');
 
                     data.forEach((client, index) => {
                         let clientItem = `
@@ -151,7 +148,7 @@
 
                         // Append row to projectsList after every 3 items (for 3 columns in a row)
                         if (counter % 3 === 1) {
-                            projectsList.appendChild(row);
+                            clientsList.appendChild(row);
                             row = document.createElement('div');
                             row.classList.add('row');
                         }
@@ -159,7 +156,7 @@
 
                     // Append the last row if it's not already added
                     if (data.length % 3 !== 0) {
-                        projectsList.appendChild(row);
+                        clientsList.appendChild(row);
                     }
                 })
                 .catch(error => {
@@ -168,6 +165,6 @@
         }
 
         // Ensure that loadProjects is available globally
-        window.loadProjects = loadProjects;
+        window.loadClients = loadClients;
     </script>
 @endsection

@@ -2,14 +2,16 @@
     <div class="column_seven">
         <div class="column_two position-relative overflow-hidden">
 
-            <form class="home-form unactive p-5">
+            <form class="home-form unactive p-5" method="post" action="<?php echo e(route('contact_us.store')); ?>">
+                <?php echo csrf_field(); ?>
                 <main class="container">
                     <div class="row gy-3 justify-content-center align-items-center">
                         <div class="col-md-12 text-center">
                             <div class="form-header d-flex justify-content-between">
                                 <img class="w-50" src="<?php echo e(asset('assets/front_assets/images/img_header_logo.png')); ?>"
-                                alt="logo">
-                            <i style="color: white; font-size: 30px; text-align: end" class="fa-regular fa-circle-xmark"></i>
+                                    alt="logo">
+                                <i style="color: white; font-size: 30px; text-align: end"
+                                    class="fa-regular fa-circle-xmark"></i>
                             </div>
 
                         </div>
@@ -27,46 +29,49 @@
                         </div>
                     </div>
                     <div class="row pt-2">
+
+
                         <div class="col-md-6">
                             <div class="mb-5">
-                                <label for="name" class="col-form-label text-white">Full Name <span
+                                <label for="name" class="col-form-label text-white">First Name <span
                                         style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="full_name" id="name"
-                                    placeholder="First name here" />
+                                <input type="text" class="form-control text-white" name="firstname" required
+                                    id="name" placeholder="First name here" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-5">
                                 <label for="l_name" class="col-form-label text-white">Last Name
                                     <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="company_name" id="c_name"
-                                    placeholder="Last name here" />
+                                <input type="text" class="form-control text-white" name="lastname" required
+                                    id="c_name" placeholder="Last name here" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-5">
                                 <label for="name" class="col-form-label text-white">Email Address<span
                                         style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="full_name" id="name"
-                                    placeholder="First name here" />
+                                <input type="text" class="form-control text-white" name="email" required
+                                    id="name" placeholder="First name here" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-5">
                                 <label for="c_name" class="col-form-label text-white">Subject
                                     <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="company_name" id="c_name"
-                                    placeholder="Last name here" />
+                                <input type="text" class="form-control text-white" name="subject" required
+                                    id="c_name" placeholder="ٍSubject here" />
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="mb-5">
                                 <label for="comments" class="col-form-label text-white">Comments / Questions
                                     <span style="color: #ff5101"> *</span></label>
-                                <textarea class="form-control text-white" id="comments" rows="3"></textarea>
+                                <textarea class="form-control text-white" id="comments" rows="3" name='comments'></textarea>
                             </div>
                         </div>
                         <br>
+
                         <button class="submit-button position-relative">
                             <div class="circle position-absolute start-0 z-0"></div>
                             <div class="text z-1">
@@ -74,6 +79,7 @@
                                 <span class="arrow">→</span>
                             </div>
                         </button>
+
                     </div>
                 </main>
             </form>
@@ -117,9 +123,9 @@
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="<?php echo e(route('our-clients')); ?>"
-                                                        class="nav-link nav-list__item--about ui text size-text <?php echo e(Route::is('our-clients') ? 'active' : ''); ?>"
-                                                        href="#section-clients">Our clients</a>
+                                                    <a href="<?php echo e(route('see.all.clients')); ?>"
+                                                        class="nav-link nav-list__item--about ui text size-text <?php echo e(Route::is('our-clients') ? 'active' : ''); ?>">Our
+                                                        clients</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts <?php echo e(Route::is('see.all.blogs') ? 'active' : ''); ?>"

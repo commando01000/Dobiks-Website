@@ -49,6 +49,7 @@ use App\Http\Controllers\NotificationsSettingController;
 use App\Http\Controllers\SmsController;
 use App\Http\Controllers\SmsTemplateController;
 use App\Http\Controllers\FormValueController;
+use App\Http\Controllers\Front\Client_frontController;
 // use App\Http\Controllers\front\advertisementController as FrontAdvertisementController;
 use App\Http\Controllers\front\ClientsController;
 use App\Http\Controllers\MailTempleteController;
@@ -372,16 +373,21 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
         $clients = Client::all();
         return view('front.services.index', compact('categories', 'clients'));
     })->name('services');
-    Route::get('our-clients', function () {
-        $categories     = ProjectCategory::all();
-        $clients = Client::all();
-        return view('front.services.index', compact('categories', 'clients'));
-        return view('front.our-clients.index');
-    })->name('our-clients');
+    // Route::get('our-clients', function () {
+    //     $categories     = ProjectCategory::all();
+    //     $clients = Client::all();
+    //     return view('front.services.index', compact('categories', 'clients'));
+    //     return view('front.our-clients.index');
+    // })->name('our-clients');
+
+    Route::get('our-clients', [Client_frontController::class, 'seeAllClients'])->name('see.all.clients');
+
+    Route::get('/clients/category/{id}', [Client_frontController::class, 'getClientsByCategory']);
+
     Route::get('team-details', function () {
         return view('front.team-details.index');
     })->name('team-details');
-    
+
     Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 

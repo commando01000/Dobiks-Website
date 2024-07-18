@@ -23,7 +23,7 @@ class Home_frontController extends Controller
         $projects = Project::take(9)->get();
         $categories = ProjectCategory::with('projects')->get();
         $leaderships = Leadership::take(3)->get();
-        $clients = Client::all();
+        $clients = Client::take(3)->get();
         return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients'));
     }
 
