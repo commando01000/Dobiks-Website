@@ -26,6 +26,14 @@ class Contact_frontController extends Controller
 
     public function store(Request $request)
     {
+
+        $validation = $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'comments' => 'required'
+        ]);
         Contact_Us::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
