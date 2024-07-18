@@ -17,7 +17,8 @@ class JoinUsController extends Controller
 
         if (\Auth::user()->can('manage-blog')) {
 
-            return $dataTable->render('back/joinUs.index');
+            $joins = Join::paginate(10);
+            return view('back/joinUs.index', compact('joins'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
@@ -32,7 +33,7 @@ class JoinUsController extends Controller
         }
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         if (\Auth::user()->can('edit-category')) {
             request()->validate([
@@ -42,8 +43,8 @@ class JoinUsController extends Controller
             $join = Join::find($id);
             $join->name = $request->name;
             $join->email = $request->email;
-            $join->address=$request->address;
-            $join->phone=$request->phone;
+            $join->address = $request->address;
+            $join->phone = $request->phone;
             $join->update();
             return redirect()->route('join.index')->with('success', __('CV updated successfully.'));
         } else {

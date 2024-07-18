@@ -6,7 +6,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item active"><?php echo e(__('Leadership')); ?></li>
+            <li class="breadcrumb-item active"><?php echo e(__('Clients')); ?></li>
         </ul>
 
     </div>
@@ -17,8 +17,7 @@
             <div class="col-lg-12">
                 
                 <div class="float-left">
-                    <a href="<?php echo e(route('customer.create')); ?>"
-                        class="btn btn-light-primary"><?php echo e(__('Create Clients')); ?></a>
+                    <a href="<?php echo e(route('customer.create')); ?>" class="btn btn-light-primary"><?php echo e(__('Create Clients')); ?></a>
                 </div>
                 
             </div>

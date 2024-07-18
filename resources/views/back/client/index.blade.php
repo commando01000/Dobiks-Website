@@ -7,7 +7,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item active">{{ __('Leadership') }}</li>
+            <li class="breadcrumb-item active">{{ __('Clients') }}</li>
         </ul>
 
     </div>
@@ -18,8 +18,7 @@
             <div class="col-lg-12">
                 {{-- @if (Auth::user()->can('create-testimonial')) --}}
                 <div class="float-left">
-                    <a href="{{ route('customer.create') }}"
-                        class="btn btn-light-primary">{{ __('Create Clients') }}</a>
+                    <a href="{{ route('customer.create') }}" class="btn btn-light-primary">{{ __('Create Clients') }}</a>
                 </div>
                 {{-- @endif --}}
             </div>
