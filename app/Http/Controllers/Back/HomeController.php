@@ -48,15 +48,6 @@ class HomeController extends Controller
 
         return view('back.dashboard.index', compact('user'));
     }
-    public function getHomeProjects()
-    {
-        $projects = Project::take(9)->get();
-        // dd($projects);
-        $categories = ProjectCategory::with('projects')->get();
-        $leaderships = Leadership::all();
-        $clients = Client::all();
-        return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients'));
-    }
     public function changeThememode(Request $request)
     {
         $user = \Auth::user();

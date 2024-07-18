@@ -12,71 +12,24 @@
                 Special Client’s
             </h3>
         </div>
-        <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link active text-decoration-none section__tab-item active"
-                    id="pills-creative-design-clients-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-creative-design-clients" type="button" role="tab"
-                    aria-controls="pills-creative-design" aria-selected="true" tabindex="0" style="cursor: pointer">
 
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Creative Designs
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link text-decoration-none section__tab-item"
-                    id="pills-motion-graphics-clients-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-motion-graphics-clients" type="button" role="tab"
-                    aria-controls="pills-motion-graphics-clients" aria-selected="false" tabindex="0"
-                    style="cursor: pointer">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Motion Graphics
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-video-shooting-clients-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-video-shooting-clients" type="button" role="tab"
-                    aria-controls="pills-video-shooting-clients" aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Video Shooting
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-event-management-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-event-management" type="button" role="tab"
-                    aria-controls="pills-event-management" aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Event Management
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-interior-luxury-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-interior-luxury" type="button" role="tab"
-                    aria-controls="pills-interior-luxury" aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Interior – Luxury Living
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-ui-ux-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-ui-ux" type="button" role="tab" aria-controls="pills-ui-ux"
-                    aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        ui/ux design
-                    </div>
-                </button>
-            </li>
+        <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
+            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="position-relative nav-link <?php echo e($loop->first ? 'active' : ''); ?> text-decoration-none section__tab-item"
+                        id="pills-<?php echo e($category->id); ?>-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-<?php echo e($category->id); ?>" type="button" role="tab"
+                        aria-controls="pills-<?php echo e($category->id); ?>" aria-selected="false" tabindex="0"
+                        style="cursor: pointer" onclick="loadProjects(<?php echo e($category->id); ?>)">
+                        <div class="circle position-absolute start-0 z-0"></div>
+                        <div class="position-relative text z-1 text-white">
+                            <?php echo e($category->name); ?>
+
+                        </div>
+                    </button>
+                </li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
 
         <div class="tab-content w-100" id="pills-tabContent">
@@ -93,8 +46,7 @@
                                         background-color: #1a1a1a;
                                     ">
                                     <div class="card-image w-100 h-100">
-                                        <img src="<?php echo e(Storage::url($client->cover)); ?>" class="w-100"
-                                            alt="item" />
+                                        <img src="<?php echo e(Storage::url($client->cover)); ?>" class="w-100" alt="item" />
                                     </div>
                                 </div>
                             </div>
