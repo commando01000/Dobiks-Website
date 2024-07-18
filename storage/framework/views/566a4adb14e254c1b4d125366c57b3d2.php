@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', __('Contact_us')); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
@@ -13,12 +12,7 @@
     </div>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
-    <?php if(session('success')): ?>
-        <div class="alert alert-success">
-            <?php echo e(session('success')); ?>
 
-        </div>
-    <?php endif; ?>
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
@@ -33,20 +27,36 @@
                                         aria-describedby="users-table_info" style="width: 100%;">
                                         <thead>
                                             <tr role="row">
-                                                <th title="Name"><?php echo e(__('full_name')); ?></th>
-                                                <th title="Email"><?php echo e(__('company_name')); ?></th>
-                                                <th title="Role"><?php echo e(__('Phone')); ?></th>
-                                                <th title="Role"><?php echo e(__('service')); ?></th>
+
+                                                <th title="Name"><?php echo e(__('Name')); ?></th>
+                                                <th title="Role"><?php echo e(__('Email')); ?></th>
+                                                <th title="Role"><?php echo e(__('Subject')); ?></th>
+                                                <th><?php echo e(__('Message')); ?></th>
+                                                <th><?php echo e(__('Action')); ?> </th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php $__currentLoopData = $contact_us; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1"><?php echo e($contact->full_name); ?></td>
-                                                    <td><?php echo e($contact->company_name); ?></td>
-                                                    <td><?php echo e($contact->phone); ?></td>
-                                                    <td><?php echo e($contact->service); ?></td>
+                                                    <td class="sorting_1"><?php echo e($contact->firstname); ?> <?php echo e($contact->lastname); ?>
+
+                                                    </td>
+                                                    <td><?php echo e($contact->email); ?></td>
+                                                    <td><?php echo e($contact->subject); ?></td>
+                                                    <td>
+                                                        <textarea> <?php echo e($contact->comments); ?></textarea>
+                                                    </td>
+                                                    <td>
+                                                        <form action="<?php echo e(route('contact.destroy', $contact->id)); ?>"
+                                                            method="POST" style="display:inline;">
+                                                            <?php echo csrf_field(); ?>
+                                                            <?php echo method_field('DELETE'); ?>
+                                                            <button type="submit"
+                                                                class="btn btn-danger"><?php echo e(__('Delete')); ?></button>
+                                                        </form>
+                                                    </td>
+
                                                 </tr>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         </tbody>
@@ -65,4 +75,5 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.back.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\company\backend\resources\views/back/contact_us/index.blade.php ENDPATH**/ ?>

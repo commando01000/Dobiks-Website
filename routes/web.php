@@ -293,7 +293,7 @@ Route::group([
     });
     Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('contact_us/view', [Contact_UsController::class, 'index'])->name('contact_us.index');
-        Route::post('contact_us/store', [Contact_UsController::class, 'store'])->name('contact_us.store');
+        Route::delete('contact_us/{id}/delete', [Contact_UsController::class, 'destroy'])->name('contact.destroy');
     });
 });
 
@@ -359,7 +359,10 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('testimonials ', [Testimonial_frontController::class, 'index'])->name('testimonials ');
     Route::get('gallery', [Gallery_frontController::class, 'index'])->name('gallery');
     Route::get('gallery/{id}', [Gallery_frontController::class, 'view'])->name('view.gallery');
+    //contact frontend
     Route::get('contact', [frontContact::class, 'index'])->name('contact');
+    Route::post('contact_us/store', [frontContact::class, 'store'])->name('contact_us.store');
+    //end contact frontend
     Route::get('join', [frontContact::class, 'join'])->name('join');
     Route::get('services', function () {
         $categories     = ProjectCategory::all();

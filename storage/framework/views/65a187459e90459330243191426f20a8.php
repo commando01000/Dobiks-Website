@@ -4,20 +4,27 @@
             <span class="section-projects__title-span-1">S<span
                     class="section-projects__title-span">ervices<br>CATEGORIES&nbsp;</span></span>
         </h2>
-        <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
+
             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link text-decoration-none section__tab-item" id="pills-<?php echo e($category->id); ?>-tab"
-                        data-bs-toggle="pill" data-bs-target="#pills-<?php echo e($category->id); ?>" type="button" role="tab"
-                        aria-controls="pills-<?php echo e($category->id); ?>" aria-selected="false" tabindex="0"
-                        style="cursor: pointer" onclick="loadProjects(<?php echo e($category->id); ?>)">
-                        <?php echo e($category->name); ?>
+                    <button
+                        class="position-relative nav-link <?php echo e($loop->first ? 'active' : ''); ?> text-decoration-none section__tab-item"
+                        id="pills-<?php echo e($category->slug); ?>-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-<?php echo e($category->slug); ?>" type="button" role="tab"
+                        aria-controls="pills-<?php echo e($category->slug); ?>"
+                        aria-selected="<?php echo e($loop->first ? 'true' : 'false'); ?>">
+                        <div class="circle position-absolute start-0 z-0"></div>
+                        <div class="position-relative text z-1 text-white">
+                            <?php echo e($category->name); ?>
 
+                        </div>
                     </button>
                 </li>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            
+            
         </ul>
-
         <div class="tab-content w-100" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-creative-design" role="tabpanel"
                 aria-labelledby="pills-creative-design-tab" tabindex="0">
@@ -26,9 +33,11 @@
                         <div class="col-md-4">
                             <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                 <div class="card-image w-100" style="min-height: 414px; ">
-                                    <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder.png')); ?>"
-                                        style="min-height: 414px; min-width: 414px" class="w-100 h-100 object-fit-fill"
-                                        alt="item" srcset="" />
+                                    <a href="<?php echo e(route('service-details', ['slug' => 1])); ?>">
+                                        <img src="<?php echo e(asset('assets/front_assets/images/img_placeholder.png')); ?>"
+                                            style="min-height: 414px; min-width: 414px"
+                                            class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
+                                    </a>
                                 </div>
                             </div>
                         </div>

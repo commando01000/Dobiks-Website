@@ -16,14 +16,11 @@ class Contact_UsController extends Controller
         return view('back.contact_us.index', compact('contact_us'));
     }
 
-    public function store(Request $request)
+    public function destroy($id)
     {
-        Contact_Us::create([
-            'full_name' => $request->full_name,
-            'company_name' => $request->company_name,
-            'phone' => $request->phone,
-            'service' => $request->service
-        ]);
-        return redirect()->route('contact')->with('message', "Message sent successfully");
+
+        $category = Contact_Us::find($id);
+        $category->delete();
+        return redirect()->route('contact_us.index')->with('success', __('Message deleted successfully.'));
     }
 }

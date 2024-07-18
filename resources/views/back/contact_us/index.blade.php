@@ -13,11 +13,7 @@
     </div>
 @endsection
 @section('content')
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
@@ -32,20 +28,35 @@
                                         aria-describedby="users-table_info" style="width: 100%;">
                                         <thead>
                                             <tr role="row">
-                                                <th title="Name">{{ __('full_name') }}</th>
-                                                <th title="Email">{{ __('company_name') }}</th>
-                                                <th title="Role">{{ __('Phone') }}</th>
-                                                <th title="Role">{{ __('service') }}</th>
+
+                                                <th title="Name">{{ __('Name') }}</th>
+                                                <th title="Role">{{ __('Email') }}</th>
+                                                <th title="Role">{{ __('Subject') }}</th>
+                                                <th>{{ __('Message') }}</th>
+                                                <th>{{ __('Action') }} </th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($contact_us as $contact)
                                                 <tr role="row" class="odd">
-                                                    <td class="sorting_1">{{ $contact->full_name }}</td>
-                                                    <td>{{ $contact->company_name }}</td>
-                                                    <td>{{ $contact->phone }}</td>
-                                                    <td>{{ $contact->service }}</td>
+                                                    <td class="sorting_1">{{ $contact->firstname }} {{ $contact->lastname }}
+                                                    </td>
+                                                    <td>{{ $contact->email }}</td>
+                                                    <td>{{ $contact->subject }}</td>
+                                                    <td>
+                                                        <textarea> {{ $contact->comments}}</textarea>
+                                                    </td>
+                                                    <td>
+                                                        <form action="{{ route('contact.destroy', $contact->id) }}"
+                                                            method="POST" style="display:inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                class="btn btn-danger">{{ __('Delete') }}</button>
+                                                        </form>
+                                                    </td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>
