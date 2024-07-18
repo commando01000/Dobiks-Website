@@ -213,4 +213,5 @@
 </script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="<?php echo e(asset('assets/front_assets/assets/js/home.js')); ?>?v=<?= time() ?>"></script>
+
 <?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/layouts/front/footer.blade.php ENDPATH**/ ?>

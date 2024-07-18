@@ -14,7 +14,7 @@
         </div>
 
         <div class="clients-content">
-            <ul class="nav nav-pills section-clients__content mb-3" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
                 @foreach ($clientCategory as $category)
                     <li class="nav-item" role="presentation">
                         <button
@@ -67,25 +67,17 @@
                     row.classList.add('m-auto');
 
                     data.forEach((client, index) => {
-                        let clientItem = `<div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div class="client" onclick="window.location.href = '/clients/${client.id}'">
-                                <div class="client-header d-flex justify-content-between">
-                                    <div class="client-number">
-                                        <p>${counter}</p>
-                                    </div>
-                                    <div class="client-name">
-                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
-                                            ${client.name}
-                                        </p>
-                                    </div>
+                        let clientItem = `<div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjusted column class and margin bottom -->
+                            <div class="client card border-1 p-5 d-flex justify-content-center align-items-center" style="
+                                        min-height: 300px;
+                                        border: 1px solid var(--gray_800);
+                                        background-color: #1a1a1a;
+                                    " onclick="window.location.href = '/clients/${client.id}'">
+                                <div class="card-image w-100 h-100">
+                                        <img src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
                                 </div>
-                                <div class="client__image ${index % 2 != 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
-                                </div>
-                               
                             </div>
                         </div>`;
-
                         // Append clientItem to row
                         row.innerHTML += clientItem;
                         counter++; // Increment the counter
