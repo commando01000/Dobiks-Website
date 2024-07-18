@@ -109,7 +109,7 @@
                         <div class="section__feature-bg"></div>
                         <div class="team-section__action-content">
                             <p class="section__call-to-action-text ui text size-btn_text">
-                              <a href="{{route('about-us')}}">  view all Leadership<a>
+                                <a href="{{ route('about-us') }}"> view all Leadership<a>
                             </p>
                             <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
                                 class="section__call-to-action-icon" />
@@ -119,7 +119,6 @@
             </div>
             <div class="team-section__members">
                 @foreach ($leaderships as $leadership)
-
                     <div class="user-profile">
                         <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
                             class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
@@ -130,7 +129,6 @@
                             {{ $leadership->position }}
                         </p>
                     </div>
-
                 @endforeach
             </div>
         </div>

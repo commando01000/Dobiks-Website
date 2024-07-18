@@ -39,7 +39,7 @@ class Home_frontController extends Controller
         $recentProjects    = Project::latest()->take(3)->get();
         $lastProject       = Project::latest()->first();
         $allProjects      = Project::with("category")->get();
-        $categories     = ProjectCategory::all();
+        $categories = ProjectCategory::with('projects')->get();
         if (UtilityFacades::getsettings('landing_page') == 1) {
             return view('front.home.index', compact(
                 'clients',

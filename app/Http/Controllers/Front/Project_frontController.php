@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Front;
+
 use App\Http\Controllers\Controller;
 use App\Facades\UtilityFacades;
 use App\Models\Project;
@@ -30,28 +31,14 @@ class Project_frontController extends Controller
     }
     public function seeAllProjects(Request $request)
     {
-        // // Get the selected category ID from the request, default to 'all'
-        // $category_selected = $request->input('category', 'all');
-
-        // // Retrieve projects based on selected category
-        // if ($category_selected == 'all') {
-        //     $projects = Project::with('category')->get();
-        // } else {
-        //     $projects = Project::with('category')->where('category_id', $category_selected)->get();
-        // }
-
-
 
         $categories = ProjectCategory::with('projects')->get();
 
-        return view('front/project.view-all-projects', compact(  'categories'));
+        return view('front/project.view-all-projects', compact('categories'));
     }
     public function getProjectsByCategory($categoryId)
     {
         $projects = Project::where('project_category', $categoryId)->get();
         return response()->json($projects);
     }
-
-
-
 }
