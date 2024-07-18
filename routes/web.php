@@ -354,7 +354,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('blog/{slug}', [Blog_frontController::class, 'view'])->name('view.blog');
 
     // Route::get('blog-details', [Blog_frontController::class, 'view'] )->name('blog-details');
-    Route::get('/', [homeController::class, 'getHomeProjects'])->name('home-projects');
+    // Route::get('/', [homeController::class, 'getHomeProjects'])->name('home-projects');
     Route::get('faqs', [\App\Http\Controllers\Front\FaqController::class, 'index'])->name('faqs');
     Route::get('testimonials ', [Testimonial_frontController::class, 'index'])->name('testimonials ');
     Route::get('gallery', [Gallery_frontController::class, 'index'])->name('gallery');
