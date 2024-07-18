@@ -90,9 +90,11 @@
                         <div class="col-md-4">
                             <div class="card border-0" style="min-height: 414px; min-width: 414px">
                                 <div class="card-image w-100" style="min-height: 414px; ">
-                                    <img src="{{ asset('assets/front_assets/images/img_placeholder.png') }}"
-                                        style="min-height: 414px; min-width: 414px" class="w-100 h-100 object-fit-fill"
-                                        alt="item" srcset="" />
+                                    <a href="{{ route('service-details', ['slug' => 1]) }}">
+                                        <img src="{{ asset('assets/front_assets/images/img_placeholder.png') }}"
+                                            style="min-height: 414px; min-width: 414px"
+                                            class="w-100 h-100 object-fit-fill" alt="item" srcset="" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
