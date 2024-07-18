@@ -378,6 +378,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('team-details', function () {
         return view('front.team-details.index');
     })->name('team-details');
+    
     Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
