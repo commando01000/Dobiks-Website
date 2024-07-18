@@ -41,7 +41,19 @@
                                 </div>
                             </div>
 
-
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ Form::label('client_category', __('Client Category'), ['class' => 'form-label']) }}
+                                    <select name="category_id" id="" class="form-control" required>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                                @if ($client->client_category == $category->id) {{ 'selected' }} @endif>
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('Cover', __('cover'), ['class' => 'form-label']) }} *

@@ -32,8 +32,26 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <?php echo e(Form::label('Name', __('Name'), ['class' => 'form-label'])); ?> *
-                                    <?php echo Form::text('name', null, ['class' => 'form-control','placeholder' => __('Enter Name'),'required' => 'required']); ?>
+                                    <?php echo Form::text('name', null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Name'),
+                                        'required' => 'required',
+                                    ]); ?>
 
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <?php echo e(Form::label('client_category', __('Client Category'), ['class' => 'form-label'])); ?>
+
+                                    <select name="category_id" id="" class="form-control" required>
+                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($category->id); ?>">
+                                                <?php echo e($category->name); ?>
+
+                                            </option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
                                 </div>
                             </div>
 
@@ -79,7 +97,6 @@
     <script src="<?php echo e(asset('assets/js/plugins/choices.min.js')); ?>"></script>
     <script src="<?php echo e(asset('vendor/ckeditor/ckeditor.js')); ?>"></script>
     <script>
-
         CKEDITOR.replace('body', {
             filebrowserUploadUrl: "<?php echo e(route('ckeditor.upload', ['_token' => csrf_token()])); ?>",
             filebrowserUploadMethod: 'form'

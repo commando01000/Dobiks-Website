@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\ClientCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +18,8 @@ class CustomerController extends Controller
 
     public function create()
     {
-        return view('back.client.create');
+        $categories = ClientCategory::where('status', 1)->get();
+        return view('back.client.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -34,7 +36,7 @@ class CustomerController extends Controller
             $path = $request->file('cover')->store('clients');
         }
 
-          client::create([
+        client::create([
             "name"                 => $request->name,
             'description'           => $request->description,
             'cover'                => $path,
@@ -47,7 +49,8 @@ class CustomerController extends Controller
 
     public function edit(Client $client)
     {
-        return view('back.client.edit', compact('client'));
+        $categories = ClientCategory::where('status', 1)->get();
+        return view('back.client.edit', compact('client', 'categories'));
     }
 
     public function update(Request $request, Client $client)
@@ -71,8 +74,8 @@ class CustomerController extends Controller
         $client->description           = $request->description;
         $client->created_by            = \Auth::user()->id;
         $client->save();
-        if(isset($old_cover))
-        Storage::delete($old_cover);
+        if (isset($old_cover))
+            Storage::delete($old_cover);
 
         return redirect()->route('customer.index')->with('success', __('projects updated successfully.'));
     }

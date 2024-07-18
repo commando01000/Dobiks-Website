@@ -12,118 +12,35 @@
                 Special Client’s
             </h3>
         </div>
-        <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link active text-decoration-none section__tab-item active"
-                    id="pills-creative-design-clients-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-creative-design-clients" type="button" role="tab"
-                    aria-controls="pills-creative-design" aria-selected="true" tabindex="0" style="cursor: pointer">
 
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Creative Designs
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link text-decoration-none section__tab-item"
-                    id="pills-motion-graphics-clients-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-motion-graphics-clients" type="button" role="tab"
-                    aria-controls="pills-motion-graphics-clients" aria-selected="false" tabindex="0"
-                    style="cursor: pointer">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Motion Graphics
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-video-shooting-clients-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-video-shooting-clients" type="button" role="tab"
-                    aria-controls="pills-video-shooting-clients" aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Video Shooting
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-event-management-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-event-management" type="button" role="tab"
-                    aria-controls="pills-event-management" aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Event Management
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-interior-luxury-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-interior-luxury" type="button" role="tab"
-                    aria-controls="pills-interior-luxury" aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        Interior – Luxury Living
-                    </div>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="position-relative nav-link section__tab-item" id="pills-ui-ux-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-ui-ux" type="button" role="tab" aria-controls="pills-ui-ux"
-                    aria-selected="false">
-                    <div class="circle position-absolute start-0 z-0"></div>
-                    <div class="position-relative text z-1 text-white">
-                        ui/ux design
-                    </div>
-                </button>
-            </li>
+        <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
+            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="position-relative nav-link <?php echo e($loop->first ? 'active' : ''); ?> text-decoration-none section__tab-item"
+                        id="pills-<?php echo e($category->id); ?>-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-<?php echo e($category->id); ?>" type="button" role="tab"
+                        aria-controls="pills-<?php echo e($category->id); ?>" aria-selected="false" tabindex="0"
+                        style="cursor: pointer" onclick="loadProjects(<?php echo e($category->id); ?>)">
+                        <div class="circle position-absolute start-0 z-0"></div>
+                        <div class="position-relative text z-1 text-white">
+                            <?php echo e($category->name); ?>
+
+                        </div>
+                    </button>
+                </li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </ul>
 
-        <div class="tab-content w-100" id="pills-tabContent">
+        <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-creative-design-clients" role="tabpanel"
-                aria-labelledby="pills-creative-design-clients-tab" tabindex="0">
-                <div class="container">
-                    <div class="row gx-5 gy-5">
-                        <?php $__currentLoopData = $clients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="card border-1 p-5 d-flex justify-content-center align-items-center"
-                                    style="
-                                        min-height: 300px;
-                                        border: 1px solid var(--gray_800);
-                                        background-color: #1a1a1a;
-                                    ">
-                                    <div class="card-image w-100 h-100">
-                                        <img src="<?php echo e(Storage::url($client->cover)); ?>" class="w-100"
-                                            alt="item" />
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="pills-motion-graphics-clients" role="tabpanel"
-                aria-labelledby="pills-motion-graphics-clients-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-video-shooting-clients" role="tabpanel"
-                aria-labelledby="pills-video-shooting-clients-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-event-management" role="tabpanel"
-                aria-labelledby="pills-event-management-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-interior-luxury" role="tabpanel"
-                aria-labelledby="pills-interior-luxury-tab" tabindex="0">
-                ...
-            </div>
-            <div class="tab-pane fade" id="pills-ui-ux" role="tabpanel" aria-labelledby="pills-ui-ux-tab"
-                tabindex="0">
-                ...
+                aria-labelledby="pills-creative-design-clients-tab">
+                <!-- Projects will be loaded here dynamically -->
             </div>
         </div>
+
+        
+
         <div class="section-projects__actions w-100">
             <div class="section-projects__action-row">
                 <div class="section__call-to-action-row">
@@ -139,4 +56,81 @@
         </div>
     </div>
 </div>
+
+
+<?php $__env->startSection('js'); ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch data for the first category initially
+            <?php if($categories->isNotEmpty()): ?>
+                loadProjects(<?php echo e($categories->first()->id); ?>);
+            <?php endif; ?>
+        });
+
+        function loadProjects(categoryId) {
+            fetch(`/projects/category/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data:', data); // Log the fetched data
+
+                    let projectsList = document.getElementById('projects-list');
+                    projectsList.innerHTML = '';
+
+                    baseUrl = "<?php echo e(url('/')); ?>";
+                    let counter = 1; // Initialize a counter
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    row.classList.add('w-100');
+                    row.classList.add('m-auto');
+
+                    data.forEach((project, index) => {
+                        let projectItem = `
+                        <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
+                            <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
+                                <div class="service-header d-flex justify-content-between">
+                                    <div class="service-number">
+                                        <p>${counter}</p>
+                                    </div>
+                                    <div class="category-name">
+                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
+                                            ${project.title}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
+                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+                                </div>
+                                <div class="service-title mt-4">
+                                    ${project.client}
+                                </div>
+                            </div>
+                        </div>
+                        `;
+
+                        // Append projectItem to row
+                        row.innerHTML += projectItem;
+                        counter++; // Increment the counter
+
+                        // Append row to projectsList after every 3 items (for 3 columns in a row)
+                        if (counter % 3 === 1) {
+                            projectsList.appendChild(row);
+                            row = document.createElement('div');
+                            row.classList.add('row');
+                        }
+                    });
+
+                    // Append the last row if it's not already added
+                    if (data.length % 3 !== 0) {
+                        projectsList.appendChild(row);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error); // Log any errors
+                });
+        }
+
+        // Ensure that loadProjects is available globally
+        window.loadProjects = loadProjects;
+    </script>
+<?php $__env->stopSection(); ?>
 <?php /**PATH D:\company\backend\resources\views/front/clients-section/clients.blade.php ENDPATH**/ ?>

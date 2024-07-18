@@ -32,7 +32,23 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('Name', __('Name'), ['class' => 'form-label']) }} *
-                                    {!! Form::text('name', null, ['class' => 'form-control','placeholder' => __('Enter Name'),'required' => 'required']) !!}
+                                    {!! Form::text('name', null, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Name'),
+                                        'required' => 'required',
+                                    ]) !!}
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ Form::label('client_category', __('Client Category'), ['class' => 'form-label']) }}
+                                    <select name="category_id" id="" class="form-control" required>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -72,7 +88,6 @@
     <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
     <script>
-
         CKEDITOR.replace('body', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'
