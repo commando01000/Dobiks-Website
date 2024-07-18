@@ -1,5 +1,5 @@
 <div class="class-01-home">
-    <div class="column_seven">
+    <div class="column_seven overflow-hidden">
         <div class="column_two position-relative overflow-hidden">
 
             <form class="home-form unactive p-5" method="post" action="{{ route('contact_us.store') }}">

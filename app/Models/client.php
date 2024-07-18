@@ -14,6 +14,7 @@ class Client extends Model
         'description',
         'builder',
         'cover',
+        'client_category',
         'created_by'
     ];
     public function category()
