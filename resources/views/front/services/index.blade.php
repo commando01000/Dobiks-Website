@@ -10,7 +10,7 @@
                 <small class="content-section__description fs-6">HOME / SERVICES</small>
             </div>
 
-            
+
 
             <div id="services-content" class="w-100 mt-5 pt-5 m-auto p-1">
                 <div class="services-content">
@@ -64,7 +64,7 @@
         });
 
         function loadProjects(categoryId) {
-            fetch(`/projects/category/${categoryId}`)
+            fetch(`/services/category/${categoryId}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data
@@ -82,7 +82,7 @@
                     data.forEach((project, index) => {
                         let projectItem = `
                         <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
+                            <div onclick="window.location.href = '/services/${project.slug}'" class="service">
                                 <div class="service-header d-flex justify-content-between">
                                     <div class="service-number">
                                         <p>${counter}</p>

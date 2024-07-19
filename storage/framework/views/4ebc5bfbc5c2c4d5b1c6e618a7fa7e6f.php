@@ -10,6 +10,9 @@
                 </h1>
                 <small class="content-section__description fs-6">HOME / SERVICES</small>
             </div>
+
+
+
             <div id="services-content" class="w-100 mt-5 pt-5 m-auto p-1">
                 <div class="services-content">
                     <h2 class="section-projects__title ui heading size-headinglg">
@@ -23,7 +26,8 @@
                     <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <li class="nav-item" role="presentation">
-                                <button class="position-relative nav-link <?php echo e($loop->first ? 'active' : ''); ?> text-decoration-none section__tab-item"
+                                <button
+                                    class="position-relative nav-link <?php echo e($loop->first ? 'active' : ''); ?> text-decoration-none section__tab-item"
                                     id="pills-<?php echo e($category->id); ?>-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-<?php echo e($category->id); ?>" type="button" role="tab"
                                     aria-controls="pills-<?php echo e($category->id); ?>" aria-selected="false" tabindex="0"
@@ -62,7 +66,7 @@
         });
 
         function loadProjects(categoryId) {
-            fetch(`/projects/category/${categoryId}`)
+            fetch(`/services/category/${categoryId}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data
@@ -80,7 +84,7 @@
                     data.forEach((project, index) => {
                         let projectItem = `
                         <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
+                            <div onclick="window.location.href = '/services/${project.slug}'" class="service">
                                 <div class="service-header d-flex justify-content-between">
                                     <div class="service-number">
                                         <p>${counter}</p>
