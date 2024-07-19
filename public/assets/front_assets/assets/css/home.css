@@ -1794,9 +1794,21 @@ select:focus-visible {
 
 /* Blog End CSS */
 
-/* view-all-projects Start CSS */
+/* view-all-projects and Services Start CSS */
 
 .projects-content {
+    margin-top: 8px;
+    gap: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 1326px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.services-content {
     margin-top: 8px;
     gap: 72px;
     display: flex;
@@ -1812,11 +1824,15 @@ select:focus-visible {
     background-color: #181818;
 }
 
+#services-content {
+    background-color: #181818;
+}
+
 @media (max-width: 768px) {
     #projects-content .service__image {
         text-align: center !important;
     }
-    
+
     #projects-content .service-header {
         padding-left: 30px;
         padding-right: 30px;
@@ -1825,6 +1841,15 @@ select:focus-visible {
     #section-projects .row {
         width: 75% !important;
         align-items: center !important;
+    }
+
+    #services-content .service__image {
+        text-align: center !important;
+    }
+
+    #services-content .service-header {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
 .nav-link.active .circle {
@@ -1875,6 +1900,12 @@ select:focus-visible {
 
 @media (max-width: 768px) {
     #projects .row {
+        align-items: center;
+        width: 75% !important;
+    }
+
+    /* services */
+    #services .row {
         align-items: center;
         width: 75% !important;
     }

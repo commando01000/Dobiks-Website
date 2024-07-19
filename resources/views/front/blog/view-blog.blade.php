@@ -26,9 +26,9 @@
 
                             <?php
                             $var = html_entity_decode($blog->description);
-
+                            
                             echo $var;
-
+                            
                             ?>
 
                         </div>

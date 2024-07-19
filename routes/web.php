@@ -52,6 +52,7 @@ use App\Http\Controllers\FormValueController;
 use App\Http\Controllers\Front\Client_frontController;
 // use App\Http\Controllers\front\advertisementController as FrontAdvertisementController;
 use App\Http\Controllers\front\ClientsController;
+use App\Http\Controllers\Front\Services_frontController;
 use App\Http\Controllers\MailTempleteController;
 use App\Models\advertisement;
 use App\Models\Client;
@@ -368,11 +369,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::post('contact_us/store', [frontContact::class, 'store'])->name('contact_us.store');
     //end contact frontend
     Route::get('join', [frontContact::class, 'join'])->name('join');
-    Route::get('services', function () {
-        $categories     = ProjectCategory::all();
-        $clients = Client::all();
-        return view('front.services.index', compact('categories', 'clients'));
-    })->name('services');
+    Route::get('services', [Services_frontController::class, 'seeAllServices'])->name('services');
     // Route::get('our-clients', function () {
     //     $categories     = ProjectCategory::all();
     //     $clients = Client::all();
