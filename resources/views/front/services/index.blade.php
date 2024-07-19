@@ -25,7 +25,8 @@
                     <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
                         @foreach ($categories as $category)
                             <li class="nav-item" role="presentation">
-                                <button class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
+                                <button
+                                    class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
                                     id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
                                     aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
