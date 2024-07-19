@@ -176,6 +176,14 @@
                             <a class="dash-link"
                                 href="{{ route('project-category.index') }}">{{ __('Project Category') }}</a>
                         </li>
+
+                        <li class="dash-item ">
+                            <a class="dash-link" href="{{ route('services.index') }}">{{ __('Services') }}</a>
+                        </li>
+                        <li class="dash-item ">
+                            <a class="dash-link"
+                                href="{{ route('service-category.index') }}">{{ __('Service Category') }}</a>
+                        </li>
                         <li class="dash-item ">
                             <a class="dash-link" href="{{ route('customer.index') }}">{{ __('Customers') }}</a>
                         </li>
