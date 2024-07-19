@@ -15,13 +15,11 @@
             <div id="services-content" class="w-100 mt-5 pt-5 m-auto p-1">
                 <div class="services-content">
                     <h2 class="section-projects__title ui heading size-headinglg">
-                        <span class="section-projects__title-span-1">client <span
-                                class="section-projects__title-span">Categories<br>&nbsp;</span>
+                        <span class="section-projects__title-span-1">Services <span
+                                class="section-projects__title-span"><br>Categories&nbsp;</span>
                         </span>
-                        <br>
-                        <p class="content-section__description pt-3">{{ Utility::getsettings('service_detail') }}</p>
+                        {{-- <p class="content-section__description pt-3">{{ Utility::getsettings('service_detail') }}</p> --}}
                     </h2>
-                    <!-- resources/views/projects/index.blade.php -->
                     <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
                         @foreach ($categories as $category)
                             <li class="nav-item" role="presentation">

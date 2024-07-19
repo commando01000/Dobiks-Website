@@ -1,18 +1,5 @@
-<div class="contact-us-section__content p-5">
-    <h2 class="content-section__subtitle ui heading size-headingmd">
-        Let Us Tell Your Story
-    </h2>
-    <p class="content-section__description ui text size-textmd">
-        The Creative agency for international and local brands
-    </p>
-</div>
 <div class="row gx-2">
     <div class="col-md-6">
-        <!-- <label class="form-group">
-                                                                                        <input type="text" class="form-control" required="" />
-                                                                                        <span>Full name here</span>
-                                                                                        <span class="border"></span>
-                                                                                      </label> -->
         <div class="inline-container d-flex align-items-center flex-row">
             <!-- Added container for inline elements -->
             <span class="d-inline-block content-section__description ui text size-textmd">WAITING</span>
@@ -22,7 +9,7 @@
             <h2 class="content-section__subtitle ui heading size-headingmd">
                 Let's Go
             </h2>
-            <h1 class="content-section__title">Contact Us</h1>
+            <h1 class="content-section__title">Register Form</h1>
             <div class="row flex-wrap gy-2">
                 <form method="post" action="{{ route('contact_us.store') }}">
                     @csrf

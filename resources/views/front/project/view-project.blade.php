@@ -301,6 +301,5 @@
         // Ensure that loadProjects is available globally
         window.loadServices = loadServices;
         window.loadProjects = loadProjects;
-
     </script>
 @endsection

@@ -379,6 +379,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('join', [frontContact::class, 'join'])->name('join');
     Route::get('services', [Services_frontController::class, 'seeAllServices'])->name('services');
     Route::get('/services/category/{id}', [Services_frontController::class, 'getServicesByCategory']);
+    Route::get('services/{slug}/', [Services_frontController::class, 'viewService'])->name('view.service');
     // Route::get('our-clients', function () {
     //     $categories     = ProjectCategory::all();
     //     $clients = Client::all();
