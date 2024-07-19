@@ -97,7 +97,7 @@
                                     <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
                                 </div>
                                 <div class="service-title mt-4">
-                                    ${project.client}
+                                    ${project.title}
                                 </div>
                             </div>
                         </div>
@@ -112,6 +112,8 @@
                             projectsList.appendChild(row);
                             row = document.createElement('div');
                             row.classList.add('row');
+                            row.classList.add('w-100');
+                            row.classList.add('m-auto');
                         }
                     });
 
