@@ -1,3 +1,21 @@
+<style>
+    .message-container {
+        position: fixed;
+        /* Use fixed positioning */
+        top: 80px;
+        /* Distance from the top */
+        right: 20px;
+        /* Distance from the right */
+        z-index: 1000;
+        /* Ensure it sits above other content */
+    }
+</style>
+<script>
+    setTimeout(function() {
+        document.getElementsByClassName("message-container")[0].style.display = "none";
+    }, 2000);
+</script>
+
 <div class="class-01-home">
     <div class="column_seven overflow-hidden">
         <div class="column_two position-relative overflow-hidden">
