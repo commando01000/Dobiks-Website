@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mt-5">
+                    {{-- <div class="col-md-6 mt-5">
                         <div class="inline-container d-flex align-items-center flex-row">
                             <span class="d-inline-block content-section__description ui text size-textmd">ABOUT</span>
                             <div class="ms-3 content-section__divider"></div>
@@ -70,7 +70,48 @@
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
+                    <div class="col-md-6 mt-5">
+                        <div class="inline-container d-flex align-items-center flex-row">
+                            <span class="d-inline-block content-section__description ui text size-textmd">
+                                {{ $statistics->title }}</span>
+                            <div class="ms-3 content-section__divider"></div>
+                        </div>
+                        <div class="services-section__content pt-1">
+                            <h2 class="content-section__subtitle ui heading size-headingmd">
+                                {{ $about->short_description }}
+                            </h2>
+                            <p class="content-section__description fs-6 pt-2">
+                                {{ $about->description }}
+                            </p>
+                        </div>
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-md-9">
+                                <div class="progress-bars-section overflow-visible pt-2">
+                                    @foreach ($about->details as $detail)
+                                        <p class="content-section__description ui text size-textmd">{{ $detail->category }}
+                                        </p>
+                                        <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
+                                            aria-label="{{ $detail->category }} example"
+                                            aria-valuenow="{{ $detail->number }}" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar" style="width: {{ $detail->number }}%">
+                                                <span style="top: -15px"
+                                                    class="mb-2 position-absolute">{{ $detail->number }}%</span>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="content-section__column--secondary">
+                                    <p class="content-section__button pt-2 ui text size-btn_text">
+                                        CONTACT US
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </section>
             <section class="carousel-section mt-5 pt-5 pb-5 position-relative">
@@ -197,18 +238,18 @@
                     </div>
                     <div class="row mt-5">
                         @foreach ($leaderships as $leadership)
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
-                                    class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
-                                <p class="user-profile__name ui text size-textxl">
-                                    {{ $leadership->name }}
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    {{ $leadership->position }}
-                                </p>
+                            <div class="col-md-3">
+                                <div class="user-profile">
+                                    <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
+                                        class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
+                                    <p class="user-profile__name ui text size-textxl">
+                                        {{ $leadership->name }}
+                                    </p>
+                                    <p class="user-profile__role ui text size-texts">
+                                        {{ $leadership->position }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -218,44 +259,25 @@
                 <div class="container pt-5 pb-5">
                     <div class="row pt-5">
                         <div class="col-md-6">
-                            <p class="content-section__subtitle ui heading size-headingmd">Milestones that We Are Proud of
-                                Reaching</p>
+                            <p class="content-section__subtitle ui heading size-headingmd">
+                                {{ $statistics->short_description }}</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="content-section__description">An interior design agency can create content that
-                                showcases its work, highlights design
-                                trends, and provides educational resources for clients and followers. Some potential content
-                                ideas for an interior design agency</p>
+                            <p class="content-section__description">{{ $statistics->description }}</p>
                         </div>
                     </div>
                     <div class="row pt-5 pb-5 text-center justify-content-center">
-                        <div class="col-md-4">
-                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
-                                98 +
-                            </p>
-                            <br>
-                            <p class="user-profile__name ui text size-textxl">
-                                Successful Projects Done
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
-                                59 +
-                            </p>
-                            <br>
-                            <p class="user-profile__name ui text size-textxl">
-                                Delightful Clients
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
-                                56 +
-                            </p>
-                            <br>
-                            <p class="user-profile__name ui text size-textxl">
-                                Award Achivement
-                            </p>
-                        </div>
+                        @foreach ($statistics->details as $detail)
+                            <div class="col-md-4">
+                                <p class="fs-1 content-section__subtitle ui heading size-headingmd">
+                                    {{ $detail->number }} +
+                                </p>
+                                <br>
+                                <p class="user-profile__name ui text size-textxl">
+                                    {{ $detail->category }}
+                                </p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </section>

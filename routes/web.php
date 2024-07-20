@@ -32,6 +32,7 @@ use App\Http\Controllers\Back\LandingPageController;
 use App\Http\Controllers\Back\LeadrshipController;
 use App\Http\Controllers\Back\ServiceCategoryController;
 use App\Http\Controllers\Back\ServiceController;
+use App\Http\Controllers\Back\StatisticController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\Front\Home_frontController;
 use App\Http\Controllers\Front\Blog_frontController;
@@ -90,6 +91,9 @@ Route::group([
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::resource('cp/gallery', GalleryController::class)->except(['show']);
         Route::resource('cp/gallery-category', GalleryCategoryController::class);
+    });
+    Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
+        Route::resource('cp/statistics', StatisticController::class)->except(['show']);
     });
     //projects
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {

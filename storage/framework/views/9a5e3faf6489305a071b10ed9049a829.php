@@ -72,6 +72,14 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <li class="dash-item dash-hasmenu <?php echo e(request()->is('statistics*') ? 'active' : ''); ?>">
+                    <a class="dash-link" href="<?php echo e(route('statistics.index')); ?>">
+                        <span class="dash-micon">
+                            <i class="ti ti-world"></i>
+                        </span>
+                        <span class="dash-mtext"><?php echo e(__('Statistics')); ?></span>
+                    </a>
+                </li>
 
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->any(['manage-blog'])): ?>
                     <li class="dash-item dash-hasmenu <?php echo e(request()->is('join*') ? 'active' : ''); ?>">
