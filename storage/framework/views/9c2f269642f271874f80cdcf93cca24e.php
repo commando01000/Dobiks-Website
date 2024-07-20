@@ -18,7 +18,7 @@
             <div class="m-auto col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5> <?php echo e(__('Create Blog')); ?></h5>
+                        <h5><?php echo e(__('Create Blog')); ?></h5>
                     </div>
                     <?php echo Form::open([
                         'route' => 'blog.store',
@@ -28,9 +28,8 @@
                     ]); ?>
 
                     <div class="card-body">
-
                         <?php $__currentLoopData = $allLanguages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $localeCode => $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="row mb-5 p-3  rounded-3" style="background-color: rgb(235, 233, 233) !important">
+                            <div class="row mb-5 p-3 rounded-3" style="background-color: rgb(235, 233, 233) !important">
                                 <div class="col-sm-12">
                                     <h4><?php echo e($language); ?></h4>
                                 </div>
@@ -79,18 +78,18 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <?php echo e(Form::label('description', __('Description'), ['class' => 'form-label'])); ?> *
+                                        <?php echo e(Form::label('body_' . $localeCode, __('Description (' . $language . ')'), ['class' => 'form-label'])); ?>
+
+                                        *
                                         <?php echo Form::textarea('description_' . $localeCode, null, [
-                                            'class' => 'form-control ',
-                                            'placeholder' => __('Enter description'),
-                                            'required' => 'required',
+                                            'class' => 'form-control',
+                                            'placeholder' => __('Enter description (' . $language . ')'),
                                         ]); ?>
 
                                     </div>
                                 </div>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
                     </div>
                     <div class="card-footer">
                         <div class="mb-3 btn-flt float-end">
@@ -111,10 +110,6 @@
     <script src="<?php echo e(asset('assets/js/plugins/choices.min.js')); ?>"></script>
     <script src="<?php echo e(asset('vendor/ckeditor/ckeditor.js')); ?>"></script>
     <script>
-        CKEDITOR.replace('description', {
-            filebrowserUploadUrl: "<?php echo e(route('ckeditor.upload', ['_token' => csrf_token()])); ?>",
-            filebrowserUploadMethod: 'form'
-        });
         document.addEventListener('DOMContentLoaded', function() {
             var genericExamples = document.querySelectorAll('[data-trigger]');
             for (i = 0; i < genericExamples.length; ++i) {
@@ -124,6 +119,13 @@
                     searchPlaceholderValue: 'This is a search placeholder',
                 });
             }
+
+            <?php $__currentLoopData = $allLanguages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $localeCode => $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                CKEDITOR.replace('description_<?php echo e($localeCode); ?>', {
+                    filebrowserUploadUrl: "<?php echo e(route('ckeditor.upload', ['_token' => csrf_token()])); ?>",
+                    filebrowserUploadMethod: 'form'
+                });
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         });
     </script>
 <?php $__env->stopPush(); ?>

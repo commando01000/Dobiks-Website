@@ -135,6 +135,12 @@
                                                     <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('contact') ? 'active' : '' }}"
                                                         href="{{ route('contact') }}">Contact Us</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a
+                                                        class="dobsik-form nav-link nav-list__item--about ui text size-texts">
+                                                        <img src="{{ asset('assets/front_assets/images/menu_1.png') }}"
+                                                            alt=""></a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
