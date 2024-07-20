@@ -83,6 +83,10 @@ Route::group([
     });
     //blog
 
+    Route::group(['middleware' => ['Setting', 'Upload', 'auth']], function () {
+    
+    });
+
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::resource('cp/blog', BlogController::class)->except(['show']);
         Route::resource('cp/blog-category', BlogCategoryController::class);
@@ -365,6 +369,7 @@ Route::group(['prefix' => '2fa'], function () {
     Route::post('/enable2fa', [LoginSecurityController::class, 'enable2fa'])->name('enable2fa');
     Route::post('/disable2fa', [LoginSecurityController::class, 'disable2fa'])->name('disable2fa');
 });
+
 
 Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('blog', [Blog_frontController::class, 'index'])->name('see.all.blogs');

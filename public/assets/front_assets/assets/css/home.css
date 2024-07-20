@@ -1878,6 +1878,10 @@ select:focus-visible {
     margin-bottom: 120px;
 }
 
+.blog-detail p {
+    color: #fff;
+}
+
 @media (max-width: 1250px) {
     #blog-details .blog-content .row {
         width: 100% !important;
