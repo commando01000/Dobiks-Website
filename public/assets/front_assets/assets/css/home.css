@@ -439,7 +439,7 @@ select:focus-visible {
 }
 
 .content-section__column--quaternary {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -522,7 +522,7 @@ select:focus-visible {
 }
 
 .column__image--right-arrow {
-    height: 48px;
+    height: 30px;
     width: 48px;
 }
 
@@ -1900,12 +1900,36 @@ select:focus-visible {
     #blog-details .blog-content .card {
         padding: 0px !important;
     }
+
+    .content-section__column--secondary {
+        width: 140px;
+        border-radius: 50%;
+        border: 1px solid var(--blue_gray_100);
+        height: 120px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
     #projects .row {
         align-items: center;
         width: 75% !important;
+    }
+
+    .content-section__column--secondary {
+        width: 140px;
+        border-radius: 50%;
+        border: 1px solid var(--blue_gray_100);
+        height: 100px;
+        text-align: center;
+    }
+
+    .content-section__button {
+        color: var(--white) !important;
+        margin-top: 25px;
+        text-transform: lowercase;
+        font-size: 16px;
+        font-weight: 400;
     }
 
     /* services */
@@ -1932,5 +1956,15 @@ select:focus-visible {
 
     .service-details .service-image {
         text-align: start;
+    }
+}
+
+@media (max-width: 768px) and (min-width: 510px) {
+    .content-section__column--secondary {
+        width: 140px;
+        border-radius: 50%;
+        border: 1px solid var(--blue_gray_100);
+        height: 120px;
+        text-align: center;
     }
 }

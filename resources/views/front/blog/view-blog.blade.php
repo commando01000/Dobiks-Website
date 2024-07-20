@@ -17,7 +17,7 @@
                 <div class="row m-auto mt-5 w-75 pt-5">
                     <div class="col-md-8">
                         <h1 class="content-section__title fs-5">
-                            {{ $blog->title }} {{ $blog->short_description }}
+                            {{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}{{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45) }}
                         </h1>
                         <small class="content-section__description fs-6">{{ $blog->created_at->format('jS F Y') }}</small>
                         <br>
