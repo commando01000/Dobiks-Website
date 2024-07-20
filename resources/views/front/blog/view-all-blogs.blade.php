@@ -24,13 +24,15 @@
                                             <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
                                                 {{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}
                                                 {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45) }}
+                                                {{-- {{ Str::limit($blog->normal_description, 60, '...') }} --}}
                                             </p>
                                             <br>
                                             <div style="height: 3px" class="section__divider"></div>
                                             <br>
-                                            <span class="w-100 fs-6 content-section__description">
-                                                {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 60) }}
-                                            </span>
+                                            <p class="w-100 fs-6 content-section__description">
+                                                {{-- {{ Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60) }} --}}
+                                                {{ Str::limit($blog->normal_description, 60, '...') }}
+                                            </p>
                                             <br>
                                             <p>Learn more <a class="arrow text-white text-decoration-none"
                                                     href="{{ route('view.blog', $blog->slug) }}">→</a>

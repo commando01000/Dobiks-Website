@@ -26,14 +26,16 @@
 
                                                 <?php echo e(Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45)); ?>
 
+                                                
                                             </p>
                                             <br>
                                             <div style="height: 3px" class="section__divider"></div>
                                             <br>
-                                            <span class="w-100 fs-6 content-section__description">
-                                                <?php echo e(Str::limit($blog->getTranslation('short_description', app()->getLocale()), 60)); ?>
+                                            <p class="w-100 fs-6 content-section__description">
+                                                
+                                                <?php echo e(Str::limit($blog->normal_description, 60, '...')); ?>
 
-                                            </span>
+                                            </p>
                                             <br>
                                             <p>Learn more <a class="arrow text-white text-decoration-none"
                                                     href="<?php echo e(route('view.blog', $blog->slug)); ?>">→</a>
