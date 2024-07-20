@@ -14,7 +14,7 @@
                 <div class="row w-75 text-center m-auto">
                     <div class="col-md-4">
                         <div class="title">
-                            <h1 class="content-section__title fs-4">Interior Design</h1>
+                            <h1 class="content-section__title fs-4">{{ $project->title }}</h1>
                         </div>
                         <br>
                         <div class="description">
@@ -22,8 +22,9 @@
                                 {{ $project->description }}
                             </p>
                             <br>
-                            <p class="content-section__description fs-6">Project Marketing Category: <br> Social Media,
-                                Copywriting, Video Production, <br> and Media Buying</p>
+                            <p class="content-section__description fs-6">Project Location: {{ $project->project_location }}
+                                <br> Prject Time Frame: {{ $project->project_timeframe }}
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -34,7 +35,7 @@
                             <p class="content-section__description fs-6">
                                 {{ $project->client }}
                             </p>
-                            <p class="content-section__description fs-6">Luxury Company Interior Design</p>
+                            <p class="content-section__description fs-6">{{ $project->title }}</p>
                         </div>
                         <div class="title">
                             <h1 class="content-section__title fs-4">Date</h1>
@@ -56,8 +57,8 @@
                                 {{ $project->description }}
                             </p>
                             <br>
-                            <p class="content-section__description fs-6">Project Marketing Category: <br> Social Media,
-                                Copywriting, Video Production, <br> and Media Buying</p>
+                            <p class="content-section__description fs-6">Project Marketing Category: <br>
+                                {{ $project->category->name }}</p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +70,7 @@
                             class="section-projects__title-span">roject<br>Features&nbsp;</span></span>
                 </h2>
                 <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
-                    @foreach ($categories as $category)
+                    @foreach ($categories_projects as $category)
                         <li class="nav-item" role="presentation">
                             <button
                                 class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
@@ -106,44 +107,7 @@
                 </div>
             </div>
 
-            <section id="projects" class="w-100 mt-0 p-1 overflow-hidden">
-                <main class="container-fluid ps-0 pe-0">
-                    <div id="projects-content" class="w-100 mt-5 pt-5 m-auto p-1">
-                        <div class="projects-content">
-                            <h2 class="section-projects__title ui heading size-headinglg">
-                                <span class="section-projects__title-span-1">O<span
-                                        class="section-projects__title-span">ther<br>Projects&nbsp;</span>
-                                </span>
-                                <br>
-                                <p class="content-section__description pt-3">{{ Utility::getsettings('project_detail') }}
-                                </p>
-                            </h2>
-                            <!-- resources/views/projects/index.blade.php -->
-                            <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
-                                @foreach ($categories as $category)
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link text-decoration-none section__tab-item"
-                                            id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
-                                            data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
-                                            aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
-                                            style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
-                                            {{ $category->name }}
-
-                                        </button>
-                                    </li>
-                                @endforeach
-                            </ul>
-
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="projects-list" role="tabpanel"
-                                    aria-labelledby="projects-list-tab">
-                                    <!-- Projects will be loaded here dynamically -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </section>
+            @include('front.services.services-section')
 
             <div class="meet-our-leadership w-100 mt-5 p-1 pt-5">
                 <div class="container">
@@ -191,6 +155,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection
@@ -198,8 +163,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Fetch data for the first category initially
+            @if ($categories_projects->isNotEmpty())
+                loadProjects({{ $categories_projects->first()->id }});
+            @endif
             @if ($categories->isNotEmpty())
-                loadProjects({{ $categories->first()->id }});
+                loadServices({{ $categories->first()->id }});
             @endif
         });
 
@@ -266,6 +234,72 @@
         }
 
         // Ensure that loadProjects is available globally
+        function loadServices(categoryId) {
+            fetch(`/services/category/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data:', data); // Log the fetched data
+
+                    let projectsList = document.getElementById('services-list');
+                    projectsList.innerHTML = '';
+
+                    baseUrl = "{{ url('/') }}";
+                    let counter = 1; // Initialize a counter
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    row.classList.add('w-100');
+                    row.classList.add('m-auto');
+
+                    data.forEach((project, index) => {
+                        let projectItem = `
+                        <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
+                            <div onclick="window.location.href = '/services/${project.slug}'" class="service">
+                                <div class="service-header d-flex justify-content-between">
+                                    <div class="service-number">
+                                        <p>${counter}</p>
+                                    </div>
+                                    <div class="category-name">
+                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
+                                            ${project.title}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
+                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+                                </div>
+                                <div class="service-title mt-4">
+                                    ${project.title}
+                                </div>
+                            </div>
+                        </div>
+                        `;
+
+                        // Append projectItem to row
+                        row.innerHTML += projectItem;
+                        counter++; // Increment the counter
+
+                        // Append row to projectsList after every 3 items (for 3 columns in a row)
+                        if (counter % 3 === 1) {
+                            projectsList.appendChild(row);
+                            row = document.createElement('div');
+                            row.classList.add('row');
+                            row.classList.add('w-100');
+                            row.classList.add('m-auto');
+                        }
+                    });
+
+                    // Append the last row if it's not already added
+                    if (data.length % 3 !== 0) {
+                        projectsList.appendChild(row);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error); // Log any errors
+                });
+        }
+
+        // Ensure that loadProjects is available globally
+        window.loadServices = loadServices;
         window.loadProjects = loadProjects;
     </script>
 @endsection

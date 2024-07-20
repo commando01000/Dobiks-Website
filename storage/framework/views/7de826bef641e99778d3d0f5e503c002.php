@@ -39,6 +39,14 @@
                 <p>we build immersive</p>
                 <p>digital experiences.</p>
                 <div class="content-section__divider mt-5"></div>
+                <div class="contact-us-section__content p-5">
+                    <h2 class="content-section__subtitle ui heading size-headingmd">
+                        Let Us Tell Your Story
+                    </h2>
+                    <p class="content-section__description ui text size-textmd">
+                        The Creative agency for international and local brands
+                    </p>
+                </div>
             </div>
             <?php echo $__env->make('front.contact.contact-us-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </main>

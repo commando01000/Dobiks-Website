@@ -1810,7 +1810,7 @@ select:focus-visible {
 
 .services-content {
     margin-top: 8px;
-    gap: 72px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -1908,5 +1908,25 @@ select:focus-visible {
     #services .row {
         align-items: center;
         width: 75% !important;
+    }
+
+    .service-details .row {
+        align-items: center;
+        width: 75% !important;
+    }
+
+    .service-details {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+
+    .service-details .row .col-md-6 {
+        width: 100% !important;
+    }
+
+    .service-details .service-image {
+        text-align: start;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Facades\UtilityFacades;
+use App\Models\CategoryService;
 use App\Models\Leadership;
 use App\Models\Project;
 use App\Models\ProjectCategory;
@@ -28,9 +29,12 @@ class Project_frontController extends Controller
         //     abort(404);
         // }
         $allProjects  =  Project::all();
-        $categories = ProjectCategory::with('projects')->get();
+        $categories_projects = ProjectCategory::with('projects')->get();
         $leaderships = Leadership::paginate(10);
-        return view('front/project.view-project', compact('project', 'allProjects', 'slug', 'lang', 'categories', 'leaderships'));
+        $categories = CategoryService::with('services')->get();
+        // dd($categories_projects);
+        // dd($categories);
+        return view('front/project.view-project', compact('project', 'allProjects', 'slug', 'lang', 'categories_projects', 'leaderships', 'categories'));
     }
     public function seeAllProjects(Request $request)
     {
