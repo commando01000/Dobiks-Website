@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Create Blog'); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
@@ -70,6 +71,19 @@
                                         <?php echo Form::textarea('short_description_' . $localeCode, null, [
                                             'class' => 'form-control ',
                                             'placeholder' => __('Enter short description'),
+                                            'required' => 'required',
+                                        ]); ?>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <?php echo e(Form::label('normal_description', __('Normal Description'), ['class' => 'form-label'])); ?>
+
+                                        *
+                                        <?php echo Form::textarea('normal_description_' . $localeCode, null, [
+                                            'class' => 'form-control ',
+                                            'placeholder' => __('Enter normal description'),
                                             'required' => 'required',
                                         ]); ?>
 

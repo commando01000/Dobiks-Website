@@ -45,19 +45,16 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+
         if (\Auth::user()->can('create-project')) {
             request()->validate([
                 'title'             => 'required|unique:services',
-                'cover'            => 'image|mimes:jpg,jpeg,png,webp',
+
                 'short_description'       => 'required',
             ]);
 
-            if ($request->hasFile('cover')) {
-                request()->validate([
-                    'cover' => 'mimes:jpg,jpeg,png',
-                ]);
-                $path = $request->file('cover')->store('services');
-            }
+
+
 
             $service =  Service::create([
                 'title'                 => $request->title,
@@ -66,7 +63,7 @@ class ServiceController extends Controller
                 'description'           => $request->body,
                 'service_category'          => $request->category_id,
                 'project_status'        => 1,
-                'cover'                => $path,
+                'emdlink'        => $request->emdlink,
 
             ]);
             return redirect()->route('services.index')->with('success', __('Project created successfully.'));
@@ -114,14 +111,7 @@ class ServiceController extends Controller
                 'short_description'       => 'required',
             ]);
             $service = Service::find($id);
-            if ($request->hasFile('cover')) {
-                request()->validate([
-                    'cover' => 'required|image|mimes:jpg,png,jpeg,webp',
-                ]);
-                $old_cover = $service->cover;
-                $path           = $request->file('cover')->store('services');
-                $service->cover   = $path;
-            }
+
 
             $service->title                 = $request->title;
             $service->slug                 = $request->slug;
@@ -129,10 +119,10 @@ class ServiceController extends Controller
             $service->description           = $request->body;
             $service->service_category          = $request->category_id;
             $service->service_status        = $request->service_status;
+            $service->emdlink        = $request->emdlink;
             $service->save();
 
-            if (isset($old_cover))
-                Storage::delete($old_cover);
+
             return redirect()->route('services.index')->with('success', __('Service updated successfully.'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));

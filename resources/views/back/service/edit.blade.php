@@ -76,8 +76,11 @@
                             </div> --}}
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ Form::label('images', __('cover'), ['class' => 'form-label']) }} *
-                                    {!! Form::file('cover', ['class' => 'form-control']) !!}
+                                    {{ Form::label('emdlink', __('Embed Link'), ['class' => 'form-label']) }} *
+                                    {!! Form::text('emdlink', $service->emdlink, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Embed Link'),
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-md-12">

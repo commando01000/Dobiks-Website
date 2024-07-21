@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <!-- Content-Section -->
     <?php if(session()->has('message')): ?>
@@ -115,7 +117,7 @@
                         <div class="section__feature-bg"></div>
                         <div class="team-section__action-content">
                             <p class="section__call-to-action-text ui text size-btn_text">
-                                <a href="<?php echo e(route('about-us')); ?>"> view all Leadership<a>
+                                <a class="text-white" href="<?php echo e(route('about-us')); ?>"> view all Leadership<a>
                             </p>
                             <img src="<?php echo e(asset('assets/front_assets/images/img_arrow.svg')); ?>" alt="arrow image"
                                 class="section__call-to-action-icon" />

@@ -11,7 +11,7 @@ class Service extends Model
 
     protected $table = 'services';
     public $fillable = [
-        'title', 'cover', 'description', 'slug', 'service_status', 'service_category', "builder", 'short_description',
+        'title', 'cover', 'description', 'slug', 'service_status', 'service_category', "builder", 'short_description', 'emdlink',
     ];
 
     public function category()
