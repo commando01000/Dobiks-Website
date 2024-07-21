@@ -241,8 +241,9 @@
                                     <div style="min-height: 350px; max-height: 350px" class="card p-5">
                                         <div class="card-body">
                                             <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                                <?php echo e($blog->category->getTranslation('name', app()->getLocale())); ?>:
                                                 <?php echo e(Str::limit($blog->getTranslation('title', app()->getLocale()), 45)); ?>
+
+                                                <?php echo e(Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45)); ?>
 
                                             </p>
                                             <br>
