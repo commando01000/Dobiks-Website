@@ -21,7 +21,7 @@ class Blog_frontController extends Controller
     }
     public function view($slug)
     {
-        $lang = UtilityFacades::getActiveLanguage();
+        $lang = UtilityFacades::getActiveLanguage();asdasd
         App::setLocale($lang);
 
         $blog = Blog::where('slug', $slug)->first();
