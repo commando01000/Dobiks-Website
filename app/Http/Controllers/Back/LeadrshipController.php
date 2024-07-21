@@ -32,8 +32,13 @@ class LeadrshipController extends Controller
             request()->validate([
                 'photo' => 'mimes:jpg,jpeg,png',
             ]);
+
+
+            // Return the file name
+
             $path = $request->file('photo')->store('leadership');
         }
+
         Leadership::create([
             "name"                 => $request->name,
             'bio'           => $request->bio,
