@@ -353,8 +353,8 @@
                                     <div style="min-height: 350px; max-height: 350px" class="card p-5">
                                         <div class="card-body">
                                             <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                                {{ $blog->category->getTranslation('name', app()->getLocale()) }}:
                                                 {{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}
+                                                {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45) }}
                                             </p>
                                             <br>
                                             <div style="height: 3px" class="section__divider"></div>
