@@ -65,6 +65,41 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ Form::label('facebook', __('Facebook'), ['class' => 'form-label']) }}
+                                    {!! Form::text('facebook', null, ['class' => 'form-control', 'placeholder' => __('Enter Facebook Link')]) !!}
+
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ Form::label('twitter', __('Twitter'), ['class' => 'form-label']) }}
+                                    {!! Form::text('twitter', null, ['class' => 'form-control', 'placeholder' => __('Enter Twitter Link')]) !!}
+
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ Form::label('linkedin', __('Linkedin'), ['class' => 'form-label']) }}
+                                    {!! Form::text('linkedin', null, ['class' => 'form-control', 'placeholder' => __('Enter Linkedin Link')]) !!}
+
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ Form::label('github', __('Github'), ['class' => 'form-label']) }}
+                                    {!! Form::text('github', null, ['class' => 'form-control', 'placeholder' => __('Enter Github Link')]) !!}
+
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ Form::label('dribble', __('Dribble'), ['class' => 'form-label']) }}
+                                    {!! Form::text('dribble', null, ['class' => 'form-control', 'placeholder' => __('Enter Dribble Link')]) !!}
+
+                                </div>
+                            </div>
 
 
                             <div class="col-md-12">

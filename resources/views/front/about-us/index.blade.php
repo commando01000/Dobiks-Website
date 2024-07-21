@@ -240,7 +240,8 @@
                     <div class="row mt-5">
                         @foreach ($leaderships as $leadership)
                             <div class="col-md-3">
-                                <div class="user-profile">
+                                <div class="user-profile"
+                                    onclick="location.href='{{ route('team-details', $leadership->id) }}';">
                                     <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
                                         class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
                                     <p class="user-profile__name ui text size-textxl">

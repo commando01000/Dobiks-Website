@@ -64,15 +64,20 @@
                                 </label>
                             </form>
                             <div class="footer__stack__row__eight__row__link-row">
-                                <button class="footer__social-button--facebook">
-                                    <img src="<?php echo e(asset('assets/front_assets/images/img_facebook_app_symbol.svg')); ?>" />
-                                </button>
-                                <button class="footer__link-button--link">
-                                    <img src="<?php echo e(asset('assets/front_assets/images/img_link.svg')); ?>" />
-                                </button>
-                                <button class="footer__link-button--link">
-                                    <img src="<?php echo e(asset('assets/front_assets/images/img_trash.svg')); ?>" />
-                                </button>
+                                
+                                <a href="<?php echo e(Utility::getsettings('contact_facebook')); ?>"
+                                    class="footer__social-button--facebook">
+                                    <img
+                                        src="http://127.0.0.1:8000/assets/front_assets/images/img_facebook_app_symbol.svg">
+                                </a>
+                                <a href="<?php echo e(Utility::getsettings('contact_instagram')); ?>"
+                                    class="footer__link-button--link">
+                                    <img src="http://127.0.0.1:8000/assets/front_assets/images/img_link.svg">
+                                </a>
+                                <a href="<?php echo e(Utility::getsettings('contact_twitter')); ?>"
+                                    class="footer__link-button--link">
+                                    <img src="http://127.0.0.1:8000/assets/front_assets/images/img_trash.svg">
+                                </a>
                             </div>
                         </div>
                         <div class="footer__stack__row__eight__column">
@@ -98,7 +103,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(route('services')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Service
                                                     </p>
@@ -213,5 +218,4 @@
 </script>
 <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="<?php echo e(asset('assets/front_assets/assets/js/home.js')); ?>?v=<?= time() ?>"></script>
-
 <?php /**PATH D:\company\backend\resources\views/layouts/front/footer.blade.php ENDPATH**/ ?>

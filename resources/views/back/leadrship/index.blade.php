@@ -30,7 +30,8 @@
                     <th title="Name">{{ __('name') }}</th>
                     <th title="Email">{{ __('position') }}</th>
                     <th title="Role">{{ __('photo') }}</th>
-                    <th title="Role">{{ __('bio') }}</th>
+                    <th title="Role">{{ __('statistics categories') }}</th>
+                    <th title="Role">{{ __('statistics numbers') }}</th>
                     <th>{{ __('Action') }}</th>
                 </tr>
             </thead>
@@ -46,7 +47,20 @@
                                 <img src="{{ Storage::url('not-exists-data-images/350x250.png') }}" style="width:60px;">
                             @endif
                         </td>
-                        <td>{{ $leadership->bio }}</td>
+                        <td>
+                            <ul>
+                                @foreach ($leadership->details as $detail)
+                                    <li>{{ $detail->category }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                @foreach ($leadership->details as $detail)
+                                    <li>{{ $detail->number }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
 
                         <td>
                             <div class="text-left">

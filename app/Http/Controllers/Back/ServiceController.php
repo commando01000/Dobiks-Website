@@ -49,7 +49,6 @@ class ServiceController extends Controller
         if (\Auth::user()->can('create-project')) {
             request()->validate([
                 'title'             => 'required|unique:services',
-
                 'short_description'       => 'required',
             ]);
 

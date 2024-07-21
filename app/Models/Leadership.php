@@ -15,5 +15,15 @@ class Leadership extends Model
         'position',
         'photo',
         'bio',
+        'facebook',
+        'twitter',
+        'linkedin',
+        'github',
+        'dribble',
+
     ];
+    public function details()
+    {
+        return $this->hasMany(LeadershipDetail::class, "leadership_id");
+    }
 }

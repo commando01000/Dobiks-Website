@@ -55,7 +55,8 @@
                             <div class="col-md-3">
                                 <div class="content-section__column--secondary">
                                     <p class="content-section__button pt-2 ui text size-btn_text">
-                                        <a href="<?php echo e(route('contact')); ?>">CONTACT US</a>
+                                        <a class="text-decoration-none text-white" href="<?php echo e(route('contact')); ?>">CONTACT
+                                            US</a>
                                     </p>
                                 </div>
                             </div>
@@ -174,7 +175,8 @@
                     <div class="row mt-5">
                         <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-md-3">
-                                <div class="user-profile">
+                                <div class="user-profile"
+                                    onclick="location.href='<?php echo e(route('team-details', $leadership->id)); ?>';">
                                     <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
                                         class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
                                     <p class="user-profile__name ui text size-textxl">
@@ -231,59 +233,37 @@
 
                         </div>
                     </div>
+                    
                     <div class="row gy-5">
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        Sustainable Design: How to Create an…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
+                        <?php if(isset($allBlogs)): ?>
+                            <?php $__currentLoopData = $allBlogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="col-md-4">
+                                    <div style="min-height: 350px; max-height: 350px" class="card p-5">
+                                        <div class="card-body">
+                                            <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                                <?php echo e(Str::limit($blog->getTranslation('title', app()->getLocale()), 45)); ?>
+
+                                                <?php echo e(Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45)); ?>
+
+                                            </p>
+                                            <br>
+                                            <div style="height: 3px" class="section__divider"></div>
+                                            <br>
+                                            <p class="w-100 fs-6 content-section__description">
+                                                <?php echo e(Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60)); ?>
+
+                                            </p>
+                                            <br>
+                                            <p>Learn more <a class="arrow text-white text-decoration-none"
+                                                    href="<?php echo e(route('view.blog', $blog->slug)); ?>">→</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        The Art of Accessorizing: Adding the…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        Color Psychology in Interior Design: How…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
                     </div>
+                    
                 </div>
             </section>
         </main>

@@ -15,7 +15,7 @@
                     <div class="row w-75 m-auto justify-content-between gx-5">
                         <div class="col-md-4">
                             <img style="min-width: 314px; min-height: 414px" class="user-profile__image"
-                                src="{{ asset('assets/front_assets/images/so3ody.jpeg') }}" alt="image">
+                                src="{{ Storage::url($teamMember->photo) }}" alt="image">
                             <form chip-view="" id="1:112" class="footer__social-chips">
                                 <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
                                     <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
@@ -27,16 +27,7 @@
                                         </label>
                                     </template>
                                 </label>
-                                <label tabindex="0" class="flex-row-center-center footer__social-chip--motion">
-                                    <input type="checkbox" name="selectedChipOptions" value="2" hidden="true">
-                                    <span> Twitter</span>
-                                    <template hidden="">
-                                        <label unselected-styles="" class="dhi-group">
-                                        </label>
-                                        <label selected-styles="" class="dhi-group-1">
-                                        </label>
-                                    </template>
-                                </label>
+
                                 <label tabindex="0" class="flex-row-center-center footer__social-chip--uiux">
                                     <input type="checkbox" name="selectedChipOptions" value="3" hidden="true">
                                     <span> LinkedIN</span>
@@ -71,10 +62,10 @@
                         </div>
                         <div class="col-md-6">
                             <div class="user-profile__details">
-                                <h1 class="user-profile__title">Ahmed Bakry</h1>
-                                <p class="user-profile__role">UI/UX Designer</p>
+                                <h1 class="user-profile__title">{{ $teamMember->name }}</h1>
+                                <p class="user-profile__role">{{ $teamMember->position }}</p>
                                 <br>
-                                <p class="user-profile__description">
+                                {{-- <p class="user-profile__description">
                                     An interior design agency can create content that showcases its work, highlights design
                                     trends, and provides educational resources for clients and followers. Some potential
                                     content ideas for an interior design agency. An interior design agency can create
@@ -86,8 +77,13 @@
                                     trends, and provides educational resources for clients and followers. Some potential
                                     content ideas for an interior design agency. An interior design agency can create
                                     content that showcases its work.
-                                </p>
-                                <div class="progress-bars-section overflow-visible pt-2">
+                                </p> --}}
+                                <div class="blog-detail w-100" style="color:#fff;">
+                                    {{ $teamMember->bio }}
+                                </div>
+
+
+                                {{-- <div class="progress-bars-section overflow-visible pt-2">
                                     <p class="content-section__description ui text size-textmd">CREATIVE DESIGNS</p>
                                     <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
                                         aria-label="Success example" aria-valuenow="100" aria-valuemin="0"
@@ -112,12 +108,29 @@
                                             <span style="top: -15px" class="mb-2 position-absolute">98%</span>
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="col-md-9">
+                                    <div class="progress-bars-section overflow-visible pt-2">
+                                        @foreach ($teamMember->details as $detail)
+                                            <p class="content-section__description ui text size-textmd">
+                                                {{ $detail->category }}
+                                            </p>
+                                            <div style="height: 5px;" class="progress overflow-visible mb-2"
+                                                role="progressbar" aria-label="{{ $detail->category }} example"
+                                                aria-valuenow="{{ $detail->number }}" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: {{ $detail->number }}%">
+                                                    <span style="top: -15px"
+                                                        class="mb-2 position-absolute">{{ $detail->number }}%</span>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </main>
     </section>
 @endsection

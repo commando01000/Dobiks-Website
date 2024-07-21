@@ -16,7 +16,7 @@ use App\Http\Controllers\Back\PagesController;
 use App\Http\Controllers\Back\HomeController;
 use App\Http\Controllers\Back\MenuController;
 use App\Http\Controllers\Front\JoinController;
-use App\Http\Controllers\Front\Testimonial_frontController;
+use App\Http\Controllers\Front\About_frontController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Back\LanguageController;
@@ -84,7 +84,6 @@ Route::group([
     //blog
 
     Route::group(['middleware' => ['Setting', 'Upload', 'auth']], function () {
-    
     });
 
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
@@ -378,7 +377,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     // Route::get('blog-details', [Blog_frontController::class, 'view'] )->name('blog-details');
     // Route::get('/', [homeController::class, 'getHomeProjects'])->name('home-projects');
     Route::get('faqs', [\App\Http\Controllers\Front\FaqController::class, 'index'])->name('faqs');
-    Route::get('testimonials ', [Testimonial_frontController::class, 'index'])->name('testimonials ');
+    Route::get('testimonials ', [About_frontController::class, 'index'])->name('testimonials ');
     Route::get('gallery', [Gallery_frontController::class, 'index'])->name('gallery');
     Route::get('gallery/{id}', [Gallery_frontController::class, 'view'])->name('view.gallery');
     //contact frontend
@@ -401,11 +400,9 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     // Route::get('/clients/category/{id}', [Client_frontController::class, 'getClientsByCategory']);
     Route::get('/clients/category/{id}', [Client_frontController::class, 'getClientsByCategory']);
 
-    Route::get('team-details', function () {
-        return view('front.team-details.index');
-    })->name('team-details');
+    Route::get('team-details/{id}', [About_frontController::class, 'team_detail'])->name('team-details');
 
-    Route::get('about-us', [Testimonial_frontController::class, 'index'])->name('about-us');
+    Route::get('about-us', [About_frontController::class, 'index'])->name('about-us');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);

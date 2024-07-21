@@ -29,7 +29,8 @@
                     <th title="Name"><?php echo e(__('name')); ?></th>
                     <th title="Email"><?php echo e(__('position')); ?></th>
                     <th title="Role"><?php echo e(__('photo')); ?></th>
-                    <th title="Role"><?php echo e(__('bio')); ?></th>
+                    <th title="Role"><?php echo e(__('statistics categories')); ?></th>
+                    <th title="Role"><?php echo e(__('statistics numbers')); ?></th>
                     <th><?php echo e(__('Action')); ?></th>
                 </tr>
             </thead>
@@ -45,7 +46,20 @@
                                 <img src="<?php echo e(Storage::url('not-exists-data-images/350x250.png')); ?>" style="width:60px;">
                             <?php endif; ?>
                         </td>
-                        <td><?php echo e($leadership->bio); ?></td>
+                        <td>
+                            <ul>
+                                <?php $__currentLoopData = $leadership->details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($detail->category); ?></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <?php $__currentLoopData = $leadership->details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($detail->number); ?></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                        </td>
 
                         <td>
                             <div class="text-left">

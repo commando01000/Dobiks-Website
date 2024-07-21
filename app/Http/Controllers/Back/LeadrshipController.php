@@ -11,7 +11,7 @@ class LeadrshipController extends Controller
     //
     public function index()
     {
-        $leaderships = Leadership::paginate(10);
+        $leaderships = Leadership::with('details')->paginate(10);
 
         return view('back.leadrship.index', compact('leaderships'));
     }
@@ -27,6 +27,14 @@ class LeadrshipController extends Controller
             'photo'            => 'image|mimes:jpg,jpeg,png',
             'position'       => 'required',
             'bio'       => 'nullable|string',
+            'facebook'       => 'nullable|string',
+            'twitter'       => 'nullable|string',
+            'linkedin'       => 'nullable|string',
+            'github'       => 'nullable|string',
+            'dribble'       => 'nullable|string',
+            'details.*.category' => 'required|string|max:255',
+            'details.*.number' => 'required|numeric'
+
         ]);
         if ($request->hasFile('photo')) {
             request()->validate([
@@ -39,12 +47,28 @@ class LeadrshipController extends Controller
             $path = $request->file('photo')->store('leadership');
         }
 
-        Leadership::create([
+        $leadership = Leadership::create([
             "name"                 => $request->name,
             'bio'           => $request->bio,
             'position'           => $request->position,
+            'facebook'           => $request->facebook,
+            'twitter'           => $request->twitter,
+            'linkedin'           => $request->linkedin,
+            'github'           => $request->github,
+            'dribble'           => $request->dribble,
             'photo'                => $path,
         ]);
+        $details = $request->input('details', []); // Default to empty array if null
+        // Iterate over details to store them
+        foreach ($details as $detail) {
+            if (!empty($detail['category']) && isset($detail['number'])) {
+                // Store each category and number in your database
+                $leadership->details()->create([
+                    'category' => $detail['category'],
+                    'number' => $detail['number'],
+                ]);
+            }
+        }
 
 
 
