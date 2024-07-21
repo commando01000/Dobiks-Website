@@ -11,7 +11,7 @@
             </div>
 
             <div class="service-details m-5 p-5">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row m-auto d-flex justify-content-between">
                         <div class="col-md-6">
                             <div class="title">
@@ -35,12 +35,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 text-end">
-                            <div style="width: 450px !important; height: 350px" class="service-image w-100">
+                        <div class="col-md-6">
+                            <div class="service-image text-end">
                                 <?php
-                                    $var = html_entity_decode($service->emdlink);
-                                    
-                                    echo $var;
+                                $var = html_entity_decode($service->emdlink);
+                                
+                                echo $var;
                                 ?>
                             </div>
                         </div>

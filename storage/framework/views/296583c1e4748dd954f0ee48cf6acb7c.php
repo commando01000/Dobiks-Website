@@ -113,10 +113,13 @@
                 <div class="section-projects__actions w-100">
                     <div class="section-projects__action-row">
                         <div class="section__call-to-action-row">
+                            
                             <p class="section__call-to-action-text ui text-white text size-btn_text">
-                                <span class="section__feature-bg">view</span> &nbsp; all
-                                projects
+                                <a href="<?php echo e(route('see.all.projects')); ?>" class="section__feature-bg text-white">
+                                    view all projects
+                                </a>
                             </p>
+
                             <img src="<?php echo e(asset('assets/front_assets/images/img_arrow.svg')); ?>" alt="arrow image"
                                 class="section__call-to-action-icon" />
                         </div>
