@@ -32,6 +32,20 @@
                             ?>
 
                         </div>
+                        <div style="width: 100%" class="section__divider"></div>
+
+                        <div class="footer__stack__row__eight__row__link-row">
+                            <span style="line-height: 30px" class="content-section__description fs-6">Social Share :</span>
+                            <button class="footer__social-button--facebook">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_facebook_app_symbol.svg">
+                            </button>
+                            <button class="footer__link-button--link">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_link.svg">
+                            </button>
+                            <button class="footer__link-button--link">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_trash.svg">
+                            </button>
+                        </div>
                         {{-- <div class="blog-detail w-100">
                             <div class="blog-text">
                                 <p class="fs-4 content-section__subtitle ui heading size-headingmd text-white">
@@ -139,6 +153,7 @@
                     </div>
                 </div>
             </div>
+            @include('front.projects-section.projects')
         </div>
     </section>
 @endsection

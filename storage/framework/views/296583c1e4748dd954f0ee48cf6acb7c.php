@@ -12,60 +12,69 @@
             </div>
 
             <div class="project-content mt-5 pt-5 w-100">
-                <div class="row w-75 text-center m-auto">
+                <div class="row w-75 m-auto">
                     <div class="col-md-4">
-                        <div class="title">
+                        <div class="title text-center">
                             <h1 class="content-section__title fs-4"><?php echo e($project->title); ?></h1>
                         </div>
                         <br>
-                        <div class="description">
-                            <p class="content-section__description fs-6">
-                                <?php echo e($project->description); ?>
+                        <div class="description d-flex ms-5 ps-4 justify-content-start">
+                            <div>
+                                <p class="content-section__description fs-6">
+                                    <?php echo e($project->description); ?>
 
-                            </p>
-                            <br>
-                            <p class="content-section__description fs-6">Project Location: <?php echo e($project->project_location); ?>
+                                </p>
+                                <br>
+                                <p class="content-section__description fs-6">Project Location:
+                                    <?php echo e($project->project_location); ?>
 
-                                <br> Prject Time Frame: <?php echo e($project->project_timeframe); ?>
+                                    <br> Project Time Frame: <?php echo e($project->project_timeframe); ?>
 
-                            </p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="title text-center">
+                            <h1 class="content-section__title fs-4 ">Client</h1>
+                        </div>
+                        <div class="description d-flex me-5 justify-content-end">
+                            <div>
+                                <p class="content-section__description fs-6">
+                                    <?php echo e($project->client); ?>
+
+                                </p>
+                                <p class="content-section__description fs-6"><?php echo e($project->title); ?></p>
+                            </div>
+                        </div>
+                        <div class="title text-center">
+                            <h1 class="content-section__title fs-4 text-center">Date</h1>
+                        </div>
+                        <div class="date d-flex ms-4 justify-content-center">
+                            <div>
+                                <p class="content-section__description fs-6 text-center">
+                                    <?php echo e($project->created_at->format('jS F Y')); ?>
+
+                                </p>
+                                <br>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="title">
-                            <h1 class="content-section__title fs-4">Client</h1>
-                        </div>
-                        <div class="description">
-                            <p class="content-section__description fs-6">
-                                <?php echo e($project->client); ?>
-
-                            </p>
-                            <p class="content-section__description fs-6"><?php echo e($project->title); ?></p>
-                        </div>
-                        <div class="title">
-                            <h1 class="content-section__title fs-4">Date</h1>
-                        </div>
-                        <div class="date">
-                            <p class="content-section__description fs-6">
-                                <?php echo e($project->created_at->format('jS F Y')); ?>
-
-                            </p>
-                            <br>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="title">
-                            <h1 class="content-section__title fs-4">Marketing Country</h1>
+                            <h1 class="content-section__title fs-4 text-center">Marketing Country</h1>
                         </div>
                         <br>
-                        <div class="description">
-                            <p class="content-section__description fs-6">
-                                <?php echo e($project->description); ?>
+                        <div class="description d-flex ms-5 ps-5 justify-content-start">
+                            <div>
+                                <p class="content-section__description fs-6">
+                                    <?php echo e($project->description); ?>
 
-                            </p>
-                            <br>
-                            <p class="content-section__description fs-6">Project Marketing Category: <br>
-                                <?php echo e($project->category->name); ?></p>
+                                </p>
+                                <br>
+                                <p class="content-section__description fs-6">Project Marketing Category: <br>
+                                    <?php echo e($project->category->name); ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>

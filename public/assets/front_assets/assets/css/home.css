@@ -1972,3 +1972,12 @@ select:focus-visible {
         text-align: center;
     }
 }
+
+@media (max-width: 1400px) {
+    .project-content .description {
+        margin: 0px !important;
+        padding: 0px !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}
