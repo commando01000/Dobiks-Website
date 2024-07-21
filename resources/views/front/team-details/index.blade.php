@@ -1,7 +1,6 @@
 @extends('layouts.front.app')
 
 @section('content')
-
     <section id="team-details" class="w-100 mt-0 p-1 overflow-hidden">
         <main class="container-fluid ps-0 pe-0">
             <div class="section__header justify-content-center align-items-center">
@@ -17,6 +16,58 @@
                         <div class="col-md-4">
                             <img style="min-width: 314px; min-height: 414px" class="user-profile__image"
                                 src="{{ asset('assets/front_assets/images/so3ody.jpeg') }}" alt="image">
+                            <form chip-view="" id="1:112" class="footer__social-chips">
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
+                                    <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
+                                    <span> Facebook</span>
+                                    <template hidden="">
+                                        <label unselected-styles="" class="dhi-group">
+                                        </label>
+                                        <label selected-styles="" class="dhi-group-1">
+                                        </label>
+                                    </template>
+                                </label>
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--motion">
+                                    <input type="checkbox" name="selectedChipOptions" value="2" hidden="true">
+                                    <span> Twitter</span>
+                                    <template hidden="">
+                                        <label unselected-styles="" class="dhi-group">
+                                        </label>
+                                        <label selected-styles="" class="dhi-group-1">
+                                        </label>
+                                    </template>
+                                </label>
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--uiux">
+                                    <input type="checkbox" name="selectedChipOptions" value="3" hidden="true">
+                                    <span> LinkedIN</span>
+                                    <template hidden="">
+                                        <label unselected-styles="" class="dhi-group">
+                                        </label>
+                                        <label selected-styles="" class="dhi-group-1">
+                                        </label>
+                                    </template>
+                                </label>
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--video">
+                                    <input type="checkbox" name="selectedChipOptions" value="4" hidden="true">
+                                    <span> GITHUB</span>
+                                    <template hidden="">
+                                        <label unselected-styles="" class="dhi-group">
+                                        </label>
+                                        <label selected-styles="" class="dhi-group-1">
+                                        </label>
+                                    </template>
+                                </label>
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--marketing">
+                                    <input type="checkbox" name="selectedChipOptions" value="5" hidden="true">
+                                    <span> DRIBBLE</span>
+                                    <template hidden="">
+                                        <label unselected-styles="" class="dhi-group">
+                                        </label>
+                                        <label selected-styles="" class="dhi-group-1">
+                                        </label>
+                                    </template>
+                                </label>
+                            </form>
                         </div>
                         <div class="col-md-6">
                             <div class="user-profile__details">

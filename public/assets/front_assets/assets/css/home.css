@@ -874,7 +874,7 @@ select:focus-visible {
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;
-    column-gap: 22px;
+    column-gap: 5px;
 }
 
 .footer__social-chip--creative {
