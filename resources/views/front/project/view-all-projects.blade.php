@@ -7,7 +7,7 @@
                 <h1 class="content-section__title ui heading size-heading_1">
                     {{ Utility::getsettings('project_name') }}
                 </h1>
-                <small class="content-section__description fs-6">HOME / SERVICES</small>
+                <small class="content-section__description fs-6">HOME / PROJECTS</small>
             </div>
             <div id="projects-content" class="w-100 mt-5 pt-5 pb-5 m-auto p-1">
                 <div class="projects-content">

@@ -14,10 +14,10 @@ class Blog extends Model
     use HasSlug;
     use HasTranslations;
     public $fillable = [
-        'title', 'images', 'description', 'category_id', 'short_description', 'slug', 'created_by',
+        'title', 'images', 'description', 'category_id', 'short_description','normal_description', 'slug', 'created_by',
     ];
 
-    public $translatable = ['title', 'description', 'short_description'];
+    public $translatable = ['title', 'description', 'short_description', 'normal_description'];
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()

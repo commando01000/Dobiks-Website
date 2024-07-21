@@ -1,8 +1,26 @@
+<style>
+    .message-container {
+        position: fixed;
+        /* Use fixed positioning */
+        top: 80px;
+        /* Distance from the top */
+        right: 20px;
+        /* Distance from the right */
+        z-index: 1000;
+        /* Ensure it sits above other content */
+    }
+</style>
+<script>
+    setTimeout(function() {
+        document.getElementsByClassName("message-container")[0].style.display = "none";
+    }, 2000);
+</script>
+
 <div class="class-01-home">
     <div class="column_seven overflow-hidden">
         <div class="column_two position-relative overflow-hidden">
 
-            <form class="home-form unactive p-5" method="post" action="{{ route('contact_us.store') }}">
+            <form class="home-form unactive ms-3 p-5" method="post" action="{{ route('contact_us.store') }}">
                 @csrf
                 <main class="container">
                     <div class="row gy-3 justify-content-center align-items-center">
@@ -134,6 +152,12 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('contact') ? 'active' : '' }}"
                                                         href="{{ route('contact') }}">Contact Us</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a
+                                                        class="dobsik-form nav-link nav-list__item--about ui text size-texts">
+                                                        <img src="{{ asset('assets/front_assets/images/menu_1.png') }}"
+                                                            alt=""></a>
                                                 </li>
                                             </ul>
                                         </div>

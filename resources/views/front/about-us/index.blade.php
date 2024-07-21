@@ -293,7 +293,7 @@
 
                         </div>
                     </div>
-                    <div class="row gy-5">
+                    {{-- <div class="row gy-5">
                         <div class="col-md-4">
                             <div style="min-height: 345px" class="card p-5">
                                 <div class="card-body">
@@ -345,7 +345,36 @@
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
+                    <div class="row gy-5">
+                        @if (isset($allBlogs))
+                            @foreach ($allBlogs as $blog)
+                                <div class="col-md-4">
+                                    <div style="min-height: 350px; max-height: 350px" class="card p-5">
+                                        <div class="card-body">
+                                            <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                                {{ $blog->category->getTranslation('name', app()->getLocale()) }}:
+                                                {{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}
+                                            </p>
+                                            <br>
+                                            <div style="height: 3px" class="section__divider"></div>
+                                            <br>
+                                            <p class="w-100 fs-6 content-section__description">
+                                                {{ Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60) }}
+                                            </p>
+                                            <br>
+                                            <p>Learn more <a class="arrow text-white text-decoration-none"
+                                                    href="{{ route('view.blog', $blog->slug) }}">→</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
+                    {{-- <div class="mt-4">
+                        {{ $allBlogs->links() }} <!-- Pagination links -->
+                    </div> --}}
                 </div>
             </section>
         </main>

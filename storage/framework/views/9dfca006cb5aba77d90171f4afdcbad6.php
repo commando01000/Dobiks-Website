@@ -19,47 +19,39 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-6 mt-5">
                         <div class="inline-container d-flex align-items-center flex-row">
-                            <span class="d-inline-block content-section__description ui text size-textmd">ABOUT</span>
+                            <span class="d-inline-block content-section__description ui text size-textmd">
+                                <?php echo e($statistics->title); ?></span>
                             <div class="ms-3 content-section__divider"></div>
                         </div>
                         <div class="services-section__content pt-1">
                             <h2 class="content-section__subtitle ui heading size-headingmd">
-                                A Behind-the-Scenes Look at Our Agency
+                                <?php echo e($about->short_description); ?>
+
                             </h2>
-                            <p class="content-section__description fs-6 pt-2">At Dopiks, we see a world where every brand
-                                has the power to connect with its audience in a
-                                meaningful way. We want to help businesses tell their stories and reach their full potential
-                                through innovative digital marketing strategies</p>
+                            <p class="content-section__description fs-6 pt-2">
+                                <?php echo e($about->description); ?>
+
+                            </p>
                         </div>
                         <div class="row align-items-center justify-content-between">
                             <div class="col-md-9">
                                 <div class="progress-bars-section overflow-visible pt-2">
-                                    <p class="content-section__description ui text size-textmd">CREATIVE DESIGNS</p>
-                                    <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
-                                        aria-label="Success example" aria-valuenow="100" aria-valuemin="0"
-                                        aria-valuemax="100">
-                                        <div class="progress-bar" style="width: 100%">
-                                            <span style="top: -15px" class="mb-2 position-absolute">100%</span>
-                                        </div>
-                                    </div>
-                                    <p class="content-section__description ui text size-textmd">MOTION GRAPHICS</p>
+                                    <?php $__currentLoopData = $about->details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <p class="content-section__description ui text size-textmd"><?php echo e($detail->category); ?>
 
-                                    <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
-                                        aria-label="Info example" aria-valuenow="97" aria-valuemin="0" aria-valuemax="97">
-                                        <div class="progress-bar" style="width: 97%">
-                                            <span style="top: -15px" class="mb-2 position-absolute">97%</span>
+                                        </p>
+                                        <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
+                                            aria-label="<?php echo e($detail->category); ?> example"
+                                            aria-valuenow="<?php echo e($detail->number); ?>" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar" style="width: <?php echo e($detail->number); ?>%">
+                                                <span style="top: -15px"
+                                                    class="mb-2 position-absolute"><?php echo e($detail->number); ?>%</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <p class="content-section__description ui text size-textmd">VIDEO PRODUCTION</p>
-                                    <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
-                                        aria-label="Warning example" aria-valuenow="98" aria-valuemin="0"
-                                        aria-valuemax="98">
-                                        <div class="progress-bar" style="width: 98%">
-                                            <span style="top: -15px" class="mb-2 position-absolute">98%</span>
-                                        </div>
-                                    </div>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -71,6 +63,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
             <section class="carousel-section mt-5 pt-5 pb-5 position-relative">
@@ -182,20 +175,20 @@
                     </div>
                     <div class="row mt-5">
                         <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-md-3">
-                            <div class="user-profile">
-                                <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
-                                    class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
-                                <p class="user-profile__name ui text size-textxl">
-                                    <?php echo e($leadership->name); ?>
+                            <div class="col-md-3">
+                                <div class="user-profile">
+                                    <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
+                                        class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
+                                    <p class="user-profile__name ui text size-textxl">
+                                        <?php echo e($leadership->name); ?>
 
-                                </p>
-                                <p class="user-profile__role ui text size-texts">
-                                    <?php echo e($leadership->position); ?>
+                                    </p>
+                                    <p class="user-profile__role ui text size-texts">
+                                        <?php echo e($leadership->position); ?>
 
-                                </p>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
@@ -205,44 +198,26 @@
                 <div class="container pt-5 pb-5">
                     <div class="row pt-5">
                         <div class="col-md-6">
-                            <p class="content-section__subtitle ui heading size-headingmd">Milestones that We Are Proud of
-                                Reaching</p>
+                            <p class="content-section__subtitle ui heading size-headingmd">
+                                <?php echo e($statistics->short_description); ?></p>
                         </div>
                         <div class="col-md-6">
-                            <p class="content-section__description">An interior design agency can create content that
-                                showcases its work, highlights design
-                                trends, and provides educational resources for clients and followers. Some potential content
-                                ideas for an interior design agency</p>
+                            <p class="content-section__description"><?php echo e($statistics->description); ?></p>
                         </div>
                     </div>
                     <div class="row pt-5 pb-5 text-center justify-content-center">
-                        <div class="col-md-4">
-                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
-                                98 +
-                            </p>
-                            <br>
-                            <p class="user-profile__name ui text size-textxl">
-                                Successful Projects Done
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
-                                59 +
-                            </p>
-                            <br>
-                            <p class="user-profile__name ui text size-textxl">
-                                Delightful Clients
-                            </p>
-                        </div>
-                        <div class="col-md-4">
-                            <p class="fs-1 content-section__subtitle ui heading size-headingmd">
-                                56 +
-                            </p>
-                            <br>
-                            <p class="user-profile__name ui text size-textxl">
-                                Award Achivement
-                            </p>
-                        </div>
+                        <?php $__currentLoopData = $statistics->details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="col-md-4">
+                                <p class="fs-1 content-section__subtitle ui heading size-headingmd">
+                                    <?php echo e($detail->number); ?> +
+                                </p>
+                                <br>
+                                <p class="user-profile__name ui text size-textxl">
+                                    <?php echo e($detail->category); ?>
+
+                                </p>
+                            </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                 </div>
             </section>
@@ -258,59 +233,36 @@
 
                         </div>
                     </div>
+                    
                     <div class="row gy-5">
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        Sustainable Design: How to Create an…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
+                        <?php if(isset($allBlogs)): ?>
+                            <?php $__currentLoopData = $allBlogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="col-md-4">
+                                    <div style="min-height: 350px; max-height: 350px" class="card p-5">
+                                        <div class="card-body">
+                                            <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
+                                                <?php echo e($blog->category->getTranslation('name', app()->getLocale())); ?>:
+                                                <?php echo e(Str::limit($blog->getTranslation('title', app()->getLocale()), 45)); ?>
+
+                                            </p>
+                                            <br>
+                                            <div style="height: 3px" class="section__divider"></div>
+                                            <br>
+                                            <p class="w-100 fs-6 content-section__description">
+                                                <?php echo e(Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60)); ?>
+
+                                            </p>
+                                            <br>
+                                            <p>Learn more <a class="arrow text-white text-decoration-none"
+                                                    href="<?php echo e(route('view.blog', $blog->slug)); ?>">→</a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        The Art of Accessorizing: Adding the…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        Color Psychology in Interior Design: How…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
                     </div>
+                    
                 </div>
             </section>
         </main>

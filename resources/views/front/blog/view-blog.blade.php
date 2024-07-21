@@ -17,7 +17,7 @@
                 <div class="row m-auto mt-5 w-75 pt-5">
                     <div class="col-md-8">
                         <h1 class="content-section__title fs-5">
-                            {{ $blog->title }}
+                            {{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}{{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45) }}
                         </h1>
                         <small class="content-section__description fs-6">{{ $blog->created_at->format('jS F Y') }}</small>
                         <br>
@@ -32,7 +32,44 @@
                             ?>
 
                         </div>
+                        <div style="width: 100%" class="section__divider"></div>
+
+                        <div class="footer__stack__row__eight__row__link-row">
+                            <span style="line-height: 30px" class="content-section__description fs-6">Social Share :</span>
+                            <button class="footer__social-button--facebook">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_facebook_app_symbol.svg">
+                            </button>
+                            <button class="footer__link-button--link">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_link.svg">
+                            </button>
+                            <button class="footer__link-button--link">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_trash.svg">
+                            </button>
+                        </div>
                         {{-- <div class="blog-detail w-100">
+                            <div class="blog-text">
+                                <p class="fs-4 content-section__subtitle ui heading size-headingmd text-white">
+                                    An interior design agency can create content that showcases its work, highlights design
+                                    trends, and provides educational resources for clients and followers. Some potential
+                                    content ideas for an interior design agency. An interior design agency can create
+                                    content that showcases its work
+
+                                </p>
+                                <img class="w-100 pt-3" src="{{ asset('assets/front_assets/images/oasis.png') }}"
+                                    alt="blog image">
+                                <br>
+                                <br>
+                                <p class="fs-6 content-section__description">
+                                    An interior design agency can create content that showcases its work, highlights design
+                                    trends, and provides educational resources for clients and followers. Some potential
+                                    content ideas for an interior design agency. An interior design agency can create
+                                    content that showcases its work.
+                                </p>
+                                <br>
+                            </div>
+                        </div>
+
+                        <div class="blog-detail w-100">
                             <div class="block-images d-flex flex-row flex-nowrap">
                                 <img class="w-50 pt-3" src="{{ asset('assets/front_assets/images/img_rectangle_4.png') }}"
                                     alt="blog image">
@@ -102,7 +139,7 @@
                                             <div style="height: 3px" class="section__divider"></div>
                                             <br>
                                             <p class="w-100 fs-6 content-section__description">
-                                                {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 60) }}
+                                                {{ Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60) }}
                                             </p>
                                             <br>
                                             <p>Learn more <a class="arrow text-white text-decoration-none"
@@ -116,6 +153,7 @@
                     </div>
                 </div>
             </div>
+            @include('front.projects-section.projects')
         </div>
     </section>
 @endsection

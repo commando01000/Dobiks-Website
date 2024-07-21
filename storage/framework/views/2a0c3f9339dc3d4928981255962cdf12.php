@@ -18,86 +18,37 @@
                 <div class="row m-auto mt-5 w-75 pt-5">
                     <div class="col-md-8">
                         <h1 class="content-section__title fs-5">
-                            <?php echo e($blog->title); ?>
+                            <?php echo e(Str::limit($blog->getTranslation('title', app()->getLocale()), 45)); ?><?php echo e(Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45)); ?>
 
                         </h1>
                         <small class="content-section__description fs-6"><?php echo e($blog->created_at->format('jS F Y')); ?></small>
                         <br>
                         <div class="blog-detail w-100">
-                            <img class="w-100 pt-5" src="<?php echo e(asset('assets/front_assets/images/oasis.png')); ?>"
-                                alt="blog image">
-                            <div class="blog-text">
-                                <br>
-                                <p class="fs-6 content-section__description">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work.
 
-                                </p>
-                                <p class="fs-6 content-section__description">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work.
-                                </p>
-                                <br>
-                            </div>
-                        </div>
-                        <div class="blog-detail w-100">
-                            <div class="block-images d-flex flex-row flex-nowrap">
-                                <img class="w-50 pt-3" src="<?php echo e(asset('assets/front_assets/images/img_rectangle_4.png')); ?>"
-                                    alt="blog image">
-                                <img class="w-50 pt-3" src="<?php echo e(asset('assets/front_assets/images/img_rectangle_6.png')); ?>"
-                                    alt="blog image">
-                            </div>
-                            <br>
-                            <div class="blog-text">
-                                <p class="fs-6 content-section__description">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work.
 
-                                </p>
-                                <p class="fs-6 content-section__description">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work.
-                                </p>
-                                <br>
-                            </div>
-                        </div>
-                        <div class="blog-detail w-100">
-                            <br>
-                            <div class="w-100">
-                                <div class="text-center quote-container">
-                                    <span class="quote"></span>
-                                    
-                                </div>
-                            </div>
-                            <div class="blog-text">
-                                <p class="fs-4 content-section__subtitle ui heading size-headingmd text-white">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work
+                            <?php
+                            $var = html_entity_decode($blog->description);
+                            
+                            echo $var;
+                            
+                            ?>
 
-                                </p>
-                                <img class="w-100 pt-3" src="<?php echo e(asset('assets/front_assets/images/oasis_width.png')); ?>"
-                                    alt="blog image">
-                                <br>
-                                <br>
-                                <p class="fs-6 content-section__description">
-                                    An interior design agency can create content that showcases its work, highlights design
-                                    trends, and provides educational resources for clients and followers. Some potential
-                                    content ideas for an interior design agency. An interior design agency can create
-                                    content that showcases its work.
-                                </p>
-                                <br>
-                            </div>
                         </div>
+                        <div style="width: 100%" class="section__divider"></div>
+
+                        <div class="footer__stack__row__eight__row__link-row">
+                            <span style="line-height: 30px" class="content-section__description fs-6">Social Share :</span>
+                            <button class="footer__social-button--facebook">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_facebook_app_symbol.svg">
+                            </button>
+                            <button class="footer__link-button--link">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_link.svg">
+                            </button>
+                            <button class="footer__link-button--link">
+                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_trash.svg">
+                            </button>
+                        </div>
+                        
                     </div>
                     <div class="col-md-4">
                         <h1 style="line-height: 65px !important" class="content-section__title fs-4">Similar Post</h1>
@@ -115,7 +66,7 @@
                                             <div style="height: 3px" class="section__divider"></div>
                                             <br>
                                             <p class="w-100 fs-6 content-section__description">
-                                                <?php echo e(Str::limit($blog->getTranslation('short_description', app()->getLocale()), 60)); ?>
+                                                <?php echo e(Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60)); ?>
 
                                             </p>
                                             <br>
@@ -130,6 +81,7 @@
                     </div>
                 </div>
             </div>
+            <?php echo $__env->make('front.projects-section.projects', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
     </section>
 <?php $__env->stopSection(); ?>
