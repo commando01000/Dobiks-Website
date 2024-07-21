@@ -26,7 +26,7 @@ class Blog_frontController extends Controller
 
         $blog = Blog::where('slug', $slug)->first();
 
-        if (!$blog) {
+        if (!$blog) {asd
             abort(404);
         }
 
