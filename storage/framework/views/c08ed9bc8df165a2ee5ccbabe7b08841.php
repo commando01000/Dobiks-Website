@@ -32,8 +32,7 @@
                                             <div style="height: 3px" class="section__divider"></div>
                                             <br>
                                             <p class="w-100 fs-6 content-section__description">
-                                                
-                                                <?php echo e(Str::limit($blog->normal_description, 60, '...')); ?>
+                                                <?php echo e(Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60)); ?>
 
                                             </p>
                                             <br>

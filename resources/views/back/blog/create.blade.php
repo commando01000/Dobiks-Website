@@ -71,6 +71,17 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        {{ Form::label('normal_description', __('Normal Description'), ['class' => 'form-label']) }}
+                                        *
+                                        {!! Form::textarea('normal_description_' . $localeCode, null, [
+                                            'class' => 'form-control ',
+                                            'placeholder' => __('Enter normal description'),
+                                            'required' => 'required',
+                                        ]) !!}
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         {{ Form::label('body_' . $localeCode, __('Description (' . $language . ')'), ['class' => 'form-label']) }}
                                         *
                                         {!! Form::textarea('description_' . $localeCode, null, [

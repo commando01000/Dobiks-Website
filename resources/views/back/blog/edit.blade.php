@@ -68,6 +68,17 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    {{ Form::label('normal_description', __('Normal Description'), ['class' => 'form-label']) }}
+                                    *
+                                    {!! Form::textarea('normal_description', null, [
+                                        'class' => 'form-control ',
+                                        'placeholder' => __('Enter normal description'),
+                                        'required' => 'required',
+                                    ]) !!}
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     {{ Form::label('description', __('Description'), ['class' => 'form-label']) }} *
                                     {!! Form::textarea('description', null, [
                                         'class' => 'form-control ',
@@ -97,7 +108,6 @@
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 
     <script type="text/javascript">
-
         CKEDITOR.replace('description', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'

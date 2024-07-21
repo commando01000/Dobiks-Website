@@ -30,8 +30,7 @@
                                             <div style="height: 3px" class="section__divider"></div>
                                             <br>
                                             <p class="w-100 fs-6 content-section__description">
-                                                {{-- {{ Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60) }} --}}
-                                                {{ Str::limit($blog->normal_description, 60, '...') }}
+                                                {{ Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 60) }}
                                             </p>
                                             <br>
                                             <p>Learn more <a class="arrow text-white text-decoration-none"

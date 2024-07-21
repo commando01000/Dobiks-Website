@@ -75,6 +75,19 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <?php echo e(Form::label('normal_description', __('Normal Description'), ['class' => 'form-label'])); ?>
+
+                                    *
+                                    <?php echo Form::textarea('normal_description', null, [
+                                        'class' => 'form-control ',
+                                        'placeholder' => __('Enter normal description'),
+                                        'required' => 'required',
+                                    ]); ?>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <?php echo e(Form::label('description', __('Description'), ['class' => 'form-label'])); ?> *
                                     <?php echo Form::textarea('description', null, [
                                         'class' => 'form-control ',

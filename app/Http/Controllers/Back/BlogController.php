@@ -48,12 +48,14 @@ class BlogController extends Controller
                 ]);
                 $path = $request->file('images')->store('blogs');
             }
+
             Blog::create([
                 'title'             => ['en' => $request->title_en, 'ar' => $request->title_ar],
                 'description'       => ['en' => $request->description_en, 'ar' => $request->description_ar],
                 'category_id'       => $request->category_id,
                 'images'            => $path,
                 'short_description' => ['en' => $request->short_description_en, 'ar' => $request->short_description_ar],
+                'normal_description' => ['en' => $request->normal_description_en, 'ar' => $request->normal_description_ar],
                 'created_by'        => \Auth::user()->id,
             ]);
             return redirect()->route('blog.index')->with('success', __('Blog created successfully.'));

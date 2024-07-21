@@ -251,6 +251,10 @@ select:focus-visible {
     background-color: #1a1a1a;
 }
 
+.navbar .dobsik-form:hover {
+    cursor: pointer;
+}
+
 .navbar-scrolling-bg {
     background-color: #333 !important; /* Choose your color
             * with ease */
