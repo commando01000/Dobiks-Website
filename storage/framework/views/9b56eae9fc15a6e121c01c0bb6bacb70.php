@@ -76,8 +76,11 @@
                             
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <?php echo e(Form::label('images', __('cover'), ['class' => 'form-label'])); ?> *
-                                    <?php echo Form::file('cover', ['class' => 'form-control']); ?>
+                                    <?php echo e(Form::label('emdlink', __('Embed Link'), ['class' => 'form-label'])); ?> *
+                                    <?php echo Form::text('emdlink', $service->emdlink, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Embed Link'),
+                                    ]); ?>
 
                                 </div>
                             </div>

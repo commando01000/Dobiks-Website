@@ -38,9 +38,12 @@
                         </div>
 
                         <div class="col-md-6 text-end">
-                            <div class="service-image w-100">
-                                <img style="width: 300px !important; height: 300px !important" class="w-100"
-                                    src="<?php echo e(asset('storage/app/' . $service->cover)); ?>" alt="">
+                            <div style="width: 450px !important; height: 350px" class="service-image w-100">
+                                <?php
+                                    $var = html_entity_decode($service->emdlink);
+                                    
+                                    echo $var;
+                                ?>
                             </div>
                         </div>
                     </div>
