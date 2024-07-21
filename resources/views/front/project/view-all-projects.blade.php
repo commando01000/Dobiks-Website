@@ -50,36 +50,36 @@
 @endsection
 
 @section('js')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Fetch data for the first category initially
-        @if ($categories->isNotEmpty())
-            loadProjects({{ $categories->first()->id }});
-        @endif
-    });
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch data for the first category initially
+            @if ($categories->isNotEmpty())
+                loadProjects({{ $categories->first()->id }});
+            @endif
+        });
 
-    function loadProjects(categoryId) {
-        fetch(`/projects/category/${categoryId}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log('Fetched data:', data); // Log the fetched data
+        function loadProjects(categoryId) {
+            fetch(`/projects/category/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data:', data); // Log the fetched data
 
-                let projectsList = document.getElementById('projects-list');
-                projectsList.innerHTML = '';
+                    let projectsList = document.getElementById('projects-list');
+                    projectsList.innerHTML = '';
 
-                let baseUrl = "{{ url('/') }}";
-                let counter = 0; // Initialize a counter
+                    let baseUrl = "{{ url('/') }}";
+                    let counter = 0; // Initialize a counter
 
-                let row; // Declare row variable outside the loop
+                    let row; // Declare row variable outside the loop
 
-                data.forEach((project, index) => {
-                    // Create a new row for the first item or after every 3 items
-                    if (counter % 3 === 0) {
-                        row = document.createElement('div');
-                        row.classList.add('row', 'w-100', 'm-auto');
-                    }
+                    data.forEach((project, index) => {
+                        // Create a new row for the first item or after every 3 items
+                        if (counter % 3 === 0) {
+                            row = document.createElement('div');
+                            row.classList.add('row', 'w-100', 'm-auto');
+                        }
 
-                    let projectItem = `
+                        let projectItem = `
                     <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
                         <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
                             <div class="service-header d-flex justify-content-between">
@@ -102,26 +102,26 @@
                     </div>
                     `;
 
-                    row.innerHTML += projectItem;
-                    counter++; // Increment the counter
+                        row.innerHTML += projectItem;
+                        counter++; // Increment the counter
 
-                    // Append row to projectsList after every 3 items (for 3 columns in a row)
-                    if (counter % 3 === 0 || counter === data.length) {
+                        // Append row to projectsList after every 3 items (for 3 columns in a row)
+                        if (counter % 3 === 0 || counter === data.length) {
+                            projectsList.appendChild(row);
+                        }
+                    });
+
+                    // Append the last row if it contains any columns and hasn't been appended yet
+                    if (counter % 3 !== 0) {
                         projectsList.appendChild(row);
                     }
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error); // Log any errors
                 });
+        }
 
-                // Append the last row if it contains any columns and hasn't been appended yet
-                if (counter % 3 !== 0) {
-                    projectsList.appendChild(row);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching projects:', error); // Log any errors
-            });
-    }
-
-    // Ensure that loadProjects is available globally
-    window.loadProjects = loadProjects;
-</script>
+        // Ensure that loadProjects is available globally
+        window.loadProjects = loadProjects;
+    </script>
 @endsection
