@@ -100,7 +100,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('services') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Service
                                                     </p>

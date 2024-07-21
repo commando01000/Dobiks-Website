@@ -100,7 +100,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(route('services')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Service
                                                     </p>
