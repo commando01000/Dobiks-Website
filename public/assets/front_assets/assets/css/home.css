@@ -1883,7 +1883,7 @@ select:focus-visible {
 }
 
 .blog-detail p {
-    color: #fff;
+    color: var(--blue_gray_100_02) !important;
 }
 
 @media (max-width: 1250px) {

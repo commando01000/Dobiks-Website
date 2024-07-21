@@ -105,11 +105,11 @@ $(document).ready(function () {
         });
     });
 
-    $(".content-section .navigation__column--right").on("click", function () {
-        if ($(".home-form").hasClass("unactive")) {
-            $(".home-form").removeClass("unactive").addClass("active");
-        }
-    });
+    // $(".content-section .navigation__column--right").on("click", function () {
+    //     if ($(".home-form").hasClass("unactive")) {
+    //         $(".home-form").removeClass("unactive").addClass("active");
+    //     }
+    // });
 
     $(".dobsik-form").on("click", function () {
         if ($(".home-form").hasClass("unactive")) {

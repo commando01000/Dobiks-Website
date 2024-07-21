@@ -121,7 +121,6 @@
     <script src="<?php echo e(asset('vendor/ckeditor/ckeditor.js')); ?>"></script>
 
     <script type="text/javascript">
-
         CKEDITOR.replace('description', {
             filebrowserUploadUrl: "<?php echo e(route('ckeditor.upload', ['_token' => csrf_token()])); ?>",
             filebrowserUploadMethod: 'form'
