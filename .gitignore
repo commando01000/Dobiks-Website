@@ -7,7 +7,13 @@ yarn-error.log
 bootstrap/compiled.php
 app/storage/
 
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
 
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
 
 storage/*.key
 .env
@@ -15,10 +21,4 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-
-# Ignore the storage and public folders
-/storage/debugbar
-!/storage/app
-!/storage/app/public
-!/public/index.php
-!/public/.htaccess
+*.json
