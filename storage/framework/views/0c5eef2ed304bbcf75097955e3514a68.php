@@ -20,7 +20,7 @@
     <div class="column_seven overflow-hidden">
         <div class="column_two position-relative overflow-hidden">
 
-            <form class="home-form unactive p-5" method="post" action="<?php echo e(route('contact_us.store')); ?>">
+            <form class="home-form unactive ms-3 p-5" method="post" action="<?php echo e(route('contact_us.store')); ?>">
                 <?php echo csrf_field(); ?>
                 <main class="container">
                     <div class="row gy-3 justify-content-center align-items-center">
