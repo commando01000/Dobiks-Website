@@ -57,7 +57,7 @@
                             <div class="col-md-3">
                                 <div class="content-section__column--secondary">
                                     <p class="content-section__button pt-2 ui text size-btn_text">
-                                        <a href="<?php echo e(route('contact')); ?>">CONTACT US</a>
+                                        <a class="text-decoration-none text-white" href="<?php echo e(route('contact')); ?>">CONTACT US</a>
                                     </p>
                                 </div>
                             </div>
