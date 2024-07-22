@@ -21,7 +21,7 @@
                     <th title="#"><?php echo e(__('DT_RowIndex')); ?></th>
                     <th title="Name"><?php echo e(__('Name')); ?></th>
                     <th title="Email"><?php echo e(__('Email')); ?></th>
-                    <th title="Address"><?php echo e(__('Address')); ?></th>
+                    
                     <th title="Phone"><?php echo e(__('Phone')); ?></th>
                     <th title="Job Title"><?php echo e(__('Job Title')); ?></th>
                     <th title="Created At"><?php echo e(__('Created At')); ?></th>
@@ -35,9 +35,7 @@
 
                         <td><?php echo e($join->name); ?></td>
                         <td><?php echo e($join->email); ?></td>
-                        <td>
-                            <textarea name=""><?php echo e($join->address); ?></textarea>
-                        </td>
+                        
                         <td><?php echo e($join->phone); ?></td>
                         <td><?php echo e($join->job_title); ?></td>
                         <td><?php echo e($join->created_at); ?></td>

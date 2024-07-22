@@ -316,7 +316,8 @@ Route::group([
     });
     Route::group(['prefix' => 'cp/', 'middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('contact_us/view', [Contact_UsController::class, 'index'])->name('contact_us.index');
-        Route::delete('contact_us/{id}/delete', [Contact_UsController::class, 'destroy'])->name('contact.destroy');
+        Route::get('contact_us/view/{contact}', [Contact_UsController::class, 'show'])->name('contact_us.view');
+        Route::delete('contact_us/{id}/delete', [Contact_UsController::class, 'destroy'])->name('contact_us.destroy');
     });
 });
 

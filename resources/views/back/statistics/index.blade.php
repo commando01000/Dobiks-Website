@@ -14,7 +14,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="">
                 <div class="card-header">
                     <h5>{{ __('Statistics') }}</h5>
                     <a href="{{ route('statistics.create') }}"
