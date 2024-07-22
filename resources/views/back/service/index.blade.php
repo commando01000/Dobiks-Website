@@ -49,7 +49,7 @@
                         </td>
                         <td>
                             <a href="{{ route('services.show', $service->id) }}"
-                                class="btn btn-primary">{{ __('View') }}</a>
+                                class="btn btn-success">{{ __('View') }}</a>
                             <a href="{{ route('services.edit', $service->id) }}"
                                 class="btn btn-warning">{{ __('Edit') }}</a>
                             <form action="{{ route('services.destroy', $service->id) }}" method="POST"

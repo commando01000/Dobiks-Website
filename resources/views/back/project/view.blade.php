@@ -2,6 +2,17 @@
 
 @section('title', __('Blogs'))
 
+@section('breadcrumb')
+    <div class="col-md-12">
+        <div class="page-header-title">
+            <h4 class="m-b-10">{{ __('Projects') }}</h4>
+        </div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
+            <li class="breadcrumb-item active">{{ __('Projects') }}</li>
+        </ul>
+    </div>
+@endsection
 
 @section('content')
 

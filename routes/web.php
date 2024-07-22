@@ -115,6 +115,7 @@ Route::group([
     //Leadership
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('cp/leadership', [LeadrshipController::class, 'index'])->name('leadership.index');
+        Route::get('cp/leadership/{leadership}', [LeadrshipController::class, 'show'])->name('leadership.view');
         Route::get('cp/leadership/create', [LeadrshipController::class, 'create'])->name('leadership.create');
         Route::post('cp/leadership/store', [LeadrshipController::class, 'store'])->name('leadership.store');
         Route::get('cp/leadership/{leadership}/edit', [LeadrshipController::class, 'edit'])->name('leadership.edit');
@@ -123,6 +124,7 @@ Route::group([
     });
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('cp/customer', [CustomerController::class, 'index'])->name('customer.index');
+        Route::get('cp/customer/{client}', [CustomerController::class, 'show'])->name('customer.show');
         Route::get('cp/customer/create', [CustomerController::class, 'create'])->name('customer.create');
         Route::post('cp/customer/store', [CustomerController::class, 'store'])->name('customer.store');
         Route::get('cp/customer/{client}/edit', [CustomerController::class, 'edit'])->name('customer.edit');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Models\Leadership;
+use App\Models\LeadershipDetail;
 use Illuminate\Http\Request;
 
 class LeadrshipController extends Controller
@@ -17,8 +18,21 @@ class LeadrshipController extends Controller
     }
     public function create()
     {
-
         return view('back.leadrship.create');
+    }
+    public function show(Leadership $leadership)
+    {
+        // if (\Auth::user()->can('edit-project')) {
+        //     // dd($project);
+
+        //     return view('back/project.view', compact('project'));
+        // } else {
+        //     return redirect()->back()->with('failed', __('Permission denied.'));
+        // }
+        // dd($leadership);
+        $leadership_details = $leadership->details()->get();
+        // dd($leadership_details);
+        return view('back.leadrship.view', compact('leadership', 'leadership_details'));
     }
     public function store(Request $request)
     {

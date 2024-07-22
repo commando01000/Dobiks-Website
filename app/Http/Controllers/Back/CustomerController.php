@@ -22,6 +22,19 @@ class CustomerController extends Controller
         return view('back.client.create', compact('categories'));
     }
 
+    public function show(Client $client)
+    {
+        // if (\Auth::user()->can('edit-project')) {
+        //     // dd($project);
+
+        //     return view('back/project.view', compact('project'));
+        // } else {
+        //     return redirect()->back()->with('failed', __('Permission denied.'));
+        // }
+        // dd($client);
+        return view('back/client.view', compact('client'));
+    }
+
     public function store(Request $request)
     {
 
@@ -36,7 +49,7 @@ class CustomerController extends Controller
             ]);
             $path = $request->file('cover')->store('clients');
         }
-        
+
         client::create([
             "name"                 => $request->name,
             'description'           => $request->description,
