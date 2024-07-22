@@ -246,6 +246,9 @@
                             <li class="dash-item ">
                                 <a class="dash-link" href="<?php echo e(route('roles.index')); ?>"><?php echo e(__('Roles')); ?></a>
                             </li>
+                            <li class="dash-item ">
+                                <a class="dash-link" href="<?php echo e(route('permission.index')); ?>"><?php echo e(__('Permission')); ?></a>
+                            </li>
                         </ul>
                     </li>
                 <?php endif; ?>

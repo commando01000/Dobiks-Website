@@ -1975,3 +1975,13 @@ select:focus-visible {
     width: 500px;
     height: 350px;
 }
+
+@media (max-width: 1450px) {
+    .project-content .description .w-50 {
+        margin: 0px !important;
+        padding: 0px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+}

@@ -18,7 +18,7 @@
                         </div>
                         <br>
                         <div class="description d-flex justify-content-start">
-                            <div class="w-50 ms-5 ps-3 d-flex justify-content-center flex-column">
+                            <div class="w-50 ms-5 ps-4 d-flex justify-content-center flex-column">
                                 <p class="content-section__description fs-6">
                                     {{ $project->description }}
                                 </p>
