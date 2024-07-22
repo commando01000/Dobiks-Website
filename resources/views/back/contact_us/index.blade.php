@@ -32,7 +32,7 @@
                                                 <th title="Name">{{ __('Name') }}</th>
                                                 <th title="Role">{{ __('Email') }}</th>
                                                 <th title="Role">{{ __('Subject') }}</th>
-                                                <th>{{ __('Message') }}</th>
+                                                {{-- <th>{{ __('Message') }}</th> --}}
                                                 <th>{{ __('Action') }} </th>
 
                                             </tr>
@@ -44,17 +44,16 @@
                                                     </td>
                                                     <td>{{ $contact->email }}</td>
                                                     <td>{{ $contact->subject }}</td>
-                                                    <td>
+                                                    {{-- <td>
                                                         <textarea> {{ $contact->comments}}</textarea>
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
-                                                        <form action="{{ route('contact.destroy', $contact->id) }}"
-                                                            method="POST" style="display:inline;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit"
-                                                                class="btn btn-danger">{{ __('Delete') }}</button>
-                                                        </form>
+                                                        <div class="text-left">
+                                                            <a href="{{ route('contact_us.view', $contact->id) }}"
+                                                                class="btn btn-light-success btn-sm">{{ __('View') }}</a>
+                                                            <a href="{{ route('contact_us.destroy', $contact->id) }}"
+                                                                class="btn btn-light-danger btn-sm">{{ __('Delete') }}</a>
+                                                        </div>
                                                     </td>
 
                                                 </tr>

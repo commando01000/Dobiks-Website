@@ -32,7 +32,7 @@
                                                 <th title="Name"><?php echo e(__('Name')); ?></th>
                                                 <th title="Role"><?php echo e(__('Email')); ?></th>
                                                 <th title="Role"><?php echo e(__('Subject')); ?></th>
-                                                <th><?php echo e(__('Message')); ?></th>
+                                                
                                                 <th><?php echo e(__('Action')); ?> </th>
 
                                             </tr>
@@ -45,17 +45,14 @@
                                                     </td>
                                                     <td><?php echo e($contact->email); ?></td>
                                                     <td><?php echo e($contact->subject); ?></td>
+                                                    
                                                     <td>
-                                                        <textarea> <?php echo e($contact->comments); ?></textarea>
-                                                    </td>
-                                                    <td>
-                                                        <form action="<?php echo e(route('contact.destroy', $contact->id)); ?>"
-                                                            method="POST" style="display:inline;">
-                                                            <?php echo csrf_field(); ?>
-                                                            <?php echo method_field('DELETE'); ?>
-                                                            <button type="submit"
-                                                                class="btn btn-danger"><?php echo e(__('Delete')); ?></button>
-                                                        </form>
+                                                        <div class="text-left">
+                                                            <a href="<?php echo e(route('contact_us.view', $contact->id)); ?>"
+                                                                class="btn btn-light-success btn-sm"><?php echo e(__('View')); ?></a>
+                                                            <a href="<?php echo e(route('contact_us.destroy', $contact->id)); ?>"
+                                                                class="btn btn-light-danger btn-sm"><?php echo e(__('Delete')); ?></a>
+                                                        </div>
                                                     </td>
 
                                                 </tr>

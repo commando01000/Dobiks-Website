@@ -14,7 +14,7 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="">
                 <div class="card-header">
                     <h5><?php echo e(__('Statistics')); ?></h5>
                     <a href="<?php echo e(route('statistics.create')); ?>"

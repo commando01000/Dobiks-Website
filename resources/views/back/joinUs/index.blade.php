@@ -21,7 +21,7 @@
                     <th title="#">{{ __('DT_RowIndex') }}</th>
                     <th title="Name">{{ __('Name') }}</th>
                     <th title="Email">{{ __('Email') }}</th>
-                    <th title="Address">{{ __('Address') }}</th>
+                    {{-- <th title="Address">{{ __('Address') }}</th> --}}
                     <th title="Phone">{{ __('Phone') }}</th>
                     <th title="Job Title">{{ __('Job Title') }}</th>
                     <th title="Created At">{{ __('Created At') }}</th>
@@ -35,9 +35,9 @@
 
                         <td>{{ $join->name }}</td>
                         <td>{{ $join->email }}</td>
-                        <td>
+                        {{-- <td>
                             <textarea name="">{{ $join->address }}</textarea>
-                        </td>
+                        </td> --}}
                         <td>{{ $join->phone }}</td>
                         <td>{{ $join->job_title }}</td>
                         <td>{{ $join->created_at }}</td>

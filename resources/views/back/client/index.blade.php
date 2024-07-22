@@ -28,7 +28,7 @@
                 <tr>
                     <th title="Name">{{ __('name') }}</th>
                     <th title="Role">{{ __('cover') }}</th>
-                    <th title="Email">{{ __('Description') }}</th>
+                    {{-- <th title="Email">{{ __('Description') }}</th> --}}
                     <th>{{ __('Action') }}</th>
                 </tr>
             </thead>

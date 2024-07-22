@@ -16,6 +16,12 @@ class Contact_UsController extends Controller
         return view('back.contact_us.index', compact('contact_us'));
     }
 
+    public function show(Contact_Us $contact)
+    {
+        // dd($contact);
+        return view('back.contact_us.view', compact('contact'));
+    }
+
     public function destroy($id)
     {
 
