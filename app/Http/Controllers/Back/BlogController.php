@@ -31,6 +31,18 @@ class BlogController extends Controller
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
     }
+
+    public function show(Blog $blog)
+    {
+        if (\Auth::user()->can('edit-blog')) {
+            // dd($blog);
+            
+            return view('back/blog.view', compact('blog'));
+        } else {
+            return redirect()->back()->with('failed', __('Permission denied.'));
+        }
+    }
+
     public function store(Request $request)
     {
 

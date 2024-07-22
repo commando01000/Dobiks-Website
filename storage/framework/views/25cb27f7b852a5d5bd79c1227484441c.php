@@ -48,7 +48,8 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            
+                            <a href="<?php echo e(route('services.show', $service->id)); ?>"
+                                class="btn btn-primary"><?php echo e(__('View')); ?></a>
                             <a href="<?php echo e(route('services.edit', $service->id)); ?>"
                                 class="btn btn-warning"><?php echo e(__('Edit')); ?></a>
                             <form action="<?php echo e(route('services.destroy', $service->id)); ?>" method="POST"

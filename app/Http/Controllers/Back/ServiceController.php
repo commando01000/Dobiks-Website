@@ -36,6 +36,18 @@ class ServiceController extends Controller
         }
     }
 
+    public function show(Service $service)
+    {
+        if (\Auth::user()->can('edit-project')) {
+            // dd($project);
+
+            // dd($service);
+
+            return view('back/service.view', compact('service'));
+        } else {
+            return redirect()->back()->with('failed', __('Permission denied.'));
+        }
+    }
 
     /**
      * Store a newly created resource in storage.

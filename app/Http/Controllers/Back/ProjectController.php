@@ -21,8 +21,19 @@ class ProjectController extends Controller
     {
 
         if (\Auth::user()->can('manage-project')) {
-             $projects=Project::paginate(10);
+            $projects = Project::paginate(10);
             return view('back/project.index', compact('projects'));
+        } else {
+            return redirect()->back()->with('failed', __('Permission denied.'));
+        }
+    }
+
+    public function show(Project $project)
+    {
+        if (\Auth::user()->can('edit-project')) {
+            // dd($project);
+
+            return view('back/project.view', compact('project'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
@@ -74,7 +85,7 @@ class ProjectController extends Controller
                 ]);
             }
 
-           $project =  Project::create([
+            $project =  Project::create([
                 'title'                 => $request->title,
                 'description'           => $request->description,
                 'builder'           => request()->builder ?? "off",
@@ -84,7 +95,7 @@ class ProjectController extends Controller
                 'project_timeframe'     => $request->project_timeframe,
                 'project_location'      => $request->project_location,
                 'project_category'          => $request->category_id,
-                'project_status'        => request()->builder == "on" ? 1 :0,
+                'project_status'        => request()->builder == "on" ? 1 : 0,
                 'cover'                => $path,
                 'embed'                => request()->embed ?? "",
                 'created_by'            => \Auth::user()->id,
@@ -93,14 +104,14 @@ class ProjectController extends Controller
 
             // store project images
             if ($request->hasFile('images')) {
-            foreach (request()->file("images") as $image) {
+                foreach (request()->file("images") as $image) {
 
-                $image_path = $image->store("projects/images");
-                $project->images()->create([
-                    "img"=>$image_path,
-                ]);
+                    $image_path = $image->store("projects/images");
+                    $project->images()->create([
+                        "img" => $image_path,
+                    ]);
+                }
             }
-        }
             return redirect()->route('projects.index')->with('success', __('Project created successfully.'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
@@ -159,14 +170,14 @@ class ProjectController extends Controller
                     'images.*' => 'image|mimes:jpeg,png,jpg', // Adjust max size as needed
                 ]);
 
-                foreach($project->images as $img){
+                foreach ($project->images as $img) {
                     Storage::delete($img);
                 }
                 $project->images()->delete();
                 foreach (request()->file("images") as $image) {
                     $image_path = $image->store("projects/images");
                     $project->images()->create([
-                        "img"=>$image_path,
+                        "img" => $image_path,
                     ]);
                 }
             }
@@ -186,8 +197,8 @@ class ProjectController extends Controller
             $project->created_by            = \Auth::user()->id;
             $project->save();
 
-            if(isset($old_cover))
-            Storage::delete($old_cover);
+            if (isset($old_cover))
+                Storage::delete($old_cover);
             return redirect()->route('projects.index')->with('success', __('projects updated successfully.'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));

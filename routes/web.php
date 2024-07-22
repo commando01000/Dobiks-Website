@@ -61,6 +61,7 @@ use App\Models\advertisement;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\ProjectCategory;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -87,7 +88,7 @@ Route::group([
     });
 
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::resource('cp/blog', BlogController::class)->except(['show']);
+        Route::resource('cp/blog', BlogController::class);
         Route::resource('cp/blog-category', BlogCategoryController::class);
     });
     //Gallery
@@ -100,13 +101,13 @@ Route::group([
     });
     //projects
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::resource('cp/projects', ProjectController::class)->except(['show']);
+        Route::resource('cp/projects', ProjectController::class);
         Route::resource('cp/project-category', ProjectCategoryController::class);
         Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
     });
     //services
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
-        Route::resource('cp/services', ServiceController::class)->except(['show']);
+        Route::resource('cp/services', ServiceController::class);
         Route::resource('cp/service-category', ServiceCategoryController::class);
         Route::post('cp/servicecategory-status/{id}', [ServiceCategoryController::class, 'serviceCategoryStatus'])->name('servicecategory.status');
     });

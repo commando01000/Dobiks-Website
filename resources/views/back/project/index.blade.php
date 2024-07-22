@@ -49,7 +49,7 @@
                         @endif
                     </td>
                     <td>
-                        {{-- <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary">{{ __('View') }}</a> --}}
+                        <a href="{{ route('projects.show', $project->id) }}" class="btn btn-success">{{ __('View') }}</a>
                         <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>
                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST" style="display:inline;">
                             @csrf
