@@ -6,7 +6,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item"><a href="<?php echo e(route('project-category.index')); ?>"><?php echo e(__('Service')); ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo e(route('project-category.index')); ?>"><?php echo e(__('Services')); ?></a></li>
             <li class="breadcrumb-item active"><?php echo e(__('Create Service')); ?></li>
         </ul>
     </div>

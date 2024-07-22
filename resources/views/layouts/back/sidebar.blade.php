@@ -190,17 +190,17 @@
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
-                                href="{{ route('service-category.index') }}">{{ __('Service Category') }}</a>
+                                href="{{ route('service-category.index') }}">{{ __('Service_Category') }}</a>
                         </li>
                         <li class="dash-item ">
-                            <a class="dash-link" href="{{ route('customer.index') }}">{{ __('Customers') }}</a>
+                            <a class="dash-link" href="{{ route('customer.index') }}">{{ __('clients') }}</a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
                                 href="{{ route('client-category.index') }}">{{ __('Client Category') }}</a>
                         </li>
                         <li class="dash-item ">
-                            <a class="dash-link" href="{{ route('leadership.index') }}">{{ __('Leaderships') }}</a>
+                            <a class="dash-link" href="{{ route('leadership.index') }}">{{ __('Our Team') }}</a>
                         </li>
 
                         <li class="dash-item ">

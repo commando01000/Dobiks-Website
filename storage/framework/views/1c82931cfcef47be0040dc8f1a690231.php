@@ -1,12 +1,12 @@
-<?php $__env->startSection('title', __('Leadership')); ?>
+<?php $__env->startSection('title', __('Our Team')); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
         <div class="page-header-title">
-            <h4 class="m-b-10"><?php echo e(__('Leadership')); ?></h4>
+            <h4 class="m-b-10"><?php echo e(__('Our Team')); ?></h4>
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item active"><?php echo e(__('Leadership')); ?></li>
+            <li class="breadcrumb-item active"><?php echo e(__('Our Team')); ?></li>
         </ul>
 
     </div>
@@ -18,7 +18,7 @@
                 
                 <div class="float-left">
                     <a href="<?php echo e(route('leadership.create')); ?>"
-                        class="btn btn-light-primary"><?php echo e(__('Create Leadership')); ?></a>
+                        class="btn btn-light-primary"><?php echo e(__('Create Member')); ?></a>
                 </div>
                 
             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.back.main')
-@section('title', 'Create Category')
+@section('title', 'Edit Category')
 @section('breadcrumb')
     <div class="col-md-12">
         <div class="page-header-title">

@@ -34,15 +34,15 @@
                                     <div class="col-md-12 bg-light p-2 mb-3">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h4 class="frm_section_n">Statistics</h4>
+                                                <h4 class="frm_section_n">{{ __('Statistics') }}</h4>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Category</label>
+                                        <label>{{ __('Category') }} *</label>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Number</label>
+                                        <label>{{ __('Number') }} *</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12 p-0">
@@ -50,11 +50,11 @@
                                         <div class="row form_field_outer_row">
                                             <div class="form-group col-md-6">
                                                 <input type="text" class="form-control w_90" name="details[0][category]"
-                                                    id="category_1" placeholder="Enter category" />
+                                                    id="category_1" placeholder="Enter category" required />
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <input type="text" class="form-control" name="details[0][number]"
-                                                    id="number_1" placeholder="Enter number" />
+                                                    id="number_1" placeholder="Enter number" required />
                                             </div>
                                             <div class="form-group col-md-2 add_del_btn_outer">
                                                 <button type="button" class="btn_round add_node_btn_frm_field"
@@ -71,7 +71,7 @@
                                 <div class="row ml-0 bg-light mt-3 border py-3">
                                     <div class="col-md-12">
                                         <button type="button" class="btn btn-outline-lite py-0 add_new_frm_field_btn"><i
-                                                class="fas fa-plus add_icon"></i> Add New field row</button>
+                                                class="fas fa-plus add_icon"></i>{{ __('Add New field row') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h4 class="frm_section_n">Optional Fields</h4>
+                                        <h4 class="frm_section_n">{{ __('Optional Fields') }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ Form::label('body', __('short Description'), ['class' => 'form-label']) }}
+                                    {{ Form::label('body', __('Short Description'), ['class' => 'form-label']) }}
                                     {!! Form::textarea('short_description', null, [
                                         'class' => 'form-control ',
                                         'placeholder' => __('Enter short description'),

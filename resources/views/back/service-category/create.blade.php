@@ -3,11 +3,11 @@
 @section('breadcrumb')
     <div class="col-md-12">
         <div class="page-header-title">
-            <h4 class="m-b-10">{{ __('Create Category/Service') }}</h4>
+            <h4 class="m-b-10">{{ __('Create Category') }}</h4>
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item"><a href="{{ route('service-category.index') }}">{{ __('Service Category') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('service-category.index') }}">{{ __('Service_Category') }}</a></li>
             <li class="breadcrumb-item active">{{ __('Create Category') }}</li>
         </ul>
     </div>

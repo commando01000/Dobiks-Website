@@ -16,18 +16,19 @@
             <div class="card">
                 <div class="card-header">
                     <h5><?php echo e(__('Statistics')); ?></h5>
-                    <a href="<?php echo e(route('statistics.create')); ?>" class="btn btn-primary float-right">Create Statistics</a>
+                    <a href="<?php echo e(route('statistics.create')); ?>"
+                        class="btn btn-primary float-right"><?php echo e(__('Create Statistics')); ?></a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Categories</th>
-                                <th>Numbers</th>
-                                <th>Actions</th>
+                                <th><?php echo e(__('Title')); ?></th>
+                                <th><?php echo e(__('Description')); ?></th>
+                                <th><?php echo e(__('Categories')); ?></th>
+                                <th><?php echo e(__('Numbers')); ?></th>
+                                <th><?php echo e(__('Action')); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +53,7 @@
                                     </td>
                                     <td>
                                         <a href="<?php echo e(route('statistics.edit', $statistic->id)); ?>"
-                                            class="btn btn-warning btn-sm">Edit</a>
+                                            class="btn btn-warning btn-sm"><?php echo e(__('Edit')); ?></a>
                                         
                                     </td>
                                 </tr>

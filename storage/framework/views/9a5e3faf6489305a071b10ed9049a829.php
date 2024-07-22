@@ -190,17 +190,17 @@
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
-                                href="<?php echo e(route('service-category.index')); ?>"><?php echo e(__('Service Category')); ?></a>
+                                href="<?php echo e(route('service-category.index')); ?>"><?php echo e(__('Service_Category')); ?></a>
                         </li>
                         <li class="dash-item ">
-                            <a class="dash-link" href="<?php echo e(route('customer.index')); ?>"><?php echo e(__('Customers')); ?></a>
+                            <a class="dash-link" href="<?php echo e(route('customer.index')); ?>"><?php echo e(__('clients')); ?></a>
                         </li>
                         <li class="dash-item ">
                             <a class="dash-link"
                                 href="<?php echo e(route('client-category.index')); ?>"><?php echo e(__('Client Category')); ?></a>
                         </li>
                         <li class="dash-item ">
-                            <a class="dash-link" href="<?php echo e(route('leadership.index')); ?>"><?php echo e(__('Leaderships')); ?></a>
+                            <a class="dash-link" href="<?php echo e(route('leadership.index')); ?>"><?php echo e(__('Our Team')); ?></a>
                         </li>
 
                         <li class="dash-item ">

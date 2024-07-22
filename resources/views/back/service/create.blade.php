@@ -7,7 +7,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item"><a href="{{ route('project-category.index') }}">{{ __('Service') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('project-category.index') }}">{{ __('Services') }}</a></li>
             <li class="breadcrumb-item active">{{ __('Create Service') }}</li>
         </ul>
     </div>

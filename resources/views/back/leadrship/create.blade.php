@@ -3,12 +3,12 @@
 @section('breadcrumb')
     <div class="col-md-12">
         <div class="page-header-title">
-            <h4 class="m-b-10">{{ __('Create Leadership') }}</h4>
+            <h4 class="m-b-10">{{ __('Create Member') }}</h4>
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item"><a href="{{ route('leadership.index') }}">{{ __('Leadership') }}</a></li>
-            <li class="breadcrumb-item active">{{ __('Create Leadership') }}</li>
+            <li class="breadcrumb-item"><a href="{{ route('leadership.index') }}">{{ __('Our Team') }}</a></li>
+            <li class="breadcrumb-item active">{{ __('Create Member') }}</li>
         </ul>
     </div>
 @endsection
@@ -18,7 +18,7 @@
             <div class="m-auto col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h5> {{ __('Create Leadership') }}</h5>
+                        <h5> {{ __('Create Member') }}</h5>
                     </div>
                     {!! Form::open([
                         'route' => 'leadership.store',
@@ -113,15 +113,15 @@
                                             <div class="col-md-12 bg-light p-2 mb-3">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <h4 class="frm_section_n">Statistics</h4>
+                                                        <h4 class="frm_section_n">{{ __('Statistics') }}</h4>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Category</label>
+                                                <label>{{ __('Category') }}</label>
                                             </div>
                                             <div class="col-md-4">
-                                                <label>Number</label>
+                                                <label>{{ __('Number') }}</label>
                                             </div>
                                         </div>
                                         <div class="col-md-12 p-0">
@@ -153,7 +153,8 @@
                                             <div class="col-md-12">
                                                 <button type="button"
                                                     class="btn btn-outline-lite py-0 add_new_frm_field_btn"><i
-                                                        class="fas fa-plus add_icon"></i> Add New field row</button>
+                                                        class="fas fa-plus add_icon"></i>
+                                                    {{ __('Add New field row') }}</button>
                                             </div>
                                         </div>
                                     </div>

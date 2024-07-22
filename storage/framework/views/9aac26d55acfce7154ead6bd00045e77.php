@@ -16,7 +16,8 @@
                                 src="<?php echo e(Storage::url($teamMember->photo)); ?>" alt="image">
                             <form chip-view="" id="1:112" class="footer__social-chips">
                                 <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
-                                    <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
+                                    <a href="<?php echo e($teamMember->facebook); ?>"> <input type="button" name="selectedChipOptions"
+                                            value="1" hidden="true"></a>
                                     <span> Facebook</span>
                                     <template hidden="">
                                         <label unselected-styles="" class="dhi-group">
@@ -27,7 +28,8 @@
                                 </label>
 
                                 <label tabindex="0" class="flex-row-center-center footer__social-chip--uiux">
-                                    <input type="checkbox" name="selectedChipOptions" value="3" hidden="true">
+                                    <a href="<?php echo e($teamMember->linkedin); ?>"> <input type="button" name="selectedChipOptions"
+                                            value="3" hidden="true"></a>
                                     <span> LinkedIN</span>
                                     <template hidden="">
                                         <label unselected-styles="" class="dhi-group">
@@ -37,7 +39,8 @@
                                     </template>
                                 </label>
                                 <label tabindex="0" class="flex-row-center-center footer__social-chip--video">
-                                    <input type="checkbox" name="selectedChipOptions" value="4" hidden="true">
+                                    <a href="<?php echo e($teamMember->github); ?>"> <input type="button" name="selectedChipOptions"
+                                            value="4" hidden="true"></a>
                                     <span> GITHUB</span>
                                     <template hidden="">
                                         <label unselected-styles="" class="dhi-group">
@@ -47,7 +50,8 @@
                                     </template>
                                 </label>
                                 <label tabindex="0" class="flex-row-center-center footer__social-chip--marketing">
-                                    <input type="checkbox" name="selectedChipOptions" value="5" hidden="true">
+                                    <a href="<?php echo e($teamMember->dribble); ?>"> <input type="button" name="selectedChipOptions"
+                                            value="5" hidden="true"></a>
                                     <span> DRIBBLE</span>
                                     <template hidden="">
                                         <label unselected-styles="" class="dhi-group">
@@ -80,7 +84,8 @@
                                             </p>
                                             <div style="height: 5px;" class="progress overflow-visible mb-2"
                                                 role="progressbar" aria-label="<?php echo e($detail->category); ?> example"
-                                                aria-valuenow="<?php echo e($detail->number); ?>" aria-valuemin="0" aria-valuemax="100">
+                                                aria-valuenow="<?php echo e($detail->number); ?>" aria-valuemin="0"
+                                                aria-valuemax="100">
                                                 <div class="progress-bar" style="width: <?php echo e($detail->number); ?>%">
                                                     <span style="top: -15px"
                                                         class="mb-2 position-absolute"><?php echo e($detail->number); ?>%</span>

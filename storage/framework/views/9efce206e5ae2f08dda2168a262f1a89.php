@@ -1,12 +1,12 @@
-<?php $__env->startSection('title', __('Categories/Services')); ?>
+<?php $__env->startSection('title', __('Service_Category')); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
         <div class="page-header-title">
-            <h4 class="m-b-10"><?php echo e(__('Categories/Services')); ?></h4>
+            <h4 class="m-b-10"><?php echo e(__('Service_Category')); ?></h4>
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item active"><?php echo e(__('Categories/Services')); ?></li>
+            <li class="breadcrumb-item active"><?php echo e(__('Service_Category')); ?></li>
         </ul>
     </div>
 <?php $__env->stopSection(); ?>

@@ -7,7 +7,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item"><a href="{{ route('project-category.index') }}">{{ __('Project Category') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('client-category.index') }}">{{ __('Client Category') }}</a></li>
             <li class="breadcrumb-item active">{{ __('Create Category') }}</li>
         </ul>
     </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="text-end">
-                        {!! Html::link(route('project-category.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
+                        {!! Html::link(route('client-category.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
                         {{ Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
                     </div>
                 </div>

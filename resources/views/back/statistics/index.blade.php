@@ -17,18 +17,19 @@
             <div class="card">
                 <div class="card-header">
                     <h5>{{ __('Statistics') }}</h5>
-                    <a href="{{ route('statistics.create') }}" class="btn btn-primary float-right">Create Statistics</a>
+                    <a href="{{ route('statistics.create') }}"
+                        class="btn btn-primary float-right">{{ __('Create Statistics') }}</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Categories</th>
-                                <th>Numbers</th>
-                                <th>Actions</th>
+                                <th>{{ __('Title') }}</th>
+                                <th>{{ __('Description') }}</th>
+                                <th>{{ __('Categories') }}</th>
+                                <th>{{ __('Numbers') }}</th>
+                                <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,7 +54,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('statistics.edit', $statistic->id) }}"
-                                            class="btn btn-warning btn-sm">Edit</a>
+                                            class="btn btn-warning btn-sm">{{ __('Edit') }}</a>
                                         {{-- {!! Form::open([
                                             'route' => ['statistics.destroy', $statistic->id],
                                             'method' => 'DELETE',

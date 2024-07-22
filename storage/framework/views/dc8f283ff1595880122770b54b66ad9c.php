@@ -17,7 +17,7 @@
             <div class="col-lg-12">
                 
                 <div class="float-left">
-                    <a href="<?php echo e(route('customer.create')); ?>" class="btn btn-light-primary"><?php echo e(__('Create Clients')); ?></a>
+                    <a href="<?php echo e(route('customer.create')); ?>" class="btn btn-light-primary"><?php echo e(__('Create client')); ?></a>
                 </div>
                 
             </div>
@@ -27,7 +27,7 @@
                 <tr>
                     <th title="Name"><?php echo e(__('name')); ?></th>
                     <th title="Role"><?php echo e(__('cover')); ?></th>
-                    <th title="Email"><?php echo e(__('description')); ?></th>
+                    <th title="Email"><?php echo e(__('Description')); ?></th>
                     <th><?php echo e(__('Action')); ?></th>
                 </tr>
             </thead>

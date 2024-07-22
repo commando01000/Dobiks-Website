@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', 'Edit Blog'); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
@@ -74,6 +75,19 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <?php echo e(Form::label('normal_description', __('Normal Description'), ['class' => 'form-label'])); ?>
+
+                                    *
+                                    <?php echo Form::textarea('normal_description', null, [
+                                        'class' => 'form-control ',
+                                        'placeholder' => __('Enter normal description'),
+                                        'required' => 'required',
+                                    ]); ?>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <?php echo e(Form::label('description', __('Description'), ['class' => 'form-label'])); ?> *
                                     <?php echo Form::textarea('description', null, [
                                         'class' => 'form-control ',
@@ -107,7 +121,6 @@
     <script src="<?php echo e(asset('vendor/ckeditor/ckeditor.js')); ?>"></script>
 
     <script type="text/javascript">
-
         CKEDITOR.replace('description', {
             filebrowserUploadUrl: "<?php echo e(route('ckeditor.upload', ['_token' => csrf_token()])); ?>",
             filebrowserUploadMethod: 'form'

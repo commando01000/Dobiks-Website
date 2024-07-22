@@ -1,13 +1,13 @@
 @extends('layouts.back.main')
-@section('title', __('Leadership'))
+@section('title', __('Our Team'))
 @section('breadcrumb')
     <div class="col-md-12">
         <div class="page-header-title">
-            <h4 class="m-b-10">{{ __('Leadership') }}</h4>
+            <h4 class="m-b-10">{{ __('Our Team') }}</h4>
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
-            <li class="breadcrumb-item active">{{ __('Leadership') }}</li>
+            <li class="breadcrumb-item active">{{ __('Our Team') }}</li>
         </ul>
 
     </div>
@@ -19,7 +19,7 @@
                 {{-- @if (Auth::user()->can('create-testimonial')) --}}
                 <div class="float-left">
                     <a href="{{ route('leadership.create') }}"
-                        class="btn btn-light-primary">{{ __('Create Leadership') }}</a>
+                        class="btn btn-light-primary">{{ __('Create Member') }}</a>
                 </div>
                 {{-- @endif --}}
             </div>

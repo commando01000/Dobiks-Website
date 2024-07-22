@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <!-- Content-Section -->
     <?php if(session()->has('message')): ?>
@@ -127,7 +125,7 @@
             </div>
             <div class="team-section__members">
                 <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="user-profile">
+                    <div class="user-profile" onclick="location.href='<?php echo e(route('team-details', $leadership->id)); ?>';">
                         <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
                             class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
                         <p class="user-profile__name ui text size-textxl">

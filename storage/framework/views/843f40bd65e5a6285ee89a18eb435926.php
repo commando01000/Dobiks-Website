@@ -6,7 +6,7 @@
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item"><a href="<?php echo e(route('project-category.index')); ?>"><?php echo e(__('Project Category')); ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo e(route('client-category.index')); ?>"><?php echo e(__('Client Category')); ?></a></li>
             <li class="breadcrumb-item active"><?php echo e(__('Create Category')); ?></li>
         </ul>
     </div>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="text-end">
-                        <?php echo Html::link(route('project-category.index'), __('Cancel'), ['class' => 'btn btn-secondary']); ?>
+                        <?php echo Html::link(route('client-category.index'), __('Cancel'), ['class' => 'btn btn-secondary']); ?>
 
                         <?php echo e(Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary'])); ?>
 

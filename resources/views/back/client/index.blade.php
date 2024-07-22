@@ -18,7 +18,7 @@
             <div class="col-lg-12">
                 {{-- @if (Auth::user()->can('create-testimonial')) --}}
                 <div class="float-left">
-                    <a href="{{ route('customer.create') }}" class="btn btn-light-primary">{{ __('Create Clients') }}</a>
+                    <a href="{{ route('customer.create') }}" class="btn btn-light-primary">{{ __('Create client') }}</a>
                 </div>
                 {{-- @endif --}}
             </div>
@@ -28,7 +28,7 @@
                 <tr>
                     <th title="Name">{{ __('name') }}</th>
                     <th title="Role">{{ __('cover') }}</th>
-                    <th title="Email">{{ __('description') }}</th>
+                    <th title="Email">{{ __('Description') }}</th>
                     <th>{{ __('Action') }}</th>
                 </tr>
             </thead>
