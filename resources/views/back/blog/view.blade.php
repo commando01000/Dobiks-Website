@@ -2,6 +2,17 @@
 
 @section('title', __('Blogs'))
 
+@section('breadcrumb')
+    <div class="col-md-12">
+        <div class="page-header-title">
+            <h4 class="m-b-10">{{ __('Blogs') }}</h4>
+        </div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">{!! Html::link(route('home'), __('Dashboard'), []) !!}</li>
+            <li class="breadcrumb-item active">{{ __('Blogs') }}</li>
+        </ul>
+    </div>
+@endsection
 
 @section('content')
 
@@ -77,7 +88,7 @@
                                     <div class="form-group">
                                         {{ Form::label('description', __('Description'), ['class' => 'form-label']) }} *
                                         <?php
-                                        
+
                                         $var = html_entity_decode($blog->description);
                                         
                                         echo $var;

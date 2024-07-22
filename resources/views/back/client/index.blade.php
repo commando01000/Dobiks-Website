@@ -44,10 +44,12 @@
                                 <img src="{{ Storage::url('not-exists-data-images/350x250.png') }}" style="width:60px;">
                             @endif
                         </td>
-                        <td>{{ $client->description }}</td>
+                        <td>{{ $client->category->name }}</td>
 
                         <td>
                             <div class="text-left">
+                                <a href="{{ route('customer.show', $client->id) }}"
+                                    class="btn btn-light-success btn-sm">{{ __('View') }}</a>
                                 <a href="{{ route('customer.edit', $client->id) }}"
                                     class="btn btn-light-primary btn-sm">{{ __('Edit') }}</a>
                                 <a href="{{ route('customer.destroy', $client->id) }}"

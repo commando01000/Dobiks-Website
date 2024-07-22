@@ -1,13 +1,13 @@
 
-<?php $__env->startSection('title', __('Leadership')); ?>
+<?php $__env->startSection('title', __('Our Team')); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
         <div class="page-header-title">
-            <h4 class="m-b-10"><?php echo e(__('Leadership')); ?></h4>
+            <h4 class="m-b-10"><?php echo e(__('Our Team')); ?></h4>
         </div>
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><?php echo Html::link(route('home'), __('Dashboard'), []); ?></li>
-            <li class="breadcrumb-item active"><?php echo e(__('Leadership')); ?></li>
+            <li class="breadcrumb-item active"><?php echo e(__('Our Team')); ?></li>
         </ul>
 
     </div>
@@ -19,7 +19,7 @@
                 
                 <div class="float-left">
                     <a href="<?php echo e(route('leadership.create')); ?>"
-                        class="btn btn-light-primary"><?php echo e(__('Create Leadership')); ?></a>
+                        class="btn btn-light-primary"><?php echo e(__('Create Member')); ?></a>
                 </div>
                 
             </div>
@@ -30,7 +30,8 @@
                     <th title="Name"><?php echo e(__('name')); ?></th>
                     <th title="Email"><?php echo e(__('position')); ?></th>
                     <th title="Role"><?php echo e(__('photo')); ?></th>
-                    <th title="Role"><?php echo e(__('bio')); ?></th>
+                    <th title="Role"><?php echo e(__('statistics categories')); ?></th>
+                    <th title="Role"><?php echo e(__('statistics numbers')); ?></th>
                     <th><?php echo e(__('Action')); ?></th>
                 </tr>
             </thead>
@@ -46,10 +47,25 @@
                                 <img src="<?php echo e(Storage::url('not-exists-data-images/350x250.png')); ?>" style="width:60px;">
                             <?php endif; ?>
                         </td>
-                        <td><?php echo e($leadership->bio); ?></td>
+                        <td>
+                            <ul>
+                                <?php $__currentLoopData = $leadership->details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($detail->category); ?></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <?php $__currentLoopData = $leadership->details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($detail->number); ?></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                        </td>
 
                         <td>
                             <div class="text-left">
+                                <a href="<?php echo e(route('leadership.view', $leadership->id)); ?>"
+                                    class="btn btn-light-success btn-sm"><?php echo e(__('View')); ?></a>
                                 <a href="<?php echo e(route('leadership.edit', $leadership->id)); ?>"
                                     class="btn btn-light-primary btn-sm"><?php echo e(__('Edit')); ?></a>
                                 <a href="<?php echo e(route('leadership.destroy', $leadership->id)); ?>"

@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('title', __('Clients')); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
@@ -43,10 +44,12 @@
                                 <img src="<?php echo e(Storage::url('not-exists-data-images/350x250.png')); ?>" style="width:60px;">
                             <?php endif; ?>
                         </td>
-                        <td><?php echo e($client->description); ?></td>
+                        <td><?php echo e($client->category->name); ?></td>
 
                         <td>
                             <div class="text-left">
+                                <a href="<?php echo e(route('customer.show', $client->id)); ?>"
+                                    class="btn btn-light-success btn-sm"><?php echo e(__('View')); ?></a>
                                 <a href="<?php echo e(route('customer.edit', $client->id)); ?>"
                                     class="btn btn-light-primary btn-sm"><?php echo e(__('Edit')); ?></a>
                                 <a href="<?php echo e(route('customer.destroy', $client->id)); ?>"

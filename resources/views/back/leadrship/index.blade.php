@@ -64,6 +64,8 @@
 
                         <td>
                             <div class="text-left">
+                                <a href="{{ route('leadership.view', $leadership->id) }}"
+                                    class="btn btn-light-success btn-sm">{{ __('View') }}</a>
                                 <a href="{{ route('leadership.edit', $leadership->id) }}"
                                     class="btn btn-light-primary btn-sm">{{ __('Edit') }}</a>
                                 <a href="{{ route('leadership.destroy', $leadership->id) }}"
