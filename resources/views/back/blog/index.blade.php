@@ -49,6 +49,7 @@
                             @endif
                         </td>
                         <td>
+                            <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-success">{{ __('View') }}</a>
                             <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>
                             <form action="{{ route('blog.destroy', $blog->id) }}" method="POST" style="display:inline;">
                                 @csrf

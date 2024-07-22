@@ -49,7 +49,7 @@
                         <?php endif; ?>
                     </td>
                     <td>
-                        
+                        <a href="<?php echo e(route('projects.show', $project->id)); ?>" class="btn btn-success"><?php echo e(__('View')); ?></a>
                         <a href="<?php echo e(route('projects.edit', $project->id)); ?>" class="btn btn-warning"><?php echo e(__('Edit')); ?></a>
                         <form action="<?php echo e(route('projects.destroy', $project->id)); ?>" method="POST" style="display:inline;">
                             <?php echo csrf_field(); ?>
