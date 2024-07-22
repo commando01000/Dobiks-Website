@@ -86,7 +86,7 @@
 
     <!-- [ Main Content ] start -->
     <div class="dash-container">
-        <div class="dash-content">
+        <div class="dash-content" >
             <!-- [ breadcrumb ] start -->
             <div class="page-header">
                 <div class="page-block">

@@ -1,31 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\DataTables\PermissionsDataTable;
-use DB;
+use Illuminate\Support\Facades\DB;
+
 use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
-    function __construct()
-    {
-        $this->middleware('permission:manage-permission|create-permission|edit-permission|delete-permission', ['only' => ['index', 'show']]);
-        $this->middleware('permission:create-permission', ['only' => ['create', 'store']]);
-        $this->middleware('permission:edit-permission', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete-permission', ['only' => ['destroy']]);
-    }
+    // function __construct()
+    // {
+    //     $this->middleware('permission:manage-permission|create-permission|edit-permission|delete-permission', ['only' => ['index', 'show']]);
+    //     $this->middleware('permission:create-permission', ['only' => ['create', 'store']]);
+    //     $this->middleware('permission:edit-permission', ['only' => ['edit', 'update']]);
+    //     $this->middleware('permission:delete-permission', ['only' => ['destroy']]);
+    // }
 
-    public function index(PermissionsDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('back.permission.index');
+        $permissions = Permission::paginate(10);
+        return view('back.permission.index', compact('permissions'));
     }
 
     public function create()
     {
-        $view = view('permission.create');
-        return ['html' => $view->render()];
+
+        return view('back.permission.create');
     }
 
     public function store(Request $request)
@@ -41,10 +44,9 @@ class PermissionController extends Controller
     public function edit($id)
     {
         $permission = Permission::find($id);
-        $view = view('permission.edit')->with('permission', $permission);
-        return ['html' => $view->render()];
-    }
 
+        return view('back.permission.edit', compact('permission'));
+    }
     public function update(Request $request, $id)
     {
         $permission = Permission::find($id);

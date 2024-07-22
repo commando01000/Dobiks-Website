@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', __('Blogs')); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
@@ -47,6 +49,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
+                            <a href="<?php echo e(route('blog.show', $blog->id)); ?>" class="btn btn-success"><?php echo e(__('View')); ?></a>
                             <a href="<?php echo e(route('blog.edit', $blog->id)); ?>" class="btn btn-warning"><?php echo e(__('Edit')); ?></a>
                             <form action="<?php echo e(route('blog.destroy', $blog->id)); ?>" method="POST" style="display:inline;">
                                 <?php echo csrf_field(); ?>

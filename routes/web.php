@@ -17,7 +17,7 @@ use App\Http\Controllers\Back\HomeController;
 use App\Http\Controllers\Back\MenuController;
 use App\Http\Controllers\Front\JoinController;
 use App\Http\Controllers\Front\About_frontController;
-use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\Back\PermissionController;
 use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Back\LanguageController;
 use App\Http\Controllers\Back\ProfileController;

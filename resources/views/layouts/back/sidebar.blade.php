@@ -246,6 +246,9 @@
                             <li class="dash-item ">
                                 <a class="dash-link" href="{{ route('roles.index') }}">{{ __('Roles') }}</a>
                             </li>
+                            <li class="dash-item ">
+                                <a class="dash-link" href="{{ route('permission.index') }}">{{ __('Permission') }}</a>
+                            </li>
                         </ul>
                     </li>
                 @endcanany
