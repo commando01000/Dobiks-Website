@@ -38,13 +38,13 @@
                             <span style="line-height: 30px" class="content-section__description fs-6">Social Share :</span>
                             <a href="{{ Utility::getsettings('contact_facebook') }}"
                                 class="footer__social-button--facebook">
-                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_facebook_app_symbol.svg">
+                                <img src="{{ asset('assets/front_assets/images/img_facebook_app_symbol.svg') }}">
                             </a>
                             <a href="{{ Utility::getsettings('contact_instagram') }}" class="footer__link-button--link">
-                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_link.svg">
+                                <img src="{{ asset('assets/front_assets/images/img_link.svg') }}">
                             </a>
                             <a href="{{ Utility::getsettings('contact_twitter') }}" class="footer__link-button--link">
-                                <img src="http://127.0.0.1:8000/assets/front_assets/images/img_trash.svg">
+                                <img src="{{ asset('assets/front_assets/images/img_trash.svg') }}">
                             </a>
                         </div>
                         {{-- <div class="blog-detail w-100">
