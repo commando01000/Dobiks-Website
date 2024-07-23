@@ -13,12 +13,12 @@
             <div class="project-content mt-5 pt-5 w-100">
                 <div class="row w-75 m-auto">
                     <div class="col-md-4">
-                        <div class="title text-center">
+                        <div class="title text-start">
                             <h1 class="content-section__title fs-4">{{ $project->title }}</h1>
                         </div>
                         <br>
                         <div class="description d-flex justify-content-start">
-                            <div class="w-50 ms-5 ps-4 d-flex justify-content-center flex-column">
+                            <div class="d-flex justify-content-center flex-column">
                                 <p class="content-section__description fs-6">
                                     {{ $project->description }}
                                 </p>
