@@ -51,12 +51,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                         <div class="form-group">
                                             {{ Form::label('images', __('Images'), ['class' => 'form-label']) }} *
                                             {!! Form::file('images', ['class' => 'form-control', 'required' => 'required']) !!}
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 @endif
                                 <div class="col-md-12">
                                     <div class="form-group">

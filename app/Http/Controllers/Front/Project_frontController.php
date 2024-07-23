@@ -52,10 +52,11 @@ class Project_frontController extends Controller
 
         return view('front/project.view-all-projects', compact('categories'));
     }
-    
+
     public function getProjectsByCategory($categoryId)
     {
         $projects = Project::where('project_category', $categoryId)->get();
         return response()->json($projects);
     }
+    
 }

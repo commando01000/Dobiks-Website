@@ -36,7 +36,7 @@ class BlogController extends Controller
     {
         if (\Auth::user()->can('edit-blog')) {
             // dd($blog);
-            
+
             return view('back/blog.view', compact('blog'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
@@ -49,23 +49,17 @@ class BlogController extends Controller
         if (\Auth::user()->can('create-blog')) {
             request()->validate([
                 //'title'             => 'required|max:191|unique:blogs',
-                'images'            => 'required|image|mimes:jpg,jpeg,png',
+
                 //'description'       => 'required',
                 //'short_description' => 'required',
                 'category_id'       => 'required',
             ]);
-            if ($request->hasFile('images')) {
-                request()->validate([
-                    'images' => 'mimes:jpg,jpeg,png',
-                ]);
-                $path = $request->file('images')->store('blogs');
-            }
 
             Blog::create([
                 'title'             => ['en' => $request->title_en, 'ar' => $request->title_ar],
                 'description'       => ['en' => $request->description_en, 'ar' => $request->description_ar],
                 'category_id'       => $request->category_id,
-                'images'            => $path,
+
                 'short_description' => ['en' => $request->short_description_en, 'ar' => $request->short_description_ar],
                 'normal_description' => ['en' => $request->normal_description_en, 'ar' => $request->normal_description_ar],
                 'created_by'        => \Auth::user()->id,
