@@ -82,10 +82,13 @@
                                     content ideas for an interior design agency. An interior design agency can create
                                     content that showcases its work.
                                 </p> --}}
-                                <div class="blog-detail w-100" style="color:#fff;">
-                                    {{ $teamMember->bio }}
-                                </div>
-
+                                <?php
+                                
+                                $var = html_entity_decode($teamMember->description);
+                                
+                                echo $var;
+                                
+                                ?>
 
                                 {{-- <div class="progress-bars-section overflow-visible pt-2">
                                     <p class="content-section__description ui text size-textmd">CREATIVE DESIGNS</p>
@@ -121,8 +124,7 @@
                                             </p>
                                             <div style="height: 5px;" class="progress overflow-visible mb-2"
                                                 role="progressbar" aria-label="{{ $detail->category }} example"
-                                                aria-valuenow="{{ $detail->number }}" aria-valuemin="0"
-                                                aria-valuemax="100">
+                                                aria-valuenow="{{ $detail->number }}" aria-valuemin="0" aria-valuemax="100">
                                                 <div class="progress-bar" style="width: {{ $detail->number }}%">
                                                     <span style="top: -15px"
                                                         class="mb-2 position-absolute">{{ $detail->number }}%</span>
