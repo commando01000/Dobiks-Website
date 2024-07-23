@@ -108,12 +108,34 @@ class LeadrshipController extends Controller
             ]);
             $path = $request->file('photo')->store('leadership');
         }
-        $leadership->update([
-            "name"                 => $request->name,
-            'bio'           => $request->bio,
-            'position'           => $request->position,
-            'photo'                => $path,
-        ]);
+        $leadership->name = $request->name;
+        $leadership->bio = $request->bio;
+        $leadership->position = $request->position;
+        $leadership->photo = $path;
+        $leadership->save();
+        $existingDetailsIds = $leadership->details->pluck('id')->toArray();
+        $details = $request->input('details', []);
+        $updatedDetailsIds = [];
+        foreach ($details as $detail) {
+            if (isset($detail['id'])) {
+                // Update existing details
+                $statisticDetail = LeadershipDetail::findOrFail($detail['id']);
+                $statisticDetail->category = $detail['category'];
+                $statisticDetail->number = $detail['number'];
+                $statisticDetail->save();
+                $updatedDetailsIds[] = $detail['id'];
+            } else {
+                // Create new details
+                $newDetail = $leadership->details()->create([
+                    'category' => $detail['category'],
+                    'number' => $detail['number']
+                ]);
+                $updatedDetailsIds[] = $newDetail->id;
+            }
+        }
+        $detailsToDelete = array_diff($existingDetailsIds, $updatedDetailsIds);
+        LeadershipDetail::destroy($detailsToDelete);
+
         return redirect()->route('leadership.index')->with('success', __('client updated successfully.'));
     }
 

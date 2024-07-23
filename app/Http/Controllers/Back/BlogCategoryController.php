@@ -78,4 +78,14 @@ class BlogCategoryController extends Controller
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
     }
+    public function blogCategoryStatus(Request $request, $id)
+    {
+        $category = BlogCategory::find($id);
+        $input          = ($request->value == "true") ? 1 : 0;
+        if ($category) {
+            $category->status = $input;
+            $category->save();
+        }
+        return response()->json(['is_success' => true, 'message' => __('Category status changed successfully.')]);
+    }
 }

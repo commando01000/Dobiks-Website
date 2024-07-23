@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use App\DataTables\ProjectCategoryDataTable;
 use App\Models\ProjectCategory;
@@ -14,7 +15,7 @@ class ProjectCategoryController extends Controller
     {
         if (\Auth::user()->can('manage-category')) {
             $categories = ProjectCategory::paginate(10);
-            return view('back/project-category.index',compact('categories'));
+            return view('back/project-category.index', compact('categories'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
@@ -61,7 +62,7 @@ class ProjectCategoryController extends Controller
     }
 
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         if (\Auth::user()->can('edit-category')) {
             request()->validate([
