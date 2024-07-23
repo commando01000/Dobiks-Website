@@ -75,19 +75,19 @@
 
                     data.forEach((project, index) => {
                         let projectItem = `
-                        <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
+                        <div class="col-md-4 mt-4 ${(index % 2 == 0 && index != 0) ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
                             <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
                                 <div class="service-header d-flex justify-content-between">
                                     <div class="service-number">
                                         <p>${counter}</p>
                                     </div>
                                     <div class="category-name">
-                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
+                                        <p class="user-profile__role ui text size-texts ${(index % 2 == 0 && index != 0) ? 'p-4' : ''}">
                                             ${project.title}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
+                                <div class="service__image ${(index % 2 == 0 && index != 0) ? 'text-center' : ''}">
                                     <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
                                 </div>
                                 <div class="service-title mt-4">
@@ -106,6 +106,8 @@
                             projectsList.appendChild(row);
                             row = document.createElement('div');
                             row.classList.add('row');
+                            row.classList.add('w-100');
+                            row.classList.add('m-auto');
                         }
                     });
 
