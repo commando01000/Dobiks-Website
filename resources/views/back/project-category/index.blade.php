@@ -39,6 +39,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $category->name }}</td>
                         <td>
+
                             <label class="form-switch">
                                 <input class="form-check-input changeStatus" name="custom-switch-checkbox"
                                     {{ $category->status == 1 ? 'checked' : '' }}
@@ -65,7 +66,32 @@
 @endsection
 @push('style')
     @include('layouts.includes.datatable-css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 @endpush
 @push('script')
     @include('layouts.includes.datatable-js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.changeStatus').change(function() {
+                var url = $(this).data('url');
+                var value = $(this).is(':checked');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        value: value
+                    },
+                    success: function(response) {
+                        if (response.is_success) {
+                            toastr.success(response.message);
+                        } else {
+                            toastr.error('Error updating status');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 @endpush

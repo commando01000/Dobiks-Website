@@ -38,6 +38,7 @@
                         <td><?php echo e($loop->iteration); ?></td>
                         <td><?php echo e($category->name); ?></td>
                         <td>
+
                             <label class="form-switch">
                                 <input class="form-check-input changeStatus" name="custom-switch-checkbox"
                                     <?php echo e($category->status == 1 ? 'checked' : ''); ?>
@@ -65,9 +66,34 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('style'); ?>
     <?php echo $__env->make('layouts.includes.datatable-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <?php $__env->stopPush(); ?>
 <?php $__env->startPush('script'); ?>
     <?php echo $__env->make('layouts.includes.datatable-js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.changeStatus').change(function() {
+                var url = $(this).data('url');
+                var value = $(this).is(':checked');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {
+                        _token: '<?php echo e(csrf_token()); ?>',
+                        value: value
+                    },
+                    success: function(response) {
+                        if (response.is_success) {
+                            toastr.success(response.message);
+                        } else {
+                            toastr.error('Error updating status');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.back.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\company\backend\resources\views/back/project-category/index.blade.php ENDPATH**/ ?>
