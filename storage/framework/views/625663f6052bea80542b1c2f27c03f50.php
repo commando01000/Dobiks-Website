@@ -15,21 +15,22 @@
 
         <div class="clients-content">
             <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
-                @foreach ($clientCategory as $category)
+                <?php $__currentLoopData = $clientCategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <li class="nav-item" role="presentation">
                         <button
-                            class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
-                            id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
-                            aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
-                            style="cursor: pointer" onclick="loadClients({{ $category->id }})">
+                            class="position-relative nav-link <?php echo e($loop->first ? 'active' : ''); ?> text-decoration-none section__tab-item"
+                            id="pills-<?php echo e($category->id); ?>-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-<?php echo e($category->id); ?>" type="button" role="tab"
+                            aria-controls="pills-<?php echo e($category->id); ?>" aria-selected="false" tabindex="0"
+                            style="cursor: pointer" onclick="loadClients(<?php echo e($category->id); ?>)">
                             <div class="circle position-absolute start-0 z-0"></div>
                             <div class="position-relative text z-1 text-white">
-                                {{ $category->name }}
+                                <?php echo e($category->name); ?>
+
                             </div>
                         </button>
                     </li>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
             <div class="tab-content mt-5 pt-5" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="clients-list" role="tabpanel"
@@ -41,13 +42,13 @@
     </div>
 </div>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Fetch data for the first category initially
-            @if ($clientCategory->isNotEmpty())
-                loadClients({{ $clientCategory->first()->id }});
-            @endif
+            <?php if($clientCategory->isNotEmpty()): ?>
+                loadClients(<?php echo e($clientCategory->first()->id); ?>);
+            <?php endif; ?>
         });
 
         function loadClients(categoryId) {
@@ -59,7 +60,7 @@
                     let clientsList = document.getElementById('clients-list');
                     clientsList.innerHTML = '';
 
-                    baseUrl = "{{ url('/') }}";
+                    baseUrl = "<?php echo e(url('/')); ?>";
                     let row = document.createElement('div');
                     row.classList.add('row');
                     row.classList.add('overflow-hidden');
@@ -105,6 +106,7 @@
         // Ensure that loadClients is available globally
         window.loadClients = loadClients;
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
 
 
+<?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/front/clients-section/clients.blade.php ENDPATH**/ ?>
