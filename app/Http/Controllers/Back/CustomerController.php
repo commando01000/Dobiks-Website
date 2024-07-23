@@ -18,6 +18,7 @@ class CustomerController extends Controller
 
     public function create()
     {
+        
         $categories = ClientCategory::where('status', 1)->get();
         return view('back.client.create', compact('categories'));
     }

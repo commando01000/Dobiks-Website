@@ -1,1 +1,0 @@
-<p>hello from faqs !</p><?php /**PATH G:\xampp\htdocs\Dashboard_Project\resources\views/front/faqs/index.blade.php ENDPATH**/ ?>

@@ -28,7 +28,7 @@
                 <tr>
                     <th title="Name"><?php echo e(__('name')); ?></th>
                     <th title="Role"><?php echo e(__('cover')); ?></th>
-                    <th title="Email"><?php echo e(__('Description')); ?></th>
+                    
                     <th><?php echo e(__('Action')); ?></th>
                 </tr>
             </thead>
