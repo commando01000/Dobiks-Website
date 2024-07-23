@@ -79,7 +79,7 @@
                             <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
                                 <div class="service-header d-flex justify-content-between">
                                     <div class="service-number">
-                                        <p>${index}</p>
+                                        <p>${index + 1}</p>
                                     </div>
                                     <div class="category-name">
                                         <p class="user-profile__role ui text size-texts ${(index - 1) % 3 == 0 ? 'me-4' : ''}">
