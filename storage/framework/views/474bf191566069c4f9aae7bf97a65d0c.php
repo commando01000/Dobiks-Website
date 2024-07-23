@@ -98,14 +98,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <?php echo e(Form::label('Embed', __('Embed'), ['class' => 'form-label'])); ?>
-
-                                    <?php echo Form::text('embed', null, ['class' => 'form-control', 'placeholder' => __('Enter video embed ')]); ?>
-
-                                </div>
-                            </div>
+                            
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <?php echo e(Form::label('project_category', __('Project Category'), ['class' => 'form-label'])); ?>
@@ -148,16 +141,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <?php echo e(Form::label('body', __('Description'), ['class' => 'form-label'])); ?> *
-                                    <?php echo Form::textarea('body', null, [
-                                        'class' => 'form-control ',
-                                        'placeholder' => __('Enter description'),
-                                    ]); ?>
-
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="card-footer">
@@ -178,22 +162,7 @@
 <?php $__env->startPush('script'); ?>
     <script src="<?php echo e(asset('assets/js/plugins/choices.min.js')); ?>"></script>
     <script src="<?php echo e(asset('vendor/ckeditor/ckeditor.js')); ?>"></script>
-    <script>
-        CKEDITOR.replace('body', {
-            filebrowserUploadUrl: "<?php echo e(route('ckeditor.upload', ['_token' => csrf_token()])); ?>",
-            filebrowserUploadMethod: 'form'
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            var genericExamples = document.querySelectorAll('[data-trigger]');
-            for (i = 0; i < genericExamples.length; ++i) {
-                var element = genericExamples[i];
-                new Choices(element, {
-                    placeholderValue: 'This is a placeholder set in the config',
-                    searchPlaceholderValue: 'This is a search placeholder',
-                });
-            }
-        });
-    </script>
+    
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.back.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\company\backend\resources\views/back/project/create.blade.php ENDPATH**/ ?>

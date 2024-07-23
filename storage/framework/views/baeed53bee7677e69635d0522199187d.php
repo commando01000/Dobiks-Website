@@ -66,13 +66,14 @@
                     row.classList.add('overflow-hidden');
                     row.classList.add('gx-5');
                     row.classList.add('gy-5');
+                    // onclick="window.location.href = '/clients/${client.id}'" //remove on click temporarily
                     data.forEach((client, index) => {
                         let clientItem = `<div class="col-lg-3 col-md-4 col-sm-6"> <!-- Adjusted column class and margin bottom -->
                             <div class="client card border-1 p-5 d-flex justify-content-center align-items-center" style="
                                         min-height: 300px;
                                         border: 1px solid var(--gray_800);
                                         background-color: #1a1a1a;
-                                    " onclick="window.location.href = '/clients/${client.id}'">
+                                    " >
                                 <div class="card-image w-100 h-100">
                                         <img class="w-100" src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
                                 </div>
