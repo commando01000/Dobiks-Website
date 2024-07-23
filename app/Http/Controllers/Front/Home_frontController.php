@@ -21,11 +21,11 @@ class Home_frontController extends Controller
 {
     public function index()
     {
-        $projects = Project::take(9)->get();
-        $categories = ProjectCategory::with('projects')->get();
+        $projects = Project::take(6)->get();
+        $categories = ProjectCategory::with('projects')->take(6)->get();
         $leaderships = Leadership::take(3)->get();
-        $clients = Client::take(9)->get();
-        $clientCategory = ClientCategory::with('clients')->take(9)->get();
+        $clients = Client::take(6)->get();
+        $clientCategory = ClientCategory::with('clients')->take(6)->get();
         return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients', 'clientCategory'));
     }
 }

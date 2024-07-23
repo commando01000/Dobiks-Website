@@ -21,7 +21,7 @@
                         <h5> {{ __('Create Project') }}</h5>
                     </div>
                     {!! Form::open([
-                        'route' => ['projects.update',"project"=>$project->id],
+                        'route' => ['projects.update', 'project' => $project->id],
                         'method' => 'PUT',
                         'enctype' => 'multipart/form-data',
                         'data-validate',
@@ -32,21 +32,16 @@
                                 <div class="form-group row">
 
                                     <div class="col-sm-10">
-                                        <strong class="d-block">{{__('Page Builder')}}</strong>
+                                        <strong class="d-block">{{ __('Page Builder') }}</strong>
                                     </div>
                                     <div class="col-sm-2 form-check form-switch custom-switch-v1">
                                         <div class="form-switch custom-switch-v1 d-inline-block">
-                                            {!! Form::checkbox(
-                                                'builder',
-                                                null,
-                                                $project->builder == 'on' ? true : false,
-                                                [
-                                                    'class' => 'custom-control custom-switch form-check-input input-primary',
-                                                    'id' => 'startViewSettingEnableBtn',
-                                                    'data-onstyle' => 'primary',
-                                                    'data-toggle' => 'switchbutton',
-                                                ]
-                                            ) !!}
+                                            {!! Form::checkbox('builder', null, $project->builder == 'on' ? true : false, [
+                                                'class' => 'custom-control custom-switch form-check-input input-primary',
+                                                'id' => 'startViewSettingEnableBtn',
+                                                'data-onstyle' => 'primary',
+                                                'data-toggle' => 'switchbutton',
+                                            ]) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -56,48 +51,63 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('title', __('Title'), ['class' => 'form-label']) }} *
-                                    {!! Form::text('title', $project->title, ['class' => 'form-control','placeholder' => __('Enter title'),'required' => 'required']) !!}
+                                    {!! Form::text('title', $project->title, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter title'),
+                                        'required' => 'required',
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('client', __('Client Name'), ['class' => 'form-label']) }}
-                                    {!! Form::text('client', $project->client, ['class' => 'form-control','placeholder' => __('Enter Client Name')]) !!}
+                                    {!! Form::text('client', $project->client, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Client Name'),
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_location', __('Project Location'), ['class' => 'form-label']) }}
-                                    {!! Form::text('project_location', $project->project_location, ['class' => 'form-control','placeholder' => __('Enter Project Location')]) !!}
+                                    {!! Form::text('project_location', $project->project_location, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Project Location'),
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_timeframe', __('Project Timeframe'), ['class' => 'form-label']) }}
-                                    {!! Form::text('project_timeframe', $project->project_timeframe, ['class' => 'form-control','placeholder' => __('Enter Project Timeframe')]) !!}
+                                    {!! Form::text('project_timeframe', $project->project_timeframe, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Project Timeframe'),
+                                    ]) !!}
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_date', __('Project Date'), ['class' => 'form-label']) }}
-                                    {!! Form::text('project_date', $project->project_date, ['class' => 'form-control','placeholder' => __('Enter Project Date')]) !!}
+                                    {!! Form::text('project_date', $project->project_date, [
+                                        'class' => 'form-control',
+                                        'placeholder' => __('Enter Project Date'),
+                                    ]) !!}
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            {{-- <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('Embed', __('Embed'), ['class' => 'form-label']) }}
                                     {!! Form::text('embed', $project->embed ?? "", ['class' => 'form-control','placeholder' => __('Enter video embed ')]) !!}
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_category', __('Project Category'), ['class' => 'form-label']) }}
-                                    <select  name="category_id" id="" class="form-control" required>
-                                        @foreach ($categories as $category )
-                                            <option value="{{$category->id}}" @if ($project->project_category == $category->id)
-                                                {{'selected'}}
-                                            @endif>
-                                              {{$category->name}}
+                                    <select name="category_id" id="" class="form-control" required>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                                @if ($project->project_category == $category->id) {{ 'selected' }} @endif>
+                                                {{ $category->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -125,10 +135,14 @@
                                 <div class="form-group">
                                     {{ Form::label('description', __('Short Description'), ['class' => 'form-label']) }}
                                     *
-                                    {!! Form::textarea('description', $project->description, ['class' => 'form-control ','placeholder' => __('Enter short description')]) !!}
+                                    {!! Form::textarea('description', $project->description, [
+                                        'class' => 'form-control ',
+                                        'placeholder' => __('Enter short description'),
+                                        'required' => 'required',
+                                    ]) !!}
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            {{-- <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} *
                                     {!! Form::textarea('body', $project->body, [
@@ -137,38 +151,37 @@
                                     ]) !!}
                                 </div>
                             </div>
+                        </div> --}}
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="mb-3 btn-flt float-end">
-                            {!! Html::link(route('projects.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
-                            {{ Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
+                        <div class="card-footer">
+                            <div class="mb-3 btn-flt float-end">
+                                {!! Html::link(route('projects.index'), __('Cancel'), ['class' => 'btn btn-secondary']) !!}
+                                {{ Form::button(__('Save'), ['type' => 'submit', 'class' => 'btn btn-primary']) }}
+                            </div>
                         </div>
+                        {!! Form::close() !!}
                     </div>
-                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
-    </div>
-@endsection
-@push('script')
-    <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
-    <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
-    <script>
-
-        CKEDITOR.replace('body', {
-            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
-            filebrowserUploadMethod: 'form'
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            var genericExamples = document.querySelectorAll('[data-trigger]');
-            for (i = 0; i < genericExamples.length; ++i) {
-                var element = genericExamples[i];
-                new Choices(element, {
-                    placeholderValue: 'This is a placeholder set in the config',
-                    searchPlaceholderValue: 'This is a search placeholder',
-                });
-            }
-        });
-    </script>
-@endpush
+    @endsection
+    @push('script')
+        <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
+        <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
+        {{-- <script>
+            CKEDITOR.replace('body', {
+                filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+                filebrowserUploadMethod: 'form'
+            });
+            document.addEventListener('DOMContentLoaded', function() {
+                var genericExamples = document.querySelectorAll('[data-trigger]');
+                for (i = 0; i < genericExamples.length; ++i) {
+                    var element = genericExamples[i];
+                    new Choices(element, {
+                        placeholderValue: 'This is a placeholder set in the config',
+                        searchPlaceholderValue: 'This is a search placeholder',
+                    });
+                }
+            });
+        </script> --}}
+    @endpush

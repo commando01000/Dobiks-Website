@@ -88,12 +88,12 @@
                                     {!! Form::text('project_date', null, ['class' => 'form-control', 'placeholder' => __('Enter Project Date')]) !!}
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            {{-- <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('Embed', __('Embed'), ['class' => 'form-label']) }}
                                     {!! Form::text('embed', null, ['class' => 'form-control', 'placeholder' => __('Enter video embed ')]) !!}
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     {{ Form::label('project_category', __('Project Category'), ['class' => 'form-label']) }}
@@ -131,10 +131,11 @@
                                     {!! Form::textarea('description', null, [
                                         'class' => 'form-control ',
                                         'placeholder' => __('Enter short description'),
+                                        'required' => 'required',
                                     ]) !!}
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            {{-- <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} *
                                     {!! Form::textarea('body', null, [
@@ -142,7 +143,7 @@
                                         'placeholder' => __('Enter description'),
                                     ]) !!}
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card-footer">
@@ -160,7 +161,7 @@
 @push('script')
     <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
-    <script>
+    {{-- <script>
         CKEDITOR.replace('body', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'
@@ -175,5 +176,5 @@
                 });
             }
         });
-    </script>
+    </script> --}}
 @endpush
