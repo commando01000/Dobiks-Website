@@ -51,8 +51,14 @@
                                                         <div class="text-left">
                                                             <a href="{{ route('contact_us.view', $contact->id) }}"
                                                                 class="btn btn-light-success btn-sm">{{ __('View') }}</a>
-                                                            <a href="{{ route('contact_us.destroy', $contact->id) }}"
-                                                                class="btn btn-light-danger btn-sm">{{ __('Delete') }}</a>
+                                                            <form action="{{ route('contact_us.destroy', $contact->id) }}"
+                                                                method="POST" style="display:inline;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">{{ __('Delete') }}</button>
+                                                            </form>
+
                                                         </div>
                                                     </td>
 

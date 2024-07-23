@@ -125,7 +125,7 @@ Route::group([
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
         Route::get('cp/customer', [CustomerController::class, 'index'])->name('customer.index');
         Route::get('cp/customer/{client}', [CustomerController::class, 'show'])->name('customer.show');
-        Route::get('cp/customer/create', [CustomerController::class, 'create'])->name('customer.create');
+        Route::get('cp/client/create', [CustomerController::class, 'create'])->name('customer.create');
         Route::post('cp/customer/store', [CustomerController::class, 'store'])->name('customer.store');
         Route::get('cp/customer/{client}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
         Route::post('cp/customer/update/{client}', [CustomerController::class, 'update'])->name('customer.update');
