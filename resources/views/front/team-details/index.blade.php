@@ -82,13 +82,16 @@
                                     content ideas for an interior design agency. An interior design agency can create
                                     content that showcases its work.
                                 </p> --}}
-                                <?php
-                                
-                                $var = html_entity_decode($teamMember->description);
-                                
-                                echo $var;
-                                
-                                ?>
+
+                                <div class="text-white">
+                                    <?php
+                                    
+                                    $var = html_entity_decode($teamMember->bio);
+                                    
+                                    echo $var;
+                                    
+                                    ?>
+                                </div>
 
                                 {{-- <div class="progress-bars-section overflow-visible pt-2">
                                     <p class="content-section__description ui text size-textmd">CREATIVE DESIGNS</p>
