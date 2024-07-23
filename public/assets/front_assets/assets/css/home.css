@@ -1947,6 +1947,10 @@ select:focus-visible {
     .service-details .service-image {
         text-align: start;
     }
+
+    .team-section__members {
+        flex-direction: column !important;
+    }
 }
 
 @media (max-width: 768px) and (min-width: 510px) {
