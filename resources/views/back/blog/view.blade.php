@@ -53,17 +53,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        @if ($blog->images)
-                                            <div>
-                                                <strong>Current Image:</strong><br>
-                                                <img src="{{ Storage::url($blog->images) }}" alt="Blog Image"
-                                                    style="max-width: 100%; height: 300px !important;">
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
+
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         {{ Form::label('short_description', __('Short Description'), ['class' => 'form-label']) }}
@@ -90,9 +80,9 @@
                                         <?php
 
                                         $var = html_entity_decode($blog->description);
-                                        
+
                                         echo $var;
-                                        
+
                                         ?>
                                     </div>
                                 </div>

@@ -58,7 +58,7 @@
         });
 
         function loadProjects(categoryId) {
-            fetch(`/projects/category/${categoryId}`)
+            fetch(`/home/projects/category/${categoryId}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data

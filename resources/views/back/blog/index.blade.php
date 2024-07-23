@@ -30,7 +30,7 @@
                     <th>{{ __('Title') }}</th>
                     <th>{{ __('Category') }}</th>
                     <th>{{ __('Created At') }}</th>
-                    <th>{{ __('Images') }}</th>
+
                     <th>{{ __('Action') }}</th>
                 </tr>
             </thead>
@@ -41,13 +41,7 @@
                         <td>{{ $blog->getTranslation('title', app()->getLocale()) }}</td>
                         <td>{{ $blog->category->getTranslation('name', app()->getLocale()) }}</td>
                         <td>{{ \App\Facades\UtilityFacades::date_time_format($blog->created_at) }}</td>
-                        <td>
-                            @if ($blog->images && Storage::exists($blog->images))
-                                <img src="{{ Storage::url($blog->images) }}" width="50" />
-                            @else
-                                <img src="{{ Storage::url('not-exists-data-images/350x250.png') }}" width="50" />
-                            @endif
-                        </td>
+
                         <td>
                             <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-success">{{ __('View') }}</a>
                             <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>

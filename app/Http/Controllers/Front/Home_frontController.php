@@ -23,9 +23,14 @@ class Home_frontController extends Controller
     {
         $projects = Project::take(6)->get();
         $categories = ProjectCategory::with('projects')->take(6)->get();
-        $leaderships = Leadership::take(3)->get();
+        $leaderships = Leadership::orderBy('created_at', 'desc')->take(3)->get();
         $clients = Client::take(6)->get();
         $clientCategory = ClientCategory::with('clients')->take(6)->get();
         return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients', 'clientCategory'));
+    }
+    public function getProjectsByCategory($categoryId)
+    {
+        $projects = Project::where('project_category', $categoryId)->latest()->take(6)->get();
+        return response()->json($projects);
     }
 }
