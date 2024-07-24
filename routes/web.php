@@ -55,6 +55,7 @@ use App\Http\Controllers\FormValueController;
 use App\Http\Controllers\Front\Client_frontController;
 // use App\Http\Controllers\front\advertisementController as FrontAdvertisementController;
 use App\Http\Controllers\front\ClientsController;
+use App\Http\Controllers\Front\LeadershipController;
 use App\Http\Controllers\Front\Services_frontController;
 use App\Http\Controllers\MailTempleteController;
 use App\Models\advertisement;
@@ -408,6 +409,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('team-details/{id}', [About_frontController::class, 'team_detail'])->name('team-details');
 
     Route::get('about-us', [About_frontController::class, 'index'])->name('about-us');
+    Route::get('leadership', [LeadershipController::class, 'index'])->name('leadership');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);
