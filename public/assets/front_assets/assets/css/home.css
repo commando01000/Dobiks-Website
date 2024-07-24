@@ -2008,6 +2008,10 @@ select:focus-visible {
         padding: 0px !important;
         margin: 0px !important;
     }
+
+    .faq-accordion .row {
+        width: 100%;
+    }
 }
 
 @media (max-width: 1400px) {
@@ -2086,4 +2090,35 @@ select:focus-visible {
 
 .pagination li.disabled span {
     color: #666666 !important; /* Gray color for disabled links */
+}
+
+/* FAQ */
+
+#faq .button,
+#faq button:not([data-filter]):not(.mfp-arrow),
+#faq input[type="button"],
+#faq input[type="reset"],
+#faq input[type="submit"] {
+    position: relative;
+    width: auto;
+    color: #fff;
+    background-color: #090909;
+    -moz-appearance: none;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 0;
+    padding: 20px 41px;
+    margin-top: 0;
+    -webkit-transition: background 0.3s, color 0.3s;
+    -o-transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
+    overflow: hidden;
 }
