@@ -14,7 +14,8 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
-
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="title"
         content="<?php echo e(!empty(Utility::getsettings('meta_title'))
             ? Utility::getsettings('meta_title')
@@ -86,7 +87,7 @@
 
     <!-- [ Main Content ] start -->
     <div class="dash-container">
-        <div class="dash-content" >
+        <div class="dash-content">
             <!-- [ breadcrumb ] start -->
             <div class="page-header">
                 <div class="page-block">
