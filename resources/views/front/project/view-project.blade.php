@@ -16,7 +16,6 @@
                         <div class="title text-start">
                             <h1 class="content-section__title fs-4">{{ $project->title }}</h1>
                         </div>
-                        <br>
                         <div class="description d-flex justify-content-start">
                             <div class="d-flex justify-content-center flex-column">
                                 <p class="content-section__description fs-6">
@@ -34,7 +33,7 @@
                         <div class="title text-center">
                             <h1 class="content-section__title fs-4 ">Client</h1>
                         </div>
-                        <div class="description d-flex me-5 justify-content-end">
+                        <div class="description d-flex w-100 justify-content-center">
                             <div>
                                 <p class="content-section__description fs-6">
                                     {{ $project->client }}
@@ -58,15 +57,25 @@
                         <div class="title">
                             <h1 class="content-section__title fs-4 text-center">Marketing Country</h1>
                         </div>
-                        <br>
                         <div class="description d-flex ms-5 ps-5 justify-content-start">
                             <div>
-                                <p class="content-section__description fs-6">
-                                    {{ $project->description }}
+                                <p class="content-section__description fs-6">Project Location:
+                                    {{ $project->project_location }}
+                                    <br> Project Time Frame: {{ $project->project_timeframe }}
                                 </p>
                                 <br>
-                                <p class="content-section__description fs-6">Project Marketing Category: <br>
-                                    {{ $project->category->name }}</p>
+                                <p class="content-section__description fs-6">Project Marketing Category: <br><br>
+                                    <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
+                                        <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
+                                        <span> {{ $project->category->name }}</span>
+                                        <template hidden="">
+                                            <label unselected-styles="" class="dhi-group">
+                                            </label>
+                                            <label selected-styles="" class="dhi-group-1">
+                                            </label>
+                                        </template>
+                                    </label>
+                                    </p>
                             </div>
                         </div>
                     </div>
