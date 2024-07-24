@@ -28,7 +28,7 @@
                     <th><?php echo e(__('Title')); ?></th>
                     <th><?php echo e(__('Category')); ?></th>
                     <th><?php echo e(__('Created At')); ?></th>
-                    <th><?php echo e(__('Images')); ?></th>
+
                     <th><?php echo e(__('Action')); ?></th>
                 </tr>
             </thead>
@@ -39,13 +39,7 @@
                         <td><?php echo e($blog->getTranslation('title', app()->getLocale())); ?></td>
                         <td><?php echo e($blog->category->getTranslation('name', app()->getLocale())); ?></td>
                         <td><?php echo e(\App\Facades\UtilityFacades::date_time_format($blog->created_at)); ?></td>
-                        <td>
-                            <?php if($blog->images && Storage::exists($blog->images)): ?>
-                                <img src="<?php echo e(Storage::url($blog->images)); ?>" width="50" />
-                            <?php else: ?>
-                                <img src="<?php echo e(Storage::url('not-exists-data-images/350x250.png')); ?>" width="50" />
-                            <?php endif; ?>
-                        </td>
+
                         <td>
                             <a href="<?php echo e(route('blog.show', $blog->id)); ?>" class="btn btn-success"><?php echo e(__('View')); ?></a>
                             <a href="<?php echo e(route('blog.edit', $blog->id)); ?>" class="btn btn-warning"><?php echo e(__('Edit')); ?></a>

@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('title', 'Create Blog'); ?>
 <?php $__env->startSection('breadcrumb'); ?>
     <div class="col-md-12">
@@ -55,13 +54,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <?php echo e(Form::label('images', __('Images'), ['class' => 'form-label'])); ?> *
-                                            <?php echo Form::file('images', ['class' => 'form-control', 'required' => 'required']); ?>
-
-                                        </div>
-                                    </div>
+                                    
                                 <?php endif; ?>
                                 <div class="col-md-12">
                                     <div class="form-group">
