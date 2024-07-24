@@ -10,10 +10,10 @@
                 </h1>
                 <small class="content-section__description fs-6">HOME / FAQ</small>
             </div>
-            <div class="faq-accordion w-100 pb-5 min-vh-100" style="background: #0E0E0EE5 !important;">
+            <div class="faq-accordion w-100 pb-5 min-vh-100" style="background: #393939; !important;">
                 <div class="row w-50 m-auto mt-5 pt-5">
                     <div class="col-md-12 col-lg-12  mb-5 mb-md-0">
-                        <div class="accordion custom-accordion-style-1 appear-animation animated fadeInUpShorter appear-animation-visible"
+                        <div class="accordion mt-5 custom-accordion-style-1 appear-animation animated fadeInUpShorter appear-animation-visible"
                             data-appear-animation="fadeInUpShorter" data-appear-animation-delay="250" id="accordion1"
                             style="animation-delay: 250ms;">
                             @foreach ($faqs as $key => $item)

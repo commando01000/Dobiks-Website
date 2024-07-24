@@ -2010,7 +2010,7 @@ select:focus-visible {
     }
 
     .faq-accordion .row {
-        width: 100%;
+        width: 100% !important;
     }
 }
 
