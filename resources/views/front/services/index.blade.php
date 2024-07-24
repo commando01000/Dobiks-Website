@@ -15,8 +15,8 @@
             <div id="services-content" class="w-100 mt-5 pt-5 m-auto p-1">
                 <div class="services-content">
                     <h2 class="section-projects__title ui heading size-headinglg">
-                        <span class="section-projects__title-span-1">Services <span
-                                class="section-projects__title-span"><br>Categories&nbsp;</span>
+                        <span class="section-projects__title-span-1">S<span
+                                class="section-projects__title-span">ervices<br>Categories&nbsp;</span>
                         </span>
                         {{-- <p class="content-section__description pt-3">{{ Utility::getsettings('service_detail') }}</p> --}}
                     </h2>

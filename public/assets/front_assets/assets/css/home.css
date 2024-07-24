@@ -706,7 +706,7 @@ select:focus-visible {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    column-gap: 50px;
+    /* column-gap: 50px; */
     /* align-items: start; */
     /* margin-left: auto;
             margin-right: auto; */
@@ -913,6 +913,19 @@ select:focus-visible {
     cursor: pointer;
     height: 48px;
     min-width: 72px;
+    border: 1px solid var(--gray_800);
+}
+
+#team-details .footer__social-chip--uiux {
+    color: var(--white);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    height: 48px;
+    width: 100%;
     border: 1px solid var(--gray_800);
 }
 
@@ -1914,6 +1927,25 @@ select:focus-visible {
         text-align: center;
     }
 
+    .about-us-section .content-section__column--secondary {
+        width: 110px;
+        border-radius: 50%;
+        border: 1px solid var(--blue_gray_100);
+        height: 100px;
+        margin-top: 15px !important;
+        text-align: center;
+    }
+
+    .about-us-section .content-section__column--secondary p {
+        margin-top: 30px !important;
+    }
+
+    .about-us-section .col-md-3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .content-section__button {
         color: var(--white) !important;
         margin-top: 25px;
@@ -1963,6 +1995,16 @@ select:focus-visible {
     }
 }
 
+@media (max-width: 768px) and (min-width: 300px) {
+    .team-section__header {
+        margin-top: 78px;
+        gap: var(--space-7xl);
+        display: flex;
+        width: 100% !important;
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 1400px) {
     .project-content .description {
         margin: 0px !important;
@@ -1973,7 +2015,6 @@ select:focus-visible {
 }
 
 /* Youtube Link */
-
 
 .service-image iframe {
     width: 500px;

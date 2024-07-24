@@ -13,7 +13,7 @@
                 <div class="projects-content">
                     <h2 class="section-projects__title ui heading size-headinglg">
                         <span class="section-projects__title-span-1">D<span
-                                class="section-projects__title-span">opiks<br>Services Page&nbsp;</span>
+                                class="section-projects__title-span">opiks<br>Projects Page&nbsp;</span>
                         </span>
                         <br>
                         <p class="content-section__description pt-3">{{ Utility::getsettings('project_detail') }}</p>

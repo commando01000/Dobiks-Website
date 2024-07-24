@@ -17,7 +17,7 @@
                             <img style="min-width: 314px; min-height: 414px" class="user-profile__image"
                                 src="{{ Storage::url($teamMember->photo) }}" alt="image">
                             <form chip-view="" id="1:112" class="footer__social-chips">
-                                <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--uiux">
                                     <a href="{{ $teamMember->facebook }}"> <input type="button" name="selectedChipOptions"
                                             value="1" hidden="true"></a>
                                     <span> Facebook</span>
@@ -40,7 +40,7 @@
                                         </label>
                                     </template>
                                 </label>
-                                <label tabindex="0" class="flex-row-center-center footer__social-chip--video">
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--uiux">
                                     <a href="{{ $teamMember->github }}"> <input type="button" name="selectedChipOptions"
                                             value="4" hidden="true"></a>
                                     <span> GITHUB</span>
@@ -51,7 +51,7 @@
                                         </label>
                                     </template>
                                 </label>
-                                <label tabindex="0" class="flex-row-center-center footer__social-chip--marketing">
+                                <label tabindex="0" class="flex-row-center-center footer__social-chip--uiux">
                                     <a href="{{ $teamMember->dribble }}"> <input type="button" name="selectedChipOptions"
                                             value="5" hidden="true"></a>
                                     <span> DRIBBLE</span>
