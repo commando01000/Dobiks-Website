@@ -102,23 +102,21 @@
                     </div>
                 </div>
 
-                <div class="section-projects__actions w-100">
-                    <div class="section-projects__action-row">
-                        <div class="section__call-to-action-row">
-                            {{-- <p class="section__call-to-action-text ui text-white text size-btn_text">
-                                <span class="section__feature-bg">view</span> &nbsp; all
-                                projects
-                            </p> --}}
-                            <p class="section__call-to-action-text ui text-white text size-btn_text">
-                                <a href="{{ route('see.all.projects') }}" class="section__feature-bg text-white">
-                                    view all projects
+                <div class="w-100 d-flex justify-content-center">
+                    <div class="team-section__action-row">
+                        <div class="section__feature-bg"></div>
+                        <div class="team-section__action-content">
+                            <p class="section__call-to-action-text ui text size-btn_text">
+                                <a class="text-white" href="{{ route('see.all.projects') }}"> view all projects</a><a>
                                 </a>
-                            </p>
-
-                            <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
-                                class="section__call-to-action-icon" />
-                        </div>
-                    </div>
+                            </p><a>
+                                <img src="https://dopiks.corpintech.com/assets/front_assets/images/img_arrow.svg"
+                                    alt="arrow image" class="section__call-to-action-icon">
+                            </a>
+                        </div><a>
+                        </a>
+                    </div><a>
+                    </a>
                 </div>
             </div>
 
