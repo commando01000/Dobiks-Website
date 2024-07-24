@@ -409,7 +409,7 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('team-details/{id}', [About_frontController::class, 'team_detail'])->name('team-details');
 
     Route::get('about-us', [About_frontController::class, 'index'])->name('about-us');
-    Route::get('leadership', [LeadershipController::class, 'index'])->name('leadership');
+    Route::get('leadership', [LeadershipController::class, 'index'])->name('front.leadership.index');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);

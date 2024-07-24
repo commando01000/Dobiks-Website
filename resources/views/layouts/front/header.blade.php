@@ -130,7 +130,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts"
-                                                        href="#">Our Team</a>
+                                                        href="{{ route('front.leadership.index') }}">Our Team</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts {{ Route::is('services') ? 'active' : '' }}"

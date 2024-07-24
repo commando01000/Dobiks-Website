@@ -105,8 +105,7 @@
                             <div class="col-md-3">
                                 <a href="{{ route('contact') }}" style="text-decoration: none;">
                                     <div style="cursor: pointer;" class="content-section__column--secondary">
-                                        <p style="margin-top: 50px"
-                                            class="content-section__button pt-2 ui text size-btn_text">
+                                        <p style="margin-top: 50px" class="content-section__button pt-2 ui text size-btn_text">
                                             <span class="text-decoration-none text-white">CONTACT US</span>
                                         </p>
                                     </div>
@@ -225,7 +224,39 @@
                 </div>
             </section>
 
-            @include('front.leaderships.section-leadership')
+            <section class="meet-our-leadership p-5 m-5">
+                <div class="container">
+                    <div class="section__header">
+                        <div class="section__header-row">
+                            <p class="section__title ui text size-btn_text">Our Team</p>
+                            <div class="section__divider"></div>
+                        </div>
+                        <h2 class="section__subtitle ui heading size-headings">
+                            Meet Our
+                        </h2>
+                        <h3 class="section__highlight ui heading size-headinglg">
+                            Leadership
+                        </h3>
+                    </div>
+                    <div class="row mt-5">
+                        @foreach ($leaderships as $leadership)
+                            <div class="col-md-3">
+                                <div class="user-profile"
+                                    onclick="location.href='{{ route('team-details', $leadership->id) }}';">
+                                    <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
+                                        class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
+                                    <p class="user-profile__name ui text size-textxl">
+                                        {{ $leadership->name }}
+                                    </p>
+                                    <p class="user-profile__role ui text size-texts">
+                                        {{ $leadership->position }}
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
 
             <section id="milestones-achieved" class="w-100 pt-5 mt-5 pb-5 mb-5">
                 <div class="container pt-5 pb-5">

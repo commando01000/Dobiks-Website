@@ -2035,3 +2035,55 @@ select:focus-visible {
         width: 100% !important;
     }
 }
+
+/* Paginator */
+
+/* Paginator */
+/* Paginator */
+/* Paginator */
+/* Paginator */
+/* Paginator */
+/* Paginator */
+.paginator {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    row-gap: 10px !important;
+    column-gap: 10px !important;
+}
+
+.pagination {
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pagination li {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #fff !important;
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+}
+
+.pagination li a:hover {
+    text-decoration: underline !important;
+}
+
+.pagination li.active span {
+    color: #ff6c00 !important; /* Orange color */
+}
+
+.pagination li.disabled span {
+    color: #666666 !important; /* Gray color for disabled links */
+}

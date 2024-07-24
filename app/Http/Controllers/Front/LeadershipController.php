@@ -11,7 +11,7 @@ class LeadershipController extends Controller
 
     public function index()
     {
-        $leadership = Leadership::paginate(12);
-        return view('front.leadership.index', compact('leadership'));
+        $leaderships = Leadership::paginate(8);
+        return view('front.leaderships.index', compact('leaderships'));
     }
 }
