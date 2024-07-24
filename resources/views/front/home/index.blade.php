@@ -20,7 +20,7 @@
                         <div class="content-section__sub-section">
                             <div class="content-section__column--secondary">
                                 <p class="content-section__button ui text size-btn_text">
-                                    Build Now
+                                    <a class="text-decoration-none text-white" href="#section-projects">Build Now</a>
                                 </p>
                                 <img src="{{ asset('assets/front_assets/images/img_right_arrow_2.svg') }}"
                                     alt="right arrow image" class="column__image--right-arrow" />
@@ -94,5 +94,7 @@
     <!-- Section-Clients -->
     @include('front.clients-section.clients')
     <!-- End Section-Clients -->
+    {{-- Section-Leadership --}}
     @include('front.leaderships.section-leadership')
+    {{-- End Section-Leadership --}}
 @endsection

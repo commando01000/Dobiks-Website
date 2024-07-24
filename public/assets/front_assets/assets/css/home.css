@@ -397,7 +397,7 @@ select:focus-visible {
 
 .content-section__column--secondary {
     width: 140px;
-
+    line-height: 20px;
     border-radius: 50%;
     border: 1px solid var(--blue_gray_100);
     height: 140px;
@@ -406,7 +406,15 @@ select:focus-visible {
 
 .content-section__button {
     color: var(--white) !important;
-    margin-top: 50px;
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.content-section .content-section__button {
+    color: var(--white) !important;
+    margin-top: 45px;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 400;
@@ -1919,12 +1927,12 @@ select:focus-visible {
         width: 75% !important;
     }
 
-    .content-section__column--secondary {
+    /* .content-section__column--secondary {
         width: 140px;
         border-radius: 50%;
         border: 1px solid var(--blue_gray_100);
         height: 100px;
-        text-align: center;
+        text-align: center; */
     }
 
     .about-us-section .content-section__column--secondary {
@@ -1987,7 +1995,7 @@ select:focus-visible {
 
 @media (max-width: 768px) and (min-width: 510px) {
     .content-section__column--secondary {
-        width: 140px;
+        width: 110px;
         border-radius: 50%;
         border: 1px solid var(--blue_gray_100);
         height: 120px;
@@ -2102,7 +2110,7 @@ select:focus-visible {
     position: relative;
     width: auto;
     color: #fff;
-    background-color: #090909;
+    background-color: #1c1c1c;
     -moz-appearance: none;
     border: none;
     -webkit-appearance: none;
