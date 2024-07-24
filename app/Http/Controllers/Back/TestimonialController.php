@@ -14,7 +14,6 @@ class TestimonialController extends Controller
         if (\Auth::user()->can('manage-testimonial')) {
             $testimonials = Testimonial::orderBy('id', 'desc')->get();
             return view('back/testimonials.index', compact('testimonials'));
-           
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
@@ -34,34 +33,24 @@ class TestimonialController extends Controller
                 'name'          => 'required|max:191',
                 'title'         => 'required|max:191',
                 'desc_en'          => 'required',
-                'desc_ar'          => 'required',
+                // 'desc_ar'          => 'required',
                 'designation'   => 'required|max:100',
-                'image'         => 'required|mimes:jpg, jpeg, png',
+                'image'         => 'required',
                 'rating'        => 'required',
 
             ]);
 
-            if ($request->file('image')) {
-                $allowed_file_Extension = ['jpeg', 'jpg', 'png'];
-                $file = $request->file('image');
-                $extension = $file->getClientOriginalExtension();
-                $imageName = $file->getClientOriginalName();
-                $check = in_array($extension, $allowed_file_Extension);
-                if ($check) {
-                    $file_name  =  $file->store('testimonials');
-                } else {
-                    return redirect()->route('testimonial.index')->with('failed', __('File type not valid.'));
-                }
-            } else {
-                return redirect()->back()->with('failed', __('Image Field is Required'));
-            }
+            if ($request->hasFile('image')) {
 
-            $testimonial = Testimonial::create([
+                // Return the file name
+                $path = $request->file('image')->store('testimonials');
+            }
+            Testimonial::create([
                 'name'          => $request->name,
                 'title'         => $request->title,
                 'desc'          => ['en' => $request->desc_en, 'ar' => $request->desc_ar],
                 'designation'   => $request->designation,
-                'image'         => $file_name,
+                'image'         => $path,
                 'rating'        => $request->rating,
             ]);
 

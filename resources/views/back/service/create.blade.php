@@ -71,7 +71,14 @@
                                     {{ Form::label('project_status', __('Project Status'), ['class' => 'form-label']) }}
                                     {!! Form::text('project_status', null, ['class' => 'form-control','placeholder' => __('Enter Project Status')]) !!}
                                 </div>
+
                             </div> --}}
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    {{ Form::label('images', __('cover'), ['class' => 'form-label']) }} *
+                                    {!! Form::file('cover', ['class' => 'form-control', 'required' => 'required']) !!}
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('emdlink', __('Embed Link'), ['class' => 'form-label']) }} *

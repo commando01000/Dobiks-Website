@@ -69,9 +69,9 @@
                                     <div class="form-group">
                                         {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} *
                                         <?php
-                                        
+
                                         $var = html_entity_decode($service->description);
-                                        
+
                                         ?>
                                         {!! Form::textarea('body', $var, [
                                             'class' => 'form-control ',
@@ -86,23 +86,14 @@
                                         {{ Form::label('body', __('emdlink'), ['class' => 'form-label']) }} *
                                         <br>
                                         <?php
-                                        
+
                                         $var = html_entity_decode($service->emdlink);
                                         echo $var;
                                         ?>
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        {{ Form::label('service_status', __('service_status'), ['class' => 'form-label']) }}
-                                        *
-                                        {!! Form::text('service_status', $service->service_status, [
-                                            'class' => 'form-control',
-                                            'disabled',
-                                        ]) !!}
-                                    </div>
-                                </div>
+                               
 
                             </div>
                         </div>

@@ -30,7 +30,7 @@ class Project_frontController extends Controller
         // }
         $allProjects  =  Project::all();
         $categories_projects = ProjectCategory::with('projects')->get();
-        $leaderships = Leadership::paginate(10);
+        $leaderships = Leadership::orderBy('created_at', 'desc')->take(3)->get();
         $categories = CategoryService::with('services')->get();
         // dd($categories_projects);
         // dd($categories);
@@ -55,8 +55,8 @@ class Project_frontController extends Controller
 
     public function getProjectsByCategory($categoryId)
     {
-        $projects = Project::where('project_category', $categoryId)->get();
+        $projects = Project::where('project_category', $categoryId)->paginate(9);
+
         return response()->json($projects);
     }
-    
 }

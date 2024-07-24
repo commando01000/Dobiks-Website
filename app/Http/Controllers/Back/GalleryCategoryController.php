@@ -30,7 +30,7 @@ class GalleryCategoryController extends Controller
     {
         if (\Auth::user()->can('create-category')) {
             request()->validate([
-                'name_ar'   => 'required|max:191',
+                // 'name_ar'   => 'required|max:191',
                 'name_en'   => 'required|max:191',
                 'name' =>  'unique:gallery_categories',
                 'status' => 'required',

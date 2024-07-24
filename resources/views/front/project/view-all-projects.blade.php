@@ -43,6 +43,13 @@
                             <!-- Projects will be loaded here dynamically -->
                         </div>
                     </div>
+
+                    <!-- Pagination Links -->
+                    <nav>
+                        <ul class="pagination justify-content-center" id="pagination-links">
+                            <!-- Pagination links will be dynamically inserted here -->
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </main>
@@ -58,8 +65,8 @@
             @endif
         });
 
-        function loadProjects(categoryId) {
-            fetch(`/projects/category/${categoryId}`)
+        function loadProjects(categoryId, page = 1) {
+            fetch(`/projects/category/${categoryId}?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data
@@ -72,7 +79,7 @@
 
                     let row; // Declare row variable outside the loop
 
-                    data.forEach((project, index) => {
+                    data.data.forEach((project, index) => {
                         // Create a new row for the first item or after every 3 items
                         if (counter % 3 === 0) {
                             row = document.createElement('div');
@@ -80,33 +87,33 @@
                         }
 
                         let projectItem = `
-                    <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                        <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
-                            <div class="service-header d-flex justify-content-between">
-                                <div class="service-number">
-                                    <p>${counter + 1}</p>
-                                </div>
-                                <div class="category-name">
-                                    <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
-                                        ${project.title}
-                                    </p>
-                                </div>
+                <div class="col-md-4 mt-4 ${(index - 1) % 3 == 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
+                    <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
+                        <div class="service-header d-flex justify-content-between">
+                            <div class="service-number">
+                                <p>${counter + 1}</p>
                             </div>
-                            <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
-                                <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                            </div>
-                            <div class="service-title mt-4">
-                                ${project.client}
+                            <div class="category-name">
+                                <p class="user-profile__role ui text size-texts ${(index - 1) % 3 == 0 ? 'me-4' : ''}">
+                                    ${project.title}
+                                </p>
                             </div>
                         </div>
+                        <div class="service__image ${(index - 1) % 3 == 0 ? 'text-center' : ''}">
+                            <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+                        </div>
+                        <div class="service-title mt-4">
+                            ${project.client}
+                        </div>
                     </div>
-                    `;
+                </div>
+                `;
 
                         row.innerHTML += projectItem;
                         counter++; // Increment the counter
 
                         // Append row to projectsList after every 3 items (for 3 columns in a row)
-                        if (counter % 3 === 0 || counter === data.length) {
+                        if (counter % 3 === 0 || counter === data.data.length) {
                             projectsList.appendChild(row);
                         }
                     });
@@ -115,6 +122,20 @@
                     if (counter % 3 !== 0) {
                         projectsList.appendChild(row);
                     }
+
+                    // Update pagination links
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = ''; // Clear existing pagination
+
+                    data.links.forEach(link => {
+                        if (link.url) {
+                            paginationLinks.innerHTML +=
+                                `<li class="page-item ${link.active ? 'active' : ''}"><a class="page-link" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})">${link.label}</a></li>`;
+                        } else {
+                            paginationLinks.innerHTML +=
+                                `<li class="page-item disabled"><span class="page-link">${link.label}</span></li>`;
+                        }
+                    });
                 })
                 .catch(error => {
                     console.error('Error fetching projects:', error); // Log any errors
