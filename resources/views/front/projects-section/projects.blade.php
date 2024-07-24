@@ -76,7 +76,7 @@
                     data.forEach((project, index) => {
                         let projectItem = `
                         <div class="col-md-4 mt-4 ${(index - 1) % 3 == 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
+                            <div onclick="window.location.href = '/projects/${project.slug}'" style="cursor: pointer" class="service">
                                 <div class="service-header d-flex justify-content-between">
                                     <div class="service-number">
                                         <p>${index + 1}</p>

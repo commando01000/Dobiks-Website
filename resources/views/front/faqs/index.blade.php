@@ -18,7 +18,7 @@
                             style="animation-delay: 250ms;">
                             @foreach ($faqs as $key => $item)
                                 <div class="accordion-item" style="background: #1C1C1C;">
-                                    <h2 class="accordion-header w-100" id="heading{{ $key }}">
+                                    <h1 class="accordion-header w-100" id="heading{{ $key }}">
                                         <button style="width: 100% !important"
                                             class="accordion-button{{ $loop->first ? '' : ' collapsed' }} text-white"
                                             type="button" data-bs-toggle="collapse"
@@ -28,7 +28,7 @@
                                             {{ $loop->iteration }} . {{ $item['questions'] }}
                                         </button>
 
-                                    </h2>
+                                    </h1>
                                     <div id="collapse{{ $key }}"
                                         class="accordion-collapse collapse{{ $loop->first ? ' show' : '' }}"
                                         aria-labelledby="heading{{ $key }}"
