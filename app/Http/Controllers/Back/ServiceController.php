@@ -62,9 +62,15 @@ class ServiceController extends Controller
             request()->validate([
                 'title'             => 'required|unique:services',
                 'short_description'       => 'required',
+                'cover'            => 'image|mimes:jpg,jpeg,png,webp',
             ]);
 
-
+            if ($request->hasFile('cover')) {
+                request()->validate([
+                    'cover' => 'mimes:jpg,jpeg,png',
+                ]);
+                $path = $request->file('cover')->store('services');
+            }
 
 
             $service =  Service::create([
@@ -75,6 +81,7 @@ class ServiceController extends Controller
                 'service_category'          => $request->category_id,
                 'project_status'        => 1,
                 'emdlink'        => $request->emdlink,
+                'cover'                => $path,
 
             ]);
             return redirect()->route('services.index')->with('success', __('Project created successfully.'));
@@ -122,7 +129,14 @@ class ServiceController extends Controller
                 'short_description'       => 'required',
             ]);
             $service = Service::find($id);
-
+            if ($request->hasFile('cover')) {
+                request()->validate([
+                    'cover' => 'required|image|mimes:jpg,png,jpeg,webp',
+                ]);
+                $old_cover = $service->cover;
+                $path           = $request->file('cover')->store('services');
+                $service->cover   = $path;
+            }
 
             $service->title                 = $request->title;
             $service->slug                 = $request->slug;
@@ -132,7 +146,8 @@ class ServiceController extends Controller
             $service->service_status        = $request->service_status;
             $service->emdlink        = $request->emdlink;
             $service->save();
-
+            if (isset($old_cover))
+                Storage::delete($old_cover);
 
             return redirect()->route('services.index')->with('success', __('Service updated successfully.'));
         } else {

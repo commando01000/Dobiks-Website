@@ -27,7 +27,7 @@
                 <tr>
                     <th>#</th>
                     <th>{{ __('Title') }}</th>
-                    <th>{{ __('Status') }}</th>
+
                     <th>{{ __('Created At') }}</th>
                     <th>{{ __('Cover') }}</th>
                     <th>{{ __('Action') }}</th>
@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $service->title }}</td>
-                        <td>{{ $service->builder }}</td>
+
                         <td>{{ \App\Facades\UtilityFacades::date_time_format($service->created_at) }}</td>
                         <td>
                             @if ($service->cover && Storage::exists($service->cover))

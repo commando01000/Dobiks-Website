@@ -109,7 +109,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ route('faqs') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         FAQ
                                                     </p>
