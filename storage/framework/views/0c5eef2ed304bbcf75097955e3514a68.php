@@ -28,7 +28,7 @@
                             <div class="form-header d-flex justify-content-between">
                                 <img class="w-50" src="<?php echo e(asset('assets/front_assets/images/img_header_logo.png')); ?>"
                                     alt="logo">
-                                <i style="color: white; font-size: 30px; text-align: end"
+                                <i style="color: white; font-size: 30px; text-align: end; cursor: pointer"
                                     class="fa-regular fa-circle-xmark"></i>
                             </div>
 
@@ -127,6 +127,10 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--about ui text size-texts <?php echo e(Route::is('about-us') ? 'active' : ''); ?>"
                                                         href="<?php echo e(route('about-us')); ?>">About Dopiks</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link nav-list__item--about ui text size-texts"
+                                                        href="<?php echo e(route('front.leadership.index')); ?>">Our Team</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
                                                     <a class="nav-link nav-list__item--services-text ui text size-texts <?php echo e(Route::is('services') ? 'active' : ''); ?>"
