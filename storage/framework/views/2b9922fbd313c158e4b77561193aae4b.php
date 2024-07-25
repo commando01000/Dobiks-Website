@@ -21,7 +21,7 @@
                         <div class="content-section__sub-section">
                             <div class="content-section__column--secondary">
                                 <p class="content-section__button ui text size-btn_text">
-                                    Build Now
+                                    <a class="text-decoration-none text-white" href="#section-projects">Build Now</a>
                                 </p>
                                 <img src="<?php echo e(asset('assets/front_assets/images/img_right_arrow_2.svg')); ?>"
                                     alt="right arrow image" class="column__image--right-arrow" />
@@ -95,7 +95,9 @@
     <!-- Section-Clients -->
     <?php echo $__env->make('front.clients-section.clients', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- End Section-Clients -->
+    
     <?php echo $__env->make('front.leaderships.section-leadership', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.front.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\company\backend\resources\views/front/home/index.blade.php ENDPATH**/ ?>

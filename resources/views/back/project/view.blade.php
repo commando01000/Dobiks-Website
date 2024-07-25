@@ -70,11 +70,11 @@
                                     <div class="form-group">
                                         {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} *
                                         <?php
-                                        
+
                                         $var = html_entity_decode($project->description);
-                                        
+
                                         ?>
-                                        {!! Form::textarea('body', $var, [
+                                        {!! Form::textarea('description', $var, [
                                             'class' => 'form-control ',
                                             'placeholder' => __('Enter description'),
                                             'disabled',
@@ -114,16 +114,20 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="col-md-12">
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} *
-                                        
-                                        {!! Form::textarea('body', $var, [
+                                        {{ Form::label('body', __('Optional Field '), ['class' => 'form-label']) }} *
+                                        <?php
+
+
+
+                                        ?>
+                                        {!! Form::textarea('body', $project->body, [
                                             'class' => 'form-control ',
-                                            'placeholder' => __('Enter description'),
+                                            'placeholder' => __('Enter Optional Field'),
                                         ]) !!}
                                     </div>
-                                </div> --}}
+                                </div>
 
                             </div>
                         </div>

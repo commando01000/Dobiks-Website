@@ -118,12 +118,12 @@
                                     {!! Form::file('cover', ['class' => 'form-control', 'required' => 'required']) !!}
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            {{-- <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('images', __('Images'), ['class' => 'form-label']) }}
                                     {!! Form::file('images[]', ['class' => 'form-control', 'multiple' => 'multiple']) !!}
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-12">
                                 <div class="form-group">
                                     {{ Form::label('description', __('Short Description'), ['class' => 'form-label']) }}
@@ -135,15 +135,15 @@
                                     ]) !!}
                                 </div>
                             </div>
-                            {{-- <div class="col-md-12">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ Form::label('body', __('Description'), ['class' => 'form-label']) }} *
+                                    {{ Form::label('body', __('Optional Field'), ['class' => 'form-label']) }} 
                                     {!! Form::textarea('body', null, [
                                         'class' => 'form-control ',
-                                        'placeholder' => __('Enter description'),
+                                        'placeholder' => __('Enter Optional Field'),
                                     ]) !!}
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -161,7 +161,7 @@
 @push('script')
     <script src="{{ asset('assets/js/plugins/choices.min.js') }}"></script>
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
-    {{-- <script>
+    <script>
         CKEDITOR.replace('body', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'
@@ -176,5 +176,5 @@
                 });
             }
         });
-    </script> --}}
+    </script>
 @endpush

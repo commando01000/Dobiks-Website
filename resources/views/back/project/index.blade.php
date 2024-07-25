@@ -28,7 +28,7 @@
                     <th>#</th>
                     <th>{{ __('Title') }}</th>
                     <th>{{ __('Created At') }}</th>
-                    <th>{{ __('Images') }}</th>
+                    <th>{{ __('cover') }}</th>
                     <th>{{ __('Action') }}</th>
                 </tr>
             </thead>
@@ -40,8 +40,8 @@
 
                         <td>{{ \App\Facades\UtilityFacades::date_time_format($project->created_at) }}</td>
                         <td>
-                            @if ($project->images && Storage::exists($project->images))
-                                <img src="{{ Storage::url($project->images) }}" width="50" />
+                            @if ($project->cover && Storage::exists($project->cover))
+                                <img src="{{ Storage::url($project->cover) }}" width="50" />
                             @else
                                 <img src="{{ Storage::url('not-exists-data-images/350x250.png') }}" width="50" />
                             @endif
