@@ -7,7 +7,7 @@
             {{-- <p class="content-section__description pt-3">{{ Utility::getsettings('service_detail') }}</p> --}}
         </h2>
         <!-- resources/views/projects/index.blade.php -->
-        <ul class="nav nav-pills section__tabs" id="pills-tab" role="tablist">
+        <ul class="nav w-75 nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
             @foreach ($categories as $category)
                 <li class="nav-item" role="presentation">
                     <button
@@ -33,6 +33,59 @@
         </div>
     </div>
 </div>
+
+
+@section('js')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch data for the first category initially
+            @if ($categories->isNotEmpty())
+                loadServices({{ $categories->first()->id }});
+            @endif
+        });
+
+        function loadServices(categoryId) {
+            fetch(`/services/category/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data:', data); // Log the fetched data
+
+                    let projectsList = document.getElementById('services-list');
+                    projectsList.innerHTML = '';
+
+                    baseUrl = "{{ url('/') }}";
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    row.classList.add('w-100');
+                    row.classList.add('m-auto');
+
+                    data.forEach((project, index) => {
+                        let projectItem = `
+                        <div class="col-md-4 pb-3 mt-4"> <!-- Adjusted column class and margin bottom -->
+                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
+                                <div class="service__image text-center">
+                                    <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+                                </div>
+                            </div>
+                        </div>
+                        `;
+
+                        // Append projectItem to row
+                        row.innerHTML += projectItem;
+                    });
+
+                    // Append row to projectsList
+                    projectsList.appendChild(row);
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error); // Log any errors
+                });
+        }
+
+        // Ensure that loadProjects is available globally
+        window.loadServices = loadServices;
+    </script>
+@endsection
 
 {{-- @section('js')
     <script>

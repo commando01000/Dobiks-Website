@@ -12,7 +12,7 @@
 
             <div class="service-details m-5 p-5">
                 <div class="container-fluid">
-                    <div class="row m-auto d-flex justify-content-between">
+                    <div style="width: 80% !important" class="row m-auto d-flex justify-content-between">
                         <div class="col-md-6">
                             <div class="title">
                                 <h1 class="content-section__title fs-4">{{ $service->category->name }}</h1>
@@ -64,16 +64,16 @@
 @endsection
 
 
-@section('js')
+{{-- @section('js')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Fetch data for the first category initially
             @if ($categories->isNotEmpty())
-                loadServices({{ $categories->first()->id }});
+                loadProjects({{ $categories->first()->id }});
             @endif
         });
 
-        function loadServices(categoryId) {
+        function loadProjects(categoryId) {
             fetch(`/services/category/${categoryId}`)
                 .then(response => response.json())
                 .then(data => {
@@ -83,7 +83,6 @@
                     projectsList.innerHTML = '';
 
                     baseUrl = "{{ url('/') }}";
-                    let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
                     row.classList.add('w-100');
@@ -91,23 +90,10 @@
 
                     data.forEach((project, index) => {
                         let projectItem = `
-                        <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/services/${project.slug}'" class="service">
-                                <div class="service-header d-flex justify-content-between">
-                                    <div class="service-number">
-                                        <p>${counter}</p>
-                                    </div>
-                                    <div class="category-name">
-                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
-                                            ${project.title}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                                </div>
-                                <div class="service-title mt-4">
-                                    ${project.title}
+                        <div class="col-md-4 pb-5 mt-4"> <!-- Adjusted column class and margin bottom -->
+                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
+                                <div class="service__image text-center">
+                                    <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
                                 </div>
                             </div>
                         </div>
@@ -115,22 +101,10 @@
 
                         // Append projectItem to row
                         row.innerHTML += projectItem;
-                        counter++; // Increment the counter
-
-                        // Append row to projectsList after every 3 items (for 3 columns in a row)
-                        if (counter % 3 === 1) {
-                            projectsList.appendChild(row);
-                            row = document.createElement('div');
-                            row.classList.add('row');
-                            row.classList.add('w-100');
-                            row.classList.add('m-auto');
-                        }
                     });
 
-                    // Append the last row if it's not already added
-                    if (data.length % 3 !== 0) {
-                        projectsList.appendChild(row);
-                    }
+                    // Append row to projectsList
+                    projectsList.appendChild(row);
                 })
                 .catch(error => {
                     console.error('Error fetching projects:', error); // Log any errors
@@ -140,4 +114,4 @@
         // Ensure that loadProjects is available globally
         window.loadProjects = loadProjects;
     </script>
-@endsection
+@endsection --}}

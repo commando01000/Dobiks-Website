@@ -75,7 +75,6 @@
                     projectsList.innerHTML = '';
 
                     baseUrl = "{{ url('/') }}";
-                    let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
                     row.classList.add('w-100');
@@ -83,7 +82,7 @@
 
                     data.forEach((project, index) => {
                         let projectItem = `
-                        <div class="col-md-4 mt-4"> <!-- Adjusted column class and margin bottom -->
+                        <div class="col-md-4 pb-5 mt-4"> <!-- Adjusted column class and margin bottom -->
                             <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
                                 <div class="service__image text-center">
                                     <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
@@ -94,22 +93,10 @@
 
                         // Append projectItem to row
                         row.innerHTML += projectItem;
-                        counter++; // Increment the counter
-
-                        // Append row to projectsList after every 3 items (for 3 columns in a row)
-                        if (counter % 3 === 1) {
-                            projectsList.appendChild(row);
-                            row = document.createElement('div');
-                            row.classList.add('row');
-                            row.classList.add('w-100');
-                            row.classList.add('m-auto');
-                        }
                     });
 
-                    // Append the last row if it's not already added
-                    if (data.length % 3 !== 0) {
-                        projectsList.appendChild(row);
-                    }
+                    // Append row to projectsList
+                    projectsList.appendChild(row);
                 })
                 .catch(error => {
                     console.error('Error fetching projects:', error); // Log any errors
@@ -120,6 +107,7 @@
         window.loadProjects = loadProjects;
     </script>
 @endsection
+
 
 
 

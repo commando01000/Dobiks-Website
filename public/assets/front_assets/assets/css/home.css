@@ -801,6 +801,14 @@ select:focus-visible {
         width: 100% !important;
     }
 
+    #services-content .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 0px !important;
+        width: 100% !important;
+    }
+
     #projects-content .projects-content {
         gap: 0px !important;
     }
@@ -2138,7 +2146,7 @@ select:focus-visible {
 /* services */
 #services .row {
     align-items: center;
-    width: 75% !important;
+    width: 100% !important;
 }
 
 .service-details .row {
@@ -2183,6 +2191,13 @@ select:focus-visible {
         gap: 0px !important;
     }
 
+    #services-content .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        /* flex-direction: column !important; */
+        gap: 0px !important;
+        width: 100% !important;
+    }
 
     #projects .section-projects {
         gap: 0px !important;
