@@ -793,6 +793,13 @@ select:focus-visible {
         gap: 0px !important;
     }
 
+    #projects .section-projects .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 0px !important;
+    }
+
     #projects-content .projects-content {
         gap: 0px !important;
     }
@@ -810,6 +817,7 @@ select:focus-visible {
     #projects-content.section-projects {
         gap: 0px !important;
     }
+    
 
     #section-clients .section__header h2 {
         font-size: 35px !important;
@@ -1881,6 +1889,10 @@ select:focus-visible {
     margin-bottom: 120px;
 }
 
+#projects-content.section-projects {
+    /* gap: 0px !important; */
+}
+
 /* Services End CSS */
 
 /* Milestone Start CSS */
@@ -1973,7 +1985,7 @@ select:focus-visible {
     display: flex;
     flex-direction: column;
     align-items: start;
-    max-width: 1326px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -2170,6 +2182,21 @@ select:focus-visible {
         gap: 0px !important;
     }
 
+    #projects .section-projects {
+        gap: 0px !important;
+    }
+
+    #projects .projects-content {
+        gap: 0px !important;
+    }
+
+    #projects .section-projects .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        /* flex-direction: column !important; */
+        gap: 0px !important;
+    }
+
     #section-clients .clients-content .section-projects__content {
         align-items: center !important;
         justify-content: center !important;
@@ -2239,6 +2266,8 @@ select:focus-visible {
 /* Paginator */
 /* Paginator */
 /* Paginator */
+
+
 .paginator {
     display: flex !important;
     justify-content: center !important;
@@ -2282,6 +2311,61 @@ select:focus-visible {
 .pagination li.disabled span {
     color: #666666 !important; /* Gray color for disabled links */
 }
+
+
+.paginator {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    row-gap: 10px !important;
+    column-gap: 10px !important;
+}
+
+.pagination {
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pagination li {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #fff !important;
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+}
+
+.pagination li a:hover {
+    text-decoration: underline !important;
+}
+
+.pagination li.active span {
+    color: #ff6c00 !important; /* Orange color */
+}
+
+.pagination li.disabled span {
+    color: #666666 !important; /* Gray color for disabled links */
+}
+
+.active>.page-link, .page-link.active {
+    z-index: 3;
+    color: white !important; /* Orange color */
+    background-color: #ff6c00 !important;
+    border-color: white !important;
+}
+
+
+
 
 /* FAQ */
 
