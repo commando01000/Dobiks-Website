@@ -1,13 +1,13 @@
 @extends('layouts.front.app')
 
 @section('content')
-<sec id="section-projects" class="column_three">
-    <div id="projects-content" class="section-projects w-100 mt-0 p-1 overflow-hidden">
-        <h2 class="w-100 section-projects__title ui heading size-headinglg">
-            <span class="section-projects__title-span-1">D<span class="section-projects__title-span">opiks
-                    Projects<br>Page&nbsp;</span></span>
-        </h2>
-        {{-- <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
+    <sec id="section-projects" class="column_three">
+        <div id="projects-content" class="section-projects w-100 mt-0 p-1 overflow-hidden">
+            <h2 class="w-100 section-projects__title ui heading size-headinglg">
+                <span class="section-projects__title-span-1">D<span class="section-projects__title-span">opiks
+                        Projects<br>Page&nbsp;</span></span>
+            </h2>
+            {{-- <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
             @foreach ($categories as $category)
                 <li class="nav-item" role="presentation">
                     <button
@@ -24,33 +24,38 @@
                 </li>
             @endforeach
         </ul> --}}
-        <div class="projects-content">
-            <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
-                @foreach ($categories as $category)
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
-                            id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
-                            aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
-                            style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
-                            <div class="circle position-absolute start-0 z-0"></div>
-                            <div class="position-relative text z-1 text-white">
-                                {{ $category->name }}
-                            </div>
-                        </button>
-                    </li>
-                @endforeach
-            </ul>
-            <div class="tab-content w-100" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="projects-list" role="tabpanel"
-                    aria-labelledby="projects-list-tab">
-                    <!-- Projects will be loaded here dynamically -->
+            <div class="projects-content">
+                <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
+                    @foreach ($categories as $category)
+                        <li class="nav-item" role="presentation">
+                            <button
+                                class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
+                                id="pills-{{ $category->id }}-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-{{ $category->id }}" type="button" role="tab"
+                                aria-controls="pills-{{ $category->id }}" aria-selected="false" tabindex="0"
+                                style="cursor: pointer" onclick="loadProjects({{ $category->id }})">
+                                <div class="circle position-absolute start-0 z-0"></div>
+                                <div class="position-relative text z-1 text-white">
+                                    {{ $category->name }}
+                                </div>
+                            </button>
+                        </li>
+                    @endforeach
+                </ul>
+                <div class="tab-content w-100" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="projects-list" role="tabpanel"
+                        aria-labelledby="projects-list-tab">
+                        <!-- Projects will be loaded here dynamically -->
+                    </div>
                 </div>
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination-links">
+                        <!-- Pagination links will be dynamically inserted here -->
+                    </ul>
+                </nav>
             </div>
         </div>
-    </div>
-</sec>
+    </sec>
 @endsection
 
 @section('js')
