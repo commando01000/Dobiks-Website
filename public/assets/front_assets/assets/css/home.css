@@ -841,6 +841,13 @@ select:focus-visible {
     #section-clients .section__content {
         gap: 0px !important;
     }
+
+    .section-projects__title {
+        color: var(--white) !important;
+        margin-left: 4px;
+        font-size: 35px !important;
+        font-weight: 600;
+    }
 }
 
 /* home send-message form Start CSS */

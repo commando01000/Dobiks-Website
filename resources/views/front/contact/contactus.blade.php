@@ -48,6 +48,13 @@
                 </div>
             </div>
             @include('front.contact.contact-us-form')
+
+            <div class="w-100 text-center map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96766.88268468229!2d-74.03990389460608!3d40.71878513231992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250d225bfafdd%3A0x249f013a2cd25d9!2sJersey%20City%2C%20NJ%2C%20USA!5e0!3m2!1sen!2seg!4v1721906467765!5m2!1sen!2seg"
+                    width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </main>
     </section>
 @endsection

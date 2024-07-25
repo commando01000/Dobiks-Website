@@ -31,7 +31,7 @@ class Project_frontController extends Controller
         $allProjects  =  Project::all();
         $categories_projects = ProjectCategory::with('projects')->get();
         $leaderships = Leadership::orderBy('created_at', 'desc')->take(3)->get();
-        $categories = CategoryService::with('services')->get();
+        $categories = ProjectCategory::with('projects')->get();
         // dd($categories_projects);
         // dd($categories);
         return view('front/project.view-project', compact('project', 'allProjects', 'slug', 'lang', 'categories_projects', 'leaderships', 'categories'));
