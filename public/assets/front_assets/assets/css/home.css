@@ -2153,6 +2153,13 @@ select:focus-visible {
         /* flex-direction: column !important; */
         gap: 0px !important;
     }
+
+    #section-clients .clients-content .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        /* flex-direction: column !important; */
+        gap: 0px !important;
+    }
 }
 
 @media (max-width: 768px) and (min-width: 300px) {
