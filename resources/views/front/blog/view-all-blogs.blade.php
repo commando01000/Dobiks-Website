@@ -41,10 +41,12 @@
                                 </div>
                             @endforeach
                         @endif
+
                     </div>
-                    <div class="mt-4">
-                        {{ $allBlogs->links() }} <!-- Pagination links -->
-                    </div>
+
+                </div>
+                <div class="paginator mt-3">
+                    {{ $allBlogs->links('front.pagination.custom-pagination') }}
                 </div>
             </div>
         </div>

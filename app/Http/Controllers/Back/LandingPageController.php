@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Back;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\settings;
@@ -348,11 +349,14 @@ class LandingPageController extends Controller
                 'contact_text' => $request->contact_text,
                 'contact_address' => $request->contact_address,
                 'contact_address2' => $request->contact_address2,
+                'contact_addrees4' => $request->contact_addrees4,
+                'contact_addrees3' => $request->contact_addrees3,
                 'contact_phone1' => $request->contact_phone1,
                 'contact_phone2' => $request->contact_phone2,
                 'contact_city1' => $request->contact_city1,
                 'contact_city2' => $request->contact_city2,
                 'contact_facebook' => $request->contact_facebook,
+                'snapchat' => $request->snapchat,
                 'contact_twitter' => $request->contact_twitter,
                 'contact_instagram' => $request->contact_instagram,
                 'contact_youtube' => $request->contact_youtube,

@@ -151,7 +151,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ Utility::getsettings('snapchat') }}">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         Snapchat
                                                     </p>
