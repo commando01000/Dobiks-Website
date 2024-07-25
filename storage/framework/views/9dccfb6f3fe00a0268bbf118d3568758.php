@@ -141,7 +141,7 @@
                 <div class="card-body">
                     <p class="card-text text-white">Head Office</p>
                     <p class="card-text">
-                        <?php echo e(Utility::getsettings('contact_address')); ?>
+                        <?php echo e(Utility::getsettings('contact_address2')); ?>
 
                     </p>
                 </div>
