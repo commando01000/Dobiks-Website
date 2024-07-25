@@ -785,6 +785,26 @@ select:focus-visible {
         padding-right: 0px !important;
         padding-left: 0px !important;
     }
+
+    #section-projects .section-projects .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 0px !important;
+    }
+
+    #projects-content .projects-content {
+        gap: 0px !important;
+    }
+
+    #projects-content .service-header {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+
+    #projects-content h2 {
+        font-size: 42px !important;
+    }
 }
 
 /* home send-message form Start CSS */
@@ -805,8 +825,14 @@ select:focus-visible {
         left: calc(100% - 450px); /* Position the form on screen */
         transition: left 0.5s ease; /* Smooth transition */
     }
+
     .home-form {
         width: 480px;
+    }
+
+    #section-projects .section-projects .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
     }
 }
 
@@ -1944,11 +1970,6 @@ select:focus-visible {
         padding-left: 30px;
         padding-right: 30px;
     }
-
-    #section-projects .section-projects__content {
-        align-items: center !important;
-        justify-content: center !important;
-    }
 }
 .nav-link.active .circle {
     position: absolute;
@@ -2089,6 +2110,15 @@ select:focus-visible {
     }
 }
 
+@media (max-width: 768px) and (min-width: 451px) {
+    #section-projects .section-projects .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        /* flex-direction: column !important; */
+        gap: 0px !important;
+    }
+}
+
 @media (max-width: 768px) and (min-width: 300px) {
     .team-section__header {
         margin-top: 78px;
@@ -2109,6 +2139,10 @@ select:focus-visible {
 
     .faq-accordion .row {
         width: 100% !important;
+    }
+
+    .content-section .content-section__title {
+        font-size: 30px !important;
     }
 }
 

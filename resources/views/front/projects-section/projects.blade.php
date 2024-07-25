@@ -1,6 +1,6 @@
 <div id="section-projects" class="column_three">
     <div id="projects-content" class="section-projects w-100 mt-0 p-1 overflow-hidden">
-        <h2 class="section-projects__title ui heading size-headinglg">
+        <h2 class="w-100 section__subtitle ui heading size-headings">
             <span class="section-projects__title-span-1">O<span class="section-projects__title-span">ur
                     Latest<br>Projects&nbsp;</span></span>
         </h2>
@@ -78,9 +78,9 @@
                         <div class="col-md-4 mt-4 ${(index - 1) % 3 == 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
                             <div onclick="window.location.href = '/projects/${project.slug}'" style="cursor: pointer" class="service">
                                 <div class="service-header d-flex justify-content-between">
-                                    <div class="service-number">
+                                    <!-- <div class="service-number">
                                         <p>${index + 1}</p>
-                                    </div>
+                                    </div> -->
                                     <div class="category-name">
                                         <p class="user-profile__role ui text size-texts ${(index - 1) % 3 == 0 ? 'me-4' : ''}">
                                             ${project.title}
