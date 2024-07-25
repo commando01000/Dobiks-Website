@@ -847,7 +847,7 @@ select:focus-visible {
 
 .home-form {
     z-index: 99999;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 100%;
     width: 600px;
@@ -869,6 +869,12 @@ select:focus-visible {
     #section-projects .section-projects .section-projects__content {
         align-items: center !important;
         justify-content: center !important;
+    }
+
+    .contact-us-section__title.ui.heading.size-heading_1 {
+        color: var(--white) !important;
+        font-size: 30px !important;
+        font-weight: 700 !important;
     }
 }
 
@@ -1788,7 +1794,7 @@ select:focus-visible {
     color: white !important;
 }
 .our-resident .card {
-    background-color: var(--black) !important;
+    background-color: #191919 !important;
     color: white !important;
     padding: 30px;
 }
@@ -1936,6 +1942,9 @@ select:focus-visible {
     .team-details-content .row img {
         width: 100% !important;
         text-align: center !important;
+    }
+    .home-form {
+        position: absolute !important;
     }
 }
 

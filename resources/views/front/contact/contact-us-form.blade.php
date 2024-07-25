@@ -17,64 +17,80 @@
                         <div class="mb-5">
                             <label for="name" class="col-form-label text-white">First Name <span
                                     style="color: #ff5101"> *</span></label>
-                            <input type="text" class="form-control text-white" name="firstname" id="name"
-                                placeholder="First Name" required />
+                            <input type="text" class="form-control content-section__description" name="firstname"
+                                id="name" placeholder="First Name" required />
                         </div>
                         <div class="mb-5">
                             <label for="c_name" class="col-form-label text-white">Last Name
                                 <span style="color: #ff5101"> *</span></label>
-                            <input type="text" class="form-control text-white" name="lastname" id="c_name"
-                                placeholder="Last Name" required />
+                            <input type="text" class="form-control content-section__description" name="lastname"
+                                id="c_name" placeholder="Last Name" required />
                         </div>
                         <div class="mb-5">
                             <label for="ph_number" class="col-form-label text-white">
                                 Email
                                 <span style="color: #ff5101"> *</span></label>
-                            <input type="email" class="form-control text-white" name="email" id="ph_number"
-                                placeholder="Email" required />
+                            <input type="email" class="form-control content-section__description" name="email"
+                                id="ph_number" placeholder="Email" required />
                         </div>
                         <div class="mb-5">
                             <label for="ph_number" class="col-form-label text-white">
                                 Subject
                                 <span style="color: #ff5101"> *</span></label>
-                            <input type="text" class="form-control text-white" name="subject" id="ph_number"
-                                placeholder="subject" required />
+                            <input type="text" class="form-control content-section__description" name="subject"
+                                id="ph_number" placeholder="subject" required />
                         </div>
                         <div class="mb-5">
                             <label for="ph_number" class="col-form-label text-white">
                                 Comments
                                 <span style="color: #ff5101"> *</span></label>
-                            <textarea class="form-control text-white" name="comments" id="ph_number" placeholder="Message" required></textarea>
+                            <textarea class="form-control content-section__description" name="comments" id="ph_number" placeholder="Message"
+                                required></textarea>
                         </div>
                         <div class="mb-5">
-                            <div class="row gx-1 justify-content-around gy-1">
-                                <div class="col-md-12">
-                                    <label for="c_name" class="col-form-label text-white">
-                                        Select Service
-                                        <span style="color: #ff5101"> *</span></label>
-                                    <br />
-                                    <a name="FACEBOOK" id="FACEBOOK" class="btn ps-5 pe-5 border-0"
+                            <label for="c_name" class="col-form-label text-white">
+                                Select Service
+                                <span style="color: #ff5101"> *</span>
+                            </label>
+                            <br />
+                            <div class="row gx-2 gy-2">
+                                <div class="col-6 col-md-3">
+                                    <a name="FACEBOOK" id="FACEBOOK" class="btn w-100 border-0"
                                         style="color: white; background-color: #ff5101"
                                         href="{{ Utility::getsettings('contact_facebook') }}"
                                         role="button">FACEBOOK</a>
-                                    <a name="TWITTER" id="TWITTER" class="btn ps-5 pe-5 border-0"
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a name="TWITTER" id="TWITTER" class="btn w-100 border-0"
                                         style="color: white; background-color: #ff5101"
                                         href="{{ Utility::getsettings('contact_twitter') }}" role="button">TWITTER</a>
-                                    <a name="LINKEDIN" id="LINKEDIN" class="btn ps-5 pe-5 border-0"
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a name="LINKEDIN" id="LINKEDIN" class="btn w-100 border-0"
                                         style="color: white; background-color: #ff5101"
                                         href="{{ Utility::getsettings('contact_linkedin') }}"
                                         role="button">LINKEDIN</a>
-                                    <a name="INSTAGRAM" id="INSTAGRAM" class="btn ps-5 pe-5 mt-1 border-0"
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <a name="INSTAGRAM" id="INSTAGRAM" class="btn w-100 border-0"
                                         style="color: white; background-color: #ff5101"
                                         href="{{ Utility::getsettings('contact_instagram') }}"
                                         role="button">INSTAGRAM</a>
                                 </div>
                             </div>
                         </div>
-
+                        <br>
+                        <div class="w-100 d-flex justify-content-center">
+                            <button class="submit-button position-relative">
+                                <div class="circle position-absolute start-0 z-0"></div>
+                                <div class="text z-1">
+                                    SUBMIT REQUEST
+                                    <span class="arrow">→</span>
+                                </div>
+                            </button>
+                        </div>
+                        <br>
                     </div>
-
-
             </div>
         </div>
     </div>
@@ -111,24 +127,17 @@
             </div>
         </div>
     </div>
-    <button class="submit-button position-relative">
-        <div class="circle position-absolute start-0 z-0"></div>
-        <div class="text z-1">
-            SUBMIT REQUEST
-            <span class="arrow">→</span>
-        </div>
-    </button>
 </div>
 </form>
 
 <div class="row gx-0">
     <div class="col-md-4">
         <div class="our-resident p-5">
-            <div class="card">
+            <div style="min-height: 200px !important" class="card">
                 <div class="card-body">
                     <p class="card-text text-white">Head Office</p>
                     <p class="card-text">
-                        {{ Utility::getsettings('contact_address') }}
+                        {{ Utility::getsettings('contact_address2') }}
                     </p>
                 </div>
             </div>
@@ -136,11 +145,11 @@
     </div>
     <div class="col-md-4">
         <div class="our-resident p-5">
-            <div class="card">
+            <div style="min-height: 200px !important" class="card">
                 <div class="card-body">
                     <p class="card-text text-white">Head Office</p>
                     <p class="card-text">
-                        {{ Utility::getsettings('contact_address') }}
+                        {{ Utility::getsettings('contact_address3') }}
                     </p>
                 </div>
             </div>
@@ -148,11 +157,11 @@
     </div>
     <div class="col-md-4">
         <div class="our-resident p-5">
-            <div class="card">
+            <div style="min-height: 200px !important" class="card">
                 <div class="card-body">
                     <p class="card-text text-white">Head Office</p>
                     <p class="card-text">
-                        {{ Utility::getsettings('contact_address') }}
+                        {{ Utility::getsettings('contact_address4') }}
                     </p>
                 </div>
             </div>

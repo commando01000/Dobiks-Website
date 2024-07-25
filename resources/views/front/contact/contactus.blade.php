@@ -38,7 +38,7 @@
                 <p>we build immersive</p>
                 <p>digital experiences.</p>
                 <div class="content-section__divider mt-5"></div>
-                <div class="contact-us-section__content p-5">
+                <div class="contact-us-section__content ps-0 p-5">
                     <h2 class="content-section__subtitle ui heading size-headingmd">
                         Let Us Tell Your Story
                     </h2>
