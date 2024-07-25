@@ -12,13 +12,13 @@
             <div style="background-color: #191919;max-width: 100% !important" id="projects-content"
                 class="section-projects w-100 mt-5 pt-5 p-1 overflow-hidden">
 
-                <div class="m-auto w-75">
+                <div class="group m-auto w-75">
                     <h2 class="w-100 section-projects__title ui heading size-headinglg">
                         <span class="section-projects__title-span-1">S<span class="section-projects__title-span">ervices
                                 Categories<br>&nbsp;</span></span>
                     </h2>
                     <div class="projects-content">
-                        <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
+                        <ul class="nav w-75 nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
                             @foreach ($categories as $category)
                                 <li class="nav-item" role="presentation">
                                     <button
@@ -56,7 +56,6 @@
     </section>
 @endsection
 
-
 @section('js')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -84,23 +83,10 @@
 
                     data.forEach((project, index) => {
                         let projectItem = `
-                        <div class="col-md-4 mt-4 ${(index - 1) % 3 == 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/services/${project.slug}'" class="service">
-                                <div class="service-header d-flex justify-content-between">
-                                    <div class="service-number">
-                                        <p>${counter}</p>
-                                    </div>
-                                    <div class="category-name">
-                                        <p class="user-profile__role ui text size-texts ${(index - 1) % 3 == 0 ? 'me-4' : ''}">
-                                            ${project.title}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service__image ${(index - 1) % 3 == 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                                </div>
-                                <div class="service-title mt-4">
-                                    ${project.title}
+                        <div class="col-md-4 mt-4"> <!-- Adjusted column class and margin bottom -->
+                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
+                                <div class="service__image text-center">
+                                    <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
                                 </div>
                             </div>
                         </div>

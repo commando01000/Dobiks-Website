@@ -798,6 +798,7 @@ select:focus-visible {
         justify-content: center !important;
         flex-direction: column !important;
         gap: 0px !important;
+        width: 100% !important;
     }
 
     #projects-content .projects-content {
@@ -2182,6 +2183,7 @@ select:focus-visible {
         gap: 0px !important;
     }
 
+
     #projects .section-projects {
         gap: 0px !important;
     }
@@ -2195,6 +2197,7 @@ select:focus-visible {
         justify-content: center !important;
         /* flex-direction: column !important; */
         gap: 0px !important;
+        width: 100% !important;
     }
 
     #section-clients .clients-content .section-projects__content {
@@ -2213,7 +2216,18 @@ select:focus-visible {
         width: 100% !important;
         flex-direction: column;
     }
-
+    #projects .row {
+        width: 100% !important;
+    }
+    #projects .project-content ul {
+        width: 100% !important;
+    }
+    #projects .group {
+        width: 100% !important;
+    }
+    #projects .row .col-md-4 {
+        width: 100% !important;
+    }
     .team-section__members {
         flex-direction: column !important;
     }
