@@ -804,6 +804,42 @@ select:focus-visible {
 
     #projects-content h2 {
         font-size: 42px !important;
+        text-align: center !important;
+    }
+
+    #projects-content.section-projects {
+        gap: 0px !important;
+    }
+
+    #section-clients .section__header h2 {
+        font-size: 35px !important;
+        text-align: center !important;
+    }
+
+    #section-clients .section__header h3 {
+        text-align: center !important;
+    }
+
+    #section-clients .section__header .section__header-row {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    #section-clients .section-projects__title {
+        font-size: 42px !important;
+    }
+
+    #section-clients .clients-content .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+        flex-direction: column !important;
+        gap: 0px !important;
+    }
+
+    #section-clients .section__content {
+        gap: 0px !important;
     }
 }
 

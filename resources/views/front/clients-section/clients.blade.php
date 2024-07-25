@@ -5,10 +5,10 @@
                 <p class="section__title ui text size-btn_text">Clients</p>
                 <div class="section__divider"></div>
             </div>
-            <h2 class="section__subtitle ui heading size-headings">
+            <h2 class="w-100 section-projects__title ui heading size-headinglg">
                 Meet Our
             </h2>
-            <h3 class="section__highlight ui heading size-headinglg">
+            <h3 class="w-100 section-projects__title ui heading size-headinglg">
                 Special Clients
             </h3>
         </div>
@@ -106,5 +106,3 @@
         window.loadClients = loadClients;
     </script>
 @endpush
-
-

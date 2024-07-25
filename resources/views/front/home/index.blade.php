@@ -18,13 +18,15 @@
                             We build immersive digital experiences.
                         </h1>
                         <div class="content-section__sub-section">
-                            <div class="content-section__column--secondary">
-                                <p class="content-section__button ui text size-btn_text">
-                                    <a class="text-decoration-none text-white" href="#section-projects">Build Now</a>
-                                </p>
-                                <img src="{{ asset('assets/front_assets/images/img_right_arrow_2.svg') }}"
-                                    alt="right arrow image" class="column__image--right-arrow" />
-                            </div>
+                            <a class="text-decoration-none text-white" href="#section-projects">
+                                <div class="content-section__column--secondary">
+                                    <p class="content-section__button ui text size-btn_text">
+                                        Build Now
+                                    </p>
+                                    <img src="{{ asset('assets/front_assets/images/img_right_arrow_2.svg') }}"
+                                        alt="right arrow image" class="column__image--right-arrow" />
+                                </div>
+                            </a>
                             <div class="content-section__column--tertiary">
                                 <div class="content-section__divider"></div>
                                 <div class="content-section__column--quaternary">

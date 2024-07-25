@@ -1,6 +1,6 @@
 <div id="section-projects" class="column_three">
     <div id="projects-content" class="section-projects w-100 mt-0 p-1 overflow-hidden">
-        <h2 class="w-100 section__subtitle ui heading size-headings">
+        <h2 class="w-100 section-projects__title ui heading size-headinglg">
             <span class="section-projects__title-span-1">O<span class="section-projects__title-span">ur
                     Latest<br>Projects&nbsp;</span></span>
         </h2>
