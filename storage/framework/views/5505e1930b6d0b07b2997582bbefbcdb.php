@@ -34,7 +34,7 @@
                                 </label>
                                 <label tabindex="0" class="flex-row-center-center footer__social-chip--uiux">
                                     <input type="checkbox" name="selectedChipOptions" value="3" hidden="true" />
-                                    <span> UI / ux</span>
+                                    <span> UI / UX</span>
                                     <template hidden="">
                                         <label unselected-styles="" class="dhi-group">
                                         </label>
@@ -67,8 +67,7 @@
                                 
                                 <a href="<?php echo e(Utility::getsettings('contact_facebook')); ?>"
                                     class="footer__social-button--facebook">
-                                    <img
-                                        src="<?php echo e(asset('assets/front_assets/images/img_facebook_app_symbol.svg')); ?>">
+                                    <img src="<?php echo e(asset('assets/front_assets/images/img_facebook_app_symbol.svg')); ?>">
                                 </a>
                                 <a href="<?php echo e(Utility::getsettings('contact_instagram')); ?>"
                                     class="footer__link-button--link">
@@ -83,7 +82,7 @@
                         <div class="footer__stack__row__eight__column">
                             <div class="footer__stack__row__eight__column__row">
                                 <div class="footer__stack__row__eight__column__row__quick-links">
-                                    <div class="footer__stack__row__eight__column__row__quick-links__column">
+                                    <div class="col-md-6 footer__stack__row__eight__column__row__quick-links__column">
                                         <p class="footer__quick-link-title ui text size-textxl">
                                             Quic Link
                                         </p>
@@ -110,7 +109,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <a href="<?php echo e(route('faqs')); ?>">
                                                     <p class="footer__quick-link--about ui text size-texts">
                                                         FAQ
                                                     </p>
@@ -125,7 +124,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="footer__stack__row__eight__column__row__social-media">
+                                    <div class="col-md-6 footer__stack__row__eight__column__row__social-media">
                                         <p class="footer__quick-link-title ui text size-textxl">
                                             Social media
                                         </p>
@@ -186,7 +185,7 @@
                                         <p class="footer__contact-title ui text size-textmd">
                                             Corporate Office
                                         </p>
-                                        <p class="footer__address-details ui text size-textlg">
+                                        <p class="footer__address-details ui text size-textlg text-center">
                                             <?php echo e(Utility::getsettings('contact_address')); ?>
 
                                         </p>

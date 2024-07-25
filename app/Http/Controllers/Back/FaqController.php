@@ -12,7 +12,8 @@ class FaqController extends Controller
     public function index(FaqDataTable $dataTable)
     {
         if (\Auth::user()->can('manage-faqs')) {
-            return $dataTable->render('back/faqs.index');
+            $faqs = Faq::paginate(10);
+            return view('back.faqs.index', compact('faqs'));
         } else {
             return redirect()->back()->with('failed', __('Permission denied.'));
         }
