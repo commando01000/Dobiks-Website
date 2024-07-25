@@ -1944,6 +1944,11 @@ select:focus-visible {
         padding-left: 30px;
         padding-right: 30px;
     }
+
+    #section-projects .section-projects__content {
+        align-items: center !important;
+        justify-content: center !important;
+    }
 }
 .nav-link.active .circle {
     position: absolute;
