@@ -149,7 +149,7 @@
                 <div class="card-body">
                     <p class="card-text text-white">Head Office</p>
                     <p class="card-text">
-                        {{ Utility::getsettings('contact_address3') }}
+                        {{ Utility::getsettings('contact_addrees3') }}
                     </p>
                 </div>
             </div>
@@ -161,7 +161,7 @@
                 <div class="card-body">
                     <p class="card-text text-white">Head Office</p>
                     <p class="card-text">
-                        {{ Utility::getsettings('contact_address4') }}
+                        {{ Utility::getsettings('contact_addrees4') }}
                     </p>
                 </div>
             </div>
