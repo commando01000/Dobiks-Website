@@ -979,6 +979,17 @@ select:focus-visible {
 
 /* Footer Start CSS */
 
+.clock:hover {
+    background: #ababab;
+    color: #fff;
+    opacity: 0.3;
+}
+
+.clock:hover, .clock__icon--arrow-up {
+    opacity: 0.8 !important;
+    color: white !important;
+}
+
 .footer {
     flex: 1;
 }
@@ -1336,7 +1347,7 @@ select:focus-visible {
 /* Footer End CSS */
 
 .clock {
-    width: 5%;
+    /* width: 5%; */
     display: flex;
     justify-content: flex-end;
     position: absolute;
@@ -2467,7 +2478,7 @@ select:focus-visible {
     height: 1.5em;
     vertical-align: middle;
     background-repeat: no-repeat;
-    background-image: url(/public/assets/front_assets/images/menu_1.png);
+    background-image: url(/public/assets/front_assets/images/menu_1.png) !important;
     color: white !important;
     background-repeat: no-repeat;
     background-position: center;
