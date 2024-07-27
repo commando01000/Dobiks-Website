@@ -7,7 +7,7 @@
     </div>
 </a>
 <a href="<?php echo e(route('slidersetting.index')); ?>"
-   class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'slidersetting.index' ? ' active' : ''); ?>">
+    class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'slidersetting.index' ? ' active' : ''); ?>">
     <?php echo e(__('Slider Setting')); ?>
 
     <div class="float-end">
@@ -16,7 +16,7 @@
 </a>
 
 <a href="<?php echo e(route('landing.project.index')); ?>"
-   class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.project.index' ? ' active' : ''); ?>">
+    class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.project.index' ? ' active' : ''); ?>">
     <?php echo e(__('Projects Setting')); ?>
 
     <div class="float-end">
@@ -65,7 +65,7 @@
     </div>
 </a>
 <a href="<?php echo e(route('landing.testimonial.index')); ?>"
-   class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.testimonial.index' ? ' active' : ''); ?>">
+    class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.testimonial.index' ? ' active' : ''); ?>">
     <?php echo e(__('Testimonial Setting')); ?>
 
     <div class="float-end">
@@ -73,7 +73,7 @@
     </div>
 </a>
 <a href="<?php echo e(route('landing.team.index')); ?>"
-   class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.team.index' ? ' active' : ''); ?>">
+    class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.team.index' ? ' active' : ''); ?>">
     <?php echo e(__('Team Setting')); ?>
 
     <div class="float-end">
@@ -83,6 +83,14 @@
 <a href="<?php echo e(route('landing.footer.index')); ?>"
     class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.footer.index' ? ' active' : ''); ?>">
     <?php echo e(__('Footer Setting')); ?>
+
+    <div class="float-end">
+        <i class="ti ti-chevron-right"></i>
+    </div>
+</a>
+<a href="<?php echo e(route('landing.privacy.index')); ?>"
+    class="list-group-item list-group-item-action border-0 <?php echo e(Request::route()->getName() == 'landing.privacy.index' ? ' active' : ''); ?>">
+    <?php echo e(__('Privacy Setting')); ?>
 
     <div class="float-end">
         <i class="ti ti-chevron-right"></i>

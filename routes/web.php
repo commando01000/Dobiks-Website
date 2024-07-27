@@ -305,6 +305,9 @@ Route::group([
 
             Route::get('footer-setting', [LandingPageController::class, 'footerSetting'])->name('landing.footer.index');
             Route::post('footer-setting/store', [LandingPageController::class, 'footerSettingStore'])->name('landing.footer.store');
+            //privacy setting
+            Route::get('privacy-setting', [LandingPageController::class, 'privacySetting'])->name('landing.privacy.index');
+            Route::post('privacy-setting/store', [LandingPageController::class, 'privacySettingStore'])->name('landing.privacy.store');
 
             Route::get('login-setting', [LandingPageController::class, 'loginSetting'])->name('landing.login.index');
             Route::post('login-setting/store', [LandingPageController::class, 'loginSettingStore'])->name('landing.login.store');

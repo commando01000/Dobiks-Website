@@ -107,12 +107,12 @@
                     <div class="columnheaderlog">
                         <header id="header" class="header">
                             <nav class="navbar w-100 shadow navbar-expand-lg">
-                                <div class="container overflow-hidden">
+                                <div class="container flex-row flex-nowrap overflow-hidden">
                                     <a class="navbar-brand" href="#">
                                         <img src="<?php echo e(asset('assets/front_assets/images/img_header_logo.png')); ?>"
                                             alt="header logo" href="#header" style="height: 40px" />
                                     </a>
-                                    <div class="w-100 text-end">
+                                    <div>
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                                             aria-expanded="false" aria-label="Toggle navigation">

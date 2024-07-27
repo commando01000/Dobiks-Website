@@ -6,7 +6,7 @@
     </div>
 </a>
 <a href="{{ route('slidersetting.index') }}"
-   class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'slidersetting.index' ? ' active' : '' }}">
+    class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'slidersetting.index' ? ' active' : '' }}">
     {{ __('Slider Setting') }}
     <div class="float-end">
         <i class="ti ti-chevron-right"></i>
@@ -14,7 +14,7 @@
 </a>
 
 <a href="{{ route('landing.project.index') }}"
-   class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.project.index' ? ' active' : '' }}">
+    class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.project.index' ? ' active' : '' }}">
     {{ __('Projects Setting') }}
     <div class="float-end">
         <i class="ti ti-chevron-right"></i>
@@ -57,14 +57,14 @@
     </div>
 </a>
 <a href="{{ route('landing.testimonial.index') }}"
-   class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.testimonial.index' ? ' active' : '' }}">
+    class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.testimonial.index' ? ' active' : '' }}">
     {{ __('Testimonial Setting') }}
     <div class="float-end">
         <i class="ti ti-chevron-right"></i>
     </div>
 </a>
 <a href="{{ route('landing.team.index') }}"
-   class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.team.index' ? ' active' : '' }}">
+    class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.team.index' ? ' active' : '' }}">
     {{ __('Team Setting') }}
     <div class="float-end">
         <i class="ti ti-chevron-right"></i>
@@ -73,6 +73,13 @@
 <a href="{{ route('landing.footer.index') }}"
     class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.footer.index' ? ' active' : '' }}">
     {{ __('Footer Setting') }}
+    <div class="float-end">
+        <i class="ti ti-chevron-right"></i>
+    </div>
+</a>
+<a href="{{ route('landing.privacy.index') }}"
+    class="list-group-item list-group-item-action border-0 {{ Request::route()->getName() == 'landing.privacy.index' ? ' active' : '' }}">
+    {{ __('Privacy Setting') }}
     <div class="float-end">
         <i class="ti ti-chevron-right"></i>
     </div>
