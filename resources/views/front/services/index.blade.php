@@ -18,7 +18,7 @@
                                 Categories<br>&nbsp;</span></span>
                     </h2>
                     <div class="projects-content">
-                        <ul class="nav w-75 nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
+                        <ul class="nav w-100 nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
                             @foreach ($categories as $category)
                                 <li class="nav-item" role="presentation">
                                     <button

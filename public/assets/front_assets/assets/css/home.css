@@ -889,6 +889,11 @@ select:focus-visible {
         width: 480px;
     }
 
+    nav .container > div:first-child {
+        text-align: end !important;
+        width: 100% !important;
+    }
+
     .navbar-nav .nav-item:last-child {
         display: none;
     }
@@ -2191,9 +2196,13 @@ select:focus-visible {
 }
 
 @media (max-width: 993px) and (min-width: 500px) {
-
     .navbar-nav .nav-item:last-child {
         display: none;
+    }
+
+    nav .container > div:first-of-type {
+        text-align: end !important;
+        width: 100% !important;
     }
 }
 
