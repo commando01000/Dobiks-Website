@@ -112,7 +112,7 @@
                                         <img src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
                                             alt="header logo" href="#header" style="height: 40px" />
                                     </a>
-                                    <div>
+                                    <div class="w-100 text-end">
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                                             aria-expanded="false" aria-label="Toggle navigation">
