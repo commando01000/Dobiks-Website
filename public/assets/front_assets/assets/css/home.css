@@ -931,6 +931,18 @@ select:focus-visible {
         text-align: end !important;
         width: 100% !important;
     }
+
+    .content-section #carouselExampleAutoplaying {
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .content-section #carouselExampleAutoplaying .carousel-buttons {
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: var(--space-2xl) !important;
+    }
 }
 .home-form.unactive {
     left: 100%;

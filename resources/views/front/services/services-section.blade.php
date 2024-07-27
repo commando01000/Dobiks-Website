@@ -69,10 +69,12 @@
                     data.forEach((project, index) => {
                         let projectItem = `
                         <div class="col-md-4 pb-3 mt-4"> <!-- Adjusted column class and margin bottom -->
-                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
-                                <div class="service__image text-center">
-                                    <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                                </div>
+                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" class="w-100 m-auto service">
+                                <a href="/services/${project.slug}" class="cursor-pointer d-block text-decoration-none">
+                                    <div class="service__image text-center">
+                                        <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image">
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         `;
