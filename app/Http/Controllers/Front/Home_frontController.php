@@ -33,4 +33,8 @@ class Home_frontController extends Controller
         $projects = Project::where('project_category', $categoryId)->latest()->take(6)->get();
         return response()->json($projects);
     }
+    public function PrivacyPolicy()
+    {
+        return view('front.policy.index');
+    }
 }
