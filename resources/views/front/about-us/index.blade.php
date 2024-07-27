@@ -227,17 +227,19 @@
 
             <section class="meet-our-leadership p-5 m-5">
                 <div class="container">
-                    <div class="section__header">
-                        <div class="section__header-row">
-                            <p class="section__title ui text size-btn_text">Our Team</p>
-                            <div class="section__divider"></div>
+                    <div class="team-section__header">
+                        <div class="section__header align-items-baseline">
+                            <div class="section__header-row">
+                                <p class="section__title ui text size-btn_text">Our Team</p>
+                                <div class="section__divider"></div>
+                            </div>
+                            <h2 class="w-100 section-projects__title ui heading size-headinglg">
+                                Meet Our
+                            </h2>
+                            <h3 class="w-100 section-projects__title ui heading size-headinglg">
+                                Leadership
+                            </h3>
                         </div>
-                        <h2 class="section__subtitle ui heading size-headings">
-                            Meet Our
-                        </h2>
-                        <h3 class="section__highlight ui heading size-headinglg">
-                            Leadership
-                        </h3>
                     </div>
                     <div class="row mt-5">
                         @foreach ($leaderships as $leadership)

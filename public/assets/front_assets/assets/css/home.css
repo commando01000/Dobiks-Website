@@ -1774,6 +1774,11 @@ select:focus-visible {
     .navigation {
         align-items: center !important;
     }
+
+    .meet-our-leadership {
+        padding: 0px !important;
+        margin: 0px !important;
+    }
 }
 
 /* Start FAQ CSS */
