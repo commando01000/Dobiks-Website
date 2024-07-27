@@ -1,19 +1,17 @@
     <div class="row_seven">
         <div class="team-section">
             <div class="team-section__header">
-                <div class="team-section__header-content">
-                    <div class="team-section__title-row">
+                <div class="section__header">
+                    <div class="section__header-row">
                         <p class="section__title ui text size-btn_text">Our Team</p>
-                        <div class="team-section__divider"></div>
+                        <div class="section__divider"></div>
                     </div>
-                    <div class="section__header">
-                        <h2 class="team-section__subtitle ui heading size-headings">
-                            Meet Our
-                        </h2>
-                        <h3 class="section__highlight ui heading size-headinglg">
-                            Leadership
-                        </h3>
-                    </div>
+                    <h2 class="w-100 section-projects__title ui heading size-headinglg">
+                        Meet Our
+                    </h2>
+                    <h3 class="w-100 section-projects__title ui heading size-headinglg">
+                        Leadership
+                    </h3>
                 </div>
                 <div>
                     <div class="team-section__action-row">
@@ -30,7 +28,8 @@
             </div>
             <div class="team-section__members">
                 <?php $__currentLoopData = $leaderships; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leadership): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="user-profile" onclick="location.href='<?php echo e(route('team-details', $leadership->id)); ?>';">
+                    <a href="<?php echo e(route('team-details', $leadership->id)); ?>" class="user-profile"
+                        style="cursor: pointer;">
                         <img src="<?php echo e(Storage::url($leadership->photo)); ?>" alt="profile image"
                             class="user-profile__image <?php if($loop->index % 2 != 0): ?> pt-4 <?php endif; ?>">
                         <p class="user-profile__name ui text size-textxl">
@@ -41,7 +40,7 @@
                             <?php echo e($leadership->position); ?>
 
                         </p>
-                    </div>
+                    </a>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>

@@ -28,7 +28,7 @@
                             <div class="form-header d-flex justify-content-between">
                                 <img class="w-50" src="<?php echo e(asset('assets/front_assets/images/img_header_logo.png')); ?>"
                                     alt="logo">
-                                <i style="color: white; font-size: 30px; text-align: end"
+                                <i style="color: white; font-size: 30px; text-align: end; cursor: pointer"
                                     class="fa-regular fa-circle-xmark"></i>
                             </div>
 
