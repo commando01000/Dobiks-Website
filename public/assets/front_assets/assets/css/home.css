@@ -979,6 +979,17 @@ select:focus-visible {
 
 /* Footer Start CSS */
 
+.clock:hover {
+    background: #ababab;
+    color: #fff;
+    opacity: 0.3;
+}
+
+.clock:hover, .clock__icon--arrow-up {
+    opacity: 0.8 !important;
+    color: white !important;
+}
+
 .footer {
     flex: 1;
 }
