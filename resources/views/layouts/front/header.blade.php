@@ -129,7 +129,7 @@
                                                         href="{{ route('about-us') }}">About Dopiks</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts"
+                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('front.leadership.index') ? 'active' : '' }}"
                                                         href="{{ route('front.leadership.index') }}">Our Team</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
