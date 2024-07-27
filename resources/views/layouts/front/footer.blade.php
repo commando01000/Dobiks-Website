@@ -122,6 +122,14 @@
                                                     </p>
                                                 </a>
                                             </li>
+
+                                            <li>
+                                                <a href="{{ route('PrivacyPolicy') }}">
+                                                    <p class="footer__quick-link--about ui text size-texts">
+                                                        Privacy & Policys
+                                                    </p>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6 footer__stack__row__eight__column__row__social-media">

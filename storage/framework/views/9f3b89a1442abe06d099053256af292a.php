@@ -1,4 +1,5 @@
-<?php $__env->startSection('title', 'Services' ); ?>
+
+<?php $__env->startSection('title', 'Services'); ?>
 <?php $__env->startSection('content'); ?>
     <section id="projects" class="w-100 mt-0 p-1 overflow-hidden">
         <main class="container-fluid ps-0 pe-0">
@@ -10,14 +11,13 @@
             </div>
             <div style="background-color: #191919;max-width: 100% !important" id="projects-content"
                 class="section-projects w-100 mt-5 pt-5 p-1 overflow-hidden">
-
                 <div class="group m-auto w-75">
                     <h2 class="w-100 section-projects__title ui heading size-headinglg">
                         <span class="section-projects__title-span-1">S<span class="section-projects__title-span">ervices
                                 Categories<br>&nbsp;</span></span>
                     </h2>
                     <div class="projects-content">
-                        <ul class="nav w-75 nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
+                        <ul class="nav w-100 nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <li class="nav-item" role="presentation">
                                     <button
@@ -50,72 +50,113 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </main>
     </section>
 <?php $__env->stopSection(); ?>
-
 <?php $__env->startSection('js'); ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fetch data for the first category initially
             <?php if($categories->isNotEmpty()): ?>
                 loadProjects(<?php echo e($categories->first()->id); ?>);
             <?php endif; ?>
         });
 
-        function loadProjects(categoryId) {
-            fetch(`/services/category/${categoryId}`)
-                .then(response => response.json())
+        function loadProjects(categoryId, page = 1) {
+            fetch(`/services/category/${categoryId}?page=${page}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    console.log('Fetched data:', data); // Log the fetched data
+                    console.log('Fetched data:', data);
 
                     let projectsList = document.getElementById('services-list');
+                    if (!projectsList) {
+                        console.error('Element "services-list" not found');
+                        return;
+                    }
                     projectsList.innerHTML = '';
 
-                    baseUrl = "<?php echo e(url('/')); ?>";
-                    let row = document.createElement('div');
-                    row.classList.add('row');
-                    row.classList.add('w-100');
-                    row.classList.add('m-auto');
+                    let baseUrl = "<?php echo e(url('/')); ?>";
+                    let counter = 0;
 
-                    data.forEach((project, index) => {
+                    let row;
+
+                    data.data.forEach((project, index) => {
+                        if (counter % 3 === 0) {
+                            row = document.createElement('div');
+                            row.classList.add('row', 'w-100', 'm-auto');
+                        }
+
                         let projectItem = `
-                        <div class="col-md-4 pb-5 mt-4"> <!-- Adjusted column class and margin bottom -->
-                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
-                                <div class="service__image text-center">
-                                    <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                                </div>
+                        <div class="col-md-4 pb-5 mt-4">
+                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" class="w-100 m-auto service">
+                                <a href="/services/${project.slug}" class="cursor-pointer d-block text-decoration-none">
+                                    <div class="service__image text-center">
+                                        <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image">
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        `;
 
-                        // Append projectItem to row
+                    `;
+
+
                         row.innerHTML += projectItem;
+                        counter++;
+
+                        if (counter % 3 === 0 || counter === data.data.length) {
+                            projectsList.appendChild(row);
+                        }
                     });
 
-                    // Append row to projectsList
-                    projectsList.appendChild(row);
+                    if (counter % 3 !== 0) {
+                        projectsList.appendChild(row);
+                    }
+
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = '';
+
+                    if (data.links && data.links.length > 0) {
+                        let paginationHtml = '';
+
+                        if (data.current_page > 1) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                        }
+
+                        data.links.forEach(link => {
+                            if (link.url) {
+                                paginationHtml +=
+                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                            } else {
+                                paginationHtml +=
+                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
+                            }
+                        });
+
+                        if (data.current_page < data.last_page) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                        }
+
+                        paginationLinks.innerHTML = paginationHtml;
+                    }
                 })
                 .catch(error => {
-                    console.error('Error fetching projects:', error); // Log any errors
+                    console.error('Error fetching Services:', error);
                 });
         }
 
-        // Ensure that loadProjects is available globally
         window.loadProjects = loadProjects;
     </script>
 <?php $__env->stopSection(); ?>
-
-
-
-
-
-
-
-
-
-
 
 <?php echo $__env->make('layouts.front.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\company\backend\resources\views/front/services/index.blade.php ENDPATH**/ ?>
