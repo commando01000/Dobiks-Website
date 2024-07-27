@@ -899,7 +899,7 @@ select:focus-visible {
     }
 
     .navbar .navbar-brand {
-        display: none !important;
+        /* display: none !important; */
     }
 
     #section-projects .section-projects .section-projects__content {
@@ -930,6 +930,23 @@ select:focus-visible {
     nav .container > div:first-of-type {
         text-align: end !important;
         width: 100% !important;
+    }
+
+    .navbar-collapse.collapse.show {
+        margin-right: 80px !important;
+    }
+
+    .team-section__header .team-section__action-row {
+        display: none !important;
+    }
+
+    .team-section__members .team-section__action-row {
+        display: flex !important;
+    }
+
+    #section-clients .row {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
     }
 
     .content-section #carouselExampleAutoplaying {
@@ -1271,6 +1288,15 @@ select:focus-visible {
         flex-direction: column;
         align-items: center;
         padding: 0 15px;
+    }
+
+    .content-section__column--secondary {
+        width: 140px !important;
+        line-height: 20px;
+        border-radius: 50%;
+        border: 1px solid var(--blue_gray_100);
+        height: 140px !important;
+        text-align: center;
     }
 
     .footer__stack__row__eight__row {
@@ -1774,6 +1800,11 @@ select:focus-visible {
     .navigation {
         align-items: center !important;
     }
+
+    .meet-our-leadership {
+        padding: 0px !important;
+        margin: 0px !important;
+    }
 }
 
 /* Start FAQ CSS */
@@ -2218,7 +2249,7 @@ select:focus-visible {
     }
 
     .navbar .navbar-brand {
-        display: none !important;
+        /* display: none !important; */
     }
 
     .navbar-nav .nav-item:last-child {
@@ -2232,7 +2263,7 @@ select:focus-visible {
     }
 
     .navbar .navbar-brand {
-        display: none !important;
+        /* display: none !important; */
     }
 
     nav .container > div:first-of-type {

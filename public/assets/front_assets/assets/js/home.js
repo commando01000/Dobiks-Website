@@ -77,34 +77,35 @@ $(document).ready(function () {
     $("#projects-content .nav-link").on("click", function () {
         $("#projects-content .nav-link").removeClass("active"); // Remove active class from all nav links
         $(this).addClass("active"); // Add active class to the clicked nav link
-        // Animate the circle to the clicked nav link
-        $(".circle").css({
-            left: $(this).find(".circle").position().left,
-        });
+        // Animate the circle to the clicked nav link within projects content
+        $(this)
+            .find(".circle")
+            .css({
+                left: $(this).position().left,
+            });
     });
-});
 
-$(document).ready(function () {
     $("#section-clients .nav-link").on("click", function () {
         $("#section-clients .nav-link").removeClass("active"); // Remove active class from all nav links
         $(this).addClass("active"); // Add active class to the clicked nav link
-        // Animate the circle to the clicked nav link
-        $(".circle").css({
-            left: $(this).find(".circle").position().left,
-        });
+        // Animate the circle to the clicked nav link within clients content
+        $(this)
+            .find(".circle")
+            .css({
+                left: $(this).position().left,
+            });
     });
-});
 
-$(document).ready(function () {
     $("#section-projects .nav-link").on("click", function () {
-        $("#section-clients .nav-link").removeClass("active"); // Remove active class from all nav links
+        $("#section-projects .nav-link").removeClass("active"); // Remove active class from all nav links
         $(this).addClass("active"); // Add active class to the clicked nav link
-        // Animate the circle to the clicked nav link
-        $(".circle").css({
-            left: $(this).find(".circle").position().left,
-        });
+        // Animate the circle to the clicked nav link within projects content
+        $(this)
+            .find(".circle")
+            .css({
+                left: $(this).position().left,
+            });
     });
-
     // $(".content-section .navigation__column--right").on("click", function () {
     //     if ($(".home-form").hasClass("unactive")) {
     //         $(".home-form").removeClass("unactive").addClass("active");

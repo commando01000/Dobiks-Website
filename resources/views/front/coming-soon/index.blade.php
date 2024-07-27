@@ -4,41 +4,50 @@
 
 @section('content')
 
-    <section id="count-down" class="count-down overflow-hidden m-auto">
-        <div class="container position-relative">
-            <div class="timer d-flex justify-content-evenly position-absolute">
-                <div class="row gx-5">
-                    <div class="col-md-3">
-                        <div class="count-down-box text-center">
-                            <div class="days d-flex justify-content-center align-items-center">
-                                <div class="text-white number"></div>
-                            </div>
+    <section style="background-color: #191919 !important;" id="count-down" class="count-down pt-5 pb-5 w-100 overflow-hidden m-auto">
+        <main class="container-fluid position-relative">
+            <div class="row w-50 m-auto gx-5">
+                <div class="col-md-3">
+                    <div class="count-down-box text-center">
+                        <div class="days d-flex justify-content-center align-items-center">
+                            <div class="content-section__title ui heading size-heading_1 text-white number">360D</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="count-down-box text-center">
-                            <div class="hours d-flex justify-content-center align-items-center">
-                                <div class="text-white number"></div>
-                            </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="count-down-box text-center">
+                        <div class="hours d-flex justify-content-center align-items-center">
+                            <div class="content-section__title ui heading size-heading_1 text-white number">22H</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="count-down-box text-center">
-                            <div class="minutes d-flex justify-content-center align-items-center">
-                                <div class="text-white number"></div>
-                            </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="count-down-box text-center">
+                        <div class="minutes d-flex justify-content-center align-items-center">
+                            <div class="content-section__title ui heading size-heading_1 text-white number">39M</div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="count-down-box text-center">
-                            <div class="seconds d-flex justify-content-center align-items-center">
-                                <div class="text-white number"></div>
-                            </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="count-down-box text-center">
+                        <div class="seconds d-flex justify-content-center align-items-center">
+                            <div class="content-section__title ui heading size-heading_1 text-white number">42S</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <br>
+            <br>
+            <h4 class="w-50 m-auto text-center content-section__subtitle ui heading size-headingmd">Stay Tuned for Our
+                Exciting New Launch!</h4>
+            <br>
+            <br>
+            <p class="w-50 text-center m-auto content-section__description fs-6">
+                An interior design agency can create content that showcases its work, highlights design trends, and provides
+                educational resources for clients and followers. Some potential content ideas for an interior design agency.
+                An interior design agency can create content that showcases its work.
+            </p>
+        </main>
     </section>
 
 @endsection
