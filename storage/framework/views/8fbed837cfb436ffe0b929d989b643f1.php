@@ -1,4 +1,4 @@
-
+<?php $__env->startSection('title', 'Our clients'); ?>
 
 <?php $__env->startSection('content'); ?>
 <section id="our-clients" class="w-100 mt-0 p-1">

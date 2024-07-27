@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-
+@section('title', 'About Us')
 @section('content')
     <section id="section-services" class="p-1">
         <main class="container-fluid overflow-hidden">
@@ -105,7 +105,8 @@
                             <div class="col-md-3">
                                 <a href="{{ route('contact') }}" style="text-decoration: none;">
                                     <div style="cursor: pointer;" class="content-section__column--secondary">
-                                        <p style="margin-top: 50px" class="content-section__button pt-2 ui text size-btn_text">
+                                        <p style="margin-top: 50px"
+                                            class="content-section__button pt-2 ui text size-btn_text">
                                             <span class="text-decoration-none text-white">CONTACT US</span>
                                         </p>
                                     </div>

@@ -1,3 +1,4 @@
+<?php $__env->startSection('title', 'About Us'); ?>
 <?php $__env->startSection('content'); ?>
     <section id="section-services" class="p-1">
         <main class="container-fluid overflow-hidden">
@@ -21,7 +22,7 @@
                     <div class="col-md-6 mt-5">
                         <div class="inline-container d-flex align-items-center flex-row">
                             <span class="d-inline-block content-section__description ui text size-textmd">
-                                <?php echo e($statistics->title); ?></span>
+                                <?php echo e(ucfirst($about->title)); ?></span>
                             <div class="ms-3 content-section__divider"></div>
                         </div>
                         <div class="services-section__content pt-1">
@@ -53,12 +54,14 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="content-section__column--secondary">
-                                    <p class="content-section__button pt-2 ui text size-btn_text">
-                                        <a class="text-decoration-none text-white" href="<?php echo e(route('contact')); ?>">CONTACT
-                                            US</a>
-                                    </p>
-                                </div>
+                                <a href="<?php echo e(route('contact')); ?>" style="text-decoration: none;">
+                                    <div style="cursor: pointer;" class="content-section__column--secondary">
+                                        <p style="margin-top: 50px"
+                                            class="content-section__button pt-2 ui text size-btn_text">
+                                            <span class="text-decoration-none text-white">CONTACT US</span>
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -162,7 +165,7 @@
                 <div class="container">
                     <div class="section__header">
                         <div class="section__header-row">
-                            <p class="section__title ui text size-btn_text">Clients</p>
+                            <p class="section__title ui text size-btn_text">Our Team</p>
                             <div class="section__divider"></div>
                         </div>
                         <h2 class="section__subtitle ui heading size-headings">

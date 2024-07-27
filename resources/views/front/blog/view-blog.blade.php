@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-
+@section('title', 'Blog Details' )
 @php
     use Illuminate\Support\Str;
 @endphp
@@ -26,9 +26,9 @@
 
                             <?php
                             $var = html_entity_decode($blog->description);
-                            
+
                             echo $var;
-                            
+
                             ?>
 
                         </div>

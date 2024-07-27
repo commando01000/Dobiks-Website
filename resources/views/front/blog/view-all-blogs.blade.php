@@ -1,4 +1,5 @@
 @extends('layouts.front.app')
+@section('title', 'Blog' )
 
 @php
     use Illuminate\Support\Str;

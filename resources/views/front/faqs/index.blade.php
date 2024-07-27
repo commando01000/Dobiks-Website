@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-
+@section('title', 'Faq')
 
 @section('content')
     <section id="faq" class="p-1 min-vh-100">

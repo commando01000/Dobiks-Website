@@ -1,4 +1,5 @@
 @extends('layouts.front.app')
+@section('title', 'Our Team' )
 
 @section('content')
     <section class="meet-our-leadership p-5 m-5">
