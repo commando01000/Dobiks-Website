@@ -18,7 +18,7 @@
 
 <div class="class-01-home">
     <div class="column_seven overflow-hidden">
-        <div class="column_two position-relative overflow-hidden">
+        <div class="column_two position-relative overflow-visible">
 
             <form class="home-form unactive ms-3 p-5" method="post" action="<?php echo e(route('contact_us.store')); ?>">
                 <?php echo csrf_field(); ?>
@@ -112,7 +112,7 @@
                                         <img src="<?php echo e(asset('assets/front_assets/images/img_header_logo.png')); ?>"
                                             alt="header logo" href="#header" style="height: 40px" />
                                     </a>
-                                    <div>
+                                    <div class="w-100 text-end">
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                                             aria-expanded="false" aria-label="Toggle navigation">

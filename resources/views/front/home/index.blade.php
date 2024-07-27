@@ -1,4 +1,5 @@
 @extends('layouts.front.app')
+@section('title', 'Home')
 
 @section('content')
     <!-- Content-Section -->

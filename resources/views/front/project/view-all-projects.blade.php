@@ -1,5 +1,7 @@
 @extends('layouts.front.app')
 
+@section('title', 'Projects')
+
 @section('content')
     <section id="projects">
         <div class="container-fluid ps-0 pe-0">

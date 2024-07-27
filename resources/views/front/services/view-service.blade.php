@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-
+@section('title', 'Services Details' )
 @section('content')
     <section id="services" class="w-100 mt-0 p-1 overflow-hidden">
         <main class="container-fluid ps-0 pe-0">
@@ -26,9 +26,9 @@
                                 <div class="service-detail content-section__description fs-6 w-100">
                                     <?php
                                     $var = html_entity_decode($service->description);
-                                    
+
                                     echo $var;
-                                    
+
                                     ?>
 
                                 </div>
@@ -39,7 +39,7 @@
                             <div class="service-image text-end">
                                 <?php
                                 $var = html_entity_decode($service->emdlink);
-                                
+
                                 echo $var;
                                 ?>
                             </div>

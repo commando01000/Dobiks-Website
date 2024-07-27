@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-
+@section('title', 'Services' )
 @section('content')
     <section id="projects" class="w-100 mt-0 p-1 overflow-hidden">
         <main class="container-fluid ps-0 pe-0">

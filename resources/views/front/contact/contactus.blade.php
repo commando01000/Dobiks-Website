@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-
+@section('title', 'Contact us' )
 <style>
     .message-container {
         position: fixed;
