@@ -25,7 +25,7 @@
     margin: 0 10px;
     border-radius: 20px;
     box-shadow: 0 30px 50px #505050;
-    /* background-position: 50% 50%; */
+    background-position: 50% 50%;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -313,6 +313,28 @@
     
     <?php echo $__env->make('front.leaderships.section-leadership', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
-<?php $__env->stopSection(); ?>
+
+    <?php $__env->stopSection(); ?>
+    <?php $__env->startSection('js'); ?>
+    <script>
+        let next = document.querySelector('.next');
+        let prev = document.querySelector('.prev');
+
+        next.addEventListener('click', function(){
+            let items = document.querySelectorAll('.item');
+            document.querySelector('.slide').appendChild(items[0]);
+        });
+
+        prev.addEventListener('click', function(){
+            let items = document.querySelectorAll('.item');
+            document.querySelector('.slide').prepend(items[items.length - 1]);
+        });
+
+        // Automatically move the slider every 3 seconds
+        setInterval(function() {
+            next.click();
+        }, 3000);
+    </script>
+    <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.front.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\company\backend\resources\views/front/home/index.blade.php ENDPATH**/ ?>
