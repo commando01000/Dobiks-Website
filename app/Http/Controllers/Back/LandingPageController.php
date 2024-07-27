@@ -504,6 +504,7 @@ class LandingPageController extends Controller
     {
         return view('back.landing-page.footer-setting');
     }
+
     public function footerSettingStore(Request $request)
     {
         if ($request->footer_setting_enable == 'on') {
@@ -528,6 +529,37 @@ class LandingPageController extends Controller
             return redirect()->back()->with('success', __('Footer setting disabled.'));
         }
     }
+
+    public function privacySetting(Request $request)
+    {
+        return view('back.landing-page.privacy-setting');
+    }
+
+    public function privacySettingStore(Request $request)
+    {
+        if ($request->privacy_setting_enable == 'on') {
+            request()->validate([
+                'privacy_description' => 'required',
+            ]);
+
+            $data = [
+                'privacy_setting_enable' => $request->privacy_setting_enable == 'on' ? 'on' : 'off',
+                'privacy_description' => $request->privacy_description,
+            ];
+            $this->updateSettings($data);
+            return redirect()->back()->with('success', __('privacy setting updated successfully.'));
+        } else {
+            $data = [
+                'privacy_setting_enable' => 'off',
+            ];
+            $arrEnv = [
+                'privacy_setting_enable' => 'off',
+            ];
+            $this->updateSettings($data);
+            return redirect()->back()->with('success', __('privacy setting disabled.'));
+        }
+    }
+
     public function testimonialsetting(Request $request)
     {
         return view('back.landing-page.testimonial-setting');
