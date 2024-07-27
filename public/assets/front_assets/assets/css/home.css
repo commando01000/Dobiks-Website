@@ -908,6 +908,11 @@ select:focus-visible {
         font-size: 30px !important;
         font-weight: 700 !important;
     }
+
+    iframe {
+        width: 300px !important;
+        height: 250px !important;
+    }
 }
 
 @media (min-width: 500px) {
