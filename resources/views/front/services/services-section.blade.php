@@ -41,33 +41,52 @@
     </div>
 </div>
 
-
 @section('js')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fetch data for the first category initially
             @if ($categories->isNotEmpty())
-                loadServices({{ $categories->first()->id }});
+                loadProjects({{ $categories->first()->id }});
             @endif
         });
 
+        <<
+        << << < HEAD
+
         function loadServices(categoryId, page = 1) {
             fetch(`/services/category/${categoryId}?page=${page}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Fetched data:', data); // Log the fetched data
+                .then(response => response.json()) ===
+                === =
+                function loadProjects(categoryId, page = 1) {
+                    fetch(`/services/category/${categoryId}?page=${page}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+                            return response.json();
+                        }) >>>
+                        >>> > origin / fixed27_service
+                        .then(data => {
+                            console.log('Fetched data:', data);
 
-                    let projectsList = document.getElementById('services-list');
-                    projectsList.innerHTML = '';
+                            let projectsList = document.getElementById('services-list');
+                            if (!projectsList) {
+                                console.error('Element "services-list" not found');
+                                return;
+                            }
+                            projectsList.innerHTML = '';
 
-                    baseUrl = "{{ url('/') }}";
-                    let row = document.createElement('div');
-                    row.classList.add('row');
-                    row.classList.add('w-100');
-                    row.classList.add('m-auto');
+                            let baseUrl = "{{ url('/') }}";
+                            let counter = 0;
 
-                    data.forEach((project, index) => {
-                        let projectItem = `
+                            let row;
+
+                            data.data.forEach((project, index) => {
+                                if (counter % 3 === 0) {
+                                    row = document.createElement('div');
+                                    row.classList.add('row', 'w-100', 'm-auto');
+                                }
+
+                                let projectItem = `
                         <div class="col-md-4 pb-3 mt-4"> <!-- Adjusted column class and margin bottom -->
                             <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" class="w-100 m-auto service">
                                 <a href="/services/${project.slug}" class="cursor-pointer d-block text-decoration-none">
@@ -79,134 +98,56 @@
                         </div>
                         `;
 
-                        // Append projectItem to row
-                        row.innerHTML += projectItem;
-                    });
+                                row.innerHTML += projectItem;
+                                counter++;
 
-                    // Append row to projectsList
-                    projectsList.appendChild(row);
+                                if (counter % 3 === 0 || counter === data.data.length) {
+                                    projectsList.appendChild(row);
+                                }
+                            });
 
-                    // Update pagination links
-                    let paginationLinks = document.getElementById('pagination-links');
-                    paginationLinks.innerHTML = ''; // Clear existing pagination
-
-                    if (data.links && data.links.length > 0) {
-                        let paginationHtml = '';
-
-                        // Previous Page Link
-                        if (data.current_page > 1) {
-                            paginationHtml +=
-                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
-                        } else {
-                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
-                        }
-
-                        // Pagination Elements
-                        data.links.forEach(link => {
-                            if (link.url) {
-                                paginationHtml +=
-                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
-                            } else {
-                                paginationHtml +=
-                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
+                            if (counter % 3 !== 0) {
+                                projectsList.appendChild(row);
                             }
+
+                            let paginationLinks = document.getElementById('pagination-links');
+                            paginationLinks.innerHTML = '';
+
+                            if (data.links && data.links.length > 0) {
+                                let paginationHtml = '';
+
+                                if (data.current_page > 1) {
+                                    paginationHtml +=
+                                        `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                                } else {
+                                    paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                                }
+
+                                data.links.forEach(link => {
+                                    if (link.url) {
+                                        paginationHtml +=
+                                            `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                                    } else {
+                                        paginationHtml +=
+                                            `<li class="disabled"><span class="">${link.label}</span></li>`;
+                                    }
+                                });
+
+                                if (data.current_page < data.last_page) {
+                                    paginationHtml +=
+                                        `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                                } else {
+                                    paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                                }
+
+                                paginationLinks.innerHTML = paginationHtml;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching Services:', error);
                         });
+                }
 
-                        // Next Page Link
-                        if (data.current_page < data.last_page) {
-                            paginationHtml +=
-                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
-                        } else {
-                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
-                        }
-
-                        paginationLinks.innerHTML = paginationHtml;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching projects:', error); // Log any errors
-                });
-        }
-
-        // Ensure that loadProjects is available globally
-        window.loadServices = loadServices;
+            window.loadProjects = loadProjects;
     </script>
 @endsection
-
-{{-- @section('js')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fetch data for the first category initially
-            @if ($categories->isNotEmpty())
-            loadServices({{ $categories->first()->id }});
-            @endif
-        });
-
-        function loadServices(categoryId) {
-            fetch(`/services/category/${categoryId}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Fetched data:', data); // Log the fetched data
-
-                    let projectsList = document.getElementById('services-list');
-                    projectsList.innerHTML = '';
-
-                    baseUrl = "{{ url('/') }}";
-                    let counter = 1; // Initialize a counter
-                    let row = document.createElement('div');
-                    row.classList.add('row');
-                    row.classList.add('w-100');
-                    row.classList.add('m-auto');
-
-                    data.forEach((project, index) => {
-                        let projectItem = `
-                        <div class="col-md-4 mt-4 ${index % 2 != 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/services/${project.slug}'" class="service">
-                                <div class="service-header d-flex justify-content-between">
-                                    <div class="service-number">
-                                        <p>${counter}</p>
-                                    </div>
-                                    <div class="category-name">
-                                        <p class="user-profile__role ui text size-texts ${index % 2 != 0 ? 'me-4' : ''}">
-                                            ${project.title}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="service__image ${index % 2 != 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                                </div>
-                                <div class="service-title mt-4">
-                                    ${project.title}
-                                </div>
-                            </div>
-                        </div>
-                        `;
-
-                        // Append projectItem to row
-                        row.innerHTML += projectItem;
-                        counter++; // Increment the counter
-
-                        // Append row to projectsList after every 3 items (for 3 columns in a row)
-                        if (counter % 3 === 1) {
-                            projectsList.appendChild(row);
-                            row = document.createElement('div');
-                            row.classList.add('row');
-                            row.classList.add('w-100');
-                            row.classList.add('m-auto');
-                        }
-                    });
-
-                    // Append the last row if it's not already added
-                    if (data.length % 3 !== 0) {
-                        projectsList.appendChild(row);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching projects:', error); // Log any errors
-                });
-        }
-
-        // Ensure that loadProjects is available globally
-        window.loadServices = loadServices;
-    </script>
-@endsection --}}
