@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-@section('title', 'Services' )
+@section('title', 'Services')
 @section('content')
     <section id="projects" class="w-100 mt-0 p-1 overflow-hidden">
         <main class="container-fluid ps-0 pe-0">
@@ -65,8 +65,8 @@
             @endif
         });
 
-        function loadProjects(categoryId) {
-            fetch(`/services/category/${categoryId}`)
+        function loadProjects(categoryId, page = 1) {
+            fetch(`/services/category/${categoryId}?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data
@@ -83,13 +83,14 @@
                     data.forEach((project, index) => {
                         let projectItem = `
                         <div class="col-md-4 pb-5 mt-4"> <!-- Adjusted column class and margin bottom -->
-                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
+                            <a href="/services/${project.slug}" style="display: block; min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" class="w-100 m-auto service">
                                 <div class="service__image text-center">
                                     <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                        `;
+                    `;
+
 
                         // Append projectItem to row
                         row.innerHTML += projectItem;
@@ -97,6 +98,43 @@
 
                     // Append row to projectsList
                     projectsList.appendChild(row);
+
+                    // Update pagination links
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = ''; // Clear existing pagination
+
+                    if (data.links && data.links.length > 0) {
+                        let paginationHtml = '';
+
+                        // Previous Page Link
+                        if (data.current_page > 1) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                        }
+
+                        // Pagination Elements
+                        data.links.forEach(link => {
+                            if (link.url) {
+                                paginationHtml +=
+                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                            } else {
+                                paginationHtml +=
+                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
+                            }
+                        });
+
+                        // Next Page Link
+                        if (data.current_page < data.last_page) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                        }
+
+                        paginationLinks.innerHTML = paginationHtml;
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching projects:', error); // Log any errors

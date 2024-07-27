@@ -45,7 +45,7 @@ class Services_frontController extends Controller
 
     public function getServicesByCategory($categoryId)
     {
-        $services = Service::where('service_category', $categoryId)->get();
+        $services = Service::where('service_category', $categoryId)->paginate(9);
         return response()->json($services);
     }
 }

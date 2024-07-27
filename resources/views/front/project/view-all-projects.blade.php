@@ -90,27 +90,24 @@
                         }
 
                         let projectItem = `
-                <div class="col-md-4 mt-4 ${(index - 1) % 3 == 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                    <div onclick="window.location.href = '/projects/${project.slug}'" class="service">
-                        <div class="service-header d-flex justify-content-between">
-                            <div class="service-number">
-                                <p>${counter + 1}</p>
-                            </div>
-                            <div class="category-name">
-                                <p class="user-profile__role ui text size-texts ${(index - 1) % 3 == 0 ? 'me-4' : ''}">
-                                    ${project.title}
-                                </p>
-                            </div>
+                        <div class="col-md-4 mt-4 ${(index - 1) % 3 == 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
+                            <a href="/projects/${project.slug}" class="service">
+                                <div class="service-header d-flex justify-content-between">
+                                    <div class="category-name">
+                                        <p class="user-profile__role ui text size-texts ${(index - 1) % 3 == 0 ? 'me-4' : ''}">
+                                            ${project.title}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="service__image ${(index - 1) % 3 == 0 ? 'text-center' : ''}">
+                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+                                </div>
+                                <div class="service-title text-white mt-4">
+                                    ${project.client}
+                                </div>
+                            </a>
                         </div>
-                        <div class="service__image ${(index - 1) % 3 == 0 ? 'text-center' : ''}">
-                            <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                        </div>
-                        <div class="service-title mt-4">
-                            ${project.client}
-                        </div>
-                    </div>
-                </div>
-                `;
+                    `;
 
                         row.innerHTML += projectItem;
                         counter++; // Increment the counter

@@ -31,6 +31,13 @@
                 <!-- Projects will be loaded here dynamically -->
             </div>
         </div>
+        <div class="w-100 paginatior mt-3">
+            <nav>
+                <ul class="pagination justify-content-center" id="pagination-links">
+                    <!-- Pagination links will be dynamically inserted here -->
+                </ul>
+            </nav>
+        </div>
     </div>
 </div>
 
@@ -44,8 +51,8 @@
             @endif
         });
 
-        function loadServices(categoryId) {
-            fetch(`/services/category/${categoryId}`)
+        function loadServices(categoryId, page = 1) {
+            fetch(`/services/category/${categoryId}?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data
@@ -76,6 +83,43 @@
 
                     // Append row to projectsList
                     projectsList.appendChild(row);
+
+                    // Update pagination links
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = ''; // Clear existing pagination
+
+                    if (data.links && data.links.length > 0) {
+                        let paginationHtml = '';
+
+                        // Previous Page Link
+                        if (data.current_page > 1) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                        }
+
+                        // Pagination Elements
+                        data.links.forEach(link => {
+                            if (link.url) {
+                                paginationHtml +=
+                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                            } else {
+                                paginationHtml +=
+                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
+                            }
+                        });
+
+                        // Next Page Link
+                        if (data.current_page < data.last_page) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                        }
+
+                        paginationLinks.innerHTML = paginationHtml;
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching projects:', error); // Log any errors

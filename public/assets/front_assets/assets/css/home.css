@@ -898,6 +898,10 @@ select:focus-visible {
         display: none;
     }
 
+    .navbar .navbar-brand {
+        display: none !important;
+    }
+
     #section-projects .section-projects .section-projects__content {
         align-items: center !important;
         justify-content: center !important;
@@ -922,6 +926,12 @@ select:focus-visible {
     }
 }
 
+@media (max-width: 500px) {
+    nav .container > div:first-of-type {
+        text-align: end !important;
+        width: 100% !important;
+    }
+}
 .home-form.unactive {
     left: 100%;
     transition: left 0.5s ease; /* Smooth transition */
@@ -2195,6 +2205,10 @@ select:focus-visible {
         text-align: center;
     }
 
+    .navbar .navbar-brand {
+        display: none !important;
+    }
+
     .navbar-nav .nav-item:last-child {
         display: none;
     }
@@ -2203,6 +2217,10 @@ select:focus-visible {
 @media (max-width: 993px) and (min-width: 500px) {
     .navbar-nav .nav-item:last-child {
         display: none;
+    }
+
+    .navbar .navbar-brand {
+        display: none !important;
     }
 
     nav .container > div:first-of-type {
@@ -2324,100 +2342,35 @@ select:focus-visible {
 /* Paginator */
 /* Paginator */
 
-.paginator {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    row-gap: 10px !important;
-    column-gap: 10px !important;
-}
-
 .pagination {
-    list-style: none !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 1rem !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adjust gap as needed */
 }
 
 .pagination li {
-    display: flex !important;
-    align-items: center !important;
+    list-style: none;
 }
 
 .pagination li a,
 .pagination li span {
-    color: #fff !important;
-    font-family: "DM Sans", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
-    text-decoration: none !important;
-}
-
-.pagination li a:hover {
-    text-decoration: underline !important;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: #fff; /* Adjust color as needed */
+    font-size: 16px; /* Adjust font size as needed */
 }
 
 .pagination li.active span {
-    color: #ff6c00 !important; /* Orange color */
-}
-
-.pagination li.disabled span {
-    color: #666666 !important; /* Gray color for disabled links */
-}
-
-.paginator {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    row-gap: 10px !important;
-    column-gap: 10px !important;
-}
-
-.pagination {
-    list-style: none !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 1rem !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.pagination li {
-    display: flex !important;
-    align-items: center !important;
-}
-
-.pagination li a,
-.pagination li span {
-    color: #fff !important;
-    font-family: "DM Sans", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
-    text-decoration: none !important;
+    color: #ff6c00; /* Orange color */
 }
 
 .pagination li a:hover {
-    text-decoration: underline !important;
-}
-
-.pagination li.active span {
-    color: #ff6c00 !important; /* Orange color */
+    color: #ff6c00; /* Orange color on hover */
 }
 
 .pagination li.disabled span {
-    color: #666666 !important; /* Gray color for disabled links */
-}
-
-.active > .page-link,
-.page-link.active {
-    z-index: 3;
-    color: white !important; /* Orange color */
-    background-color: #ff6c00 !important;
-    border-color: white !important;
+    color: #6c757d; /* Disabled color */
 }
 
 /* FAQ */
