@@ -198,14 +198,16 @@
             </div>
         </div>
     </footer>
-    <div class="clock">
-        <div class="clock__column">
-            <img src="{{ asset('assets/front_assets/images/img_polygon_1.svg') }}" alt="arrow image"
-                class="clock__icon--arrow-up" />
-            <img src="{{ asset('assets/front_assets/images/img_border.svg') }}" alt="border image"
-                class="clock__border" />
+    <a href="#">
+        <div class="clock">
+            <div class="clock__column">
+                <img src="{{ asset('assets/front_assets/images/img_polygon_1.svg') }}" alt="arrow image"
+                    class="clock__icon--arrow-up" />
+                <img src="{{ asset('assets/front_assets/images/img_border.svg') }}" alt="border image"
+                    class="clock__border" />
+            </div>
         </div>
-    </div>
+    </a>
 </div>
 </div>
 </div>

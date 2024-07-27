@@ -826,7 +826,6 @@ select:focus-visible {
     #projects-content.section-projects {
         gap: 0px !important;
     }
-    
 
     #section-clients .section__header h2 {
         font-size: 35px !important;
@@ -871,7 +870,7 @@ select:focus-visible {
 
 .home-form {
     z-index: 99999;
-    position: fixed;
+    position: absolute;
     top: 0px;
     left: 100%;
     width: 600px;
@@ -888,6 +887,10 @@ select:focus-visible {
 
     .home-form {
         width: 480px;
+    }
+
+    .navbar-nav .nav-item:last-child {
+        display: none;
     }
 
     #section-projects .section-projects .section-projects__content {
@@ -2181,6 +2184,17 @@ select:focus-visible {
         height: 120px;
         text-align: center;
     }
+
+    .navbar-nav .nav-item:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 993px) and (min-width: 500px) {
+
+    .navbar-nav .nav-item:last-child {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) and (min-width: 451px) {
@@ -2296,6 +2310,49 @@ select:focus-visible {
 /* Paginator */
 /* Paginator */
 
+.paginator {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    row-gap: 10px !important;
+    column-gap: 10px !important;
+}
+
+.pagination {
+    list-style: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.pagination li {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.pagination li a,
+.pagination li span {
+    color: #fff !important;
+    font-family: "DM Sans", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+}
+
+.pagination li a:hover {
+    text-decoration: underline !important;
+}
+
+.pagination li.active span {
+    color: #ff6c00 !important; /* Orange color */
+}
+
+.pagination li.disabled span {
+    color: #666666 !important; /* Gray color for disabled links */
+}
 
 .paginator {
     display: flex !important;
@@ -2341,60 +2398,13 @@ select:focus-visible {
     color: #666666 !important; /* Gray color for disabled links */
 }
 
-
-.paginator {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    row-gap: 10px !important;
-    column-gap: 10px !important;
-}
-
-.pagination {
-    list-style: none !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 1rem !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.pagination li {
-    display: flex !important;
-    align-items: center !important;
-}
-
-.pagination li a,
-.pagination li span {
-    color: #fff !important;
-    font-family: "DM Sans", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400 !important;
-    text-decoration: none !important;
-}
-
-.pagination li a:hover {
-    text-decoration: underline !important;
-}
-
-.pagination li.active span {
-    color: #ff6c00 !important; /* Orange color */
-}
-
-.pagination li.disabled span {
-    color: #666666 !important; /* Gray color for disabled links */
-}
-
-.active>.page-link, .page-link.active {
+.active > .page-link,
+.page-link.active {
     z-index: 3;
     color: white !important; /* Orange color */
     background-color: #ff6c00 !important;
     border-color: white !important;
 }
-
-
-
 
 /* FAQ */
 

@@ -18,7 +18,7 @@
 
 <div class="class-01-home">
     <div class="column_seven overflow-hidden">
-        <div class="column_two position-relative overflow-hidden">
+        <div class="column_two position-relative overflow-visible">
 
             <form class="home-form unactive ms-3 p-5" method="post" action="{{ route('contact_us.store') }}">
                 @csrf
