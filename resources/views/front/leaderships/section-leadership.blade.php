@@ -40,6 +40,16 @@
                         </p>
                     </a>
                 @endforeach
+                <div class="team-section__action-row d-none">
+                    <div class="section__feature-bg"></div>
+                    <div class="team-section__action-content">
+                        <p class="section__call-to-action-text ui text size-btn_text">
+                            <a class="text-white" href="{{ route('about-us') }}"> view all Leadership<a>
+                        </p>
+                        <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
+                            class="section__call-to-action-icon" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
