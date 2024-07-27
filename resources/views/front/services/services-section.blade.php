@@ -81,9 +81,11 @@
                         let projectItem = `
                         <div class="col-md-4 pb-5 mt-4">
                             <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
-                                <div class="service__image text-center">
-                                    <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image">
-                                </div>
+                                <a href="/services/${project.slug}" class="d-block text-decoration-none">
+                                    <div class="service__image text-center">
+                                        <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image">
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         `;
