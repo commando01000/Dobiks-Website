@@ -45,109 +45,99 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             @if ($categories->isNotEmpty())
-                loadProjects({{ $categories->first()->id }});
+                loadServices({{ $categories->first()->id }});
             @endif
         });
 
-        <<
-        << << < HEAD
-
         function loadServices(categoryId, page = 1) {
             fetch(`/services/category/${categoryId}?page=${page}`)
-                .then(response => response.json()) ===
-                === =
-                function loadProjects(categoryId, page = 1) {
-                    fetch(`/services/category/${categoryId}?page=${page}`)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            return response.json();
-                        }) >>>
-                        >>> > origin / fixed27_service
-                        .then(data => {
-                            console.log('Fetched data:', data);
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Fetched data:', data);
 
-                            let projectsList = document.getElementById('services-list');
-                            if (!projectsList) {
-                                console.error('Element "services-list" not found');
-                                return;
-                            }
-                            projectsList.innerHTML = '';
+                    let projectsList = document.getElementById('services-list');
+                    if (!projectsList) {
+                        console.error('Element "services-list" not found');
+                        return;
+                    }
+                    projectsList.innerHTML = '';
 
-                            let baseUrl = "{{ url('/') }}";
-                            let counter = 0;
+                    let baseUrl = "{{ url('/') }}";
+                    let counter = 0;
 
-                            let row;
+                    let row;
 
-                            data.data.forEach((project, index) => {
-                                if (counter % 3 === 0) {
-                                    row = document.createElement('div');
-                                    row.classList.add('row', 'w-100', 'm-auto');
-                                }
+                    data.data.forEach((project, index) => {
+                        if (counter % 3 === 0) {
+                            row = document.createElement('div');
+                            row.classList.add('row', 'w-100', 'm-auto');
+                        }
 
-                                let projectItem = `
-                        <div class="col-md-4 pb-3 mt-4"> <!-- Adjusted column class and margin bottom -->
-                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" class="w-100 m-auto service">
-                                <a href="/services/${project.slug}" class="cursor-pointer d-block text-decoration-none">
-                                    <div class="service__image text-center">
-                                        <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image">
-                                    </div>
-                                </a>
+                        let projectItem = `
+                        <div class="col-md-4 pb-5 mt-4">
+                            <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" onclick="window.location.href = '/services/${project.slug}'" class="w-100 m-auto service">
+                                <div class="service__image text-center">
+                                    <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image">
+                                </div>
                             </div>
                         </div>
                         `;
 
-                                row.innerHTML += projectItem;
-                                counter++;
+                        row.innerHTML += projectItem;
+                        counter++;
 
-                                if (counter % 3 === 0 || counter === data.data.length) {
-                                    projectsList.appendChild(row);
-                                }
-                            });
+                        if (counter % 3 === 0 || counter === data.data.length) {
+                            projectsList.appendChild(row);
+                        }
+                    });
 
-                            if (counter % 3 !== 0) {
-                                projectsList.appendChild(row);
+                    if (counter % 3 !== 0) {
+                        projectsList.appendChild(row);
+                    }
+
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = '';
+
+                    if (data.links && data.links.length > 0) {
+                        let paginationHtml = '';
+
+                        if (data.current_page > 1) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadServices(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                        }
+
+                        data.links.forEach(link => {
+                            if (link.url) {
+                                paginationHtml +=
+                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadServices(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                            } else {
+                                paginationHtml +=
+                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
                             }
-
-                            let paginationLinks = document.getElementById('pagination-links');
-                            paginationLinks.innerHTML = '';
-
-                            if (data.links && data.links.length > 0) {
-                                let paginationHtml = '';
-
-                                if (data.current_page > 1) {
-                                    paginationHtml +=
-                                        `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
-                                } else {
-                                    paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
-                                }
-
-                                data.links.forEach(link => {
-                                    if (link.url) {
-                                        paginationHtml +=
-                                            `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
-                                    } else {
-                                        paginationHtml +=
-                                            `<li class="disabled"><span class="">${link.label}</span></li>`;
-                                    }
-                                });
-
-                                if (data.current_page < data.last_page) {
-                                    paginationHtml +=
-                                        `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
-                                } else {
-                                    paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
-                                }
-
-                                paginationLinks.innerHTML = paginationHtml;
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error fetching Services:', error);
                         });
-                }
 
-            window.loadProjects = loadProjects;
+                        if (data.current_page < data.last_page) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadServices(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                        }
+
+                        paginationLinks.innerHTML = paginationHtml;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching Services:', error);
+                });
+        }
+
+        window.loadServices = loadServices;
     </script>
 @endsection
