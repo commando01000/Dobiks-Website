@@ -1,6 +1,6 @@
 @extends('layouts.front.app')
 
-@section('title', 'Projects')
+@section('title', 'Privacy & Policy')
 
 
 @section('content')
@@ -18,3 +18,4 @@
             </div>
         </main>
     </section>
+@endsection

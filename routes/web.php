@@ -412,6 +412,14 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('leadership', [LeadershipController::class, 'index'])->name('front.leadership.index');
     Route::post('join/store', [JoinController::class, 'store'])->name('join.store');
 
+    Route::get('policy', function () {
+        return view('front.policy.index');
+    })->name('policy');
+
+    Route::get('coming-soon', function () {
+        return view('front.coming-soon.index');
+    })->name('coming-soon');
+
     Route::get('pages/{slug}', [Pages_frontController::class, 'index']);
     Route::get('projects/{slug}/', [Project_frontController::class, 'viewProject'])->name('view.project');
     Route::get('projects', [Project_frontController::class, 'seeAllProjects'])->name('see.all.projects');
