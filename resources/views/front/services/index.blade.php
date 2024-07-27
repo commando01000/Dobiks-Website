@@ -95,7 +95,7 @@
                             <div style="min-height: 300px; text-align: center; max-height: 400px; max-width: 414px" class="w-100 m-auto service">
                                 <a href="/services/${project.slug}" class="cursor-pointer d-block text-decoration-none">
                                     <div class="service__image text-center">
-                                        <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="image">
+                                        <img class="object-fit-cover" src="${baseUrl}/storage/app/${project.cover}" alt="${project.title}">
                                     </div>
                                 </a>
                             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-@section('title', 'Our Team' )
+@section('title', 'Our Team')
 
 @section('content')
     <section class="meet-our-leadership p-5 m-5">
@@ -21,7 +21,7 @@
                     <div class="col-md-3">
                         <a href="{{ route('team-details', $leadership->id) }}" class="user-profile"
                             style="cursor: pointer;">
-                            <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
+                            <img src="{{ Storage::url($leadership->photo) }}" alt="{{ $leadership->name }}"
                                 class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
                             <p class="user-profile__name ui text size-textxl">
                                 {{ $leadership->name }}

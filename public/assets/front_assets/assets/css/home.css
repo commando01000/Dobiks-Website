@@ -1290,6 +1290,10 @@ select:focus-visible {
         padding: 0 15px;
     }
 
+    .footer__stack__row__eight__row__link-row {
+        margin-left: 0px !important;
+    }
+
     .content-section__column--secondary {
         width: 140px !important;
         line-height: 20px;

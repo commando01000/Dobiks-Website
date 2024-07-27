@@ -75,9 +75,10 @@
 
 $(document).ready(function () {
     $("#projects-content .nav-link").on("click", function () {
-        $("#projects-content .nav-link").removeClass("active"); // Remove active class from all nav links
+        $("#projects-content .nav-link").removeClass("active"); // Remove active class from all nav links in projects section
         $(this).addClass("active"); // Add active class to the clicked nav link
-        // Animate the circle to the clicked nav link within projects content
+
+        // Animate the circle within the clicked nav link
         $(this)
             .find(".circle")
             .css({
@@ -86,9 +87,10 @@ $(document).ready(function () {
     });
 
     $("#section-clients .nav-link").on("click", function () {
-        $("#section-clients .nav-link").removeClass("active"); // Remove active class from all nav links
+        $("#section-clients .nav-link").removeClass("active"); // Remove active class from all nav links in clients section
         $(this).addClass("active"); // Add active class to the clicked nav link
-        // Animate the circle to the clicked nav link within clients content
+
+        // Animate the circle within the clicked nav link
         $(this)
             .find(".circle")
             .css({
@@ -97,9 +99,10 @@ $(document).ready(function () {
     });
 
     $("#section-projects .nav-link").on("click", function () {
-        $("#section-projects .nav-link").removeClass("active"); // Remove active class from all nav links
+        $("#section-projects .nav-link").removeClass("active"); // Remove active class from all nav links in projects section
         $(this).addClass("active"); // Add active class to the clicked nav link
-        // Animate the circle to the clicked nav link within projects content
+
+        // Animate the circle within the clicked nav link
         $(this)
             .find(".circle")
             .css({

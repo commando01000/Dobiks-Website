@@ -30,7 +30,7 @@
                 @foreach ($leaderships as $leadership)
                     <a href="{{ route('team-details', $leadership->id) }}" class="user-profile"
                         style="cursor: pointer;">
-                        <img src="{{ Storage::url($leadership->photo) }}" alt="profile image"
+                        <img src="{{ Storage::url($leadership->photo) }}" alt="{{ $leadership->name }}"
                             class="user-profile__image @if ($loop->index % 2 != 0) pt-4 @endif">
                         <p class="user-profile__name ui text size-textxl">
                             {{ $leadership->name }}

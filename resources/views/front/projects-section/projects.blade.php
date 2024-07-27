@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="service__image ${(index - 1) % 3 == 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
+                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="${project.title}"}"> <!-- Assuming project.cover is the URL -->
                                 </div>
                                 <div class="service-title mt-4">
                                     ${project.client}
