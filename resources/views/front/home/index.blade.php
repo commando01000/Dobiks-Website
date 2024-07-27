@@ -1,99 +1,91 @@
 @extends('layouts.front.app')
 @section('title', 'Home')
 @section('style')
-<style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
+    <style>
+        .slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+        }
 
+        .item {
+            width: 200px;
+            height: 300px;
+            margin: 0 10px;
+            border-radius: 20px;
+            /* box-shadow: 0 30px 50px #505050; */
+            background-position: 50% 50%;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s;
+        }
 
+        .item .content {
+            text-align: center;
+            color: #fff;
+            font-family: system-ui;
+            display: none;
+            /* Hide content by default */
+        }
 
+        .item:nth-child(2) .content {
+            display: block;
+            /* Display content for the second item */
+        }
 
+        .content .name {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
 
-    .slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    position: relative;
-    }
+        .content .des {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
 
-    .item {
-    width: 200px;
-    height: 300px;
-    margin: 0 10px;
-    border-radius: 20px;
-    box-shadow: 0 30px 50px #505050;
-    background-position: 50% 50%;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-    }
+        .content button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+            border-radius: 5px;
+        }
 
-    .item .content {
-    text-align: center;
-    color: #fff;
-    font-family: system-ui;
-    display: none; /* Hide content by default */
-    }
+        .button {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+        }
 
-    .item:nth-child(2) .content {
-    display: block; /* Display content for the second item */
-    }
+        .button button {
+            width: 40px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 5px;
+            border: 1px solid #000;
+            transition: 0.3s;
+        }
 
-    .content .name {
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    }
+        .button button:hover {
+            background: #ababab;
+            color: #fff;
+        }
 
-    .content .des {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    }
-
-    .content button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    background-color: #000;
-    color: #fff;
-    border-radius: 5px;
-    }
-
-    .button {
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    bottom: 20px;
-    }
-
-    .button button {
-    width: 40px;
-    height: 35px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 0 5px;
-    border: 1px solid #000;
-    transition: 0.3s;
-    }
-
-    .button button:hover {
-    background: #ababab;
-    color: #fff;
-    }
-
-    #overall-man {
-    z-index: 100;
-    position: absolute;
-    width: 200px;
-    right: 30%;
-    top: 50%;
-    }
+        #overall-man {
+            z-index: 100;
+            position: absolute;
+            width: 200px;
+            right: 30%;
+            top: 50%;
+        }
     </style>
 
 @endsection
@@ -249,60 +241,69 @@
             </div>
         </div>
     </div>
-    </div>
 
 
-        <div class="container">
-            <div class="slide">
-
-                <div class="item" style="background-image: url(https://i.ibb.co/qCkd9jS/img1.jpg);">
-                    <div class="content">
-                        <div class="name">Switzerland</div>
-                        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                        <button>See More</button>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(https://i.ibb.co/jrRb11q/img2.jpg);">
-                    <div class="content">
-                        <div class="name">Finland</div>
-                        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                        <button>See More</button>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(https://i.ibb.co/NSwVv8D/img3.jpg);">
-                    <div class="content">
-                        <div class="name">Iceland</div>
-                        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                        <button>See More</button>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(https://i.ibb.co/Bq4Q0M8/img4.jpg);">
-                    <div class="content">
-                        <div class="name">Australia</div>
-                        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                        <button>See More</button>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(https://i.ibb.co/jTQfmTq/img5.jpg);">
-                    <div class="content">
-                        <div class="name">Netherland</div>
-                        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                        <button>See More</button>
-                    </div>
-                </div>
-                <div class="item" style="background-image: url(https://i.ibb.co/RNkk6L0/img6.jpg);">
-                    <div class="content">
-                        <div class="name">Ireland</div>
-                        <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
-                        <button>See More</button>
-                    </div>
-                </div>
-            </div>
-            <div class="button">
-                <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-                <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    <div class="slide">
+        <div class="item" style="background-image: url(https://i.ibb.co/qCkd9jS/img1.jpg);">
+            <div class="content">
+                <div class="name">Switzerland</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
             </div>
         </div>
+        <div class="item" style="background-image: url(https://i.ibb.co/jrRb11q/img2.jpg);">
+            <div class="content">
+                <div class="name">Finland</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.ibb.co/NSwVv8D/img3.jpg);">
+            <div class="content">
+                <div class="name">Iceland</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.ibb.co/Bq4Q0M8/img4.jpg);">
+            <div class="content">
+                <div class="name">Australia</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.ibb.co/jTQfmTq/img5.jpg);">
+            <div class="content">
+                <div class="name">Netherland</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="item" style="background-image: url(https://i.ibb.co/RNkk6L0/img6.jpg);">
+            <div class="content">
+                <div class="name">Ireland</div>
+                <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                <button>See More</button>
+            </div>
+        </div>
+        <div class="button">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        {{-- <div class="d-flex flex-row">
+            <div class="button">
+                <button style="width: 100px; height: 100px" class="slider-navigation__icon--prev carousel-control-prev">
+                    <img src="{{ asset('assets/front_assets/images/img_arrow_left.svg') }}">
+                </button>
+            </div>
+            <br>
+            <div class="button">
+                <button style="width: 100px; height: 100px" class="slider-navigation__icon--next carousel-control-next">
+                    <img src="{{ asset('assets/front_assets/images/img_arrow_right_blue_gray_100.svg') }}">
+                </button>
+            </div>
+        </div> --}}
+    </div>
 
     <!-- Section-Projects -->
     @include('front.projects-section.projects')

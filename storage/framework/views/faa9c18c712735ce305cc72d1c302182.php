@@ -122,6 +122,14 @@
                                                     </p>
                                                 </a>
                                             </li>
+
+                                            <li>
+                                                <a href="<?php echo e(route('PrivacyPolicy')); ?>">
+                                                    <p class="footer__quick-link--about ui text size-texts">
+                                                        Privacy & Policys
+                                                    </p>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6 footer__stack__row__eight__column__row__social-media">
@@ -201,14 +209,16 @@
             </div>
         </div>
     </footer>
-    <div class="clock">
-        <div class="clock__column">
-            <img src="<?php echo e(asset('assets/front_assets/images/img_polygon_1.svg')); ?>" alt="arrow image"
-                class="clock__icon--arrow-up" />
-            <img src="<?php echo e(asset('assets/front_assets/images/img_border.svg')); ?>" alt="border image"
-                class="clock__border" />
+    <a href="#">
+        <div class="clock">
+            <div class="clock__column">
+                <img src="<?php echo e(asset('assets/front_assets/images/img_polygon_1.svg')); ?>" alt="arrow image"
+                    class="clock__icon--arrow-up" />
+                <img src="<?php echo e(asset('assets/front_assets/images/img_border.svg')); ?>" alt="border image"
+                    class="clock__border" />
+            </div>
         </div>
-    </div>
+    </a>
 </div>
 </div>
 </div>
