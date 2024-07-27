@@ -97,7 +97,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("#section-projects .nav-link").on("click", function () {
-        $("#section-clients .nav-link").removeClass("active"); // Remove active class from all nav links
+        $("#section-projects .nav-link").removeClass("active"); // Remove active class from all nav links
         $(this).addClass("active"); // Add active class to the clicked nav link
         // Animate the circle to the clicked nav link
         $(".circle").css({
