@@ -13,6 +13,7 @@ use App\Models\Faq;
 use App\Models\Leadership;
 use App\Models\MenuSetting;
 use App\Models\ProjectCategory;
+use App\Models\Slider;
 use App\Models\Testimonial;
 
 
@@ -26,7 +27,8 @@ class Home_frontController extends Controller
         $leaderships = Leadership::orderBy('created_at', 'desc')->take(3)->get();
         $clients = Client::take(6)->get();
         $clientCategory = ClientCategory::with('clients')->take(6)->get();
-        return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients', 'clientCategory'));
+        $sliders = Slider::all();
+        return view('front.home.index', compact('projects', 'leaderships', 'categories', 'clients', 'clientCategory', 'sliders'));
     }
     public function getProjectsByCategory($categoryId)
     {

@@ -155,15 +155,18 @@
                             data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <!-- First carousel item with your existing content -->
-                                <div class="carousel-item active">
+                                @foreach($sliders->chunk(4) as $chunk)
+                                <div class="carousel-item @if($loop->first) active @endif ">
                                     <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="row gy-4">
+                                                @foreach($chunk as $slider)
                                                 <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_3.png') }}"
-                                                        alt="">
+                                                    <img src="{{ Storage::url($slider->image) }}"
+                                                        alt="{{ $slider->title }}">
                                                 </div>
-                                                <div class="col-md-3">
+                                                @endforeach
+                                                {{-- <div class="col-md-3">
                                                     <img src="{{ asset('assets/front_assets/images/img_rectangle_3_864x474.png') }}"
                                                         alt="">
                                                 </div>
@@ -174,12 +177,13 @@
                                                 <div class="col-md-3">
                                                     <img src="{{ asset('assets/front_assets/images/img_rectangle_7.png') }}"
                                                         alt="">
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
+                                @endforeach
+                                {{-- <div class="carousel-item">
                                     <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="row gy-4">
@@ -226,7 +230,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="d-flex pt-2 w-100 justify-content-between carousel-buttons flex-row">
                                 <div>
