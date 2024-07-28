@@ -985,7 +985,8 @@ select:focus-visible {
     opacity: 0.3;
 }
 
-.clock:hover, .clock__icon--arrow-up {
+.clock:hover,
+.clock__icon--arrow-up {
     opacity: 0.8 !important;
     color: white !important;
 }
@@ -1351,7 +1352,7 @@ select:focus-visible {
 /* Footer End CSS */
 
 .clock {
-    width: 5%;
+    /* width: 5%; */
     display: flex;
     justify-content: flex-end;
     position: absolute;

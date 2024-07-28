@@ -179,7 +179,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
+                                {{-- <div class="carousel-item">
                                     <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="row gy-4">
@@ -226,7 +226,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="d-flex pt-2 w-100 justify-content-between carousel-buttons flex-row">
                                 <div>
