@@ -36,7 +36,7 @@
                             <h1 class="content-section__title fs-4 ">Client</h1>
                         </div>
                         <div class="description d-flex w-100 justify-content-center">
-                            <div>
+                            <div class="text-center">
                                 <p class="content-section__description fs-6">
                                     {{ $project->client }}
                                 </p>

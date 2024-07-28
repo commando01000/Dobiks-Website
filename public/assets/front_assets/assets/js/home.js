@@ -109,6 +109,7 @@ $(document).ready(function () {
                 left: $(this).position().left,
             });
     });
+    
     // $(".content-section .navigation__column--right").on("click", function () {
     //     if ($(".home-form").hasClass("unactive")) {
     //         $(".home-form").removeClass("unactive").addClass("active");
