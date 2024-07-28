@@ -75,7 +75,7 @@
                                         background-color: #1a1a1a;
                                     " >
                                 <div class="card-image w-100 h-100">
-                                        <img class="w-100" src="${baseUrl}/storage/app/${client.cover}" alt="client-logo"> <!-- Assuming client.logo is the URL -->
+                                        <img class="w-100" src="${baseUrl}/storage/app/${client.cover}" alt="${client.name}"> <!-- Assuming client.logo is the URL -->
                                 </div>
                             </div>
                         </div>`;
