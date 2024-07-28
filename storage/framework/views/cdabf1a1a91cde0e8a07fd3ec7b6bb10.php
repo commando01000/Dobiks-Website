@@ -107,10 +107,10 @@
                     <div class="columnheaderlog">
                         <header id="header" class="header">
                             <nav class="navbar w-100 shadow navbar-expand-lg">
-                                <div class="container flex-row flex-nowrap overflow-hidden">
+                                <div class="container flex-row flex-nowrap align-items-start overflow-hidden">
                                     <a class="navbar-brand" href="#">
                                         <img src="<?php echo e(asset('assets/front_assets/images/img_header_logo.png')); ?>"
-                                            alt="header logo" href="#header" style="height: 40px" />
+                                            alt="header logo" href="#header" style="height: 40px !important" />
                                     </a>
                                     <div>
                                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -118,10 +118,11 @@
                                             aria-expanded="false" aria-label="Toggle navigation">
                                             <span class="navbar-toggler-icon"></span>
                                         </button>
-                                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                        <div class="collapse navbar-collapse"
+                                            id="navbarNavDropdown">
                                             <ul class="navbar-nav header__nav-list me-auto mb-2 mb-lg-0">
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--home ui text size-texts"
+                                                    <a class="nav-link nav-list__item--home ui text size-texts <?php echo e(Route::is('homepage') ? 'active' : ''); ?>"
                                                         href="<?php echo e(route('homepage')); ?>">Home</a>
                                                 </li>
                                                 <li class="nav-item">
@@ -129,7 +130,7 @@
                                                         href="<?php echo e(route('about-us')); ?>">About Dopiks</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts"
+                                                    <a class="nav-link nav-list__item--about ui text size-texts <?php echo e(Route::is('front.leadership.index') ? 'active' : ''); ?>"
                                                         href="<?php echo e(route('front.leadership.index')); ?>">Our Team</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
@@ -146,7 +147,7 @@
                                                 </li>
                                                 <li class="nav-item">
                                                     <a href="<?php echo e(route('see.all.clients')); ?>"
-                                                        class="nav-link nav-list__item--about ui text size-text <?php echo e(Route::is('our-clients') ? 'active' : ''); ?>">Our
+                                                        class="nav-link nav-list__item--about ui text size-text <?php echo e(Route::is('see.all.clients') ? 'active' : ''); ?>">Our
                                                         clients</a>
                                                 </li>
                                                 <li class="nav-item">

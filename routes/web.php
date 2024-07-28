@@ -32,6 +32,7 @@ use App\Http\Controllers\Back\LandingPageController;
 use App\Http\Controllers\Back\LeadrshipController;
 use App\Http\Controllers\Back\ServiceCategoryController;
 use App\Http\Controllers\Back\ServiceController;
+use App\Http\Controllers\Back\SliderController;
 use App\Http\Controllers\Back\StatisticController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\Front\Home_frontController;
@@ -106,6 +107,12 @@ Route::group([
         Route::resource('cp/projects', ProjectController::class);
         Route::resource('cp/project-category', ProjectCategoryController::class);
         Route::post('cp/projectcategory-status/{id}', [ProjectCategoryController::class, 'projectCategoryStatus'])->name('projectcategory.status');
+    });
+    //sliders
+    
+    Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {
+        Route::resource('cp/sliders', SliderController::class);
+
     });
     //services
     Route::group(['middleware' => ['auth', 'Setting', 'verified', '2fa', 'verified_phone', 'Upload']], function () {

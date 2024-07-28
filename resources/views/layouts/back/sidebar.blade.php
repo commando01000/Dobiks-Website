@@ -72,6 +72,14 @@
                         </a>
                     </li>
                 @endcanany
+                <li class="dash-item dash-hasmenu {{ request()->is('sliders*') ? 'active' : '' }}">
+                    <a class="dash-link" href="{{ route('sliders.index') }}">
+                        <span class="dash-micon">
+                            <i class="ti ti-world"></i>
+                        </span>
+                        <span class="dash-mtext">{{ __('Sliders') }}</span>
+                    </a>
+                </li>
                 <li class="dash-item dash-hasmenu {{ request()->is('statistics*') ? 'active' : '' }}">
                     <a class="dash-link" href="{{ route('statistics.index') }}">
                         <span class="dash-micon">

@@ -72,6 +72,14 @@
                         </a>
                     </li>
                 <?php endif; ?>
+                <li class="dash-item dash-hasmenu <?php echo e(request()->is('sliders*') ? 'active' : ''); ?>">
+                    <a class="dash-link" href="<?php echo e(route('sliders.index')); ?>">
+                        <span class="dash-micon">
+                            <i class="ti ti-world"></i>
+                        </span>
+                        <span class="dash-mtext"><?php echo e(__('Sliders')); ?></span>
+                    </a>
+                </li>
                 <li class="dash-item dash-hasmenu <?php echo e(request()->is('statistics*') ? 'active' : ''); ?>">
                     <a class="dash-link" href="<?php echo e(route('statistics.index')); ?>">
                         <span class="dash-micon">
