@@ -26,8 +26,8 @@
                     <div class="row gy-3 justify-content-center align-items-center">
                         <div class="col-md-12 text-center">
                             <div class="form-header d-flex justify-content-between">
-                                <img class="w-50" src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
-                                    alt="logo">
+                                <img class="w-50"
+                                    src="{{ asset('assets/front_assets/images/img_header_logo.png') }}" alt="logo">
                                 <i style="color: white; font-size: 30px; text-align: end; cursor: pointer"
                                     class="fa-regular fa-circle-xmark"></i>
                             </div>
@@ -108,7 +108,7 @@
                         <header id="header" class="header">
                             <nav class="navbar w-100 shadow navbar-expand-lg">
                                 <div class="container flex-row flex-nowrap align-items-start overflow-hidden">
-                                    <a class="navbar-brand" href="#">
+                                    <a href="{{ route('homepage') }}" class="navbar-brand" href="#">
                                         <img src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
                                             alt="header logo" href="#header" style="height: 40px !important" />
                                     </a>
@@ -118,8 +118,7 @@
                                             aria-expanded="false" aria-label="Toggle navigation">
                                             <span class="navbar-toggler-icon"></span>
                                         </button>
-                                        <div class="collapse navbar-collapse"
-                                            id="navbarNavDropdown">
+                                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                             <ul class="navbar-nav header__nav-list me-auto mb-2 mb-lg-0">
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--home ui text size-texts {{ Route::is('homepage') ? 'active' : '' }}"

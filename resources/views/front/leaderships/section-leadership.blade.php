@@ -1,5 +1,5 @@
     <div class="row_seven">
-        <div class="team-section">
+        <div class="team-section w-100">
             <div class="team-section__header">
                 <div class="section__header">
                     <div class="section__header-row">
