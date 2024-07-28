@@ -1347,6 +1347,14 @@ select:focus-visible {
     .footer__social-chip--marketing {
         width: 100%;
     }
+
+    .big-carousel-section {
+        display: none !important;
+    }
+
+    .big-carousel-section-phone {
+        display: block !important;
+    }
 }
 
 /* Footer End CSS */
@@ -2497,3 +2505,9 @@ select:focus-visible {
 }
 
 /* End navbar toggler icon */
+
+/* Big Carousel Home */
+
+
+
+/* End Big Carousel Home */

@@ -166,71 +166,11 @@
                                                                 alt="{{ $slider->title }}">
                                                         </div>
                                                     @endforeach
-                                                    {{-- <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_3_864x474.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_4.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_7.png') }}"
-                                                        alt="">
-                                                </div> --}}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-                                {{-- <div class="carousel-item">
-                                    <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="row gy-4">
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_6.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_7.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_3.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_3_864x474.png') }}"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="row gy-4">
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_4.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_6.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_5.png') }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('assets/front_assets/images/img_rectangle_3.png') }}"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                             <div class="d-flex pt-2 w-100 justify-content-between carousel-buttons flex-row">
                                 <div>
@@ -244,6 +184,50 @@
                                     <button style="width: 120px; height: 120px; border-radius: 60px; cursor: pointer;"
                                         class="slider-navigation__icon--next carousel-control-next" type="button"
                                         data-bs-slide="next" data-bs-target="#carouselExample2Autoplaying">
+                                        <img
+                                            src="{{ asset('assets/front_assets/images/img_arrow_right_blue_gray_100.svg') }}">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="big-carousel-section-phone d-none">
+                    <div class="container-fluid">
+                        <div id="carouselExample3Autoplaying"
+                            class="carousel slide d-flex flex-column justify-content-center align-items-center"
+                            data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- First carousel item with your existing content -->
+                                @foreach ($sliders->chunk(1) as $chunk)
+                                    <div class="carousel-item @if ($loop->first) active @endif ">
+                                        <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="row gy-4">
+                                                    @foreach ($chunk as $slider)
+                                                        <div class="col-md-3">
+                                                            <img src="{{ Storage::url($slider->image) }}"
+                                                                alt="{{ $slider->title }}">
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="d-flex pt-2 w-100 justify-content-between carousel-buttons flex-row">
+                                <div>
+                                    <button style="width: 120px; height: 120px; border-radius: 60px; cursor: pointer;"
+                                        class="slider-navigation__icon--prev carousel-control-prev" type="button"
+                                        data-bs-slide="prev" data-bs-target="#carouselExample3Autoplaying">
+                                        <img src="{{ asset('assets/front_assets/images/img_arrow_left.svg') }}">
+                                    </button>
+                                </div>
+                                <div class="ps-2">
+                                    <button style="width: 120px; height: 120px; border-radius: 60px; cursor: pointer;"
+                                        class="slider-navigation__icon--next carousel-control-next" type="button"
+                                        data-bs-slide="next" data-bs-target="#carouselExample3Autoplaying">
                                         <img
                                             src="{{ asset('assets/front_assets/images/img_arrow_right_blue_gray_100.svg') }}">
                                     </button>
