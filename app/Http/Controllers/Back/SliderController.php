@@ -24,7 +24,7 @@ class SliderController extends Controller
     {
         $validation = $request->validate([
             'title' => 'string|max:255|nullable',
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+            'image' => 'required|image|mimes:jpg,png,jpeg,webp,svg',
 
         ]);
 
@@ -49,7 +49,7 @@ class SliderController extends Controller
     {
         $validation = $request->validate([
             'title' => 'string|max:255|nullable',
-            'image' => 'image|mimes:jpg,png,jpeg|max:2048', // Adjust max size as needed
+            'image' => 'image|mimes:jpg,png,jpeg,webp,svg', // Adjust max size as needed
 
         ]);
         $slider = Slider::find($id);

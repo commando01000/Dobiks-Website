@@ -155,78 +155,24 @@
                             data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <!-- First carousel item with your existing content -->
-                                <div class="carousel-item active">
+                                <?php $__currentLoopData = $sliders->chunk(4); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="carousel-item <?php if($loop->first): ?> active <?php endif; ?> ">
                                     <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
                                         <div class="col-md-12 col-sm-12">
                                             <div class="row gy-4">
+                                                <?php $__currentLoopData = $chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slider): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3.png')); ?>"
-                                                        alt="">
+                                                    <img src="<?php echo e(Storage::url($slider->image)); ?>"
+                                                        alt="<?php echo e($slider->title); ?>">
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3_864x474.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_4.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_7.png')); ?>"
-                                                        alt="">
-                                                </div>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="row gy-4">
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_6.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_7.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3_864x474.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div style="z-index: 99999" class="row flex-wrap gy-2 align-items-center">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="row gy-4">
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_4.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_6.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_5.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo e(asset('assets/front_assets/images/img_rectangle_3.png')); ?>"
-                                                        alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                
                             </div>
                             <div class="d-flex pt-2 w-100 justify-content-between carousel-buttons flex-row">
                                 <div>
