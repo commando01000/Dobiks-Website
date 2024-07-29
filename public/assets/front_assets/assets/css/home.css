@@ -385,7 +385,7 @@ select:focus-visible {
     color: var(--white) !important;
     font-size: 40px;
     font-weight: 700;
-    line-height: 88px;
+    /* line-height: 88px; */
 }
 
 .content-section__sub-section {
@@ -1293,6 +1293,17 @@ select:focus-visible {
     .footer__social-chip--marketing {
         width: 100%;
     }
+
+    #carouselExample3Autoplaying button {
+        width: 100px !important;
+        height : 100px !important;
+    }
+    #carouselExample3Autoplaying .carousel-item {
+        height: 600px !important;
+    }
+    #carouselExample3Autoplaying .carousel-item img {
+        object-fit: cover !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -2187,7 +2198,7 @@ select:focus-visible {
         width: 140px;
         border-radius: 50%;
         border: 1px solid var(--blue_gray_100);
-        height: 120px;
+        height: 140px;
         text-align: center;
     }
 }
