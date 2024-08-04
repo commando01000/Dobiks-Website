@@ -139,13 +139,13 @@
                                                         data-bs-toggle="dropdown" aria-expanded="false">
                                                         Services
                                                     </a>
-                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         @foreach ($services as $service)
                                                             <li><a class="dropdown-item"
                                                                     href="{{ route('view.service', $service->slug) }}">{{ $service->title }}</a>
                                                             </li>
                                                         @endforeach
-                                                    </ul>
+                                                    </ul> --}}
                                                 </li>
 
                                                 <li class="nav-item">
