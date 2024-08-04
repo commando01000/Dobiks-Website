@@ -1296,7 +1296,7 @@ select:focus-visible {
 
     #carouselExample3Autoplaying button {
         width: 100px !important;
-        height : 100px !important;
+        height: 100px !important;
     }
     #carouselExample3Autoplaying .carousel-item {
         height: 600px !important;
@@ -2349,11 +2349,22 @@ select:focus-visible {
 
 @media (max-width: 768px) and (min-width: 300px) {
     .team-section__header {
-        margin-top: 78px;
+        margin-top: 0px !important;
         gap: var(--space-7xl);
         display: flex;
         width: 100% !important;
         flex-direction: column;
+    }
+    .content-section {
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    .project-content .content-section__title {
+        text-align: center !important;
+    }
+    #section-clients.section {
+        margin-top: 0px !important;
     }
     #projects .row {
         width: 100% !important;
@@ -2371,9 +2382,8 @@ select:focus-visible {
         flex-direction: column !important;
     }
 
-    .content-section {
-        padding: 0px !important;
-        margin: 0px !important;
+    #section-projects.column_three {
+        padding-top: 0px !important;
     }
 
     .faq-accordion .row {
@@ -2518,7 +2528,5 @@ select:focus-visible {
 /* End navbar toggler icon */
 
 /* Big Carousel Home */
-
-
 
 /* End Big Carousel Home */

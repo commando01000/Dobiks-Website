@@ -57,9 +57,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="title">
-                            <h1 class="content-section__title fs-4 text-center">Marketing Country</h1>
+                            <h1 class="content-section__title fs-4">Marketing Country</h1>
                         </div>
-                        <div class="description d-flex ms-5 ps-5 justify-content-start">
+                        <div class="description d-flex justify-content-start">
                             <div>
                                 <p class="content-section__description fs-6">Project Location:
                                     {{ $project->project_location }}
@@ -87,26 +87,9 @@
             <div id="section-projects" class="column_three">
                 <div id="projects-content" class="section-projects w-100 mt-0 p-1 overflow-hidden">
                     <h2 class="w-100 section-projects__title ui heading size-headinglg">
-                        <span class="section-projects__title-span-1">P<span class="section-projects__title-span">ro
-                                ject<br>Features&nbsp;</span></span>
+                        <span class="section-projects__title-span-1">P<span
+                                class="section-projects__title-span">roject<br>Features&nbsp;</span></span>
                     </h2>
-                    {{-- <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
-                        @foreach ($categories as $category)
-                            <li class="nav-item" role="presentation">
-                                <button
-                                    class="position-relative nav-link {{ $loop->first ? 'active' : '' }} text-decoration-none section__tab-item"
-                                    id="pills-{{ $category->slug }}-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-{{ $category->slug }}" type="button" role="tab"
-                                    aria-controls="pills-{{ $category->slug }}"
-                                    aria-selected="{{ $loop->first ? 'true' : 'false' }}">
-                                    <div class="circle position-absolute start-0 z-0"></div>
-                                    <div class="position-relative text z-1 text-white">
-                                        {{ $category->name }}
-                                    </div>
-                                </button>
-                            </li>
-                        @endforeach
-                    </ul> --}}
                     <div class="projects-content">
                         <ul class="nav nav-pills section-projects__content mb-3" id="pills-tab" role="tablist">
                             @foreach ($categories as $category)
@@ -218,4 +201,102 @@
         // Ensure that loadProjects is available globally
         window.loadProjects = loadProjects;
     </script>
+@endsection
+
+@section('style')
+    <style>
+        .project-content .title {
+            margin-bottom: 20px;
+        }
+
+        .project-content .description {
+            margin-bottom: 20px;
+        }
+
+        .project-content .buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-content .buttons .btn {
+            border: 1px solid #fff;
+            color: #fff;
+            background: transparent;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .project-content .buttons .btn-primary {
+            border-color: #3498db;
+            color: #3498db;
+        }
+
+        .project-content .buttons .btn-secondary {
+            border-color: #2ecc71;
+            color: #2ecc71;
+        }
+
+        .project-content .buttons .btn-tertiary {
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+
+        .project-content .col-md-4 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .project-content .col-md-4 {
+                margin-bottom: 20px;
+            }
+            .project-content .title {
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-content .row {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center
+            }
+
+            .project-content .col-md-4 {
+                width: 100%;
+                text-align: center;
+            }
+
+           #project-details .project-content .description {
+                justify-content: center !important;
+                text-align: center !important;
+            }
+
+            .project-content .buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .project-content .buttons .btn {
+                padding: 5px 10px;
+                margin: 5px 0;
+            }
+        }
+        @media (max-width: 1400px) {
+    .project-content .description {
+        margin: 0px !important;
+        padding: 0px !important;
+        justify-content: start !important;
+        text-align: center !important;
+    }
+}
+    </style>
 @endsection
