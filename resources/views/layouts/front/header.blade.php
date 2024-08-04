@@ -134,18 +134,18 @@
                                                         href="{{ route('front.leadership.index') }}">Our Team</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts dropdown-toggle {{ Route::is('services') ? 'active' : '' }}"
+                                                    <a class="nav-link nav-list__item--about ui text size-texts dropdown-toggle {{ Route::is('services') || Route::is('view.service') ? 'active' : '' }}"
                                                         href="#" id="navbarDropdown" role="button"
                                                         data-bs-toggle="dropdown" aria-expanded="false">
                                                         Services
                                                     </a>
-                                                    {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         @foreach ($services as $service)
                                                             <li><a class="dropdown-item"
                                                                     href="{{ route('view.service', $service->slug) }}">{{ $service->title }}</a>
                                                             </li>
                                                         @endforeach
-                                                    </ul> --}}
+                                                    </ul>
                                                 </li>
 
                                                 <li class="nav-item">
