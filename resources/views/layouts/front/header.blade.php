@@ -26,8 +26,8 @@
                     <div class="row gy-3 justify-content-center align-items-center">
                         <div class="col-md-12 text-center">
                             <div class="form-header d-flex justify-content-between">
-                                <img class="w-50"
-                                    src="{{ asset('assets/front_assets/images/img_header_logo.png') }}" alt="logo">
+                                <img class="w-50" src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
+                                    alt="logo">
                                 <i style="color: white; font-size: 30px; text-align: end; cursor: pointer"
                                     class="fa-regular fa-circle-xmark"></i>
                             </div>
@@ -107,7 +107,7 @@
                     <div class="columnheaderlog">
                         <header id="header" class="header">
                             <nav class="navbar w-100 shadow navbar-expand-lg">
-                                <div class="container flex-row flex-nowrap align-items-start overflow-hidden">
+                                <div class="container flex-row overflow-visible flex-nowrap align-items-start overflow-hidden">
                                     <a href="{{ route('homepage') }}" class="navbar-brand" href="#">
                                         <img src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
                                             alt="header logo" href="#header" style="height: 40px !important" />
@@ -133,11 +133,20 @@
                                                         href="{{ route('front.leadership.index') }}">Our Team</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link nav-list__item--services-text ui text size-texts {{ Route::is('services') ? 'active' : '' }}"
-                                                        href="{{ route('services') }}">
+                                                    <a class="nav-link nav-list__item--about ui text size-texts dropdown-toggle {{ Route::is('services') ? 'active' : '' }}"
+                                                        href="#" id="navbarDropdown" role="button"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
                                                         Services
                                                     </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        @foreach ($categories as $category)
+                                                            <li><a class="dropdown-item"
+                                                                    href="{{ route('see.all.projects', $category->id) }}">{{ $category->name }}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
                                                 </li>
+
                                                 <li class="nav-item">
                                                     <a class="nav-link nav-list__item--services-text ui {{ Route::is('see.all.projects') ? 'active' : '' }} text size-texts"
                                                         href="{{ route('see.all.projects') }}">
