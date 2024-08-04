@@ -40,7 +40,14 @@ class Services_frontController extends Controller
         $clientCategory = ClientCategory::with('clients')->take(9)->get();
         // dd($categories_projects);
         // dd($categories);
-        return view('front/services.view-service', compact('allServices', 'categories', 'clientCategory', 'service'));
+        // Debugging Statements
+        // dd([
+        //     'service' => $service,
+        //     'allServices' => $allServices,
+        //     'categories' => $categories,
+        //     'clientCategory' => $clientCategory
+        // ]);
+        return view('front.services.view-service', compact('allServices', 'categories', 'clientCategory', 'service'));
     }
 
     public function getServicesByCategory($categoryId)

@@ -107,7 +107,8 @@
                     <div class="columnheaderlog">
                         <header id="header" class="header">
                             <nav class="navbar w-100 shadow navbar-expand-lg">
-                                <div class="container flex-row overflow-visible flex-nowrap align-items-start overflow-hidden">
+                                <div
+                                    class="container flex-row overflow-visible flex-nowrap align-items-start overflow-hidden">
                                     <a href="{{ route('homepage') }}" class="navbar-brand" href="#">
                                         <img src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
                                             alt="header logo" href="#header" style="height: 40px !important" />
@@ -139,9 +140,9 @@
                                                         Services
                                                     </a>
                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        @foreach ($categories as $category)
+                                                        @foreach ($services as $service)
                                                             <li><a class="dropdown-item"
-                                                                    href="{{ route('see.all.projects', $category->id) }}">{{ $category->name }}</a>
+                                                                    href="{{ route('view.service', $service->slug) }}">{{ $service->title }}</a>
                                                             </li>
                                                         @endforeach
                                                     </ul>
