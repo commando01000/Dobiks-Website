@@ -2,7 +2,6 @@
 @include('layouts.front.header')
 @yield('content')
 @include('layouts.front.footer')
-@yield('js')
 @yield('style')
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>

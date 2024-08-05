@@ -914,7 +914,7 @@ select:focus-visible {
     }
 
     iframe {
-        width: 300px !important;
+        width: 100% !important;
         height: 250px !important;
     }
 }
@@ -949,12 +949,11 @@ select:focus-visible {
         padding-right: 50px !important;
     }
 
-    .content-section #carouselExampleAutoplaying {
+    .content-section .static-content {
         flex-direction: column !important;
-        justify-content: center !important;
     }
 
-    .content-section #carouselExampleAutoplaying .carousel-buttons {
+    .content-section .carousel-buttons {
         flex-direction: row !important;
         justify-content: center !important;
         align-items: center !important;
@@ -1836,6 +1835,10 @@ select:focus-visible {
         align-items: center !important;
     }
 
+    .ad-controls .btn {
+        padding: 6px !important;
+    }
+
     .meet-our-leadership {
         padding: 0px !important;
         margin: 0px !important;
@@ -2396,7 +2399,7 @@ select:focus-visible {
     }
 
     .service-image iframe {
-        width: 350px !important;
+        width: 100%;
         height: 350px;
     }
 

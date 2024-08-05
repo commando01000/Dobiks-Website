@@ -15,6 +15,7 @@ use App\Http\Controllers\Back\TestimonialController;
 use App\Http\Controllers\Back\PagesController;
 use App\Http\Controllers\Back\HomeController;
 use App\Http\Controllers\Back\MenuController;
+use App\Http\Controllers\Front\Campaign_frontController;
 use App\Http\Controllers\Front\JoinController;
 use App\Http\Controllers\Front\About_frontController;
 use App\Http\Controllers\Back\PermissionController;
@@ -399,6 +400,8 @@ Route::group(['middleware' => ['Setting', 'xss', 'Upload']], function () {
     Route::get('contact', [frontContact::class, 'index'])->name('contact');
     Route::post('contact_us/store', [frontContact::class, 'store'])->name('contact_us.store');
     //end contact frontend
+    //campaign ad
+    Route::get('campaign-ad', [Campaign_frontController::class, 'index'])->name('see.campaign');
     Route::get('join', [frontContact::class, 'join'])->name('join');
     Route::get('services', [Services_frontController::class, 'seeAllServices'])->name('services');
     Route::get('/services/category/{id}', [Services_frontController::class, 'getServicesByCategory']);
