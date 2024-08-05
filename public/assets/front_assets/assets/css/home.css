@@ -870,7 +870,7 @@ select:focus-visible {
 
 .home-form {
     z-index: 99999;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 100%;
     width: 600px;
@@ -2000,7 +2000,11 @@ select:focus-visible {
 }
 
 #projects-content.section-projects {
-    /* gap: 0px !important; */
+    gap: 20px;
+}
+
+#section-clients .section__content {
+    gap: 20px;
 }
 
 /* Services End CSS */
@@ -2347,6 +2351,19 @@ select:focus-visible {
     }
 }
 
+#project-details #section-projects {
+    margin-top: 0px !important;
+}
+
+#project-details #section-projects.column_three {
+    padding-top: 25px !important;
+}
+
+#projects-content .projects-content {
+    margin-top: 0px !important;
+    gap: 0px !important;
+}
+
 @media (max-width: 768px) and (min-width: 300px) {
     .team-section__header {
         margin-top: 0px !important;
@@ -2358,6 +2375,29 @@ select:focus-visible {
     .content-section {
         padding: 0px !important;
         margin: 0px !important;
+    }
+
+    #services-content {
+        padding: 0px !important;
+        padding-bottom: 50px !important;
+        margin-top: 0px !important;
+    }
+
+    #project-details .row_seven {
+        margin-top: 0px !important;
+    }
+
+    #project-details .section-projects {
+        margin-top: 0px !important;
+    }
+
+    #project-details .section-projects.column_three {
+        padding-top: 25px !important;
+    }
+
+    .service-image iframe {
+        width: 350px !important;
+        height: 350px;
     }
 
     .project-content .content-section__title {

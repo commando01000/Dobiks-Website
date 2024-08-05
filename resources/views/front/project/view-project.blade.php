@@ -56,28 +56,30 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="title">
-                            <h1 class="content-section__title fs-4">Marketing Country</h1>
-                        </div>
-                        <div class="description d-flex justify-content-start">
-                            <div>
-                                <p class="content-section__description fs-6">Project Location:
-                                    {{ $project->project_location }}
-                                    <br> Project Time Frame: {{ $project->project_timeframe }}
-                                </p>
-                                <br>
-                                <p class="content-section__description fs-6">Project Marketing Category: <br><br>
-                                    <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
-                                        <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
-                                        <span> {{ $project->category->name }}</span>
-                                        <template hidden="">
-                                            <label unselected-styles="" class="dhi-group">
-                                            </label>
-                                            <label selected-styles="" class="dhi-group-1">
-                                            </label>
-                                        </template>
-                                    </label>
-                                </p>
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="title">
+                                <h1 class="content-section__title fs-4">Marketing Country</h1>
+                            </div>
+                            <div class="description d-flex justify-content-start">
+                                <div>
+                                    <p class="content-section__description fs-6">Project Location:
+                                        {{ $project->project_location }}
+                                        <br> Project Time Frame: {{ $project->project_timeframe }}
+                                    </p>
+                                    <br>
+                                    <p class="content-section__description fs-6">Project Marketing Category: <br><br>
+                                        <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
+                                            <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
+                                            <span> {{ $project->category->name }}</span>
+                                            <template hidden="">
+                                                <label unselected-styles="" class="dhi-group">
+                                                </label>
+                                                <label selected-styles="" class="dhi-group-1">
+                                                </label>
+                                            </template>
+                                        </label>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -257,6 +259,7 @@
             .project-content .col-md-4 {
                 margin-bottom: 20px;
             }
+
             .project-content .title {
                 text-align: center !important;
             }
@@ -274,7 +277,7 @@
                 text-align: center;
             }
 
-           #project-details .project-content .description {
+            #project-details .project-content .description {
                 justify-content: center !important;
                 text-align: center !important;
             }
@@ -290,13 +293,14 @@
                 margin: 5px 0;
             }
         }
+
         @media (max-width: 1400px) {
-    .project-content .description {
-        margin: 0px !important;
-        padding: 0px !important;
-        justify-content: start !important;
-        text-align: center !important;
-    }
-}
+            .project-content .description {
+                margin: 0px !important;
+                padding: 0px !important;
+                justify-content: start !important;
+                text-align: center !important;
+            }
+        }
     </style>
 @endsection

@@ -31,7 +31,7 @@
                     </li>
                 @endforeach
             </ul>
-            <div class="tab-content mt-5 pt-5" id="pills-tabContent">
+            <div class="tab-content mt-5" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="clients-list" role="tabpanel"
                     aria-labelledby="clients-list-tab">
                     <!-- Clients will be loaded here dynamically -->
