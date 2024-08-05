@@ -140,7 +140,7 @@
                                                         Services
                                                     </a>
                                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        @foreach ($services as $service)
+                                                        @foreach ($services_header as $service)
                                                             <li><a class="dropdown-item"
                                                                     href="{{ route('view.service', $service->slug) }}">{{ $service->title }}</a>
                                                             </li>

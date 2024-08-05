@@ -20,8 +20,8 @@ class AppServiceProvider extends ServiceProvider
         }
 
         view()->composer('*', function ($view) {
-            $services = Service::all();
-            $view->with('services', $services);
+            $services_header = Service::all();
+            $view->with('services_header', $services_header);
         });
         // Schema::defaultStringLength(191);
         Paginator::useBootstrapFive();
