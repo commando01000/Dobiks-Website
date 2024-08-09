@@ -67,7 +67,8 @@
                                         <br> Project Time Frame: {{ $project->project_timeframe }}
                                     </p>
                                     <br>
-                                    <p class="content-section__description fs-6 text-center text-md-start">Project Marketing Category: <br><br>
+                                    <p class="content-section__description fs-6 text-center text-md-start">Project Marketing
+                                        Category: <br><br>
                                         <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
                                             <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
                                             <span> {{ $project->category->name }}</span>
