@@ -244,7 +244,7 @@ select:focus-visible {
 .navbar-scrolling-bg {
     background-color: #333 !important; /* Choose your color
             * with ease */
-    background-color: #333 !important; /* Choose your color 
+    background-color: #333 !important; /* Choose your color
               * with ease */
     transition: background-color 0.3s ease-in;
 }
@@ -364,6 +364,34 @@ select:focus-visible {
 .header__menu-icon {
     height: 30px;
     width: 30px;
+}
+
+.dropdown-menu{
+    background-color: var(--gray_700);
+}
+.dropdown-menu .dropdown-item{
+    color: var(--white);
+}
+.dropdown-menu .dropdown-item:hover,.dropdown-menu .dropdown-item:focus{
+    color: var(--white);
+    background-color: var(--gray_800);
+}
+
+/* Start WhatsApp Icon */
+.whatsapp-fixed-icon{
+    width: 11rem;
+}
+.whatsapp-fixed-icon:hover::before{
+    content: "Request Meeting";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-52%, -50%);
+    background-color: var(--brand);
+    border-radius: 2rem 0 0 2rem;
+    padding: 0.5rem 1rem;
+    width: max-content;
+    transition: 0.3s;
 }
 
 /* Home Start CSS */
@@ -1368,6 +1396,14 @@ select:focus-visible {
 }
 
 /* Footer End CSS */
+
+/* service-feature */
+.service-feature-number{
+    font-size: 6rem;
+    -webkit-text-fill-color: var(--black);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--brand);
+}
 
 .clock {
     /* width: 5%; */
@@ -2403,6 +2439,27 @@ select:focus-visible {
         height: 350px;
     }
 
+    @media (max-width:995px) {
+        .project-content{
+            max-height: 9rem;
+            overflow-y: auto;
+            border: 1px solid var(--black_600);
+            border-radius: 1rem;
+        }
+        .project-content::-webkit-scrollbar {
+            width: 10px;
+        }
+        .project-content::-webkit-scrollbar-track {
+            background-color: var(--blue_gray_100_03);
+            box-shadow: 0 0 8px var(--blue_gray_400_01) inset;
+            border-radius: 1rem;
+            margin-right: 1rem;
+        }
+        .project-content::-webkit-scrollbar-thumb {
+            background-color: var(--black_600);
+            border-radius: 1rem;
+        }
+    }
     .project-content .content-section__title {
         text-align: center !important;
     }

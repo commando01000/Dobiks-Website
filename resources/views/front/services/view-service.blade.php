@@ -37,11 +37,15 @@
 
                         <div class="col-md-6">
                             <div class="service-image text-end">
+                                @if($service->emdlink != null)
                                 <?php
                                 $var = html_entity_decode($service->emdlink);
 
                                 echo $var;
                                 ?>
+                                @else
+                                <img class="img-fluid" src="{{Storage::url($service->cover)}}" alt="{{$service->title}}">
+                                @endif
                             </div>
                         </div>
                     </div>
