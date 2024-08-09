@@ -32,28 +32,31 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="title text-center">
-                            <h1 class="content-section__title fs-4 ">Client</h1>
-                        </div>
-                        <div class="description d-flex w-100 justify-content-center">
-                            <div class="text-center">
-                                <p class="content-section__description fs-6">
-                                    {{ $project->client }}
-                                </p>
-                                <p class="content-section__description fs-6">{{ $project->title }}</p>
+                        <div class="client-view w-75 d-flex flex-column justify-content-center">
+                            <div class="title text-center">
+                                <h1 class="content-section__title fs-4 ">Client</h1>
+                            </div>
+                            <div class="description d-flex w-100 justify-content-end">
+                                <div class="">
+                                    <p class="content-section__description fs-6">
+                                        {{ $project->client }}
+                                    </p>
+                                    <p class="text-start content-section__description fs-6">{{ $project->title }}</p>
+                                </div>
+                            </div>
+                            <div class="title text-center">
+                                <h1 class="content-section__title fs-4 text-center">Date</h1>
+                            </div>
+                            <div class="date d-flex justify-content-center">
+                                <div>
+                                    <p class="ps-2 content-section__description fs-6 text-center">
+                                        {{ $project->created_at->format('jS F Y') }}
+                                    </p>
+                                    <br>
+                                </div>
                             </div>
                         </div>
-                        <div class="title text-center">
-                            <h1 class="content-section__title fs-4 text-center">Date</h1>
-                        </div>
-                        <div class="date d-flex ms-4 justify-content-center">
-                            <div>
-                                <p class="content-section__description fs-6 text-center">
-                                    {{ $project->created_at->format('jS F Y') }}
-                                </p>
-                                <br>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex flex-column align-items-center">
