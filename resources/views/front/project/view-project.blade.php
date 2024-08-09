@@ -12,14 +12,14 @@
                 <small class="content-section__description fs-6">HOME / PROJECT DETAILS</small>
             </div>
 
-            <div class="project-content mt-5 pt-5 w-100">
-                <div class="row w-75 m-auto">
+            <div class="project-content mt-5 pt-md-5 pt-3 w-100">
+                <div class="row w-75 m-auto align-items-start text-md-start text-center">
                     <div class="col-md-4">
-                        <div class="title text-start">
+                        <div class="title">
                             <h1 class="content-section__title fs-4">{{ $project->title }}</h1>
                         </div>
-                        <div class="description d-flex justify-content-start">
-                            <div class="d-flex justify-content-center flex-column">
+                        <div class="description d-flex">
+                            <div class="d-flex flex-column text-center text-md-start">
                                 <p class="content-section__description fs-6">
                                     {{ $project->description }}
                                 </p>
@@ -32,23 +32,23 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="title text-center">
+                        <div class="title">
                             <h1 class="content-section__title fs-4 ">Client</h1>
                         </div>
-                        <div class="description d-flex w-100 justify-content-center">
-                            <div class="text-center">
+                        <div class="description d-flex w-100">
+                            <div>
                                 <p class="content-section__description fs-6">
                                     {{ $project->client }}
                                 </p>
                                 <p class="content-section__description fs-6">{{ $project->title }}</p>
                             </div>
                         </div>
-                        <div class="title text-center">
-                            <h1 class="content-section__title fs-4 text-center">Date</h1>
+                        <div class="title">
+                            <h1 class="content-section__title fs-4">Date</h1>
                         </div>
-                        <div class="date d-flex ms-4 justify-content-center">
+                        <div class="date d-flex justify-content-center justify-content-md-start">
                             <div>
-                                <p class="content-section__description fs-6 text-center">
+                                <p class="content-section__description fs-6">
                                     {{ $project->created_at->format('jS F Y') }}
                                 </p>
                                 <br>
@@ -56,18 +56,18 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex flex-column">
                             <div class="title">
                                 <h1 class="content-section__title fs-4">Marketing Country</h1>
                             </div>
-                            <div class="description d-flex justify-content-start">
+                            <div class="description d-flex">
                                 <div>
-                                    <p class="content-section__description fs-6">Project Location:
+                                    <p class="content-section__description fs-6 text-center text-md-start">Project Location:
                                         {{ $project->project_location }}
                                         <br> Project Time Frame: {{ $project->project_timeframe }}
                                     </p>
                                     <br>
-                                    <p class="content-section__description fs-6">Project Marketing Category: <br><br>
+                                    <p class="content-section__description fs-6 text-center text-md-start">Project Marketing Category: <br><br>
                                         <label tabindex="0" class="flex-row-center-center footer__social-chip--creative">
                                             <input type="checkbox" name="selectedChipOptions" value="1" hidden="true">
                                             <span> {{ $project->category->name }}</span>
@@ -258,10 +258,6 @@
         @media (max-width: 992px) {
             .project-content .col-md-4 {
                 margin-bottom: 20px;
-            }
-
-            .project-content .title {
-                text-align: center !important;
             }
         }
 

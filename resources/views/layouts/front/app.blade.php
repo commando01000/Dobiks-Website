@@ -1,5 +1,6 @@
 @include('layouts.front.head')
 @include('layouts.front.header')
+@include('front.whatsapp-icon.index')
 @yield('content')
 @include('layouts.front.footer')
 @yield('style')

@@ -10,6 +10,8 @@
             </div>
         </div>
     @endif
+
+
     <section class="content-section m-5 p-5 pb-0 mb-0">
         <div class="container">
             <div class="static-content d-flex justify-content-center align-items-center" style="position: relative;">
@@ -194,6 +196,7 @@
             </div>
         </div>
     </div>
+
     <!-- Section-Projects -->
     @include('front.projects-section.projects')
     <!-- End Section-Projects -->

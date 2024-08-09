@@ -26,9 +26,9 @@
                                 <div class="service-detail content-section__description fs-6 w-100">
                                     <?php
                                     $var = html_entity_decode($service->description);
-                                    
+
                                     echo $var;
-                                    
+
                                     ?>
 
                                 </div>
@@ -39,7 +39,7 @@
                             <div class="service-image text-end">
                                 <?php
                                 $var = html_entity_decode($service->emdlink);
-                                
+
                                 echo $var;
                                 ?>
                             </div>
@@ -91,7 +91,49 @@
                     </div>
                 </div>
             </div>
-            @include('front.projects-section.projects')
+            <!-- services features -->
+    <section class="pt-5 mt-5">
+        <div class="container-fluid">
+        <h5 style="font-size: 35px !important"
+            class="section-projects__title ui heading size-headinglg">
+            <span class="section-projects__title-span">Service <span
+                    class="section-projects__title-span-1">Features&nbsp;</span>
+            </span>
+        </h5>
+        <div class="row text-white mt-5">
+            <div class="col-md-4 gap-3 d-flex flex-column align-items-center text-center align-items-md-start text-md-start gap-3">
+                <span class="service-feature-number">01</span>
+                <h6 class="fs-4">Words that sell, we write</h6>
+                <p>Our content writing services provide engaging and informal written content for your social media profiles, website or blog, tailored to your audience and brand voice.</p>
+            </div>
+            <div class="col-md-4 gap-3 d-flex flex-column align-items-center text-center align-items-md-start text-md-start gap-3 mt-md-5">
+                <span class="service-feature-number">02</span>
+                <h6 class="fs-4">Words that sell, we write</h6>
+                <p>Our content writing services provide engaging and informal written content for your social media profiles, website or blog, tailored to your audience and brand voice.</p>
+            </div>
+            <div class="col-md-4 gap-3 d-flex flex-column align-items-center text-center align-items-md-start text-md-start gap-3">
+                <span class="service-feature-number">03</span>
+                <h6 class="fs-4">Words that sell, we write</h6>
+                <p>Our content writing services provide engaging and informal written content for your social media profiles, website or blog, tailored to your audience and brand voice.</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center my-5">
+            <div class="team-section__action-row">
+                            <div class="section__feature-bg"></div>
+                            <div class="team-section__action-content">
+                                <p class="section__call-to-action-text ui text size-btn_text">
+                                    <a class="text-white" href="">Load more Features<a>
+                                </p>
+                                <img src="{{ asset('assets/front_assets/images/img_arrow.svg') }}" alt="arrow image"
+                                    class="section__call-to-action-icon" />
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid">
+        @include('front.projects-section.projects')
+    </div>
             <div id="contact-us-form" style="width: 80% !important" class="contact-us-form mt-5 pt-5 m-auto">
                 @include('front.contact.contact-us-form')
             </div>

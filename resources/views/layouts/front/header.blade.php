@@ -16,6 +16,7 @@
     }, 2000);
 </script>
 
+
 <div class="class-01-home">
     <div class="column_seven overflow-hidden">
         <div class="column_two position-relative overflow-visible">
@@ -134,7 +135,7 @@
                                                         href="{{ route('front.leadership.index') }}">Our Team</a>
                                                 </li>
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts dropdown-toggle {{ Route::is('services') || Route::is('view.service') ? 'active' : '' }}"
+                                                    <a class="nav-link nav-list__item--about ui text size-texts dropdown-toggle text-center {{ Route::is('services') || Route::is('view.service') ? 'active' : '' }}"
                                                         href="#" id="navbarDropdown" role="button"
                                                         data-bs-toggle="dropdown" aria-expanded="false">
                                                         Services
