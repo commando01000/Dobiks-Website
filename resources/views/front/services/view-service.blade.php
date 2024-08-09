@@ -44,7 +44,7 @@
                                 echo $var;
                                 ?>
                                 @else
-                                <img class="img-fluid" src="{{Storage::url($service->cover)}}" alt="{{$service->title}}">
+                                <img style="width: 20rem" class="img-fluid" src="{{Storage::url($service->cover)}}" alt="{{$service->title}}">
                                 @endif
                             </div>
                         </div>

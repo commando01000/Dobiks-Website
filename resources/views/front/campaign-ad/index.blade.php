@@ -92,7 +92,7 @@
                 </div>
             </div>
             <!-- services features -->
-    <section class="pt-5 mt-5">
+    <section style="width: 80% !important" class="pt-5 mt-5 mx-auto">
         <div class="container-fluid">
         <h5 style="font-size: 35px !important"
             class="section-projects__title ui heading size-headinglg">

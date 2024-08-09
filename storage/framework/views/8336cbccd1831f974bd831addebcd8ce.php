@@ -38,7 +38,7 @@
 
                         <div class="col-md-6">
                             <div class="service-image text-end">
-                                <?php if($service->emdlink != null): ?>
+                                <!-- <?php if($service->emdlink != null): ?>
                                 <?php
                                 $var = html_entity_decode($service->emdlink);
 
@@ -46,7 +46,8 @@
                                 ?>
                                 <?php else: ?>
                                 <img class="img-fluid" src="<?php echo e(Storage::url($service->cover)); ?>" alt="<?php echo e($service->title); ?>">
-                                <?php endif; ?>
+                                <?php endif; ?> -->
+                                <img style="width: 20rem" class="img-fluid" src="<?php echo e(asset('assets/front_assets/images/img_placeholder_3.png')); ?>" alt="<?php echo e($service->title); ?>">
                             </div>
                         </div>
                     </div>
