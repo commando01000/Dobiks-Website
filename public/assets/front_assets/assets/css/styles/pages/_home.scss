@@ -1,6 +1,12 @@
 // start hero section
 .hero{
-    min-height: 78vh;
+    min-height: calc(100vh - 11rem);
+    @include breakPoints("medium"){
+        min-height: 63vh;
+    }
+    @include breakPoints("mobile"){
+        min-height: 55vh;
+    }
     .fade-in-text {
         animation: fadeIn 2s;
     }
