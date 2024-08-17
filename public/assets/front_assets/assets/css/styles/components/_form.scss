@@ -1,0 +1,17 @@
+.form{
+    input, input:focus,
+    textarea, textarea:focus{
+        caret-color: $orange;
+        color: $orange;
+        border-bottom-color: $gray !important;
+    }
+    .btn-group input:checked+ label{
+        background-color: $orange !important;
+    }
+    input::placeholder{
+        color: #777;
+    }
+}
+.form-logo{
+    max-width: 15rem;
+}

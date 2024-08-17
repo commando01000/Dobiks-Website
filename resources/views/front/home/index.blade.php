@@ -12,94 +12,72 @@
     @endif
 
 
-    <section class="content-section m-5 p-5 pb-0 mb-0">
-        <div class="container">
-            <div class="static-content d-flex justify-content-center align-items-center" style="position: relative;">
-                <!-- Static Content -->
-                <div class="content-section__column--primary w-100" style="position: relative; z-index: 1;">
-                    <div id="staticContent">
-                        <h1 id="carouselText" class="content-section__title ui heading size-heading_1 fade-text">
-                            We build immersive digital experiences.
-                        </h1>
-                        <div class="content-section__sub-section">
-                            <a class="text-decoration-none text-white" href="#section-projects">
-                                <div class="content-section__column--secondary">
-                                    <p class="content-section__button ui text size-btn_text">
-                                        Build Now
-                                    </p>
-                                    <img src="{{ asset('assets/front_assets/images/img_right_arrow_2.svg') }}"
-                                        alt="right arrow image" class="column__image--right-arrow" />
-                                </div>
-                            </a>
-                            <div class="content-section__column--tertiary">
-                                <div class="content-section__divider"></div>
-                                <div class="content-section__column--quaternary">
-                                    <h2 class="content-section__subtitle ui heading size-headingmd">
-                                        Let Us Tell Your Story
-                                    </h2>
-                                    <p class="content-section__description ui text size-textmd">
-                                        The Creative agency for international and local brands
-                                    </p>
-                                </div>
-                            </div>
+    <!-- start hero section -->
+    <section class="hero d-flex flex-column justify-content-center align-items-center pb-0">
+        <div class="container d-flex justify-content-between align-items-center gap-4">
+            <div class="col-lg-7">
+                <div id="heading-carousel" class="carousel slide" data-bs-ride="carousel" data-bsinterval="2500">
+                    <div class="carousel-inner">
+                        <div class="carousel-item fade-in-text active">
+                            <h1 class="fw-bolder">
+                                We build immersive digital experiences.
+                            </h1>
+                        </div>
+                        <div class="carousel-item fade-in-text">
+                            <h1 class="fw-bolder">
+                                We create stunning visual designs.
+                            </h1>
+                        </div>
+                        <div class="carousel-item fade-in-text">
+                            <h1 class="fw-bolder">
+                                We deliver exceptional user experiences.
+                            </h1>
                         </div>
                     </div>
                 </div>
-
-                <!-- Carousel for Swapping Text -->
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel"
-                    style="width: 0; height: 0; overflow: hidden;">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-text="We build immersive digital experiences."></div>
-                        <div class="carousel-item" data-text="We create stunning visual designs."></div>
-                        <div class="carousel-item" data-text="We deliver exceptional user experiences."></div>
-                    </div>
-                </div>
-
-                <!-- Carousel Controls -->
-                <div class="d-flex carousel-buttons flex-column d-md-none">
-                    <div>
-                        <button style="width: 80px; height: 80px"
-                            class="slider-navigation__icon--prev carousel-control-prev" type="button" data-bs-slide="prev"
-                            data-bs-target="#carouselExampleAutoplaying">
-                            <img src="{{ asset('assets/front_assets/images/img_arrow_left.svg') }}">
-                        </button>
-                    </div>
-                    <br>
-                    <div>
-                        <button style="width: 80px; height: 80px"
-                            class="slider-navigation__icon--next carousel-control-next" type="button" data-bs-slide="next"
-                            data-bs-target="#carouselExampleAutoplaying">
-                            <img src="{{ asset('assets/front_assets/images/img_arrow_right_blue_gray_100.svg') }}">
-                        </button>
-                    </div>
-                </div>
-
-                <div class="d-none d-md-flex carousel-buttons flex-column" style="margin-top: 20px; z-index: 2;">
-                    <div>
-                        <button style="width: 80px; height: 80px"
-                            class="slider-navigation__icon--prev carousel-control-prev" type="button" data-bs-slide="prev"
-                            data-bs-target="#carouselExampleAutoplaying">
-                            <img src="{{ asset('assets/front_assets/images/img_arrow_left.svg') }}">
-                        </button>
-                    </div>
-                    <br>
-                    <div>
-                        <button style="width: 80px; height: 80px"
-                            class="slider-navigation__icon--next carousel-control-next" type="button" data-bs-slide="next"
-                            data-bs-target="#carouselExampleAutoplaying">
-                            <img src="{{ asset('assets/front_assets/images/img_arrow_right_blue_gray_100.svg') }}">
-                        </button>
+                <div class="d-flex align-items-center gap-5 mt-5">
+                    <button
+                        class="section-circle btn circle-btn position-relative text-white rounded-circle border d-flex flex-column gap-2 align-items-center justify-content-center"
+                        data-btn-scroll="true">
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <circle class="circle" cx="50" cy="50" r="48" stroke="#FF5101" stroke-width="2"
+                                fill="none" />
+                        </svg>
+                        <p class="text-uppercase">Build Now</p>
+                        <img class="img-fluid" src="{{ asset('assets/front_assets/images/down-arrow.svg') }}"
+                            alt="build now">
+                    </button>
+                    <div class="hero-desc position-relative">
+                        <h2 class="fw-bold pt-4">Let Us Tell Your Story</h2>
+                        <p class="text-light-gray">The Creative agency for international and local brands</p>
                     </div>
                 </div>
             </div>
-
+            <div class="controls d-flex flex-column gap-4 justify-content-center">
+                <button
+                    class="btn circle-btn position-relative border rounded-circle d-flex justify-content-center align-items-center"
+                    data-btn-scroll="true" data-bs-target="#heading-carousel" data-bs-slide="prev">
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <circle class="circle" cx="50" cy="50" r="48" stroke="#FF5101" stroke-width="2"
+                            fill="none" />
+                    </svg><img class="img-fluid" src="{{ asset('assets/front_assets/images/prev-left.svg') }}">
+                </button>
+                <button
+                    class="btn circle-btn position-relative border rounded-circle d-flex justify-content-center align-items-center"
+                    data-btn-scroll="true" data-bs-target="#heading-carousel" data-bs-slide="next">
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <circle class="circle" cx="50" cy="50" r="48" stroke="#FF5101" stroke-width="2"
+                            fill="none" />
+                    </svg><img class="img-fluid" src="{{ asset('assets/front_assets/images/next-right.svg') }}">
+                </button>
+            </div>
         </div>
+        <div><img class="img-fluid" src="{{ asset('assets/front_assets/images/hero-bg.png') }}" alt="bg"></div>
     </section>
-    </div>
-    </div>
-    </div>
-    <div class="column_one pt-5 mt-5">
+    <!-- end hero section -->
+
+
+    {{-- <div class="column_one pt-5 mt-5">
         <div class="column_seven">
             <img src="{{ asset('assets/front_assets/images/img_mask_group.png') }}" alt="image" class="image" />
         </div>
@@ -195,7 +173,46 @@
                 </section>
             </div>
         </div>
-    </div>
+    </div> --}}
+
+    <!-- start album section -->
+    <section>
+        <div data-swiperClass=".album" data-slidesToShow="4" data-spaceBetweenSlides="20"
+            class="album swiper position-relative px-1">
+            <div class="swiper-wrapper">
+                @foreach ($sliders as $slider)
+                    <div class="swiper-slide"><img class="img-fluid w-100 h-100" src="{{ Storage::url($slider->image) }}"
+                            alt="{{ $slider->title }}">
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="controls d-flex gap-5 align-items-center justify-content-between my-5">
+                <button class="btn swiper-control swiper-prev">
+                    <p class="btn circle-btn position-relative border rounded-circle d-inline-flex justify-content-center align-items-center me-4"
+                        data-btn-scroll="true">
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <circle class="circle" cx="50" cy="50" r="48" stroke="#FF5101" stroke-width="2"
+                                fill="none" />
+                        </svg><img class="img-fluid" src="{{ asset('assets/front_assets/images/prev-left.svg') }}">
+                    </p>
+                    <span class="text-white">Previous Slide</span>
+                </button>
+                <button class="btn swiper-control swiper-next">
+                    <span>Next Slide</span>
+                    <p class="btn circle-btn position-relative border rounded-circle d-inline-flex justify-content-center align-items-center ms-4"
+                        data-btn-scroll="true">
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <circle class="circle" cx="50" cy="50" r="48" stroke="#FF5101" stroke-width="2"
+                                fill="none" />
+                        </svg>
+                        <img class="img-fluid" src="{{ asset('assets/front_assets/images/next-right.svg') }}">
+                    </p>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- end album section -->
 
     <!-- Section-Projects -->
     @include('front.projects-section.projects')
@@ -208,46 +225,6 @@
     {{-- End Section-Leadership --}}
 @endsection
 
-
-@section('style')
-    <style>
-        .fade-text {
-            transition: opacity 0.5s ease-in-out;
-            opacity: 1;
-        }
-
-        .fade-out {
-            opacity: 0;
-        }
-    </style>
-
-@endsection
-
 @push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const carouselElement = document.getElementById('carouselExampleAutoplaying');
-            const h1Element = document.getElementById('carouselText');
-
-            // Bootstrap carousel event listener for slide event
-            carouselElement.addEventListener('slide.bs.carousel', function(event) {
-                const activeItem = event.relatedTarget;
-                const newText = activeItem.getAttribute('data-text');
-
-                // Add fade-out class
-                h1Element.classList.add('fade-out');
-
-                // Wait for the transition to end before changing text and fading in
-                h1Element.addEventListener('transitionend', function() {
-                    // Change text content
-                    h1Element.textContent = newText;
-
-                    // Remove fade-out class and add fade-in class
-                    h1Element.classList.remove('fade-out');
-                }, {
-                    once: true
-                });
-            });
-        });
-    </script>
+    <script src="{{ asset('assets/js/swiper.js') }}"></script>
 @endpush

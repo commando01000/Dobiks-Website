@@ -1,0 +1,33 @@
+// break points
+@mixin breakPoints($point){
+    @if $point == "mobile" {
+        @media (max-width:$smallScreen) {
+            @content;
+        }
+    }
+    @else if $point == "small" {
+        @media (max-width:$mediumScreen) {
+            @content;
+        }
+    }
+    @else if $point == "medium" {
+        @media (max-width:$largeScreen){
+            @content;
+        }
+    }
+    @else if $point == "large" {
+        @media (min-width:$xlargeScreen) {
+            @content;
+        }
+    }
+}
+
+@mixin smallLine($width){
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $width;
+    background-color: $orange;
+    height: 2px;
+}

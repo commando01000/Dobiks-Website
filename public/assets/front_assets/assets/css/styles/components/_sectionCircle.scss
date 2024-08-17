@@ -1,0 +1,20 @@
+.section-circle{
+    width: 10rem;
+    height: 10rem;
+
+    @include breakPoints("medium"){
+        width: 8rem;
+        height: 8rem;
+    }
+
+    @include breakPoints("small"){
+        width: 9rem;
+    }
+
+    img{
+        @include breakPoints("medium"){
+            width: 2rem;
+        }
+    }
+
+}

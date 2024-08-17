@@ -1,0 +1,20 @@
+.circle-btn{
+    svg {
+        position: absolute;
+        left: 0; 
+        top: 0;
+        transform: translate(0%, 0%);
+    }
+    .circle {
+        stroke-dasharray: 301.59px 301.59px;
+        stroke-dashoffset: 301.59px;
+        transition: all 0.8s;
+        transition-timing-function: cubic-bezier(.4,.08,0,.97);
+    }
+} 
+.circle-btn:hover .circle,.swiper-control:hover .circle {
+    stroke-dashoffset: 0;
+}
+.circle-btn:hover, .swiper-control:hover .circle-btn{
+    border: var(--orange) !important;
+}

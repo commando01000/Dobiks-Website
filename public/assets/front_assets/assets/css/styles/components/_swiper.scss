@@ -1,0 +1,9 @@
+.swiper button{
+    &,&:hover {
+        color: $white;
+    }
+    &:disabled,&:focus{
+        color: $light_gray;
+        border: none;
+    }
+}

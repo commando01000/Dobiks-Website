@@ -1,0 +1,59 @@
+.border{
+    border-color: $gray !important;
+}
+
+.transition {
+    transition: 0.3s;
+}
+
+.text-small {
+    font-size: 0.9rem;
+}
+
+.text-smaller {
+    font-size: 0.8rem;
+}
+
+.text-big{
+    font-size: 3rem;
+}
+
+.text-bigger{
+    font-size: 4rem;
+}
+
+.text-light-gray{
+    color: $light_gray;
+}
+
+.text-orange{
+    color: $orange;
+}
+
+.bg-orange{
+    background-color: $orange;
+}
+
+.bg-dark-black{
+    background-color: $dark_black;
+}
+
+.bg-gray{
+    background-color: $gray;
+}
+
+.hover-orange:hover{
+    background-color: $orange!important;
+    color: rgb(249, 234, 234);
+    transition: 0.3s;
+}
+
+.logo{
+    max-width: 8rem;
+}
+
+.stroke-text{
+    -webkit-text-fill-color: $black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $orange;
+}

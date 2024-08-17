@@ -1,182 +1,124 @@
-<style>
-    .message-container {
-        position: fixed;
-        /* Use fixed positioning */
-        top: 80px;
-        /* Distance from the top */
-        right: 20px;
-        /* Distance from the right */
-        z-index: 1000;
-        /* Ensure it sits above other content */
-    }
-</style>
-<script>
-    setTimeout(function() {
-        document.getElementsByClassName("message-container")[0].style.display = "none";
-    }, 2000);
-</script>
-
-
-<div class="class-01-home">
-    <div class="column_seven overflow-hidden">
-        <div class="column_two position-relative overflow-visible">
-
-            <form class="home-form unactive ms-3 p-5" method="post" action="{{ route('contact_us.store') }}">
-                @csrf
-                <main class="container">
-                    <div class="row gy-3 justify-content-center align-items-center">
-                        <div class="col-md-12 text-center">
-                            <div class="form-header d-flex justify-content-between">
-                                <img class="w-50" src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
-                                    alt="logo">
-                                <i style="color: white; font-size: 30px; text-align: end; cursor: pointer"
-                                    class="fa-regular fa-circle-xmark"></i>
-                            </div>
-
+    <!-- strat header -->
+    <header class="py-3 position-sticky top-0 start-0 z-3">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img class="logo"
+                        src="{{ asset('assets/front_assets/images/img_header_logo.png') }}" alt="Dopiks"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <img class="img-fluid" src="{{ asset('assets/front_assets/images/hamburger-icon.png') }}"
+                        alt="menu">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto gap-3 text-center text-lg-start">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Dopiks</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach ($services_header as $service)
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('view.service', $service->slug) }}">{{ $service->title }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Our clients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- start toggle menu -->
+            <div class="d-none d-lg-block">
+                <div id="toggle-menu" class='toggle-wrap'>
+                    <span class='toggle-bar'></span>
+                </div>
+                <div class="header-form py-4 px-5">
+                    <div class="container">
+                        <div class="text-center">
+                            <img class="img-fluid form-logo"
+                                src="{{ asset('assets/front_assets/images/img_header_logo.png') }}" alt="logo">
                         </div>
-                        <div class="col-md-12 text-center">
-                            <p class="user-profile__role ui text size-texts">
-                                At Dopiks, we see a world where every brand has the power to connect with its audience
-                                in a
-                                meaningful way. We want to help businesses tell their stories and reach their full
-                                potential
-                                through innovative digital marketing strategies. Our vision is to be the go-to agency
-                                for
-                                brands looking to create impactful campaigns and build lasting relationships with their
-                                customers.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row pt-2">
-
-
-                        <div class="col-md-6">
-                            <div class="mb-5">
-                                <label for="name" class="col-form-label text-white">First Name <span
-                                        style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="firstname" required
-                                    id="name" placeholder="First name here" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-5">
-                                <label for="l_name" class="col-form-label text-white">Last Name
-                                    <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="lastname" required
-                                    id="c_name" placeholder="Last name here" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-5">
-                                <label for="name" class="col-form-label text-white">Email Address<span
-                                        style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="email" required
-                                    id="name" placeholder="First name here" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-5">
-                                <label for="c_name" class="col-form-label text-white">Subject
-                                    <span style="color: #ff5101"> *</span></label>
-                                <input type="text" class="form-control text-white" name="subject" required
-                                    id="c_name" placeholder="ٍSubject here" />
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="mb-5">
-                                <label for="comments" class="col-form-label text-white">Comments / Questions
-                                    <span style="color: #ff5101"> *</span></label>
-                                <textarea class="form-control text-white" id="comments" rows="3" name='comments'></textarea>
-                            </div>
-                        </div>
-                        <br>
-
-                        <button class="submit-button position-relative">
-                            <div class="circle position-absolute start-0 z-0"></div>
-                            <div class="text z-1">
-                                SUBMIT REQUEST
-                                <span class="arrow">→</span>
-                            </div>
-                        </button>
-
-                    </div>
-                </main>
-            </form>
-
-            <div class="row_three">
-                <div class="row_two">
-                    <div class="columnheaderlog">
-                        <header id="header" class="header">
-                            <nav class="navbar w-100 shadow navbar-expand-lg">
-                                <div
-                                    class="container flex-row overflow-visible flex-nowrap align-items-start overflow-hidden">
-                                    <a href="{{ route('homepage') }}" class="navbar-brand" href="#">
-                                        <img src="{{ asset('assets/front_assets/images/img_header_logo.png') }}"
-                                            alt="header logo" href="#header" style="height: 40px !important" />
-                                    </a>
-                                    <div>
-                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-                                            aria-expanded="false" aria-label="Toggle navigation">
-                                            <span class="navbar-toggler-icon"></span>
-                                        </button>
-                                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                                            <ul class="navbar-nav header__nav-list me-auto mb-2 mb-lg-0">
-                                                <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--home ui text size-texts {{ Route::is('homepage') ? 'active' : '' }}"
-                                                        href="{{ route('homepage') }}">Home</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('about-us') ? 'active' : '' }}"
-                                                        href="{{ route('about-us') }}">About Dopiks</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('front.leadership.index') ? 'active' : '' }}"
-                                                        href="{{ route('front.leadership.index') }}">Our Team</a>
-                                                </li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts dropdown-toggle text-center {{ Route::is('services') || Route::is('view.service') ? 'active' : '' }}"
-                                                        href="#" id="navbarDropdown" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Services
-                                                    </a>
-                                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        @foreach ($services_header as $service)
-                                                            <li><a class="dropdown-item"
-                                                                    href="{{ route('view.service', $service->slug) }}">{{ $service->title }}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </li>
-
-                                                <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--services-text ui {{ Route::is('see.all.projects') ? 'active' : '' }} text size-texts"
-                                                        href="{{ route('see.all.projects') }}">
-                                                        Projects
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="{{ route('see.all.clients') }}"
-                                                        class="nav-link nav-list__item--about ui text size-text {{ Route::is('see.all.clients') ? 'active' : '' }}">Our
-                                                        clients</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('see.all.blogs') ? 'active' : '' }}"
-                                                        href="{{ route('see.all.blogs') }}">Blogs</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link nav-list__item--about ui text size-texts {{ Route::is('contact') ? 'active' : '' }}"
-                                                        href="{{ route('contact') }}">Contact Us</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a
-                                                        class="dobsik-form nav-link nav-list__item--about ui text size-texts">
-                                                        <img src="{{ asset('assets/front_assets/images/menu_1.png') }}"
-                                                            alt=""></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                        <p class="text-center my-3 text-light-gray">
+                            At Dopiks, we see a world where every brand has the power to connect with its audience in a
+                            meaningful way. We want to help businesses tell their stories and reach their full potential
+                            through innovative digital marketing strategies. Our vision is to be the go-to agency for
+                            brands looking to create impactful campaigns and build lasting relationships with their
+                            customers.
+                        </p>
+                        <form class="form d-flex flex-column gap-3" action="">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="text-capitalize" for="first-name">First Name <span
+                                            class="text-orange">*</span></label>
+                                    <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="text"
+                                        placeholder="First name here" name="first-name" id="first-name">
                                 </div>
-                            </nav>
-                        </header>
+                                <div class="col-6">
+                                    <label class="text-capitalize" for="last-name">Last Name <span
+                                            class="text-orange">*</span></label>
+                                    <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="text"
+                                        placeholder="Last name here" name="last-name" id="last-name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label class="text-capitalize" for="email">Email Address <span
+                                            class="text-orange">*</span></label>
+                                    <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="email"
+                                        placeholder="Add email" name="email" id="email">
+                                </div>
+                                <div class="col-6">
+                                    <label class="text-capitalize" for="subject">Subject <span
+                                            class="text-orange">*</span></label>
+                                    <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="text"
+                                        placeholder="How can we help you?" name="subject" id="subject">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="text-capitalize" for="comments">Comments / Questions <span
+                                        class="text-orange">*</span></label>
+                                <textarea class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="text" name="comments" id="comments"
+                                    cols="30" rows="3"></textarea>
+                            </div>
+                        </form>
+                        <button class="btn main-btn mx-0 mt-4">Send Message</button>
+                        <div class="d-flex align-items-center justify-content-center gap-3">
+                            <a href="#" class="bg-gray hover-orange rounded-circle px-2 py-1">
+                                <img class="img-fluid" src="{{ asset('assets/front_assets/images/facebook.svg') }}"
+                                    alt="facebook">
+                            </a>
+                            <a href="#" class="bg-gray hover-orange rounded-circle px-2 py-1">
+                                <img class="img-fluid" src="{{ asset('assets/front_assets/images/linkedin.svg') }}"
+                                    alt="linkedin">
+                            </a>
+                            <a href="#" class="bg-gray hover-orange rounded-circle px-2 py-1">
+                                <img class="img-fluid" src="{{ asset('assets/front_assets/images/twitter.svg') }}"
+                                    alt="twitter">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end toggle menu -->
+        </nav>
+    </header>
+    <!-- end header -->

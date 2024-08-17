@@ -1,0 +1,16 @@
+.landing-line::after{
+    @include smallLine(10%);
+}
+.landing-buttons a{
+    border: solid 1px $orange;
+    img{
+        width: 1.5rem;
+    }
+    &:first-child{
+        background-color: $orange;
+        &:hover{
+            background-color: $white;
+            color: $orange !important;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&display=swap');
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+    width: 16px;
+}
+html::-webkit-scrollbar-track, html div::-webkit-scrollbar-track {
+    background-color: #fafafa;
+    box-shadow: 0 0 8px #535353 inset;
+}
+html::-webkit-scrollbar-thumb, html div::-webkit-scrollbar-thumb {
+    background-color: #878686;
+    border-radius: 7px;
+}
+html div::-webkit-scrollbar {
+    width: 10px;
+}
+
+body {
+    font-family: "Syne", sans-serif;
+    font-optical-sizing: auto;
+    color: $white;
+    background-color: $black;
+    overflow-x: hidden;
+}
+.number{
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    line-height: 1.8;
+}
+
+button,button:focus {
+    outline: none;
+    box-shadow: none !important;
+}
+section{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+input:focus, select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 90%;
+    }
+}
+@media (max-width: 500px) {
+    html {
+        font-size: 80%;
+    }
+}
+@media (max-width: 400px) {
+    html {
+        font-size: 70%;
+    }
+}
+@media (max-width: 300px) {
+    html {
+        font-size: 54%;
+    }
+}

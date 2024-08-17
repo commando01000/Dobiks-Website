@@ -1,4 +1,4 @@
-<div id="section-clients" class="section">
+{{-- <div id="section-clients" class="section">
     <div id="tabList" role="tablist" aria-label="Clients Row" class="section__content">
         <div class="section__header">
             <div class="section__header-row">
@@ -95,6 +95,93 @@
                     // Append the last row if it contains any items
                     if (data.length % 4 !== 0) {
                         clientsList.appendChild(row);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching clients:', error); // Log any errors
+                });
+        }
+
+        // Ensure that loadClients is available globally
+        window.loadClients = loadClients;
+    </script>
+@endpush --}}
+
+<!-- start clients -->
+<section class="bg-dark-black">
+    <div class="container">
+        <div class="big-head">
+            <span>Clients</span>
+            <p>Meet Our</p>
+            <h2>special client's</h2>
+        </div>
+        <div id="secondary-nav" class="d-flex flex-wrap align-items-center my-5 gap-4">
+            @foreach ($clientCategory as $category)
+                <button onclick="loadClients({{ $category->id }})"
+                    class="main-btn-nav btn main-btn {{ $loop->first ? 'active' : '' }}">{{ $category->name }}</button>
+            @endforeach
+        </div>
+        <div class="row clients">
+            <!-- Clients will be loaded here dynamically -->
+        </div>
+        <button class="btn main-btn">
+            <span>View All Clients</span>
+        </button>
+    </div>
+</section>
+<!-- end clients -->
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch data for the first category initially
+            @if ($clientCategory->isNotEmpty())
+                loadClients({{ $clientCategory->first()->id }});
+            @endif
+        });
+
+        function loadClients(categoryId) {
+            fetch(`/clients/category/${categoryId}`)
+                .then(response => response.json())
+                .then(data => {
+
+                    let clientsSection = document.querySelector('.clients');
+                    clientsSection.innerHTML = ''; // Clear previous clients
+
+                    baseUrl = "{{ url('/') }}";
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    row.classList.add('overflow-hidden');
+                    row.classList.add('gx-5');
+                    row.classList.add('gy-5');
+
+                    data.forEach((client, index) => {
+                        let clientItem = `
+                    <div class="col-6 col-md-3">
+                        <div class="img-box d-flex justify-content-center align-items-center border p-5 w-100">
+                            <img class="img-fluid w-100" src="${baseUrl}/storage/app/${client.cover}" alt="${client.name}">
+                        </div>
+                        <p class="text-light-gray py-4 text-center fs-5">${client.name}</p>
+                    </div>
+                    `;
+
+                        // Append clientItem to row
+                        row.innerHTML += clientItem;
+
+                        // Append row to clientsSection after every 4 items (for 4 columns in a row)
+                        if ((index + 1) % 4 === 0) {
+                            clientsSection.appendChild(row);
+                            row = document.createElement('div');
+                            row.classList.add('row');
+                            row.classList.add('overflow-hidden');
+                            row.classList.add('gx-5');
+                            row.classList.add('gy-5');
+                        }
+                    });
+
+                    // Append the last row if it contains any items
+                    if (data.length % 4 !== 0) {
+                        clientsSection.appendChild(row);
                     }
                 })
                 .catch(error => {

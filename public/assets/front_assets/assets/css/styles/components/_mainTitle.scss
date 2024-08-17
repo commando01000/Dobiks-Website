@@ -1,0 +1,23 @@
+.main-title{
+    text-align: center;
+
+    span{
+        text-transform: uppercase;
+    }
+
+    a{
+        color: $light_gray;
+        text-transform: uppercase;
+
+        &:hover{
+            color: $white;
+        }
+
+    }
+
+    .slash{
+        margin: 0rem 1rem;
+        color: $light_gray;
+    }
+
+}

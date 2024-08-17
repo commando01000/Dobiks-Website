@@ -1,4 +1,4 @@
-    <div class="row_seven">
+    {{-- <div class="row_seven">
         <div class="team-section w-100">
             <div class="team-section__header">
                 <div class="section__header">
@@ -52,4 +52,37 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+
+    <!-- start team section -->
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <div class="big-head">
+                        <span>our team</span>
+                        <p>meet our</p>
+                        <h2>leadership</h2>
+                    </div>
+                    <div class="btn main-btn mx-0">
+                        <span>view all leadership</span>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row align-items-center">
+                        @foreach ($leaderships as $leadership)
+                            <div class="col-4">
+                                <img class="img-fluid w-100 @if ($loop->index % 2 != 0) pt-4 @endif"
+                                    src="{{ Storage::url($leadership->photo) }}" alt="leadership">
+                                <div class="text-center mt-3">
+                                    <p class="fs-5">{{ $leadership->name }}</p>
+                                    <span class="text-small text-light-gray">{{ $leadership->position }}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end team section -->

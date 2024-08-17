@@ -1,0 +1,10 @@
+.controls .circle-btn{
+    width: 5rem;
+    height: 5rem;
+
+    @include breakPoints("medium"){
+        width: 4rem;
+        height: 4rem;
+    }
+
+}

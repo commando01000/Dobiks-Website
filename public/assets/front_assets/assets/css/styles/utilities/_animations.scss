@@ -1,0 +1,14 @@
+@keyframes move-arrow {
+    0%,50%{
+        right: -20%;
+    }50%,80%{
+        right: -25%;
+    }80%,100%{
+        right: -20%;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

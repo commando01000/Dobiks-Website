@@ -1,0 +1,39 @@
+#scrollToTop {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.15s ease;
+
+    &:after {
+        content: "";
+        border: solid $orange;  
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 4px;
+        transform: rotate(-135deg);
+    }
+
+    &.showBtn {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    #progress-bar {
+        --scrollAmount: 0px;
+
+        & svg {
+            max-width: 70px;
+            max-height: 70px;
+            transform: rotate(90deg);
+
+            & path {
+                stroke-width: 0.2em;
+                stroke-dasharray: 154;
+                stroke-dashoffset: calc(-154px + var(--scrollAmount));
+                animation-fill-mode: forwards; 
+            }
+        }
+    }
+}

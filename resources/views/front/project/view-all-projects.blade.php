@@ -2,7 +2,7 @@
 
 @section('title', 'Projects')
 
-@section('content')
+{{-- @section('content')
     <section id="projects">
         <div class="container-fluid ps-0 pe-0">
             <div class="section__header justify-content-center align-items-center">
@@ -121,6 +121,176 @@
                     // Append the last row if it contains any columns and hasn't been appended yet
                     if (counter % 3 !== 0) {
                         projectsList.appendChild(row);
+                    }
+
+                    // Update pagination links
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = ''; // Clear existing pagination
+
+                    if (data.links && data.links.length > 0) {
+                        let paginationHtml = '';
+
+                        // Previous Page Link
+                        if (data.current_page > 1) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                        }
+
+                        // Pagination Elements
+                        data.links.forEach(link => {
+                            if (link.url) {
+                                paginationHtml +=
+                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                            } else {
+                                paginationHtml +=
+                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
+                            }
+                        });
+
+                        // Next Page Link
+                        if (data.current_page < data.last_page) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                        }
+
+                        paginationLinks.innerHTML = paginationHtml;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching projects:', error); // Log any errors
+                });
+        }
+
+        // Ensure that loadProjects is available globally
+        window.loadProjects = loadProjects;
+    </script>
+@endsection --}}
+
+
+@section('content')
+    <!-- start title -->
+    <section>
+        <div class="container">
+            <div class="main-title">
+                <h1>projects</h1>
+                <div>
+                    <a href="">Home</a>
+                    <span class="slash">/</span>
+                    <a href="">projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end title -->
+
+    <!-- start projects description -->
+    <section>
+        <div class="container">
+            <div class="col-lg-6">
+                <h2 class="main-head mb-4 col-lg-8"><span>D</span>opiks Projects page</h2>
+                <div class="text-light-gray">
+                    <p>One of the biggest pharmacy chains in Saudi Arabia, based on various factors like number of stores,
+                        and market share.</p>
+                    <div class="mt-4">
+                        <p>Social Media: <span class="number">1200</span>.</p>
+                        <p>Printing Materials: <span class="number">560</span>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end projects description -->
+
+    <!-- start projects -->
+    <section class="bg-dark-black">
+        <div class="container">
+
+            <div id="secondary-nav" class="d-flex flex-wrap align-items-center my-5 gap-5">
+                @foreach ($categories as $category)
+                    <button onclick="loadProjects({{ $category->id }})"
+                        class="main-btn-nav btn main-btn {{ $loop->first ? 'active' : '' }}">{{ $category->name }}</button>
+                @endforeach
+            </div>
+
+            <div class="row projects">
+                <!-- Projects will be loaded here dynamically -->
+
+            </div>
+            <div class="w-100 paginatior mt-3">
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination-links">
+                        <!-- Pagination links will be dynamically inserted here -->
+                    </ul>
+                </nav>
+            </div>
+            {{-- <div data-count="3" class="pagination number" id="pagination">
+                    <button class="btn" id="prev"><a href="#">&lt;&lt; Previous</a></button>
+
+                    <a href="#" class="page-link" data-page="1">1</a>
+
+                    <a href="#" class="page-link" data-page="2">2</a>
+                    <a href="#" class="page-link" data-page="3">3</a>
+                    <button class="btn" id="next"><a href="#">Next &gt;&gt;</a></button>
+                </div> --}}
+    </section>
+    <!-- end projects -->
+@endsection
+
+@section('js')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch data for the first category initially
+            @if ($categories->isNotEmpty())
+                loadProjects({{ $categories->first()->id }});
+            @endif
+        });
+
+        function loadProjects(categoryId, page = 1) {
+            fetch(`/projects/category/${categoryId}?page=${page}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Fetched data:', data); // Log the fetched data
+                    let projectsSection = document.querySelector('.projects');
+                    projectsSection.innerHTML = ''; // Clear previous projects
+
+                    baseUrl = "{{ url('/') }}";
+                    let counter = 1; // Initialize a counter
+                    let row = document.createElement('div');
+                    row.classList.add('row');
+                    let projects = data.data;
+                    projects.forEach((project, index) => {
+                        let projectItem = `
+                            <div class="col-6 col-md-4 mb-4">
+                                <a href="/projects/${project.slug}" class="${(index - 1) % 3 == 0 ? 'pt-md-4 d-block' : ''}">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="number">${counter}</span>
+                                        <p class="text-light-gray">${project.title}</p>
+                                    </div>
+                                    <img class="img-fluid w-100" src="${baseUrl}/storage/app/${project.cover}" alt="${project.title}">
+                                    <p class="my-2 fs-5"> ${project.client }</p>
+                                </a>
+                            </div>
+                    `;
+
+                        // Append projectItem to row
+                        row.innerHTML += projectItem;
+                        counter++; // Increment the counter
+
+                        // Append row to projectsSection after every 3 items (for 3 columns in a row)
+                        if (counter % 3 === 1) {
+                            projectsSection.appendChild(row);
+                            row = document.createElement('div');
+                            row.classList.add('row');
+                        }
+                    });
+
+                    // Append the last row if it's not already added
+                    if (data.length % 3 !== 0) {
+                        projectsSection.appendChild(row);
                     }
 
                     // Update pagination links

@@ -1,0 +1,13 @@
+#accordionFlushFAQs{
+    --bs-accordion-bg: $dark-black !important;
+    --bs-accordion-active-bg: $dark-black !important;
+    .accordion-button{
+        &::after {
+            background-image: none;
+        }
+        &:focus{
+            box-shadow: none;
+            background-color: $dark-black;
+        }
+    }
+}

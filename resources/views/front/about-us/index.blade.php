@@ -1,6 +1,6 @@
 @extends('layouts.front.app')
 @section('title', 'About Us')
-@section('content')
+{{-- @section('content')
     <section id="section-services" class="p-1">
         <main class="container-fluid overflow-hidden">
             <div class="section__header justify-content-center align-items-center">
@@ -19,58 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col-md-6 mt-5">
-                        <div class="inline-container d-flex align-items-center flex-row">
-                            <span class="d-inline-block content-section__description ui text size-textmd">ABOUT</span>
-                            <div class="ms-3 content-section__divider"></div>
-                        </div>
-                        <div class="services-section__content pt-1">
-                            <h2 class="content-section__subtitle ui heading size-headingmd">
-                                A Behind-the-Scenes Look at Our Agency
-                            </h2>
-                            <p class="content-section__description fs-6 pt-2">At Dopiks, we see a world where every brand
-                                has the power to connect with its audience in a
-                                meaningful way. We want to help businesses tell their stories and reach their full potential
-                                through innovative digital marketing strategies</p>
-                        </div>
-                        <div class="row align-items-center justify-content-between">
-                            <div class="col-md-9">
-                                <div class="progress-bars-section overflow-visible pt-2">
-                                    <p class="content-section__description ui text size-textmd">CREATIVE DESIGNS</p>
-                                    <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
-                                        aria-label="Success example" aria-valuenow="100" aria-valuemin="0"
-                                        aria-valuemax="100">
-                                        <div class="progress-bar" style="width: 100%">
-                                            <span style="top: -15px" class="mb-2 position-absolute">100%</span>
-                                        </div>
-                                    </div>
-                                    <p class="content-section__description ui text size-textmd">MOTION GRAPHICS</p>
-
-                                    <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
-                                        aria-label="Info example" aria-valuenow="97" aria-valuemin="0" aria-valuemax="97">
-                                        <div class="progress-bar" style="width: 97%">
-                                            <span style="top: -15px" class="mb-2 position-absolute">97%</span>
-                                        </div>
-                                    </div>
-                                    <p class="content-section__description ui text size-textmd">VIDEO PRODUCTION</p>
-                                    <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
-                                        aria-label="Warning example" aria-valuenow="98" aria-valuemin="0"
-                                        aria-valuemax="98">
-                                        <div class="progress-bar" style="width: 98%">
-                                            <span style="top: -15px" class="mb-2 position-absolute">98%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="content-section__column--secondary">
-                                    <p class="content-section__button pt-2 ui text size-btn_text">
-                                        CONTACT US
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+                    
                     <div class="col-md-6 mt-5">
                         <div class="inline-container d-flex align-items-center flex-row">
                             <span class="d-inline-block content-section__description ui text size-textmd">
@@ -126,8 +75,7 @@
                                 <div class="carousel-item @if ($loop->first) active @endif">
                                     <div class="row gx-5 align-items-center w-100">
                                         <div class="col-md-4">
-                                            {{-- <img src="{{ asset('assets/front_assets/images/so3ody.jpeg') }}"
-                                            class="w-100 object-fit-cover" style="min-height: 400px;" alt="so3ody"> --}}
+
                                             <img src="{{ Illuminate\Support\Facades\Storage::url($testimonial->image) }}"
                                                 class="w-100 object-fit-cover" style="min-height: 400px;" alt="so3ody">
                                         </div>
@@ -137,7 +85,6 @@
                                                 <div>
                                                     <div class="quote-container">
                                                         <span class="quote"></span>
-                                                        {{-- before --}}
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row">
@@ -161,32 +108,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- <p class="content-section__description">An interior design agency can create content
-                                            that showcases its work, highlights
-                                            design <br> trends, and provides educational resources for clients and
-                                            followers.
-                                            Some
-                                            potential content <br> ideas for an interior design agency An interior design
-                                            agency
-                                            can
-                                            create content that <br> showcases its work, highlights design trends, and
-                                            provides
-                                            educational resources for clients <br> and followers. Some potential content
-                                            ideas
-                                        </p> --}}
+
 
                                             <p class="content-section__description">
                                                 {{ $testimonial->getTranslation('desc', app()->getLocale()) }}
                                             </p>
                                             <div style="width: 40px" class="mb-3 content-section__divider"></div>
-                                            <span {{-- class="d-inline-block content-section__description ui text size-textmd fs-5">Ahmed
-                                            Bakry</span> --}}
+                                            <span
                                                 class="d-inline-block content-section__description ui text size-textmd fs-5">{{ $testimonial->name }}</span>
                                             <br>
-                                            {{-- <p style="font-size: 15px"
-                                            class="d-inline-block content-section__description ui text size-textmd">From
-                                            USA
-                                        </p> --}}
                                             <p style="font-size: 15px"
                                                 class="d-inline-block content-section__description ui text size-textmd">
                                                 {{ $testimonial->title }}
@@ -300,59 +230,6 @@
 
                         </div>
                     </div>
-                    {{-- <div class="row gy-5">
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        Sustainable Design: How to Create an…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        The Art of Accessorizing: Adding the…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div style="min-height: 345px" class="card p-5">
-                                <div class="card-body">
-                                    <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
-                                        Color Psychology in Interior Design: How…
-                                    </p>
-                                    <br>
-                                    <div style="height: 3px" class="section__divider"></div>
-                                    <br>
-                                    <p class="w-100 fs-6 content-section__description">An interior design agency can create
-                                        content that showcases its…</p>
-                                    <br>
-                                    <p>Learn more <span class="arrow">→</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="row gy-5">
                         @if (isset($allBlogs))
                             @foreach ($allBlogs as $blog)
@@ -379,11 +256,255 @@
                             @endforeach
                         @endif
                     </div>
-                    {{-- <div class="mt-4">
-                        {{ $allBlogs->links() }} <!-- Pagination links -->
-                    </div> --}}
                 </div>
             </section>
         </main>
     </section>
+@endsection --}}
+
+@section('content')
+
+    <!-- start title -->
+    <section>
+        <div class="container">
+            <div class="main-title">
+                <h1><span>About Us</h1>
+                <div>
+                    <a href="">Home</a>
+                    <span class="slash">/</span>
+                    <a href="">ABOUT US</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end title -->
+
+    <!-- start about section -->
+    <section>
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-5 pe-md-5">
+                    <div class="position-relative">
+                        <img class="img-fluid pe-md-5" src="{{ asset('assets/front_assets/images/about-bg.png') }}"
+                            alt="about">
+                        <img class="img-fluid position-absolute bottom-0 end-0"
+                            src="{{ asset('assets/front_assets/images/about-sm.png') }}" alt="about">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="big-head">
+                        <span>{{ $about->title }}</span>
+                        <h2>{{ $about->short_description }}</h2>
+                    </div>
+                    <p class="text-light-gray">{{ $about->description }}</p>
+                    <div class="d-flex justify-content-between align-items-center mt-5">
+                        <div class="col-8 d-flex flex-column gap-4">
+                            @foreach ($about->details as $detail)
+                                <div>
+                                    <h5 class="text-uppercase mb-0 fw-normal mb-2">{{ $detail->category }}</h5>
+                                    <div class="progress-container">
+                                        <div data-progress="{{ $detail->number }}%" class="progress-value number"></div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <a href="{{ route('contact') }}"
+                            class="section-circle btn circle-btn position-relative text-white rounded-circle border d-flex flex-column gap-2 align-items-center justify-content-center"
+                            data-btn-scroll="true">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <circle class="circle" cx="50" cy="50" r="48" stroke="#FF5101"
+                                    stroke-width="2" fill="none" />
+                            </svg>
+                            <p class="text-uppercase">contact us</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end about section -->
+
+    <!-- start testimonials -->
+    <section class="bg-dark-black">
+        <div class="container">
+            <div id="testimonials-carousel" class="carousel slide">
+                <div class="carousel-inner">
+                    @foreach ($testimonials as $testimonial)
+                        <div class="carousel-item @if ($loop->first) active @endif">
+                            <div class="row justify-content-between gap-4 gap-md-0">
+                                <div class="col-lg-4 col-md-5">
+                                    <img class="img-fluid w-100 h-100" src="{{ Storage::url($testimonial->image) }}"
+                                        alt="">
+                                </div>
+                                <div class="col-lg-7 col-md-6 d-flex flex-column gap-5">
+                                    <div class="d-flex justify-content-between">
+                                        <img class="img-fluid quote"
+                                            src="{{ asset('assets/front_assets/images/quote.png') }}" alt="quote">
+                                        <div class="controls d-flex gap-4 justify-content-center">
+                                            <button
+                                                class="btn circle-btn position-relative border rounded-circle d-flex justify-content-center align-items-center"
+                                                data-btn-scroll="true" data-bs-target="#testimonials-carousel"
+                                                data-bs-slide="prev">
+                                                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                                    <circle class="circle" cx="50" cy="50" r="48"
+                                                        stroke="#FF5101" stroke-width="2" fill="none" />
+                                                </svg><img class="img-fluid"
+                                                    src="{{ asset('assets/front_assets/images/prev-left.svg') }}">
+                                            </button>
+                                            <button
+                                                class="btn circle-btn position-relative border rounded-circle d-flex justify-content-center align-items-center"
+                                                data-btn-scroll="true" data-bs-target="#testimonials-carousel"
+                                                data-bs-slide="next">
+                                                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                                    <circle class="circle" cx="50" cy="50" r="48"
+                                                        stroke="#FF5101" stroke-width="2" fill="none" />
+                                                </svg><img class="img-fluid"
+                                                    src="{{ asset('assets/front_assets/images/next-right.svg') }}">
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p>{{ $testimonial->getTranslation('desc', app()->getLocale()) }}</p>
+                                    <div class="testimonials-name pt-3 position-relative">
+                                        <p class="text-capitalize fs-5">{{ $testimonial->name }}</p>
+                                        <span class="text-light-gray">{{ $testimonial->title }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end testimonials -->
+
+    <!-- start client -->
+    <section>
+        <div class="container">
+            <div class="row align-items-center gap-4 gap-md-0">
+                <div class="col-md-4">
+                    <p class="fs-5">
+                        <span class="number">700+</span>
+                        Our Trusted Client
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <div data-swiperClass=".clients" data-slidesToShow="5.4" data-spaceBetweenSlides="30"
+                        class="clients swiper position-relative">
+                        <div class="swiper-wrapper align-items-center">
+
+                            <div class="swiper-slide"><img class="img-fluid w-100 h-100"
+                                    src="{{ asset('assets/front_assets/images/client6.png') }}" alt="client"></div>
+                            <div class="swiper-slide"><img class="img-fluid w-100 h-100"
+                                    src="{{ asset('assets/front_assets/images/client7.png') }}" alt="client"></div>
+                            <div class="swiper-slide"><img class="img-fluid w-100 h-100"
+                                    src="{{ asset('assets/front_assets/images/client8.png') }}" alt="client"></div>
+                            <div class="swiper-slide"><img class="img-fluid w-100 h-100"
+                                    src="{{ asset('assets/front_assets/images/client6.png') }}" alt="client"></div>
+                            <div class="swiper-slide"><img class="img-fluid w-100 h-100"
+                                    src="{{ asset('assets/front_assets/images/client7.png') }}" alt="client"></div>
+                            <div class="swiper-slide"><img class="img-fluid w-100 h-100"
+                                    src="{{ asset('assets/front_assets/images/client8.png') }}" alt="client"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end client -->
+
+    <!-- start leadership -->
+    <section>
+        <div class="container">
+            <div class="big-head">
+                <span>Our Team</span>
+                <p>Meet Our</p>
+                <h2>Leadership</h2>
+            </div>
+            <div class="row">
+                @foreach ($leaderships as $leadership)
+                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                        <a href="{{ route('team-details', $leadership->id) }}">
+                            <img class=" team-img img-fluid w-100 @if ($loop->index % 2 != 0) pt-md-3 @endif"
+                                src="{{ Storage::url($leadership->photo) }}" alt="leadership">
+                            <div class="text-center mt-3">
+                                <p class="fs-5">{{ $leadership->name }}</p>
+                                <span class="text-small text-light-gray">{{ $leadership->position }}</span>
+                            </div>
+                        </a>
+
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- end leadership -->
+
+    <!-- start milestones -->
+    <section id="achievement" class="bg-dark-black">
+        <div class="container">
+            <div class="row align-items-center justify-content-between gap-3 gap-md-0">
+                <div class="col-md-6">
+                    <h2 class="text-big mb-0">{{ $statistics->short_description }}</h2>
+                </div>
+                <div class="col-md-5">
+                    <p class="text-light-gray">{{ $statistics->description }}</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                @foreach ($statistics->details as $detail)
+                    <div class="col-4 col-md-4">
+                        <span data-target="{{ $detail->number }}" id="milestone"
+                            class="number text-bigger fw-bold">{{ $detail->number }}
+                            +</span>
+                        <p class="fs-5">{{ $detail->category }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- end milestones -->
+
+    <!-- start blogs -->
+    <section>
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-7 col-md-9">
+                    <h2 class="text-big mb-0">Sharing Our Knowledge and Passion for Interiors</h2>
+                </div>
+                <div class="col-lg-5 col-md-3">
+                    <button class="main-btn btn">view all blogs</button>
+                </div>
+            </div>
+            <div class="row mt-4 gy-4">
+                @if (isset($allBlogs))
+                    @foreach ($allBlogs as $blog)
+                        <div class="col-lg-4 col-md-6">
+                            <a href="#" class="blog d-block py-5 px-4 bg-dark-black rounded-1">
+                                <h4>{{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}
+                                </h4>
+                                <p class="text-light-gray my-4 position-relative pt-3">
+                                    {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45) }}
+                                </p>
+                                <button class="btn text-uppercase d-flex gap-2 align-items-center p-0 position-relative">
+                                    <span class="text-white">learn more</span>
+                                    <img src="{{ asset('assets/front_assets/images/right-arrow.svg') }}"
+                                        alt="Learn More">
+                                </button>
+                            </a>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+    </section>
+    <!-- end blogs -->
+
 @endsection
+
+@push('scripts')
+    <script src="assets/js/swiper.js"></script>
+    <script src="assets/js/progress.js"></script>
+    <script src="assets/js/count.js"></script>
+@endpush

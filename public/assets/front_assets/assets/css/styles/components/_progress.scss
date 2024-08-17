@@ -1,0 +1,19 @@
+.progress-container{
+    height: 4px;
+    background-color: $light-gray;
+    border-radius: 4px;
+    .progress-value{
+        height: 100%;
+        border-radius: 4px;
+        position: relative;
+        background-color: $orange;
+        &::after{
+            content: attr(data-progress);
+            color: $white;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -100%);
+        }
+    }
+}

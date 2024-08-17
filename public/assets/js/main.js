@@ -1,31 +1,50 @@
-$(function() {
+// scroll to top button
+(()=>{
+    document.addEventListener("DOMContentLoaded", () => {
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+        const rootElement = document.documentElement;
+        const bodyElement = document.body;
+        const progressBar = document.getElementById("progress-bar");
+        const pathLength = document.querySelector("#progress-bar > svg > path").getTotalLength();
 
-	if ( $('.owl-2').length > 0 ) {
-        $('.owl-2').owlCarousel({
-            center: false,
-            items: 1,
-            loop: true,
-            stagePadding: 0,
-            margin: 20,
-            smartSpeed: 1000,
-            autoplay: true,
-            nav: true,
-            dots: true,
-            pauseOnHover: false,
-            responsive:{
-                600:{
-                    margin: 20,
-                    nav: true,
-                  items: 2
-                },
-                1000:{
-                    margin: 20,
-                    stagePadding: 0,
-                    nav: true,
-                  items: 3
-                }
+        scrollToTopBtn.addEventListener("click", () => {
+            rootElement.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        document.addEventListener("scroll", () => {
+            const scrollAmount = pathLength / 100;
+            const scrollPosition = Math.round(
+                ((rootElement.scrollTop || bodyElement.scrollTop) /
+                ((rootElement.scrollHeight || bodyElement.scrollHeight) -
+                    innerHeight)) * 100 *scrollAmount
+            );
+
+            if (scrollPosition > 5) {
+                scrollToTopBtn.classList.add("showBtn");
+                progressBar.style.setProperty("--scrollAmount", scrollPosition + "px");
+            } else {
+                scrollToTopBtn.classList.remove("showBtn");
             }
-        });            
-    }
+        });
+    })
+})();
 
-})
+// handle header toggle menu
+(()=>{
+    const toggleMenu = document.getElementById("toggle-menu");
+    toggleMenu.addEventListener("click", ()=>{
+        toggleMenu.classList.toggle("active");
+        document.querySelector(".header-form").classList.toggle("active");
+    })
+})();
+
+// secondary nav handeling
+(()=>{
+    const menuButtonsList= document.querySelectorAll("#secondary-nav .main-btn-nav");
+    menuButtonsList.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            menuButtonsList.forEach(btn=>btn.classList.remove("active"));
+            e.target.classList.toggle("active");
+        });
+    });
+})();

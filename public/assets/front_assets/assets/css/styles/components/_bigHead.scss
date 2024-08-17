@@ -1,0 +1,30 @@
+.big-head{
+    margin-bottom: 3rem;
+
+    span{
+        text-transform: uppercase;
+        color: $light_gray;
+        position: relative;
+
+        &::before{
+            content: "";
+            width: 4rem;
+            height: 1px;
+            background-color: $orange;
+            position: absolute;
+            top: 50%;
+            right: -150%;
+            transform: translateY(-50%);
+        }
+
+    }
+
+    p{
+        font-size: 1.8rem;
+    }
+
+    h2{
+        font-size: 4rem;
+    }
+
+}

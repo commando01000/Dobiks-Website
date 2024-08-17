@@ -1,0 +1,35 @@
+// abstracts
+@import './styles/utilities/variables';
+@import './styles/utilities/mixins';
+@import './styles/utilities/animations';
+
+// base
+@import './styles/base/reset';
+@import './styles/base/typography';
+
+// // layout
+@import './styles/layout/headerForm';
+@import './styles/layout/header';
+
+// components
+@import './styles/components/bigHead';
+@import './styles/components/form';
+@import './styles/components/mainButton';
+@import './styles/components/mainHead';
+@import './styles/components/mainTitle';
+@import './styles/components/circleButton';
+@import './styles/components/swiper';
+@import './styles/components/whatsappIcon';
+@import './styles/components/scrollToTop';
+@import './styles/components/pagination';
+@import './styles/components/sliderControls';
+@import './styles/components/sectionCircle';
+@import './styles/components/progress';
+
+// // pages
+@import './styles/pages/home';
+@import './styles/pages/about';
+@import './styles/pages/projects';
+@import './styles/pages/contact';
+@import './styles/pages/landing';
+@import './styles/pages/faq';

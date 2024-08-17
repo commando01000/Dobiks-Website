@@ -1,0 +1,21 @@
+// start hero section
+.hero{
+    min-height: 78vh;
+    .fade-in-text {
+        animation: fadeIn 2s;
+    }
+    h1{
+        font-size: 3.5rem;
+        @include breakPoints("medium"){
+            font-size: 2.5rem;
+        }
+    }
+
+    .hero-desc::before{
+        @include smallLine(15%);
+    }
+}
+// start clients section
+.clients .img-box{
+    height: 18rem;
+}
