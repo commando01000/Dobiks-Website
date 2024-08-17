@@ -124,9 +124,9 @@
         <div class="row clients">
             <!-- Clients will be loaded here dynamically -->
         </div>
-        <button class="btn main-btn">
+        <a href="{{ route('see.all.clients') }}" class="btn main-btn">
             <span>View All Clients</span>
-        </button>
+        </a>
     </div>
 </section>
 <!-- end clients -->

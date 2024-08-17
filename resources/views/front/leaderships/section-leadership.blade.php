@@ -64,9 +64,9 @@
                         <p>meet our</p>
                         <h2>leadership</h2>
                     </div>
-                    <div class="btn main-btn mx-0">
+                    <a href="{{ route('about-us') }}" class="btn main-btn mx-0">
                         <span>view all leadership</span>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-8">
                     <div class="row align-items-center">

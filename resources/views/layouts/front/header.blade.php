@@ -13,10 +13,12 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto gap-3 text-center text-lg-start">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
+                                aria-current="page" href="{{ route('homepage') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Dopiks</a>
+                            <a class="nav-link {{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}"
+                                href="{{ route('about-us') }}">About Dopiks</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -32,16 +34,20 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Projects</a>
+                            <a class="nav-link {{ Route::currentRouteName() == 'see.all.projects' ? 'active' : '' }}"
+                                href="{{ route('see.all.projects') }}">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Our clients</a>
+                            <a class="nav-link {{ Route::currentRouteName() == 'see.all.clients' ? 'active' : '' }}"
+                                href="{{ route('see.all.clients') }}">Our clients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Blogs</a>
+                            <a class="nav-link {{ Route::currentRouteName() == 'see.all.blogs' ? 'active' : '' }}"
+                                href="{{ route('see.all.blogs') }}">Blogs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
+                            <a class="nav-link {{ Route::currentRouteName() == 'contact' ? 'active' : '' }}"
+                                href="{{ route('contact') }}">Contact Us</a>
                         </li>
                     </ul>
                 </div>

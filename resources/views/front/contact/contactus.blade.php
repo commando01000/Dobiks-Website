@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-@section('title', 'Contact us' )
+@section('title', 'Contact us')
 <style>
     .message-container {
         position: fixed;
@@ -26,7 +26,7 @@
             </div>
         </div>
     @endif
-    <section id="section-contact-us" class="section p-1">
+    {{-- <section id="section-contact-us" class="section p-1">
         <main class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
@@ -56,6 +56,116 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </main>
+    </section> --}}
+    <!-- start title -->
+    <section>
+        <div class="container">
+            <div class="main-title">
+                <h1>Team Details</h1>
+                <div>
+                    <a href="">Home</a>
+                    <span class="slash">/</span>
+                    <a href="">Team Details</a>
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- end title -->
+
+    <!-- start contact description -->
+    <section>
+        <div class="container">
+            <h2 class="col-lg-7 text-bigger mb-5">
+                We build immersive digital experiences.
+            </h2>
+            <div class="col-lg-4 contact-line position-relative pt-4">
+                <h3 class="fs-2">Let Us Tell Your Story</h3>
+                <p class="text-light-gray">
+                    The Creative agency for international and local brands
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- end contact description -->
+
+    <!-- start form -->
+    <section>
+        <div class="container">
+            <div class="row gap-4 gap-md-0">
+                <div class="col-md-8">
+                    <div class="big-head">
+                        <span>waiting</span>
+                        <p>Let's Go</p>
+                        <h2>Register Form</h2>
+                    </div>
+                    @include('front.contact.contact-us-form')
+                </div>
+                <div class="col-md-4 text-capitalize d-flex flex-column gap-4">
+                    <img class="form-logo img-fluid" src="assets/logo.png" alt="" />
+                    <h3>Let Us Tell Your Story</h3>
+                    <div>
+                        <h5 class="text-light-gray">call us</h5>
+                        <ul>
+                            <li>
+                                <a class="fs-4 fw-medium number" href="#">(+20) 262-2578</a>
+                            </li>
+                            <li>
+                                <a class="fs-4 fw-medium number" href="#">(+20) 262-2578</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href=""
+                        class="btn hover-orange d-flex align-items-center justify-content-center gap-2 py-2 border w-100 text-white">
+                        <img class="img-fluid" src="assets/whatsapp.png" alt="" />
+                        <span>Contact US</span>
+                    </a>
+                    <div>
+                        <h5 class="text-light-gray">Head Office</h5>
+                        <ul>
+                            <li class="number fs-5">
+                                61973 State 415 Rte, Cohocton, New York 14826, USA
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end form -->
+
+    <!-- start offices -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="py-5 px-4 bg-dark-black">
+                        <span class="text-light-gray">Head Office</span>
+                        <p class="number fs-4 mt-2">
+                            {{ Utility::getsettings('contact_address2') }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="py-5 px-4 bg-dark-black">
+                        <span class="text-light-gray">Head Office</span>
+                        <p class="number fs-4 mt-2">
+                            {{ Utility::getsettings('contact_addrees3') }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="py-5 px-4 bg-dark-black">
+                        <span class="text-light-gray">Head Office</span>
+                        <p class="number fs-4 mt-2">
+                            {{ Utility::getsettings('contact_addrees4') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end offices -->
+
+
 @endsection
 <!-- Contact-Us Section End -->

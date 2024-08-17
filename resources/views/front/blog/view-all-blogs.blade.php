@@ -1,11 +1,11 @@
 @extends('layouts.front.app')
-@section('title', 'Blog' )
+@section('title', 'Blog')
 
 @php
     use Illuminate\Support\Str;
 @endphp
 
-@section('content')
+{{-- @section('content')
     <section id="blog" class="w-100 mt-0 p-1 overflow-hidden">
         <div class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
@@ -25,7 +25,6 @@
                                             <p class="w-75 fs-6 content-section__subtitle ui heading size-headingmd">
                                                 {{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}
                                                 {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45) }}
-                                                {{-- {{ Str::limit($blog->normal_description, 60, '...') }} --}}
                                             </p>
                                             <br>
                                             <div style="height: 3px" class="section__divider"></div>
@@ -51,7 +50,58 @@
                 </div>
             </div>
         </div>
-        {{-- add pagination --}}
-        {{-- $blogs->links() --}}
     </section>
+@endsection --}}
+
+@section('content')
+    <!-- start title -->
+    <section>
+        <div class="container">
+            <div class="main-title">
+                <h1>blogs</h1>
+                <div>
+                    <a href="">Home</a>
+                    <span class="slash">/</span>
+                    <a href="">blogs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end title -->
+
+    <!-- start blogs -->
+    <section>
+        <div class="container">
+            <div class="row gy-4 mb-5">
+                @foreach ($allBlogs as $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <a href="{{ route('view.blog', $blog->slug) }}"
+                            class="blog d-block py-5 px-4 bg-dark-black rounded-1">
+                            <h4> {{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}
+                                {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 10) }}
+                            </h4>
+                            <p class="text-light-gray my-4 position-relative pt-3">
+                                {{ Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 45) }}</p>
+                            <button class="btn text-uppercase d-flex gap-2 align-items-center p-0 position-relative">
+                                <span class="text-white">learn more</span>
+                                <img src="{{ asset('assets/front_assets/images/right-arrow.svg') }}" alt="Learn More">
+                            </button>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <div data-count="3" class="pagination number" id="pagination">
+                <button class="btn" id="prev"><a href="#">&lt;&lt; Previous</a></button>
+                <a href="#" class="page-link" data-page="1">1</a>
+                <a href="#" class="page-link" data-page="2">2</a>
+                <a href="#" class="page-link" data-page="3">3</a>
+                <button class="btn" id="next"><a href="#">Next &gt;&gt;</a></button>
+            </div>
+        </div>
+    </section>
+    <!-- end blogs -->
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/js/pagination.js') }}"></script>
 @endsection

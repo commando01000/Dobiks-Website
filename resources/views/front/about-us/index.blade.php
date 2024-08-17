@@ -474,18 +474,20 @@
                     <h2 class="text-big mb-0">Sharing Our Knowledge and Passion for Interiors</h2>
                 </div>
                 <div class="col-lg-5 col-md-3">
-                    <button class="main-btn btn">view all blogs</button>
+                    <a href="{{ route('see.all.blogs') }}" class="main-btn btn">view all blogs</a>
                 </div>
             </div>
             <div class="row mt-4 gy-4">
                 @if (isset($allBlogs))
                     @foreach ($allBlogs as $blog)
                         <div class="col-lg-4 col-md-6">
-                            <a href="#" class="blog d-block py-5 px-4 bg-dark-black rounded-1">
+                            <a href="{{ route('view.blog', $blog->slug) }}"
+                                class="blog d-block py-5 px-4 bg-dark-black rounded-1">
                                 <h4>{{ Str::limit($blog->getTranslation('title', app()->getLocale()), 45) }}
+                                    {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 10) }}
                                 </h4>
                                 <p class="text-light-gray my-4 position-relative pt-3">
-                                    {{ Str::limit($blog->getTranslation('short_description', app()->getLocale()), 45) }}
+                                    {{ Str::limit($blog->getTranslation('normal_description', app()->getLocale()), 45) }}
                                 </p>
                                 <button class="btn text-uppercase d-flex gap-2 align-items-center p-0 position-relative">
                                     <span class="text-white">learn more</span>
@@ -504,7 +506,7 @@
 @endsection
 
 @push('scripts')
-    <script src="assets/js/swiper.js"></script>
+    <script src="assets/js/loopSwiper.js"></script>
     <script src="assets/js/progress.js"></script>
     <script src="assets/js/count.js"></script>
 @endpush

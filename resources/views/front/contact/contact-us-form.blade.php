@@ -1,4 +1,4 @@
-<div class="row gx-2">
+{{-- <div class="row gx-2">
     <div class="col-md-6">
         <div class="inline-container d-flex align-items-center flex-row">
             <!-- Added container for inline elements -->
@@ -167,4 +167,55 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+
+<form class="form d-flex flex-column gap-5" method="post" action="{{ route('contact_us.store') }}">
+    @csrf
+    <div class="fs-4">
+        <label class="text-capitalize" for="name">First Name <span class="text-orange">*</span></label>
+        <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="text" placeholder="First name here"
+            name="firstname" id="name" />
+    </div>
+    <div class="fs-4">
+        <label class="text-capitalize" for="c_name">Last Name <span class="text-orange">*</span></label>
+        <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" name="lastname" type="text"
+            placeholder="Last Name here" id="c_name" />
+    </div>
+    <div class="fs-4">
+        <label class="text-capitalize" for="Email">Email <span class="text-orange">*</span></label>
+        <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="email" placeholder="Email here"
+            name="email" id="Email" />
+    </div>
+    <div class="fs-4">
+        <label class="text-capitalize" for="Subject">Subject <span class="text-orange">*</span></label>
+        <input class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" type="text" placeholder="Subject here"
+            name="subject" id="Subject" />
+    </div>
+    <div class="fs-4">
+        <label class="text-capitalize" for="Comments">Comment <span class="text-orange">*</span></label>
+        <textarea class="bg-transparent border-0 border-bottom mt-2 w-100 p-1" placeholder="Message" name="comments"
+            id="Comments" cols="30" rows="3"></textarea>
+    </div>
+    {{-- <div class="fs-4">
+        <label class="text-capitalize" for="select-service">Select Service <span class="text-orange">*</span></label>
+        <div class="btn-group d-block mt-4 text-uppercase" id="select-service" role="group"
+            aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" id="facebook" autocomplete="off" />
+            <label class="btn text-white border py-2 px-3 me-2 mb-3 rounded-0 hover-orange"
+                for="facebook">Facebook</label>
+            <input type="checkbox" class="btn-check" id="twitter" autocomplete="off" />
+            <label class="btn text-white border py-2 px-3 me-2 mb-3 rounded-0 hover-orange"
+                for="twitter">Twitter</label>
+            <input type="checkbox" class="btn-check" id="linkedin" autocomplete="off" />
+            <label class="btn text-white border py-2 px-3 me-2 mb-3 rounded-0 hover-orange"
+                for="linkedin">LinkedIn</label>
+            <input type="checkbox" class="btn-check" id="instagram" autocomplete="off" />
+            <label class="btn text-white border py-2 px-3 me-2 mb-3 rounded-0 hover-orange"
+                for="instagram">Instagram</label>
+        </div>
+    </div> --}}
+    <button type="submit" class="btn mx-0 mt-3 main-btn">
+        Submit Request
+    </button>
+</form>
