@@ -153,71 +153,12 @@
         <div class="container">
 
             <h2 class="main-head">other <span>pr</span>ojects</h2>
-
             <div class="row projects">
-                <div class="col-6 col-md-4 mb-4">
-                    <a href="#">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="number">01</span>
-                            <p class="text-light-gray">Interior – Luxury Living</p>
-                        </div>
-                        <img class="img-fluid w-100" src="assets/project01.png" alt="project">
-                        <p class="my-2 fs-5">Kawa - Glamorous Penthouse</p>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 mb-4">
-                    <a href="#" class="pt-md-4 d-block">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="number">02</span>
-                            <p class="text-light-gray">Architecture – Urban Living</p>
-                        </div>
-                        <img class="img-fluid w-100" src="assets/project02.png" alt="project">
-                        <p class="my-2 fs-5">Dako - Sleek City Apartment</p>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 mb-4">
-                    <a href="#">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="number">03</span>
-                            <p class="text-light-gray">Architecture – Urban Living</p>
-                        </div>
-                        <img class="img-fluid w-100" src="assets/project03.png" alt="project">
-                        <p class="my-2 fs-5">Tabul - Industrial Chic Loft</p>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 mb-4">
-                    <a href="#">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="number">04</span>
-                            <p class="text-light-gray">Interior – Luxury Living</p>
-                        </div>
-                        <img class="img-fluid w-100" src="assets/project04.png" alt="project">
-                        <p class="my-2 fs-5">Kawa - Glamorous Penthouse</p>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 mb-4">
-                    <a href="#" class="pt-md-4 d-block">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="number">05</span>
-                            <p class="text-light-gray">Architecture – Urban Living</p>
-                        </div>
-                        <img class="img-fluid w-100" src="assets/project05.png" alt="project">
-                        <p class="my-2 fs-5">Dako - Sleek City Apartment</p>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4 mb-4">
-                    <a href="#">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="number">06</span>
-                            <p class="text-light-gray">Architecture – Urban Living</p>
-                        </div>
-                        <img class="img-fluid w-100" src="assets/project06.png" alt="project">
-                        <p class="my-2 fs-5">Tabul - Industrial Chic Loft</p>
-                    </a>
-                </div>
+                <!-- Projects will be loaded here dynamically -->
+
             </div>
 
-            <a href="#" class="main-btn btn">view all projects</a>
+            <a href="{{ route('see.all.projects') }}" class="main-btn btn">view all projects</a>
 
         </div>
     </section>
