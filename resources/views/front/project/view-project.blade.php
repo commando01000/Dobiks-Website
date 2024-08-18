@@ -218,7 +218,7 @@
             @endif
         });
 
-        function loadProjects(categoryId, page = 1) {
+        function loadProjects(categoryId = 1, page = 1) {
             fetch(`/projects/category/${categoryId}?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
