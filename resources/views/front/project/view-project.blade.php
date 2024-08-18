@@ -148,35 +148,6 @@
     @include('front.projects-section.projects')
     <!-- end project description -->
 
-    <!-- start project features -->
-    <section class="bg-dark-black">
-        <div class="container">
-            @if (Route::currentRouteName() == 'view.project')
-                @include('front.projects-section.projects-section-details-title')
-            @else
-                @include('front.projects-section.projects-section-home-title')
-            @endif
-            <div id="secondary-nav" class="d-flex flex-wrap align-items-center my-5 gap-4">
-                @foreach ($categories as $category)
-                    <button onclick="loadProjects({{ $category->id }})"
-                        class="main-btn-nav btn main-btn {{ $loop->first ? 'active' : '' }}">{{ $category->name }}</button>
-                @endforeach
-            </div>
-
-            <div class="row">
-                <!-- Projects will be loaded here dynamically -->
-            </div>
-            <div class="w-100 paginatior mt-3">
-                <nav>
-                    <ul class="pagination justify-content-center" id="pagination-links">
-                        <!-- Pagination links will be dynamically inserted here -->
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
-    <!-- end project features -->
-
     <!-- start other projects -->
     <section>
         <div class="container">
