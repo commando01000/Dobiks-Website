@@ -67,6 +67,10 @@ input:focus, select:focus {
     border-color: transparent !important;
 }
 
+iframe{
+    width: 100%;
+}
+
 @media (max-width: 1200px) {
     html {
         font-size: 90%;
