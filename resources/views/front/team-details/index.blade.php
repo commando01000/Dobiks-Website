@@ -186,10 +186,7 @@
                         <span class="text-light-gray fs-5">{{ $teamMember->position }}</span>
                     </div>
                     <div class="d-flex flex-column gap-3 text-light-gray">
-                        <p>An interior design agency can create content that showcases its work, highlights design trends,
-                            and provides educational resources for clients and followers. Some potential content ideas for
-                            an interior design agency. An interior design agency can create content that showcases its work.
-                        </p>
+
                         <?php
                         
                         $var = html_entity_decode($teamMember->bio);
