@@ -40,11 +40,14 @@
 
 // secondary nav handeling
 (()=>{
-    const menuButtonsList= document.querySelectorAll("#secondary-nav .main-btn-nav");
-    menuButtonsList.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            menuButtonsList.forEach(btn=>btn.classList.remove("active"));
-            e.target.classList.toggle("active");
+    const secondaryNav= document.querySelectorAll("#secondary-nav");
+    secondaryNav.forEach(nav => {
+        const menuButtonsList = nav.querySelectorAll(".main-btn-nav");
+        menuButtonsList.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                menuButtonsList.forEach(btn=>btn.classList.remove("active"));
+                e.target.classList.toggle("active");
+            });
         });
     });
 })();

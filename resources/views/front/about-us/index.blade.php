@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-6 mt-5">
                         <div class="inline-container d-flex align-items-center flex-row">
                             <span class="d-inline-block content-section__description ui text size-textmd">
@@ -282,7 +282,7 @@
     <!-- start about section -->
     <section>
         <div class="container">
-            <div class="row justify-content-between align-items-center">
+            <div class="row justify-content-between align-items-center gy-4">
                 <div class="col-md-5 pe-md-5">
                     <div class="position-relative">
                         <img class="img-fluid pe-md-5" src="{{ asset('assets/front_assets/images/about-bg.png') }}"
