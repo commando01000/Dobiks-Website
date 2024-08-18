@@ -1,6 +1,6 @@
 @extends('layouts.front.app')
-@section('title', 'Team Details' )
-@section('content')
+@section('title', 'Team Details')
+{{-- @section('content')
     <section id="team-details" class="w-100 mt-0 p-1 overflow-hidden">
         <main class="container-fluid ps-0 pe-0">
             <div class="section__header justify-content-center align-items-center">
@@ -83,17 +83,16 @@
                                     content that showcases its work.
                                 </p> --}}
 
-                                <div class="text-white">
-                                    <?php
+{{-- <div class="text-white">
+                                   // <?php
+                                   
+                                   // $var = html_entity_decode($teamMember->bio);
+                                   
+                                   //echo $var;
+                                   ?>
+                                </div> --}}
 
-                                    $var = html_entity_decode($teamMember->bio);
-
-                                    echo $var;
-
-                                    ?>
-                                </div>
-
-                                {{-- <div class="progress-bars-section overflow-visible pt-2">
+{{-- <div class="progress-bars-section overflow-visible pt-2">
                                     <p class="content-section__description ui text size-textmd">CREATIVE DESIGNS</p>
                                     <div style="height: 5px;" class="progress overflow-visible mb-2" role="progressbar"
                                         aria-label="Success example" aria-valuenow="100" aria-valuemin="0"
@@ -119,7 +118,7 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <div class="col-md-9">
+{{-- <div class="col-md-9">
                                     <div class="progress-bars-section overflow-visible pt-2">
                                         @foreach ($teamMember->details as $detail)
                                             <p class="content-section__description ui text size-textmd">
@@ -142,5 +141,78 @@
                     </div>
                 </div>
         </main>
+    </section> --}}
+{{-- @endsection --}}
+
+
+@section('content')
+    <!-- start title -->
+    <section>
+        <div class="container">
+            <div class="main-title">
+                <h1>Team Details</h1>
+                <div>
+                    <a href="">Home</a>
+                    <span class="slash">/</span>
+                    <a href="">Team Details</a>
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- end title -->
+
+    <!-- start team member -->
+    <section class="bg-dark-black">
+        <div class="container">
+            <div class="row gap-4 gap-md-0">
+                <div class="col-md-5 col-lg-4">
+                    <img class="img-fluid w-100" src="{{ Storage::url($teamMember->photo) }}" alt="team">
+                    <div class="d-flex flex-wrap gap-2 mt-4">
+                        <a href="{{ $teamMember->facebook }}"
+                            class="btn border text-uppercase text-white hover-orange rounded-0 py-2 px-3">facebook</a>
+                        <a href="{{ $teamMember->twitter }}"
+                            class="btn border text-uppercase text-white hover-orange rounded-0 py-2 px-3">twitter</a>
+                        <a href="{{ $teamMember->linkedin }}"
+                            class="btn border text-uppercase text-white hover-orange rounded-0 py-2 px-3">linkedin</a>
+                        <a href="{{ $teamMember->dribble }}"
+                            class="btn border text-uppercase text-white hover-orange rounded-0 py-2 px-3">dribble</a>
+                        <a href="{{ $teamMember->github }}"
+                            class="btn border text-uppercase text-white hover-orange rounded-0 py-2 px-3">github</a>
+                    </div>
+                </div>
+                <div class="col-md-7 d-flex flex-column gap-4">
+                    <div class="text-capitalize">
+                        <h4>{{ $teamMember->name }}</h4>
+                        <span class="text-light-gray fs-5">{{ $teamMember->position }}</span>
+                    </div>
+                    <div class="d-flex flex-column gap-3 text-light-gray">
+                        <p>An interior design agency can create content that showcases its work, highlights design trends,
+                            and provides educational resources for clients and followers. Some potential content ideas for
+                            an interior design agency. An interior design agency can create content that showcases its work.
+                        </p>
+                        <?php
+                        
+                        $var = html_entity_decode($teamMember->bio);
+                        
+                        echo $var;
+                        ?>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="mb-4">Skills</h4>
+                        <div class="d-flex flex-column gap-4">
+                            @foreach ($teamMember->details as $detail)
+                                <div>
+                                    <h5 class="text-uppercase mb-0 fw-normal mb-2">{{ $detail->category }}</h5>
+                                    <div class="progress-container">
+                                        <div data-progress="{{ $detail->number }}%" class="progress-value number"></div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end team member -->
 @endsection

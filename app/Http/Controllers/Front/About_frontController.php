@@ -25,7 +25,6 @@ class About_frontController extends Controller
     }
     public function team_detail($id)
     {
-
         $teamMember = Leadership::where('id', $id)->first();
         return view('front.team-details.index', compact('teamMember'));
     }
