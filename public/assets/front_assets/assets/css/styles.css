@@ -92,6 +92,10 @@ input:focus, select:focus {
   border-color: transparent !important;
 }
 
+iframe {
+  width: 100%;
+}
+
 @media (max-width: 1200px) {
   html {
     font-size: 90%;
@@ -474,51 +478,6 @@ header .dropdown-menu a:hover {
   stroke-dasharray: 154;
   stroke-dashoffset: calc(-154px + var(--scrollAmount));
   animation-fill-mode: forwards;
-}
-
-.pagination {
-  text-align: center;
-  margin: 2rem auto 0;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.pagination a {
-  color: #FF5101;
-  padding: 10px 20px;
-  text-decoration: none;
-  border: 1px solid #FF5101;
-  margin: 0 5px;
-  border-radius: 50%;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-.pagination a:focus {
-  box-shadow: none;
-}
-.pagination a:hover {
-  background-color: #FF5101;
-  color: #FFFFFF;
-  transition: 0.3s;
-}
-.pagination #prev a, .pagination #next a {
-  border: none;
-}
-.pagination #prev a:hover, .pagination #next a:hover {
-  background-color: transparent;
-}
-.pagination #prev:disabled, .pagination #prev:focus, .pagination #next:disabled, .pagination #next:focus {
-  color: #D0D0D0;
-  border: none;
-}
-.pagination .active {
-  background-color: #FF5101;
-  color: #FFFFFF;
-  border-color: #FFFFFF;
-  z-index: 1;
-}
-
-#prev a:hover, #next a:hover {
-  background-color: transparent;
 }
 
 .controls .circle-btn {
