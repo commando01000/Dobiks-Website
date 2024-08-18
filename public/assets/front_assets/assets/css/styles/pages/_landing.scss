@@ -1,3 +1,7 @@
+header .reg:hover{
+    background-color: $white !important;
+    color: $orange !important;
+}
 .landing-line::after{
     @include smallLine(10%);
 }

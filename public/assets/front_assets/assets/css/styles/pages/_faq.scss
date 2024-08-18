@@ -1,6 +1,6 @@
 #accordionFlushFAQs{
-    --bs-accordion-bg: $dark-black !important;
-    --bs-accordion-active-bg: $dark-black !important;
+    --bs-accordion-bg: $dark_black !important;
+    --bs-accordion-active-bg: $dark_black !important;
     .accordion-button{
         &::after {
             background-image: none;
