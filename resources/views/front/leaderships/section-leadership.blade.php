@@ -71,14 +71,14 @@
                 <div class="col-lg-8">
                     <div class="row align-items-center">
                         @foreach ($leaderships as $leadership)
-                            <div class="col-4">
+                            <a href="{{ route('team-details', $leadership->id) }}" class="col-4">
                                 <img class="img-fluid w-100 @if ($loop->index % 2 != 0) pt-4 @endif"
                                     src="{{ Storage::url($leadership->photo) }}" alt="leadership">
                                 <div class="text-center mt-3">
                                     <p class="fs-5">{{ $leadership->name }}</p>
                                     <span class="text-small text-light-gray">{{ $leadership->position }}</span>
                                 </div>
-                            </div>
+                            </a>
                         @endforeach
                     </div>
                 </div>
