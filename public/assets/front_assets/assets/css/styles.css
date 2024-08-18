@@ -344,7 +344,7 @@ header .dropdown-menu a:hover {
     z-index: -1;
 }
 .main-btn::after {
-    content: url("./public/assets/front_assets/images/right-arrow.svg");
+    content: url("../../images/right-arrow.svg");
     position: absolute;
     top: 50%;
     right: -20%;

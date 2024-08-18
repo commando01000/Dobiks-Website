@@ -117,13 +117,15 @@
         @else
             @include('front.projects-section.projects-section-home-title')
         @endif
-        <div id="secondary-nav" class="d-flex flex-wrap align-items-center my-5 gap-5">
-            @foreach ($categories as $category)
-                <button onclick="loadProjects({{ $category->id }})"
-                    class="main-btn-nav btn main-btn {{ $loop->first ? 'active' : '' }}">{{ $category->name }}</button>
-            @endforeach
-        </div>
 
+        @if (Route::currentRouteName() != 'view.project')
+            <div id="secondary-nav" class="d-flex flex-wrap align-items-center my-5 gap-5">
+                @foreach ($categories as $category)
+                    <button onclick="loadProjects({{ $category->id }})"
+                        class="main-btn-nav btn main-btn {{ $loop->first ? 'active' : '' }}">{{ $category->name }}</button>
+                @endforeach
+            </div>
+        @endif
         <div class="row projects">
             <!-- Projects will be loaded here dynamically -->
         </div>

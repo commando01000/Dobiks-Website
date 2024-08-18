@@ -149,7 +149,7 @@
     <!-- end project description -->
 
     <!-- start other projects -->
-    <section>
+    <section id="other-projects">
         <div class="container">
 
             <h2 class="main-head">other <span>pr</span>ojects</h2>
@@ -209,41 +209,53 @@
     <!-- end team section -->
 @endsection
 
-@section('js')
+@push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Fetch data for the first category initially
-            @if ($categories->isNotEmpty())
-                loadProjects({{ $categories->first()->id }});
-            @endif
+            console.log("DOM fully loaded and parsed");
+
+            // Check if the projects container exists before proceeding
+            if (document.querySelector('#other-projects .projects')) {
+                console.log("Projects container found");
+
+                @if ($categories->isNotEmpty())
+                    console.log("Loading projects for the category with ID:", {{ $categories->last()->id }});
+                    loadOtherProjects({{ $categories->first()->id }});
+                @else
+                    console.log("No categories found");
+                @endif
+            } else {
+                console.log("Projects container not found");
+            }
         });
 
-        function loadProjects(categoryId = 1, page = 1) {
-            fetch(`/projects/category/${categoryId}?page=${page}`)
+        function loadOtherProjects(categoryId = 1) {
+            fetch(`/projects/category/${categoryId}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data
-                    let projectsSection = document.querySelector('.projects');
+                    let projectsSection = document.querySelector('#other-projects .projects');
                     projectsSection.innerHTML = ''; // Clear previous projects
 
-                    baseUrl = "{{ url('/') }}";
+                    let baseUrl = "{{ url('/') }}";
                     let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
+
                     let projects = data.data;
                     projects.forEach((project, index) => {
                         let projectItem = `
-                            <div class="col-6 col-md-4 mb-4">
-                                <a href="/projects/${project.slug}" class="${(index - 1) % 3 == 0 ? 'pt-md-4 d-block' : ''}">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="number">${counter}</span>
-                                        <p class="text-light-gray">${project.title}</p>
-                                    </div>
-                                    <img class="img-fluid w-100" src="${baseUrl}/storage/app/${project.cover}" alt="${project.title}">
-                                    <p class="my-2 fs-5"> ${project.client }</p>
-                                </a>
+                    <div class="col-6 col-md-4 mb-4">
+                        <a href="/projects/${project.slug}" class="${(index - 1) % 3 == 0 ? 'pt-md-4 d-block' : ''}">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="number">${counter}</span>
+                                <p class="text-light-gray">${project.title}</p>
                             </div>
-                    `;
+                            <img class="img-fluid w-100" src="${baseUrl}/storage/app/${project.cover}" alt="${project.title}">
+                            <p class="my-2 fs-5">${project.client}</p>
+                        </a>
+                    </div>
+                `;
 
                         // Append projectItem to row
                         row.innerHTML += projectItem;
@@ -258,45 +270,8 @@
                     });
 
                     // Append the last row if it's not already added
-                    if (data.length % 3 !== 0) {
+                    if (projects.length % 3 !== 0) {
                         projectsSection.appendChild(row);
-                    }
-
-                    // Update pagination links
-                    let paginationLinks = document.getElementById('pagination-links');
-                    paginationLinks.innerHTML = ''; // Clear existing pagination
-
-                    if (data.links && data.links.length > 0) {
-                        let paginationHtml = '';
-
-                        // Previous Page Link
-                        if (data.current_page > 1) {
-                            paginationHtml +=
-                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
-                        } else {
-                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
-                        }
-
-                        // Pagination Elements
-                        data.links.forEach(link => {
-                            if (link.url) {
-                                paginationHtml +=
-                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
-                            } else {
-                                paginationHtml +=
-                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
-                            }
-                        });
-
-                        // Next Page Link
-                        if (data.current_page < data.last_page) {
-                            paginationHtml +=
-                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
-                        } else {
-                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
-                        }
-
-                        paginationLinks.innerHTML = paginationHtml;
                     }
                 })
                 .catch(error => {
@@ -304,7 +279,7 @@
                 });
         }
 
-        // Ensure that loadProjects is available globally
-        window.loadProjects = loadProjects;
+        // Ensure that loadOtherProjects is available globally
+        window.loadOtherProjects = loadOtherProjects;
     </script>
-@endsection
+@endpush

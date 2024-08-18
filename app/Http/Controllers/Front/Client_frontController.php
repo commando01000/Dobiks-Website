@@ -18,7 +18,7 @@ class Client_frontController extends Controller
     }
     public function getClientsByCategory($categoryId)
     {
-        $client = Client::where('client_category', $categoryId)->get();
+        $client = Client::where('client_category', $categoryId)->paginate(9);
         return response()->json($client);
     }
 }

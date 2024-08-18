@@ -124,9 +124,19 @@
         <div class="row clients">
             <!-- Clients will be loaded here dynamically -->
         </div>
-        <a href="{{ route('see.all.clients') }}" class="btn main-btn">
-            <span>View All Clients</span>
-        </a>
+        @if (Route::currentRouteName() != 'see.all.clients')
+            <a href="{{ route('see.all.clients') }}" class="btn main-btn">
+                <span>View All Clients</span>
+            </a>
+        @else
+            <div class="w-100 paginatior mt-3">
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination-links">
+                        <!-- Pagination links will be dynamically inserted here -->
+                    </ul>
+                </nav>
+            </div>
+        @endif
     </div>
 </section>
 <!-- end clients -->
@@ -140,8 +150,8 @@
             @endif
         });
 
-        function loadClients(categoryId) {
-            fetch(`/clients/category/${categoryId}`)
+        function loadClients(categoryId, page = 1) {
+            fetch(`/clients/category/${categoryId} ?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
 
@@ -154,8 +164,8 @@
                     row.classList.add('overflow-hidden');
                     row.classList.add('gx-5');
                     row.classList.add('gy-5');
-
-                    data.forEach((client, index) => {
+                    let clients = data.data;
+                    clients.forEach((client, index) => {
                         let clientItem = `
                     <div class="col-6 col-md-3">
                         <div class="img-box d-flex justify-content-center align-items-center border p-5 w-100">
@@ -182,6 +192,43 @@
                     // Append the last row if it contains any items
                     if (data.length % 4 !== 0) {
                         clientsSection.appendChild(row);
+                    }
+
+                    // Update pagination links
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = ''; // Clear existing pagination
+
+                    if (data.links && data.links.length > 0) {
+                        let paginationHtml = '';
+
+                        // Previous Page Link
+                        if (data.current_page > 1) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadClients(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                        }
+
+                        // Pagination Elements
+                        data.links.forEach(link => {
+                            if (link.url) {
+                                paginationHtml +=
+                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadClients(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                            } else {
+                                paginationHtml +=
+                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
+                            }
+                        });
+
+                        // Next Page Link
+                        if (data.current_page < data.last_page) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadClients(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                        }
+
+                        paginationLinks.innerHTML = paginationHtml;
                     }
                 })
                 .catch(error => {
