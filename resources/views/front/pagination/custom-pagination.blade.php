@@ -26,11 +26,11 @@
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
                             <li class="active" aria-current="page">
-                                <span class="text-orange">{{ sprintf("%02d", $page) }}</span>
+                                <span class="text-orange">{{ sprintf('%02d', $page) }}</span>
                             </li>
                         @else
                             <li>
-                                <a href="{{ $url }}" class="text-white">{{ sprintf("%02d", $page) }}</a>
+                                <a href="{{ $url }}" class="text-white">{{ sprintf('%02d', $page) }}</a>
                             </li>
                         @endif
                     @endforeach

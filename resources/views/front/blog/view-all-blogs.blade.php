@@ -90,18 +90,10 @@
                     </div>
                 @endforeach
             </div>
-            <div data-count="3" class="pagination number" id="pagination">
-                <button class="btn" id="prev"><a href="#">&lt;&lt; Previous</a></button>
-                <a href="#" class="page-link" data-page="1">1</a>
-                <a href="#" class="page-link" data-page="2">2</a>
-                <a href="#" class="page-link" data-page="3">3</a>
-                <button class="btn" id="next"><a href="#">Next &gt;&gt;</a></button>
+            <div class="paginator mt-3">
+                {{ $allBlogs->links('front.pagination.custom-pagination') }}
             </div>
         </div>
     </section>
     <!-- end blogs -->
-@endsection
-
-@section('js')
-    <script src="{{ asset('assets/js/pagination.js') }}"></script>
 @endsection
