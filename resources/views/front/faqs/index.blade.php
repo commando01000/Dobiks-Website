@@ -2,7 +2,7 @@
 @section('title', 'Faq')
 
 @section('content')
-    <section id="faq" class="p-1 min-vh-100">
+    {{-- <section id="faq" class="p-1 min-vh-100">
         <div class="container-fluid p-0 m-0 overflow-hidden">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
@@ -46,5 +46,47 @@
                 </div>
             </div>
         </div>
+    </section> --}}
+
+    <!-- start title -->
+    <section>
+        <div class="container">
+            <div class="main-title">
+                <h1>FAQ</h1>
+                <div>
+                    <a href="">Home</a>
+                    <span class="slash">/</span>
+                    <a href="">faq</a>
+                </div>
+            </div>
+        </div>
     </section>
+    <!-- end title -->
+
+    <!-- start faq -->
+    <section>
+        <div class="container">
+
+            <div class="accordion mx-md-5 d-flex flex-column gap-3" id="accordionFlushFAQs">
+
+                @foreach ($faqs as $key => $item)
+                    <div class="accordion-item border-0 z-1">
+                        <p class="accordion-header">
+                            <button class="accordion-button collapsed fw-medium fs-5 bg-dark-black text-white"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ $key }}"
+                                aria-expanded="false" aria-controls="flush-collapse{{ $key }}">
+                                {{ $loop->iteration }} . {{ $item['questions'] }}
+                            </button>
+                        </p>
+                        <div id="flush-collapse{{ $key }}" class="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body py-4 px-5 bg-transparent text-light-gray">{{ $item['answer'] }}</div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+    <!-- end faq -->
 @endsection
