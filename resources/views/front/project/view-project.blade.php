@@ -3,7 +3,7 @@
 @section('title', 'Project Details')
 
 @section('content')
-    <section id="project-details" class="w-100 mt-0 p-1">
+    {{-- <section id="project-details" class="w-100 mt-0 p-1">
         <div class="container-fluid">
             <div class="section__header justify-content-center align-items-center">
                 <h1 class="content-section__title ui heading size-heading_1">
@@ -123,9 +123,178 @@
 
             {{-- @include('front.services.services-section') --}}
 
-            @include('front.leaderships.section-leadership')
+    {{-- @include('front.leaderships.section-leadership') --}}
+    {{-- </div> --}}
+    {{-- </section> --}}
+
+    <!-- start title -->
+    <section>
+        <div class="container">
+            <div class="main-title">
+                <h1>{{ $project->client }}</h1>
+                <div>
+                    <a href="">Home</a>
+                    <span class="slash">/</span>
+                    <a href="">Projects</a>
+                    <span class="slash">/</span>
+                    <a href="">project details</a>
+                </div>
+            </div>
         </div>
     </section>
+    <!-- end title -->
+
+    <!-- start project description -->
+    @include('front.projects-section.projects')
+    <!-- end project description -->
+
+    <!-- start project features -->
+    <section class="bg-dark-black">
+        <div class="container">
+            @if (Route::currentRouteName() == 'view.project')
+                @include('front.projects-section.projects-section-details-title')
+            @else
+                @include('front.projects-section.projects-section-home-title')
+            @endif
+            <div id="secondary-nav" class="d-flex flex-wrap align-items-center my-5 gap-4">
+                @foreach ($categories as $category)
+                    <button onclick="loadProjects({{ $category->id }})"
+                        class="main-btn-nav btn main-btn {{ $loop->first ? 'active' : '' }}">{{ $category->name }}</button>
+                @endforeach
+            </div>
+
+            <div class="row">
+                <!-- Projects will be loaded here dynamically -->
+            </div>
+            <div class="w-100 paginatior mt-3">
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination-links">
+                        <!-- Pagination links will be dynamically inserted here -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- end project features -->
+
+    <!-- start other projects -->
+    <section>
+        <div class="container">
+
+            <h2 class="main-head">other <span>pr</span>ojects</h2>
+
+            <div class="row projects">
+                <div class="col-6 col-md-4 mb-4">
+                    <a href="#">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="number">01</span>
+                            <p class="text-light-gray">Interior – Luxury Living</p>
+                        </div>
+                        <img class="img-fluid w-100" src="assets/project01.png" alt="project">
+                        <p class="my-2 fs-5">Kawa - Glamorous Penthouse</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <a href="#" class="pt-md-4 d-block">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="number">02</span>
+                            <p class="text-light-gray">Architecture – Urban Living</p>
+                        </div>
+                        <img class="img-fluid w-100" src="assets/project02.png" alt="project">
+                        <p class="my-2 fs-5">Dako - Sleek City Apartment</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <a href="#">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="number">03</span>
+                            <p class="text-light-gray">Architecture – Urban Living</p>
+                        </div>
+                        <img class="img-fluid w-100" src="assets/project03.png" alt="project">
+                        <p class="my-2 fs-5">Tabul - Industrial Chic Loft</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <a href="#">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="number">04</span>
+                            <p class="text-light-gray">Interior – Luxury Living</p>
+                        </div>
+                        <img class="img-fluid w-100" src="assets/project04.png" alt="project">
+                        <p class="my-2 fs-5">Kawa - Glamorous Penthouse</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <a href="#" class="pt-md-4 d-block">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="number">05</span>
+                            <p class="text-light-gray">Architecture – Urban Living</p>
+                        </div>
+                        <img class="img-fluid w-100" src="assets/project05.png" alt="project">
+                        <p class="my-2 fs-5">Dako - Sleek City Apartment</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <a href="#">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="number">06</span>
+                            <p class="text-light-gray">Architecture – Urban Living</p>
+                        </div>
+                        <img class="img-fluid w-100" src="assets/project06.png" alt="project">
+                        <p class="my-2 fs-5">Tabul - Industrial Chic Loft</p>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#" class="main-btn btn">view all projects</a>
+
+        </div>
+    </section>
+    <!-- end other projects -->
+
+    <!-- start team section -->
+    <section class="bg-dark-black">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4">
+                    <div class="big-head">
+                        <span>our team</span>
+                        <p>meet our</p>
+                        <h2>leadership</h2>
+                    </div>
+                    <div class="btn main-btn mx-0">
+                        <span>view all leadership</span>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row align-items-center">
+                        <div class="col-4">
+                            <img class="img-fluid w-100" src="assets/leadership1.png" alt="leadership">
+                            <div class="text-center mt-3">
+                                <p class="fs-5">Ahmed bakry</p>
+                                <span class="text-small text-light-gray">Managing Director</span>
+                            </div>
+                        </div>
+                        <div class="col-4 mt-5">
+                            <img class="img-fluid w-100" src="assets/leadership2.png" alt="leadership">
+                            <div class="text-center mt-3">
+                                <p class="fs-5">Ahmed bakry</p>
+                                <span class="text-small text-light-gray">Managing Director</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid w-100" src="assets/leadership3.png" alt="leadership">
+                            <div class="text-center mt-3">
+                                <p class="fs-5">Ahmed bakry</p>
+                                <span class="text-small text-light-gray">Managing Director</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end team section -->
 @endsection
 
 @section('js')
@@ -137,63 +306,85 @@
             @endif
         });
 
-        function loadProjects(categoryId) {
-            fetch(`/home/projects/category/${categoryId}`)
+        function loadProjects(categoryId, page = 1) {
+            fetch(`/projects/category/${categoryId}?page=${page}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Fetched data:', data); // Log the fetched data
-
-                    let projectsList = document.getElementById('projects-list');
-                    projectsList.innerHTML = '';
+                    let projectsSection = document.querySelector('.projects');
+                    projectsSection.innerHTML = ''; // Clear previous projects
 
                     baseUrl = "{{ url('/') }}";
                     let counter = 1; // Initialize a counter
                     let row = document.createElement('div');
                     row.classList.add('row');
-                    row.classList.add('w-100');
-                    row.classList.add('m-auto');
-
-                    data.forEach((project, index) => {
+                    let projects = data.data;
+                    projects.forEach((project, index) => {
                         let projectItem = `
-                        <div class="col-md-4 mt-4 ${(index - 1) % 3 == 0 ? 'p-4' : ''}"> <!-- Adjusted column class and margin bottom -->
-                            <div onclick="window.location.href = '/projects/${project.slug}'" style="cursor: pointer" class="service">
-                                <div class="service-header d-flex justify-content-between">
-                                    <!-- <div class="service-number">
-                                        <p>${index + 1}</p>
-                                    </div> -->
-                                    <div class="category-name">
-                                        <p class="user-profile__role ui text size-texts ${(index - 1) % 3 == 0 ? 'me-4' : ''}">
-                                            ${project.title}
-                                        </p>
+                            <div class="col-6 col-md-4 mb-4">
+                                <a href="/projects/${project.slug}" class="${(index - 1) % 3 == 0 ? 'pt-md-4 d-block' : ''}">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="number">${counter}</span>
+                                        <p class="text-light-gray">${project.title}</p>
                                     </div>
-                                </div>
-                                <div class="service__image ${(index - 1) % 3 == 0 ? 'text-center' : ''}">
-                                    <img src="${baseUrl}/storage/app/${project.cover}" alt="image"> <!-- Assuming project.cover is the URL -->
-                                </div>
-                                <div class="service-title mt-4">
-                                    ${project.client}
-                                </div>
+                                    <img class="img-fluid w-100" src="${baseUrl}/storage/app/${project.cover}" alt="${project.title}">
+                                    <p class="my-2 fs-5"> ${project.client }</p>
+                                </a>
                             </div>
-                        </div>
-                        `;
+                    `;
 
                         // Append projectItem to row
                         row.innerHTML += projectItem;
                         counter++; // Increment the counter
 
-                        // Append row to projectsList after every 3 items (for 3 columns in a row)
+                        // Append row to projectsSection after every 3 items (for 3 columns in a row)
                         if (counter % 3 === 1) {
-                            projectsList.appendChild(row);
+                            projectsSection.appendChild(row);
                             row = document.createElement('div');
                             row.classList.add('row');
-                            row.classList.add('w-100');
-                            row.classList.add('m-auto');
                         }
                     });
 
                     // Append the last row if it's not already added
                     if (data.length % 3 !== 0) {
-                        projectsList.appendChild(row);
+                        projectsSection.appendChild(row);
+                    }
+
+                    // Update pagination links
+                    let paginationLinks = document.getElementById('pagination-links');
+                    paginationLinks.innerHTML = ''; // Clear existing pagination
+
+                    if (data.links && data.links.length > 0) {
+                        let paginationHtml = '';
+
+                        // Previous Page Link
+                        if (data.current_page > 1) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page - 1})">←</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">←</span></li>`;
+                        }
+
+                        // Pagination Elements
+                        data.links.forEach(link => {
+                            if (link.url) {
+                                paginationHtml +=
+                                    `<li class="${link.active ? 'active' : ''}"><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${link.url.split('page=')[1]})"><span>${link.label}</span></a></li>`;
+                            } else {
+                                paginationHtml +=
+                                    `<li class="disabled"><span class="">${link.label}</span></li>`;
+                            }
+                        });
+
+                        // Next Page Link
+                        if (data.current_page < data.last_page) {
+                            paginationHtml +=
+                                `<li class=""><a class="" href="javascript:void(0)" onclick="loadProjects(${categoryId}, ${data.current_page + 1})">→</a></li>`;
+                        } else {
+                            paginationHtml += `<li class="disabled"><span class="">→</span></li>`;
+                        }
+
+                        paginationLinks.innerHTML = paginationHtml;
                     }
                 })
                 .catch(error => {
@@ -204,100 +395,4 @@
         // Ensure that loadProjects is available globally
         window.loadProjects = loadProjects;
     </script>
-@endsection
-
-@section('style')
-    <style>
-        .project-content .title {
-            margin-bottom: 20px;
-        }
-
-        .project-content .description {
-            margin-bottom: 20px;
-        }
-
-        .project-content .buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .project-content .buttons .btn {
-            border: 1px solid #fff;
-            color: #fff;
-            background: transparent;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        .project-content .buttons .btn-primary {
-            border-color: #3498db;
-            color: #3498db;
-        }
-
-        .project-content .buttons .btn-secondary {
-            border-color: #2ecc71;
-            color: #2ecc71;
-        }
-
-        .project-content .buttons .btn-tertiary {
-            border-color: #e74c3c;
-            color: #e74c3c;
-        }
-
-        .project-content .col-md-4 {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 992px) {
-            .project-content .col-md-4 {
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .project-content .row {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center
-            }
-
-            .project-content .col-md-4 {
-                width: 100%;
-                text-align: center;
-            }
-
-            #project-details .project-content .description {
-                justify-content: center !important;
-                text-align: center !important;
-            }
-
-            .project-content .buttons {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .project-content .buttons .btn {
-                padding: 5px 10px;
-                margin: 5px 0;
-            }
-        }
-
-        @media (max-width: 1400px) {
-            .project-content .description {
-                margin: 0px !important;
-                padding: 0px !important;
-                justify-content: start !important;
-                text-align: center !important;
-            }
-        }
-    </style>
 @endsection

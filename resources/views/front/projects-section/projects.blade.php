@@ -112,7 +112,11 @@
 <!-- start projects -->
 <section class="bg-dark-black">
     <div class="container">
-        <h2 class="main-head">Our Latest <span>Projects</span></h2>
+        @if (Route::currentRouteName() == 'view.project')
+            @include('front.projects-section.projects-section-details-title')
+        @else
+            @include('front.projects-section.projects-section-home-title')
+        @endif
         <div id="secondary-nav" class="d-flex flex-wrap align-items-center my-5 gap-5">
             @foreach ($categories as $category)
                 <button onclick="loadProjects({{ $category->id }})"
